@@ -63,5 +63,10 @@
 
     <button type="submit" >Logout</button>
 </form>
+
+<form action="/createGroup">
+
+    <button type="submit" >Create Group</button>
+</form>
 </body>
 </html>
