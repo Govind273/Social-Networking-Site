@@ -1,12 +1,17 @@
 package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.UserModel;
-//import org.json.JSONObject;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+/*
+* The LoginController class handles all the functionality related to Login , SignUp and Authentication.
+* We are using Session attribute to maintains the session of user i.e the program maintains the session
+* of the user with associated Login credentials.
+* */
 
 @Controller
 @SessionAttributes ({"user"})
@@ -20,6 +25,11 @@ public class LoginController {
 		
 		return "login";
 	}
+
+	/*
+	* This method checks the Login credentials provided by the user and directs him to his profile if
+	* credentials matches.
+	* */
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public String login(UserModel userModel, ModelMap modelMap){
         UserModel returnedUserModel = userService.findOne(userModel);
@@ -47,7 +57,9 @@ public class LoginController {
 	}
 
 
-
+	/*
+	* This method takes the values given by the user at time of SignUp and saves them into database.
+	* */
 	@RequestMapping(value="/signup" , method= RequestMethod.POST)
 	public @ResponseBody String signup(UserModel userModel){
 		    userService.saveOne(userModel);
@@ -62,10 +74,25 @@ public class LoginController {
 
 
 
-//	@RequestMapping(value="/editProfile/{argument:.+}",method = RequestMethod.PUT)
-//    public  String editProfile(@PathVariable("argument") String argument, UserModel userModel){
-//
-//       userService.updateOne(argument,userModel);
-//        return "profile";
-//    }
+	@RequestMapping(value = "/editProfile")
+    public String editProfileOpen(){
+	    return "edit_profile";
+    }
+
+    /*
+    * This method handles the updation of user's profile.
+    * The Model Map attribute "put" updates the session attribute and changes can be seen as soon as user hits "edit" button.
+    * */
+	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
+    public  String editProfile( UserModel userModel,ModelMap modelMap){
+        userService.updateOne(userModel);
+        UserModel returnedUserModel=userService.findOne(userModel);
+        modelMap.put("user",returnedUserModel);
+        return "profile";
+    }
 }
+
+
+
+
+
