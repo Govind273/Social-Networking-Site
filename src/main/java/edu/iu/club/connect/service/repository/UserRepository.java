@@ -18,4 +18,7 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 
     @Query("select b from UserModel b where b.emailId = :emailId")
     UserModel findOneByEmailId(@Param("emailId") String emailId);
+
+//    @Query("update UserModel SET :columnName = :columnNameValue  where b.emailId = :emailId")
+//    UserModel updateOneForString(@Param("columnName") String columnName,@Param("columnNameValue") String columnNameValue,@Param("emailId") String emailId);
 }

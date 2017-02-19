@@ -9,4 +9,5 @@ public interface UserService {
 
  public boolean saveOne(UserModel userModel);
  public UserModel findOne(UserModel userModel);
+ public UserModel updateOne(String argument, UserModel userModel);
 }
