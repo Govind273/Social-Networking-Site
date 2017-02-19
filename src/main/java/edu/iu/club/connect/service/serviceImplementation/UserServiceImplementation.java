@@ -27,4 +27,14 @@ public class UserServiceImplementation implements UserService{
         System.out.println(" email id "+userModel.getEmailId());
       return  userRepository.findOneByEmailId(userModel.getEmailId());
     }
+
+    @Override
+    public UserModel updateOne(String argument,UserModel userModel) {
+
+//        System.out.println(" email id "+userModel.getEmailId());
+//
+//        return  userRepository.updateOneForString(argument,userModel.getEmailId());
+        return null;
+    }
+
 }
