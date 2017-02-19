@@ -94,6 +94,9 @@ public class LoginController {
         return "profile";
     }
 
+    /*
+    * This method is responsible for enabling user to logout from his account by ending his session.
+    * */
     @RequestMapping(value = "/logout")
     public String logout(HttpSession session, Model model) {
         session.removeAttribute("user");
