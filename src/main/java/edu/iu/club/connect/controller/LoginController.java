@@ -4,8 +4,11 @@ import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 /*
 * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
@@ -89,6 +92,18 @@ public class LoginController {
         UserModel returnedUserModel=userService.findOne(userModel);
         modelMap.put("user",returnedUserModel);
         return "profile";
+    }
+
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session, Model model) {
+        session.removeAttribute("user");
+        session.invalidate();
+        if (model.containsAttribute("counter"))
+            model.asMap().remove("counter");
+        model.asMap().clear();
+
+        System.out.println("Logout controller called.");
+        return "login";
     }
 }
 
