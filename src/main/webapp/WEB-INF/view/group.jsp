@@ -67,7 +67,7 @@
         <input type="text" placeholder="About" name="about" required>
 
         <div class="clearfix">
-            <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="submit" class="signupbtn">Create</button>
         </div>
     </div>
 </form>

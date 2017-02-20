@@ -40,11 +40,20 @@
 <form action="/editProfile">
     <button type="submit" >Edit</button>
 </form>
+
+<form action="/logout">
+
+    <button type="submit" >Logout</button>
+</form>
+
+<form action="/createGroup">
+
+    <button type="submit" >Create Group</button>
 <div id="content" class="clearfix">
     <section id="left">
         <div id="userStats" class="clearfix">
             <div class="pic">
-                <a href="#"><img src="img/user_avatar.jpg" width="700" height="300" /></a>
+                <a href="#"><img src="view/1.jpg" width="700" height="300" /></a>
             </div>
 
             <div class="pic">
@@ -57,16 +66,10 @@
 
                 <a href="#" class="light">${user.emailId}</a>
             </div>
+        </div>
     </section>
 </div>
-<form action="/logout">
 
-    <button type="submit" >Logout</button>
-</form>
-
-<form action="/createGroup">
-
-    <button type="submit" >Create Group</button>
 </form>
 </body>
 </html>

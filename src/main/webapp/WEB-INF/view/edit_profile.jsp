@@ -67,6 +67,9 @@
     <label><b>last Name</b></label>
     <input type="text"  name="lastName" value="${user.lastName}" required>
 
+    <label><b>Password</b></label>
+    <input type="password"  name="password" value="${user.password}" required>
+
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
 
