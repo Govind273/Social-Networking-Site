@@ -32,6 +32,6 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 
     @Modifying
     @Transactional
-    @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName, b.about = :about  where b.emailId = :emailId")
-    void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("about") String about,@Param("emailId") String emailId);
+    @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about  where b.emailId = :emailId")
+    void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("password") String password,@Param("about") String about,@Param("emailId") String emailId);
 }

@@ -64,9 +64,9 @@ public class LoginController {
 	* This method takes the values given by the user at time of SignUp and saves them into database.
 	* */
 	@RequestMapping(value="/signup" , method= RequestMethod.POST)
-	public @ResponseBody String signup(UserModel userModel){
+	public  String signup(UserModel userModel){
 		    userService.saveOne(userModel);
-				return "signup";
+				return "profile";
 	}
 
 
