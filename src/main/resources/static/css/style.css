@@ -26,6 +26,42 @@ body {
     padding:10000px;
 
 }
+#header1 {
+    background-color:#750000;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+div#navfirst{
+    height: 40px; 
+    width: 100%; 
+    background-color: #8E8E8E; 
+
+}
+div#navfirst ul#menu{
+    margin: 0 0 0 30px; 
+    padding: 0px; 
+    font-size: 12px; 
+    color: #FFF; 
+    line-height: 30px; 
+
+    list-style-type: none;
+}
+div#navfirst ul#menu li{
+    float:left;/*让li元素左浮动*/
+}
+div#navfirst ul#menu li a{
+  width:80px;/*设置元素宽为80px*/
+  height:28px;/*设置高度为28px*/
+  line-height:28px;/*设置行距为28px，让文字在每行的中间位置*/
+  background:red;/*设置元素的背景为红色*/
+  color:#FFF;/*文字颜色是白色*/
+  margin:5px 10px;
+  font-size:12px;/*用12号字*/
+  display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
+  text-align:center;/*让文本居中*/
+  text-decoration:none; /*去掉下划线*/
+}
 </style>
 #page {
   position: relative;
