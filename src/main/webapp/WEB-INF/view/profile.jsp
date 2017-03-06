@@ -37,6 +37,29 @@
     </style>
 </head>
 <body>
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
+<div id ="navfirst">
+	<ul id="menu">
+		<li id="h">
+			<a href="#" title="Home">Home</a>
+		</li>
+		<li id="ch">
+			<a href="#" title="chat">Chat</a>
+		</li>
+		<li id="cl">
+			<a href="#" title="Clubs">Clubs</a>
+		</li>
+		<li id= "ed">
+			<form action="/editProfile">
+    			<button type="submit" >Edit</button>
+			</form>
+		</li>>
+	</ul>
+</div>
+
+<link rel="stylesheet" href="css/style.css">
 <form action="/editProfile">
     <button type="submit" >Edit</button>
 </form>
