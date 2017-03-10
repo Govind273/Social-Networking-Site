@@ -142,7 +142,9 @@
 <body>
 
 
-
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
 
 <div id="gtco-started">
     <div class="gtco-container">

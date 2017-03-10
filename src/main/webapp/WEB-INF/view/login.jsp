@@ -55,7 +55,7 @@
 
 <div class="gtco-loader"></div>
 
-<div id="header">
+<div id="header1">
   <h1>Club Connect</h1>
   <form action="/login" method="post">
 
