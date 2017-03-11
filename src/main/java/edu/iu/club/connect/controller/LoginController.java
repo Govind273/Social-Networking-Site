@@ -3,12 +3,19 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 /*
 * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
@@ -22,6 +29,10 @@ public class LoginController {
 
 	@Autowired
     UserService userService;
+
+	@Value("${resource.indexed.folder.name}")
+	private String pictureDirectoryPath;
+
 
 	@RequestMapping(value="/")
 	public String loginPage(){
@@ -38,13 +49,13 @@ public class LoginController {
         UserModel returnedUserModel = userService.findOne(userModel);
 		modelMap.addAttribute("user",returnedUserModel);
         if(returnedUserModel==null){
-        	return "redirect:id_not_valid";
+        	return "redirect:login";
 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 				return "profile";
 			}
 	else
-			return"redirect:match";
+			return"redirect:login";
 
     }
 
@@ -87,10 +98,30 @@ public class LoginController {
     * The Model Map attribute "put" updates the session attribute and changes can be seen as soon as user hits "edit" button.
     * */
 	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
-    public  String editProfile( UserModel userModel,ModelMap modelMap){
-        userService.updateOne(userModel);
-        UserModel returnedUserModel=userService.findOne(userModel);
-        modelMap.put("user",returnedUserModel);
+    public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){
+
+//try {
+//	UUID randonPicUuid = UUID.randomUUID();
+//
+//	String filename = randonPicUuid.toString();
+//	String filepath = Paths.get(pictureDirectoryPath, filename).toString() + ".jpg";
+//
+//	// Save the file locally
+//	BufferedOutputStream stream =
+//			new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+//	stream.write(uploadFile.getBytes());
+//	stream.close();
+//
+//	userModel.setProfilePic(
+//            pictureDirectoryPath+"\\" + randonPicUuid.toString() + ".jpg");
+
+
+	userService.updateOne(userModel);
+	UserModel returnedUserModel = userService.findOne(userModel);
+	modelMap.put("user", returnedUserModel);
+//}catch (Exception e) {
+//	System.out.println(e.getMessage());
+//}
         return "profile";
     }
 
