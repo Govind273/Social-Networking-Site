@@ -11,4 +11,5 @@ public interface GroupService {
 
     public boolean saveOne(GroupModel groupModel);
     public ArrayList<GroupModel> findOne();
+    public GroupModel searchOne(GroupModel groupModel);
 }

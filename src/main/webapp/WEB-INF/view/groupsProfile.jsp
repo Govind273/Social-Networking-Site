@@ -37,41 +37,43 @@
     </style>
 </head>
 <body>
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
 <div id ="navfirst">
 	<ul id="menu">
-		<li id="editProfile">
-    			<a href="/editProfile" title="Edit" type="submit" >Edit</a>
-		</li>
-		<li id="createGroup">
-			<a href="/createGroup" title="Group">Group</a>
-		</li>
-		<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
+		<li id="Back">
+    			<a href="/profile" title="Back" type="submit" >Back</a>
 		</li>
 		
 		
 	</ul>
 </div>
-<div id="content" class="clearfix">
+
+<link rel="stylesheet" href="css/style.css">
+
+</form>
     <section id="left">
         <div id="userStats" class="clearfix">
             <div class="pic">
-                <a href="#"><img src="view/1.jpg" width="700" height="300" /></a>
+                <a href="#"><img src=${user.profilePic} width="700" height="300" /></a>
             </div>
 
             <div class="pic">
-                <a href="#"><img src="${user.profilePic}" width="150" height="150" />${user.profilePic}</a>
+                <a href="#"><img src="img/user_avatar.jpg" width="150" height="150" /></a>
             </div>
 
             <div class="tile_div">
                 <%--<a href="#">About</a>--%>
-                <a href="#" class="light">${user.firstName}</a>
+                <a href="#" class="light">${searchGroup.groupName}</a>
 
-                <a href="#" class="light">${user.emailId}</a>
+                <a href="#" class="light">${searchGroup.about}</a>
             </div>
         </div>
     </section>
-</div>
 
 </body>
 </html>
+
+
+
