@@ -46,6 +46,11 @@
     <button type="submit" >Logout</button>
 </form>
 
+<%--<form action="/groupsData">--%>
+
+    <%--<button type="submit" >Groups</button>--%>
+<%--</form>--%>
+
 <form action="/createGroup">
 
     <button type="submit" >Create Group</button>
@@ -57,7 +62,7 @@
             </div>
 
             <div class="pic">
-                <a href="#"><img src="img/user_avatar.jpg" width="150" height="150" /></a>
+                <a href="#"><img src="${user.profilePic}" width="150" height="150" />${user.profilePic}</a>
             </div>
 
             <div class="tile_div">

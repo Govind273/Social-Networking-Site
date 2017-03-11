@@ -57,7 +57,7 @@
 
 <h2>Edit Profile</h2>
 
-<form action="/updateProfile"  method="POST">
+<form action="/updateProfile"  enctype="multipart/form-data" method="POST">
     <label><b>email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
@@ -72,6 +72,9 @@
 
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
+
+    <label for="file"><b>Picture to upload:</b></label>
+    <input type="file" name="file" class="form-control" id="file" required="true">
 
 <button type="submit" >Edit</button>
 
