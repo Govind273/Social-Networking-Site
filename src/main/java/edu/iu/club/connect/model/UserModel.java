@@ -25,6 +25,17 @@ public class UserModel {
     private @Column(name = "password") String password;
     private @Column(name = "email_id") String emailId;
     private @Column(name = "about") String about;
+    private @Column(name = "profile_pic") String profilePic;
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+
 
     public String getAbout() {
         return about;
