@@ -85,6 +85,11 @@ public class LoginController {
 	public  String signupPage(){
 		return "signup";
 	}
+	
+	@RequestMapping(value="/profile" , method= RequestMethod.GET)
+	public  String backToProfile(){
+		return "profile";
+	}
 
 
 

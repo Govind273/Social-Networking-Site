@@ -4,6 +4,7 @@ import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,6 +33,21 @@ public class GroupController {
         return "profile";
 
     }
+    
+    @RequestMapping(value = "/searchGroup", method=RequestMethod.POST)
+    public String search(GroupModel groupModel, ModelMap modelMap){
+    	System.out.println("I am in search");
+    	GroupModel group = groupService.searchOne(groupModel);    
+    	
+    	
+    	modelMap.addAttribute("searchGroup", group);
+    	
+    	if(group==null){
+    		return "redirect:profile";
+    	}
+    	else return "groupsProfile";
+    }
+    
 //    @RequestMapping(value = "/groupsData")
 //    public  ArrayList<GroupModel> allGroups(){
 //       ArrayList<GroupModel> groupModel= groupService.findOne();

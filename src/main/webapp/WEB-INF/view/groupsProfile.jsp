@@ -42,26 +42,16 @@
 </div>
 <div id ="navfirst">
 	<ul id="menu">
-
-		<li id="editProfile">
-    			<a href="/editProfile" title="Edit" type="submit" >Edit</a>
-		</li>
-		<li id="createGroup">
-			<a href="/createGroup" title="Group">Group</a>
-		</li>
-		<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
+		<li id="Back">
+    			<a href="/profile" title="Back" type="submit" >Back</a>
 		</li>
 		
 		
 	</ul>
 </div>
 
-
 <link rel="stylesheet" href="css/style.css">
-<form action="/searchGroup" method="post">
-  <input type="text" name="groupName" placeholder="Search.." >
-  <button type="submit">Search</button>
+
 </form>
     <section id="left">
         <div id="userStats" class="clearfix">
@@ -75,9 +65,9 @@
 
             <div class="tile_div">
                 <%--<a href="#">About</a>--%>
-                <a href="#" class="light">${user.firstName}</a>
+                <a href="#" class="light">${searchGroup.groupName}</a>
 
-                <a href="#" class="light">${user.emailId}</a>
+                <a href="#" class="light">${searchGroup.about}</a>
             </div>
         </div>
     </section>
