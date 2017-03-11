@@ -37,6 +37,9 @@
     </style>
 </head>
 <body>
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
 <div id ="navfirst">
 	<ul id="menu">
 		<li id="editProfile">
@@ -52,15 +55,21 @@
 		
 	</ul>
 </div>
-<div id="content" class="clearfix">
+
+
+<link rel="stylesheet" href="css/style.css">
+<form action="/searchGroup" method="post">
+  <input type="text" name="groupName" placeholder="Search.." >
+  <button type="submit">Search</button>
+</form>
     <section id="left">
         <div id="userStats" class="clearfix">
             <div class="pic">
-                <a href="#"><img src="view/1.jpg" width="700" height="300" /></a>
+                <a href="#"><img src=${user.profilePic} width="700" height="300" /></a>
             </div>
 
             <div class="pic">
-                <a href="#"><img src="${user.profilePic}" width="150" height="150" />${user.profilePic}</a>
+                <a href="#"><img src="img/user_avatar.jpg" width="150" height="150" /></a>
             </div>
 
             <div class="tile_div">
@@ -71,7 +80,6 @@
             </div>
         </div>
     </section>
-</div>
 
 </body>
 </html>

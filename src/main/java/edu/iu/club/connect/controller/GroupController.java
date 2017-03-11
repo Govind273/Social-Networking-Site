@@ -45,7 +45,7 @@ public class GroupController {
     	if(group==null){
     		return "redirect:profile";
     	}
-    	else return "groupProfile";
+    	else return "groupsProfile";
     }
     
 //    @RequestMapping(value = "/groupsData")
