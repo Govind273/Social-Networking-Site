@@ -42,6 +42,7 @@
 </div>
 <div id ="navfirst">
 	<ul id="menu">
+
 		<li id="editProfile">
     			<a href="/editProfile" title="Edit" type="submit" >Edit</a>
 		</li>

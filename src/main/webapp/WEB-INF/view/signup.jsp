@@ -148,7 +148,7 @@
     <div class="gtco-container">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-                <h2>Join now!</h2>
+                <h2>Start Connecting Now</h2>
             </div>
         </div>
         <div class="row col-md-offset-2 animate-box">
