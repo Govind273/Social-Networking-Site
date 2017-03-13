@@ -37,14 +37,36 @@
     </style>
 </head>
 <body>
-<form action="/editProfile">
-    <button type="submit" >Edit</button>
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
+<div id ="navfirst">
+	<ul id="menu">
+
+		<li id="editProfile">
+    			<a href="/editProfile" title="Edit" type="submit" >Edit</a>
+		</li>
+		<li id="createGroup">
+			<a href="/createGroup" title="Group">Group</a>
+		</li>
+		<li id="logout">
+			<a href="/logout" title="Logout">Logout</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+
+<link rel="stylesheet" href="css/style.css">
+<form action="/searchGroup" method="post">
+  <input type="text" name="groupName" placeholder="Search.." >
+  <button type="submit">Search</button>
 </form>
-<div id="content" class="clearfix">
     <section id="left">
         <div id="userStats" class="clearfix">
             <div class="pic">
-                <a href="#"><img src="img/user_avatar.jpg" width="700" height="300" /></a>
+                <a href="#"><img src=${user.profilePic} width="700" height="300" /></a>
             </div>
 
             <div class="pic">
@@ -56,20 +78,9 @@
                 <a href="#" class="light">${user.firstName}</a>
 
                 <a href="#" class="light">${user.emailId}</a>
-
-                <%--<a href="#" class="last">Edit Password</a>--%>
-                <%--<div class="clear"></div>--%>
             </div>
-            <%--<div class="data">--%>
-                <%--<h1>Karun Ahluwalia</h1>--%>
-                <%--<h3>Bloomington, IN</h3>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-        <%--<h1>About Me:</h1>--%>
-        <%--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>--%>
+        </div>
     </section>
 
-</div>
 </body>
 </html>

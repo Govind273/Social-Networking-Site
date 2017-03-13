@@ -7,6 +7,10 @@ import javax.persistence.*;
  * Created by walia on 2/14/2017.
  */
 
+/*
+* This is the model representation of our "users" table in database.
+* It has the getters and setters of all the attributes we have in our table.
+* */
 
 @Entity
 @Table(name = "users")
@@ -20,6 +24,28 @@ public class UserModel {
     private @Column(name = "last_name") String lastName;
     private @Column(name = "password") String password;
     private @Column(name = "email_id") String emailId;
+    private @Column(name = "about") String about;
+    private @Column(name = "profile_pic") String profilePic;
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+
 
 
 
