@@ -57,7 +57,7 @@
 <div id="header1">
 <h1>Club Connect</h1>
 </div>
-<h2>Edit Profile</h2>
+  <h2>Edit Profile</h2>
 <link rel="stylesheet" href="css/style.css">
 <form action="/updateProfile"  method="POST">
     <label><b>email</b></label>
@@ -74,6 +74,9 @@
 
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
+
+    <label for="file"><b>Picture to upload:</b></label>
+    <input type="file" name="file" class="form-control" id="file" required="true">
 
 <button type="submit" >Edit</button>
 

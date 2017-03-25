@@ -161,19 +161,15 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 <!--
 <div id ="navfirst">
 	<ul id="menu">
-		<li id="h">
-			<a href="#" title="Home">Home</a>
-				<ul>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-				</ul>   
+
+		<li id="editProfile">
+<a href="/editProfile" title="Edit" type="submit" >Edit</a>
 		</li>
-		<li id="ch">
-			<a href="#" title="chat">Chat</a>
+		<li id="createGroup">
+			<a href="/createGroup" title="Group">Group</a>
 		</li>
-		<li id="cl">
-			<a href="#" title="Clubs">Clubs</a>
+		<li id="logout">
+			<a href="/logout" title="Logout">Logout</a>
 		</li>
 	</ul>
 	<div class="search" align="right">
@@ -182,6 +178,29 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	</div>
 </div> -->
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css>
+
+<form action="/searchGroup" method="post">
+  <input type="text" name="groupName" placeholder="Search.." >
+  <button type="submit">Search</button>
+</form>
+    <section id="left">
+        <div id="userStats" class="clearfix">
+            <div class="pic">
+                <a href="#"><img src=${user.profilePic} width="700" height="300" /></a>
+            </div>
+
+            <div class="pic">
+                <a href="#"><img src="img/user_avatar.jpg" width="150" height="150" /></a>
+            </div>
+
+            <div class="tile_div">
+                <%--<a href="#">About</a>--%>
+                <a href="#" class="light">${user.firstName}</a>
+
+                <a href="#" class="light">${user.emailId}</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

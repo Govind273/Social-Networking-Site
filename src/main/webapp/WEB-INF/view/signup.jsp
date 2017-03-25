@@ -67,7 +67,7 @@
 			</div>
 			<div class="row col-md-offset-2 animate-box" style="width:100%">
 			<!--	<div class="col-md-12">  -->
-					<form class="form-inline">
+					<form action = "/signup" method = "POST"class="form-inline">
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group" align="center" valign="middle">  
 
