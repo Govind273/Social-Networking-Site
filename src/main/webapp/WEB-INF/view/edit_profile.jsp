@@ -54,10 +54,12 @@
     }
 </style>
 <body>
-
-<h2>Edit Profile</h2>
-
-<form action="/updateProfile"  enctype="multipart/form-data" method="POST">
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
+  <h2>Edit Profile</h2>
+<link rel="stylesheet" href="css/style.css">
+<form action="/updateProfile"  method="POST">
     <label><b>email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
