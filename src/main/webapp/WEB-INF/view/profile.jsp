@@ -117,7 +117,7 @@
 				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
 		</div>
 		<div class="CLubmembership" align="middle">
-			p2>Club Menbership</p2>
+			<p2>Club Menbership</p2>
 			<p>User Profile Page.
 Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
 </p>
