@@ -32,12 +32,10 @@
 
 			</ul>   
 
-			<div id="userPic">
+<!--			<div id="userPic">
 				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
-			</div>
-			<div class="tile_div" id="username" style="position:absolute; left:320px; top:350px;" style="position:absolute; left:80px; top:230px;">
-				<a font size="6" color="FFFFFF">${user.firstName} ${user.emailId}</font>
-			</div>
+			</div>   -->
+
 
 			<div class="search" align="right">
 				<form action="/searchGroup" method="post">
@@ -49,7 +47,11 @@
 	</div>
 	<div id="nav">
 <!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
-		<div class="nav-main">
+		<div >
+			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
+			
+		</div>
+		<div class="nav-main" style="top:250px">
 			<div class="nav-box">
 				<div class="nav">
   					<ul class="nav-ul">
@@ -111,7 +113,11 @@
 
 
 	<div id="section">
-		<div class="CLubmembership" align="middle" height＝"200px"><p2>Club Menbership</p2>
+		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
+				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+		</div>
+		<div class="CLubmembership" align="middle">
+			p2>Club Menbership</p2>
 			<p>User Profile Page.
 Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
 </p>
