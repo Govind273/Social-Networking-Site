@@ -28,18 +28,62 @@ body {
 }
 #header1 {
     background-color:#750000;
-    color:white;
+    color:black;
     text-align:center;
     padding:5px;
+}
+#header1 img {
+    left: 0.9375rem;
+    transition: all 0.5s;
+    z-index: 9;
+ 
+}
+#iulogo {
+    float:left;
+}
+#coverTopSection{
+    margin:0;
+    padding:0;
+}
+.coverPic{
+    display: block;
+    position: relative;
+    height: 415px;
+    overflow: hidden;
+    text-decoration: none;
+}
+/*.search{
+    margin: 30px;
+    width: 210px;
+    height:35px;
+    border:1px solid silver ;
+}
+.search_key{
+    width: 150px;
+    height: 25px;
+    border: none;
+    margin-top: 5px; 
+    margin-left: 5px;     
+    }
+.submit{
+    background:none;
+    margin-top: 5px;
+    width:40px;
+    height: 25px;
+    border: none;
+    */
+img {
+    height:auto;
+    display:inline-block;
 }
 div#navfirst{
     height: 40px; 
     width: 100%; 
-    background-color: #8E8E8E; 
+    background-color: #750000; 
 
 }
 div#navfirst ul#menu{
-    margin: 0 0 0 30px; 
+    margin: 0 0 0 300px; 
     padding: 0px; 
     font-size: 12px; 
     color: #FFF; 
@@ -51,7 +95,7 @@ div#navfirst ul#menu li{
     float:left;/*让li元素左浮动*/
 }
 div#navfirst ul#menu li a{
-  width:80px;/*设置元素宽为80px*/
+  width:150px;/*设置元素宽为80px*/
   height:28px;/*设置高度为28px*/
   line-height:28px;/*设置行距为28px，让文字在每行的中间位置*/
   background:red;/*设置元素的背景为红色*/
@@ -61,6 +105,30 @@ div#navfirst ul#menu li a{
   display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
   text-align:center;/*让文本居中*/
   text-decoration:none; /*去掉下划线*/
+}
+#CLubmembership{
+  height:500px;
+}
+#nav {
+  line-height:100px;
+  background-color:#eeeeee;
+  
+  width:294px;
+  float:left;
+       
+}
+#section {
+  width:667px;
+  float:left;
+  background-color:#eeeeee;
+  padding:10px;    
+}
+#CLubmembership {
+  padding-top:200px;
+
+}
+#username {
+  font-size: 13px;
 }
 </style>
 #page {
@@ -135,7 +203,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	overflow:hidden;
 }
 .gtco-container {
-  max-width: 1140px;
+  max-width: 981px;
   position: relative;
   margin: 0 auto;
   padding-left: 15px;
@@ -354,7 +422,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .gtco-cover {
-  height: 900px;
+  height: 1050px;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;

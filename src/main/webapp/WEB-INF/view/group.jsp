@@ -55,9 +55,11 @@
     }
 </style>
 <body>
-
+<div id="header1">
+<h1>Club Connect</h1>
+</div>
 <h2>Group Information</h2>
-
+<link rel="stylesheet" href="css/style.css">
 <form action="/groupInformation"  method="POST">
     <div class="container">
         <label><b>Name</b></label>
