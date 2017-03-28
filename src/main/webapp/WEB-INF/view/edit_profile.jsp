@@ -82,9 +82,6 @@
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
 
-    <label for="file"><b>Picture to upload:</b></label>
-    <input type="file" name="file" class="form-control" id="file" required="true">
-
 <button type="submit" >Edit</button>
 
 </form>
