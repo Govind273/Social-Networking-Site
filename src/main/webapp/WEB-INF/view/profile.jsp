@@ -11,7 +11,9 @@
 		<img src="images/2.png" width="65" height="56" >
 		</div>
 		<div align="right" style="padding:20px">
-			<a href="login.jsp" title="Log out">Log out</a>
+			<li id="logout">
+			<a href="/logout" title="Logout">Logout</a>
+		</li>
 		</div>
 </div>
 <div class="gtco-container">
@@ -21,8 +23,8 @@
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
 			<ul id="menu">
-				<li id="h">
-					<a href="#" title="Home">Edit Profile</a>
+				<li id="editProfile">
+					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
 				<li id="ch">
 					<a href="#" title="chat">Club Chat</a>
@@ -31,15 +33,17 @@
 			</ul>   
 
 			<div id="userPic">
-				<img src="images/2.png" width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
+				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
 			</div>
-			<div id="username" style="position:absolute; left:320px; top:350px;" style="position:absolute; left:80px; top:230px;">
-				<font size="6" color="FFFFFF">Junjie Lu</font>
+			<div class="tile_div" id="username" style="position:absolute; left:320px; top:350px;" style="position:absolute; left:80px; top:230px;">
+				<a font size="6" color="FFFFFF">${user.firstName} ${user.emailId}</font>
 			</div>
 
 			<div class="search" align="right">
-				<input type="text" class="search_key" value="" />
-       			<input type="submit" class="submit" value="Search">
+				<form action="/searchGroup" method="post">
+  					<input type="text" name="groupName" placeholder="Search.." >
+  					<button type="submit">Search</button>
+				</form>			
 			</div>
 		</div>
 	</div>
@@ -161,15 +165,19 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 <!--
 <div id ="navfirst">
 	<ul id="menu">
-
-		<li id="editProfile">
-<a href="/editProfile" title="Edit" type="submit" >Edit</a>
+		<li id="h">
+			<a href="#" title="Home">Home</a>
+				<ul>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>   
 		</li>
-		<li id="createGroup">
-			<a href="/createGroup" title="Group">Group</a>
+		<li id="ch">
+			<a href="#" title="chat">Chat</a>
 		</li>
-		<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
+		<li id="cl">
+			<a href="#" title="Clubs">Clubs</a>
 		</li>
 	</ul>
 	<div class="search" align="right">
@@ -178,29 +186,6 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	</div>
 </div> -->
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
-<link rel="stylesheet" href="css/style.css>
-
-<form action="/searchGroup" method="post">
-  <input type="text" name="groupName" placeholder="Search.." >
-  <button type="submit">Search</button>
-</form>
-    <section id="left">
-        <div id="userStats" class="clearfix">
-            <div class="pic">
-                <a href="#"><img src=${user.profilePic} width="700" height="300" /></a>
-            </div>
-
-            <div class="pic">
-                <a href="#"><img src="img/user_avatar.jpg" width="150" height="150" /></a>
-            </div>
-
-            <div class="tile_div">
-                <%--<a href="#">About</a>--%>
-                <a href="#" class="light">${user.firstName}</a>
-
-                <a href="#" class="light">${user.emailId}</a>
-            </div>
-        </div>
-    </section>
+<link rel="stylesheet" href="css/style.css">
 </body>
 </html>
