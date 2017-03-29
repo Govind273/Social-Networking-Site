@@ -38,6 +38,17 @@ body{ font-size: 14px; font-family: "黑体-简","黑体","微软雅黑", Arial,
 	overflow: hidden;
 	position: relative;
 }
+.posts_div a {
+            display: block;
+            float: right;
+            height: 50px;
+            width: 100px;
+            margin-right: 5px;
+            //background-image: url(./images/button_left.png);
+           
+            line-height: 100px;
+            text-decoration: none;
+        }
 .logo:hover{
 	box-shadow: 0px 0px 10px #333;
 }
@@ -89,7 +100,7 @@ body{ font-size: 14px; font-family: "黑体-简","黑体","微软雅黑", Arial,
 	color: #fff;
 	background: #111213;
 }
-.nav-main a{color: #fff;}
+.nav-main a{color: #FFFFFF;}
 .nav-box{
 	position: relative;
 	perspective: 200px;
