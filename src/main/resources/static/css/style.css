@@ -45,6 +45,9 @@ body {
     margin:0;
     padding:0;
 }
+#contain {
+    padding-top: 200px;
+}
 .coverPic{
     display: block;
     position: relative;
@@ -204,6 +207,13 @@ h1, h2, h3, h4, h5, h6, figure {
   max-width: 981px;
   position: relative;
   margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gtco-container1 {
+  max-width: 981px;
+  position: relative;
+  margin: 100px auto;
   padding-left: 15px;
   padding-right: 15px;
 }
