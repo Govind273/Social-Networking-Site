@@ -97,6 +97,10 @@ div#navfirst ul#menu{
 div#navfirst ul#menu li{
     float:left;/*让li元素左浮动*/
 }
+div#navfirst div#homepage a{
+  width:28px;
+  height:28px;
+}
 div#navfirst ul#menu li a{
   width:150px;/*设置元素宽为80px*/
   height:28px;/*设置高度为28px*/
@@ -123,6 +127,12 @@ div#navfirst ul#menu li a{
   float:left;
   background-color:#eeeeee;
   padding:270px 70px 70px 70px;    
+}
+#section1 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;  
 }
 #CLubmembership {
   padding-top:500px;

@@ -37,7 +37,7 @@ public class LoginController {
 	@RequestMapping(value="/")
 	public String loginPage(){
 		
-		return "login";
+		return "groupsProfile";
 	}
 
 	/*
