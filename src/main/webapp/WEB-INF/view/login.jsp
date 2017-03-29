@@ -97,7 +97,7 @@ f<!DOCTYPE HTML>
 						<span class="icon">
 							<i class="icon-command"></i>
 						</span>
-						<h3>Build by students for students</h3>
+						<h3>Built by students for students</h3>
 						<p>Do not settle for one of the massive social networking platforms that attempts to cater to everyone. Rather, seamlessly discover and connect with other students and faculty who share common interests on a platform designed specifically for networking on campus</p>
 					</div>
 				</div>
