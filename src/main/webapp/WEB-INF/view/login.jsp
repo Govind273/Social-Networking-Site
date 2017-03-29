@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+f<!DOCTYPE HTML>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -77,7 +77,7 @@
 	<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="images/2.png" width="65" height="56" >
 	</div>
-	<form action="/login" method="post">
+	<form action="/login" method="get">
  	<div style="float:right; width:50%; height:50px;" align="right">
     <input type="text" placeholder=" Email ID" name="emailId" required>
 
@@ -100,7 +100,9 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1><font color="000000">Club Connect</font></h1>
 							<h2><font color="#000000">Networking for student organizations redefined</font></h2>
-							<p><a href="signup.jsp" class="btn btn-default">Sign up</a></p>
+							<p><form action="/signUpPage" method="get">
+							<button type="submit">Sign up</button>
+							</form></p>
 						</div>
 					</div>
 				</div>

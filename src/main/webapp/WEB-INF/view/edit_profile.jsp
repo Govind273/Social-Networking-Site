@@ -54,8 +54,15 @@
     }
 </style>
 <body>
-<div id="header1">
-<h1>Club Connect</h1>
+<div id="header1" style="height:72px;">
+		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
+		<img src="images/2.png" width="65" height="56" >
+		</div>
+		<div align="right" style="padding:20px">
+			<li id="logout">
+			<a href="/logout" title="Logout">Logout</a>
+		</li>
+		</div>
 </div>
   <h2>Edit Profile</h2>
 <link rel="stylesheet" href="css/style.css">
@@ -74,9 +81,6 @@
 
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
-
-    <label for="file"><b>Picture to upload:</b></label>
-    <input type="file" name="file" class="form-control" id="file" required="true">
 
 <button type="submit" >Edit</button>
 

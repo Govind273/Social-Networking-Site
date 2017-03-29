@@ -106,9 +106,7 @@ div#navfirst ul#menu li a{
   text-align:center;/*让文本居中*/
   text-decoration:none; /*去掉下划线*/
 }
-#CLubmembership{
-  height:500px;
-}
+
 #nav {
   line-height:100px;
   background-color:#eeeeee;
@@ -118,13 +116,13 @@ div#navfirst ul#menu li a{
        
 }
 #section {
-  width:667px;
+  width:547px;
   float:left;
   background-color:#eeeeee;
-  padding:10px;    
+  padding:270px 70px 70px 70px;    
 }
 #CLubmembership {
-  padding-top:200px;
+  padding-top:500px;
 
 }
 #username {
