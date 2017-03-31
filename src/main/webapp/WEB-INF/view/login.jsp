@@ -55,25 +55,6 @@ f<!DOCTYPE HTML>
 <!--	<div class="gtco-loader"></div> -->
 		
 	<div id="header1" style="height:70px;">
-<!--	<h1>Club Connect</h1> -->
-<!--	<form class="form-inline">
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="LoginId" class="sr-only">
-									LoginId</label>
-								<input type="LoginId" class="form-control" id="email" placeholder="LoginID">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="password" class="sr-only">Password</label>
-								<input type="password" class="form-control" id="password" placeholder="Password">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<button type="submit" class="btn btn-default btn-block">Sign In</button>
-						</div>
-					</form>  -->
 	<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="images/2.png" width="65" height="56" >
 	</div>
@@ -93,21 +74,19 @@ f<!DOCTYPE HTML>
 	
 
 	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/iu6.jpeg);">
-		<div class="gtco-container" >
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1><font color="000000">Club Connect</font></h1>
+		<div class="gtco-container1" >
+
+							<div class="contain" style=" width:100% height: 500px top:300px " align="middle" >
+							<h1><font color="000000" size="10" padding="200px 0px 0px 0px">Club Connect</font></h1>
 							<h2><font color="#000000">Networking for student organizations redefined</font></h2>
-							<p><form action="/signUpPage" method="get">
+
+							<form action="/signUpPage" method="get">
 							<button type="submit">Sign up</button>
-							</form></p>
+							</form>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+					
+				</div> 
+    
 	</header>
 	
 	<div id="gtco-features">
@@ -118,7 +97,7 @@ f<!DOCTYPE HTML>
 						<span class="icon">
 							<i class="icon-command"></i>
 						</span>
-						<h3>Build by students for students</h3>
+						<h3>Built by students for students</h3>
 						<p>Do not settle for one of the massive social networking platforms that attempts to cater to everyone. Rather, seamlessly discover and connect with other students and faculty who share common interests on a platform designed specifically for networking on campus</p>
 					</div>
 				</div>

@@ -45,6 +45,9 @@ body {
     margin:0;
     padding:0;
 }
+#contain {
+    padding-top: 200px;
+}
 .coverPic{
     display: block;
     position: relative;
@@ -94,6 +97,10 @@ div#navfirst ul#menu{
 div#navfirst ul#menu li{
     float:left;/*让li元素左浮动*/
 }
+div#navfirst div#homepage a{
+  width:28px;
+  height:28px;
+}
 div#navfirst ul#menu li a{
   width:150px;/*设置元素宽为80px*/
   height:28px;/*设置高度为28px*/
@@ -120,6 +127,12 @@ div#navfirst ul#menu li a{
   float:left;
   background-color:#eeeeee;
   padding:270px 70px 70px 70px;    
+}
+#section1 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;  
 }
 #CLubmembership {
   padding-top:500px;
@@ -204,6 +217,13 @@ h1, h2, h3, h4, h5, h6, figure {
   max-width: 981px;
   position: relative;
   margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gtco-container1 {
+  max-width: 981px;
+  position: relative;
+  margin: 100px auto;
   padding-left: 15px;
   padding-right: 15px;
 }

@@ -1,5 +1,5 @@
-<html>
-<body bgcolor="#000000">
+<html  xmlns:th="http://www.thymeleaf.org">
+<body bgcolor="#FFFFFF">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,13 +15,17 @@
 			<a href="/logout" title="Logout">Logout</a>
 		</li>
 		</div>
-</div>
+
+ 
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
 			<img src="images/iu4.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
+			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+				<img src="images/home.png">
+			</a>
 			<ul id="menu">
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
@@ -46,12 +50,13 @@
 		</div>
 	</div>
 	<div id="nav">
-<!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
+<!--		<div class="CLubmembership" align="middle" heightï¼"400px"><p2>Club Menbership</p2></div>     -->
 		<div >
 			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
 			
 		</div>
-		<div class="nav-main" style="top:250px">
+		<!-- class="nav-main" Commented by vishi-->
+		<div  style="top:250px">
 <!--			<div class="nav-box">
 				<div class="nav">
   					<ul class="nav-ul">
@@ -122,11 +127,22 @@
 Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
 </p>
 			<p>Club Profile Page
-The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) “View all Clubs” is “View all Members” and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
+The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) âView all Clubsâ is âView all Membersâ and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
+ <a href="#" class="light">${searchGroup.groupName}</a>
 
-
+                <a href="#" class="light">${searchGroup.about}</a>
 		</div>
 	</div>
+	 <form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+                	<div class="posts_div" align="center" valign="middle">
+                        <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
+                        <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">
+                         <button type="submit" class="btn btn-default btn-block"> Post</button>
+                    </div>
+                </form>
+                <h2>Recent Posts</h2>
+                <a href=“#” th:each=“p:${latestposts}” th:text=“${p.title}” th:href=“@{/posts/view/{id}/(id=${p.id})}”>
+</a>
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">

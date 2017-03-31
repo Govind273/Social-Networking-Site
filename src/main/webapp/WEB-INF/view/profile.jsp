@@ -22,7 +22,16 @@
 			<img src="images/iu4.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
-			<ul id="menu">
+<!--			<div >
+			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
+			</div>  -->
+			
+<!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
+			-->
+			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+				<img src="images/home.png">
+			</a>
+			<ul id="menu" width="70%" align="right">
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
@@ -48,7 +57,7 @@
 	<div id="nav">
 <!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
 		<div >
-			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
+			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;" >
 			
 		</div>
 		<div class="nav-main" style="top:250px">
@@ -117,13 +126,7 @@
 				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
 		</div>
 		<div class="CLubmembership" align="middle">
-			p2>Club Menbership</p2>
-			<p>User Profile Page.
-Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
-</p>
-			<p>Club Profile Page
-The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) “View all Clubs” is “View all Members” and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
-
+			
 
 		</div>
 	</div>
