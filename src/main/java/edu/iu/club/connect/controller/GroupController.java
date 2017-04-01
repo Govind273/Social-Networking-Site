@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.time.Clock;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 
 @Controller
-//@SessionAttributes ({"group"})
+@SessionAttributes ({"group_id"})
 public class GroupController {
 
     @Autowired
@@ -31,7 +32,6 @@ public class GroupController {
     public String createGroup(GroupModel groupModel){
         groupService.saveOne(groupModel);
         return "profile";
-
     }
     
     @RequestMapping(value = "/searchGroup", method=RequestMethod.POST)

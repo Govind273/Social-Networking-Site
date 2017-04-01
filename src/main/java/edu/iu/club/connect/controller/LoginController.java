@@ -37,14 +37,14 @@ public class LoginController {
 	@RequestMapping(value="/")
 	public String loginPage(){
 		
-		return "groupsProfile";
+		return "login";
 	}
 
 	/*
 	* This method checks the Login credentials provided by the user and directs him to his profile if
 	* credentials matches.
 	* */
-    @RequestMapping(value="/login",method = RequestMethod.POST)
+    @RequestMapping(value="/login",method = RequestMethod.GET)
     public String login(UserModel userModel, ModelMap modelMap){
         UserModel returnedUserModel = userService.findOne(userModel);
 		modelMap.addAttribute("user",returnedUserModel);
@@ -59,17 +59,6 @@ public class LoginController {
 
     }
 
-    @RequestMapping(value = "/id_not_valid")
-	public @ResponseBody String Valid(){
-    	return "Id does not exist";
-	}
-
-
-	@RequestMapping(value = "/match")
-	public @ResponseBody String match(){
-		return "Id and Password does not match";
-	}
-
 
 	/*
 	* This method takes the values given by the user at time of SignUp and saves them into database.
@@ -81,7 +70,7 @@ public class LoginController {
 	}
 
 
-	@RequestMapping(value="/signup" , method= RequestMethod.GET)
+	@RequestMapping(value="/signUpPage" , method= RequestMethod.GET)
 	public  String signupPage(){
 		return "signup";
 	}
