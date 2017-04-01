@@ -126,7 +126,7 @@
 				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
 		</div>
 		<div class="CLubmembership" align="middle">
-			
+			${user.about} 
 
 		</div>
 	</div>

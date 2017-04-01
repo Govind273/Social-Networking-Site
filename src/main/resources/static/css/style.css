@@ -134,6 +134,12 @@ div#navfirst ul#menu li a{
   background-color:#eeeeee;
   padding:270px 70px 70px 70px;  
 }
+#section2 {
+  width:547px;
+  float:left;
+  background-color:#000000;
+  padding:270px 70px 70px 70px;    
+}
 #CLubmembership {
   padding-top:500px;
 

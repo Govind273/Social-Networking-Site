@@ -92,7 +92,7 @@
 	<div id="page">
 	
 
-	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/iu6.jpeg);">
+	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/IU6.jpeg);">
 		<div class="gtco-container1" >
 <!--			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center">

@@ -60,8 +60,13 @@
 				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
 		</div>
 		<div class="CLubmembership" align="middle">
-			
+			${searchGroup.about}
 
+		</div>
+	</div>
+	<div id="section1">
+		<div class="CLubmembership" align="middle" height＝"200px">
+			<p></p>
 		</div>
 	</div>
 

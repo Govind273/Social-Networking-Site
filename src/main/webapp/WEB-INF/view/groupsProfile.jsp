@@ -117,17 +117,16 @@
 
 	<div id="section">
 		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
-				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+				<a font size="10" color="FFFFFF">${searchGroup.groupName}</font>
 		</div>
 		<div class="CLubmembership" align="middle">
-			<p2>Club Menbership</p2>
-			<p>User Profile Page.
-Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
-</p>
-			<p>Club Profile Page
-The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) “View all Clubs” is “View all Members” and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
-
-
+			<p2>${searchGroup.about}</p2>
+		</div>
+	</div>
+	<div id="section">
+		
+		<div class="CLubmembership" align="middle">
+			<p2>This is the location of user post. It is static now. And I can make it dynamic with the data name.</p2>
 		</div>
 	</div>
 <!--
