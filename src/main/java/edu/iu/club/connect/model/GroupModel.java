@@ -16,8 +16,17 @@ public class GroupModel {
     private @Column(name = "group_id")  Integer groupId;
     private @Column(name = "group_name") String groupName;
     private @Column(name = "group_about") String about;
+    private @Column(name = "admin_id") Integer admin_id;
 
-    public Integer getGroupId() {
+    public Integer getAdmin_id() {
+		return admin_id;
+	}
+
+	public void setAdmin_id(Integer admin_id) {
+		this.admin_id = admin_id;
+	}
+
+	public Integer getGroupId() {
         return groupId;
     }
 
