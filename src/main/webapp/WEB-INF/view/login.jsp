@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+f<!DOCTYPE HTML>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -55,29 +55,10 @@
 <!--	<div class="gtco-loader"></div> -->
 		
 	<div id="header1" style="height:70px;">
-<!--	<h1>Club Connect</h1> -->
-<!--	<form class="form-inline">
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="LoginId" class="sr-only">
-									LoginId</label>
-								<input type="LoginId" class="form-control" id="email" placeholder="LoginID">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="password" class="sr-only">Password</label>
-								<input type="password" class="form-control" id="password" placeholder="Password">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<button type="submit" class="btn btn-default btn-block">Sign In</button>
-						</div>
-					</form>  -->
 	<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="images/2.png" width="65" height="56" >
 	</div>
-	<form action="/login" method="post">
+	<form action="/login" method="get">
  	<div style="float:right; width:50%; height:50px;" align="right">
     <input type="text" placeholder=" Email ID" name="emailId" required>
 
@@ -94,20 +75,18 @@
 
 	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/IU6.jpeg);">
 		<div class="gtco-container1" >
-<!--			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-					<div class="display-tc animate-box" data-animate-effect="fadeIn">  -->
+
 							<div class="contain" style=" width:100% height: 500px top:300px " align="middle" >
 							<h1><font color="000000" size="10" padding="200px 0px 0px 0px">Club Connect</font></h1>
 							<h2><font color="#000000">Networking for student organizations redefined</font></h2>
-							<p><a href="signup.jsp" class="btn btn-default">Sign up</a></p>
-							</div>
-				<!--	</div>  
-					</div>
+
+							<form action="/signUpPage" method="get">
+							<button type="submit">Sign up</button>
+							</form>
+						</div>
+					
 				</div> 
-			</div>-->
-		</div>
+    
 	</header>
 	
 	<div id="gtco-features">
