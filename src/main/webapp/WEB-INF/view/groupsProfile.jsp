@@ -23,7 +23,7 @@
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
 			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="images/home.png">
+				<img src="images/home.jpg">
 			</a>
 			<ul id="menu">
 				<li id="editProfile">
