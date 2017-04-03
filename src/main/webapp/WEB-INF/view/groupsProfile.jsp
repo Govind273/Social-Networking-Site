@@ -131,9 +131,12 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
  <a href="#" class="light">${searchGroup.groupName}</a>
 
                 <a href="#" class="light">${searchGroup.about}</a>
+                <!--  <a >${searchGroup.groupId }</a>-->
 		</div>
 	</div>
-	 <form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+	   <form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
+    <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
+                	
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">
