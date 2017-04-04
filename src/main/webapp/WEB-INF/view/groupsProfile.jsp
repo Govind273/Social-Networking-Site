@@ -24,7 +24,7 @@
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
 			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="images/home.png">
+				<img src="images/home.jpg">
 			</a>
 			<ul id="menu">
 				<li id="editProfile">
@@ -52,7 +52,7 @@
 	<div id="nav">
 <!--		<div class="CLubmembership" align="middle" heightï¼"400px"><p2>Club Menbership</p2></div>     -->
 		<div >
-			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
+			<img src="images/2.png" width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
 			
 		</div>
 		<!-- class="nav-main" Commented by vishi-->
@@ -118,34 +118,53 @@
 
 
 	<div id="section">
-		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
-				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+		<div class="tile_div" id="username" style="position:absolute;  top:555px; left:280px; " align="middle" >
+				<font size="15" color="000000">${searchGroup.groupName}</font>
 		</div>
+	
+	
+
+		
 		<div class="CLubmembership" align="middle">
+<!--  			<p2>This is the location of user post. It is static now. And I can make it dynamic with the data name.</p2>
+
 			<p2>Club Menbership</p2>
 			<p>User Profile Page.
 Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
 </p>
 			<p>Club Profile Page
-The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) âView all Clubsâ is âView all Membersâ and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
- <a href="#" class="light">${searchGroup.groupName}</a>
+The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) âView all Clubsâ is âView all Membersâ and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>-->
+<!--  <font size="15" color="000000" href="#" class="light">${searchGroup.groupName}</font>  -->
 
-                <a href="#" class="light">${searchGroup.about}</a>
+                <font href="#" class="light">${searchGroup.about}</font>
+
+
                 <!--  <a >${searchGroup.groupId }</a>-->
+
 		</div>
+		<div class="userpost" align="middle">
+			<font href="#" class="light"></font>
+		</div>>
 	</div>
+	<div id="section1">
+		
+	</div>
+
+
 	   <form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
+
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">
                          <button type="submit" class="btn btn-default btn-block"> Post</button>
                     </div>
-                </form>
+             </form>
                 <h2>Recent Posts</h2>
                 <a href=“#” th:each=“p:${latestposts}” th:text=“${p.title}” th:href=“@{/posts/view/{id}/(id=${p.id})}”>
 </a>
+		</div>
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">

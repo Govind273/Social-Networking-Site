@@ -73,7 +73,7 @@ f<!DOCTYPE HTML>
 	<div id="page">
 	
 
-	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/iu6.jpeg);">
+	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/IU6.jpeg);">
 		<div class="gtco-container1" >
 
 							<div class="contain" style=" width:100% height: 500px top:300px " align="middle" >
