@@ -141,12 +141,12 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 		</div>
 		<div class="userpost" align="middle">
 			<font href="#" class="light"></font>
-		</div>>
+		</div>
 	</div>
 	<div id="section1">
 		
 	</div>
-	 	<div>
+  	 	<div>
 	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
@@ -157,7 +157,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
                 <h2>Recent Posts</h2>
                 <a href=“#” th:each=“p:${latestposts}” th:text=“${p.title}” th:href=“@{/posts/view/{id}/(id=${p.id})}”>
 </a>
-		</div>
+		</div>  
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
