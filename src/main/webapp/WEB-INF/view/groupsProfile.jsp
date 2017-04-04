@@ -138,6 +138,9 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 
                 <font href="#" class="light">${searchGroup.about}</font>
 
+
+                <!--  <a >${searchGroup.groupId }</a>-->
+
 		</div>
 		<div class="userpost" align="middle">
 			<font href="#" class="light"></font>
@@ -146,8 +149,17 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	<div id="section1">
 		
 	</div>
+<<<<<<< HEAD
   	 	<div>
 	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+=======
+
+
+	   <form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
+    <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
+                	
+
+>>>>>>> 26251b4d04a22e13255d090b01a202ac9142bc07
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">

@@ -26,24 +26,35 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes ({"group_id"})
 public class PostController {
-
+	
     @Autowired
     PostService postService;
-    
-    @RequestMapping(value = "/createPost/",method = RequestMethod.POST)
-    public String createPost(PostModel postModel)//, @PathVariable("group_id") int groupid){
-    {
+
+    @RequestMapping(value = "/createPost/{group_id}",method = {RequestMethod.GET,RequestMethod.POST})
+    public String createPost( @PathVariable("group_id") int group_id, PostModel postModel){
+    	try{
+    	postModel.setGroupId(group_id);
+    	System.out.println("im in");
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	Date date = new Date();
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
         return "groupsProfile";
+        }
+    	catch(Exception e){
+    		
+    		return "Exception is" +e ;	
+    	}
     }
+   
+//    public String getDoctorSearchResults(@RequestParam(required=false) 
+    //String LastName,@RequestParam(required=false) String Hospital,
+    //@RequestParam(required=false) String Specialty, @RequestParam(required=false) String date1, ModelMap model) {
 
-    @RequestMapping(value = "/listPost/",method = RequestMethod.GET)
-    public String findLatest(PostModel postModel){
-    	
-    	return "groupsProfile";
-    }
+//    @RequestMapping(value = "/listPost/",method = RequestMethod.GET)
+//    public String findLatest(PostModel postModel){
+//    	
+//    	return "groupsProfile";
+//    }
 
 }

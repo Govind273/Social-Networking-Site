@@ -19,7 +19,7 @@ public class PostModel {
 	    private @Column(name = "post_description") String postDesc;
 	    private @Column(name = "posted_by")  Integer postedby;
 
-	    private @Column(name = "group_id")  Integer groupId;
+	    private @Column(name = "group_id")  Integer group_Id;
 	    private @Column(name = "posted_datetime")  Date postedDatetime;
 
 	    public PostModel(){}
@@ -43,10 +43,10 @@ public class PostModel {
 			this.postDesc = postDesc;
 		}
 		public Integer getGroupId() {
-			return groupId;
+			return group_Id;
 		}
 		public void setGroupId(Integer groupId) {
-			this.groupId = groupId;
+			this.group_Id = groupId;
 		}
 		public Date getPostedDatetime() {
 			return postedDatetime;
