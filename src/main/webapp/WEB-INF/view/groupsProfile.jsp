@@ -149,27 +149,29 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	<div id="section1">
 		
 	</div>
-<<<<<<< HEAD
+
   	 	<div>
-	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
-=======
 
+	   <form action="/createPost/${searchGroup.groupId }/${user.userId }"  method="POST" class="form-inline" align="left">
 
-	   <form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
-
->>>>>>> 26251b4d04a22e13255d090b01a202ac9142bc07
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
-                        <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">
+                        <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>
                          <button type="submit" class="btn btn-default btn-block"> Post</button>
                     </div>
              </form>
                 <h2>Recent Posts</h2>
-                <a href=“#” th:each=“p:${latestposts}” th:text=“${p.title}” th:href=“@{/posts/view/{id}/(id=${p.id})}”>
+
+                <a href=â#â th:each=âp:${latestposts}â th:text=â${p.title}â th:href=â@{/posts/view/{id}/(id=${p.id})}â>
 </a>
 		</div>  
+
+               
+                <h1>${postDesc }<h1>
+               </a>
+
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
@@ -211,30 +213,6 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
    
 -->
 </div>
-<!--
-<div id ="navfirst">
-	<ul id="menu">
-		<li id="h">
-			<a href="#" title="Home">Home</a>
-				<ul>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-				</ul>   
-		</li>
-		<li id="ch">
-			<a href="#" title="chat">Chat</a>
-		</li>
-		<li id="cl">
-			<a href="#" title="Clubs">Clubs</a>
-		</li>
-	</ul>
-	<div class="search" align="right">
-		<input type="text" class="search_key" value="" />
-        <input type="submit" class="submit" value="Search">
-	</div>
-</div> -->
-<!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
 <link rel="stylesheet" href="css/style.css">
 </body>
 </html>
