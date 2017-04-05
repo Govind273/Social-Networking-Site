@@ -129,14 +129,24 @@ div#navfirst ul#menu li a{
   padding:270px 70px 70px 70px;    
 }
 #section1 {
-  width:841px;
+  width:547px;
   float:left;
   background-color:#eeeeee;
-  padding:270px 70px 70px 70px;  
+  padding:130px 70px 70px 70px;  
 }
-#CLubmembership {
-  padding-top:500px;
+#section2 {
+  width:547px;
+  float:left;
+  background-color:#000000;
+  padding:270px 70px 70px 70px;    
+}
+div#section div#CLubmembership {
+  width:100%;
 
+}
+div#section div#userpost {
+	padding:100px 70px 70px 70px;
+	background-color:#000000;
 }
 #username {
   font-size: 13px;
@@ -224,6 +234,13 @@ h1, h2, h3, h4, h5, h6, figure {
   max-width: 981px;
   position: relative;
   margin: 100px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gtco-container2 {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
 }

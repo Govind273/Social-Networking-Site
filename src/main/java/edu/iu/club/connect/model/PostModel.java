@@ -15,11 +15,11 @@ public class PostModel {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "postSequence")
 	    @SequenceGenerator(name ="postSequence",sequenceName = "posts_post_id_seq",allocationSize = 1)
-	    private @Column(name = "post_id")  Integer postId;
+	    private @Column(name = "post_id")  Integer post_Id;
 	    private @Column(name = "post_description") String postDesc;
 	    private @Column(name = "posted_by")  Integer postedby;
 
-	    private @Column(name = "group_id")  Integer groupId;
+	    private @Column(name = "group_id")  Integer group_Id;
 	    private @Column(name = "posted_datetime")  Date postedDatetime;
 
 	    public PostModel(){}
@@ -31,10 +31,10 @@ public class PostModel {
 		}
 	    
 		public Integer getPostId() {
-			return postId;
+			return post_Id;
 		}
 		public void setPostId(Integer postId) {
-			this.postId = postId;
+			this.post_Id = postId;
 		}
 		public String getPostDesc() {
 			return postDesc;
@@ -43,10 +43,10 @@ public class PostModel {
 			this.postDesc = postDesc;
 		}
 		public Integer getGroupId() {
-			return groupId;
+			return group_Id;
 		}
 		public void setGroupId(Integer groupId) {
-			this.groupId = groupId;
+			this.group_Id = groupId;
 		}
 		public Date getPostedDatetime() {
 			return postedDatetime;
@@ -56,7 +56,7 @@ public class PostModel {
 		}
 		public PostModel(Integer postId) {
 			super();
-			this.postId = postId;
+			this.post_Id = postId;
 		}
 
 }
