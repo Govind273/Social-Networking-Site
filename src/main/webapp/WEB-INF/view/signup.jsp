@@ -59,7 +59,7 @@
 	</div>
 
 	<div id="gtco-started">
-		<div class="gtco-container">
+		<div class="gtco-container2">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
 					<h2>Join now!</h2>
@@ -87,7 +87,7 @@
 							<div class="form-group" align="center" valign="middle">  
 							
 							<label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <input id="input1" type="password" placeholder="Enter Password" name="password" required>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
@@ -99,7 +99,7 @@
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group" align="center" valign="middle">  
 								 <label><b>Re-enter Password</b></label>
-        <input type="Re-enter password" placeholder="Re-enter Password" name="Re-enter password" required>
+        <input id="input2" type="password" placeholder="Re-enter Password" name="Re-enter password" required>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
@@ -109,7 +109,7 @@
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4 col-md-offset-2">
-							<button type="submit" class="btn btn-default btn-block">Sign Up</button>
+							<button type="submit" class="btn btn-default btn-block"  onclick="check()">Sign Up</button>
 						</div>
 					</form>
 				</div>
@@ -129,7 +129,20 @@
 		</div>
 	</footer>
 	</div>
-
+<script>
+function check()
+{ 
+with(document.all){
+if(input1.value!=input2.value)
+{
+alert("Password does not match")
+input1.value = "";
+input2.value = "";
+}
+else document.forms[0].submit();
+}
+}
+</script>
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
