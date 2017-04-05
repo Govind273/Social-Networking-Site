@@ -33,7 +33,7 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @ResponseBody @RequestMapping(value = "/createPost/{group_id}/{user_id}"  )
+    @ResponseBody @RequestMapping(value = "/createPost/{group_id}/{user_id}",method = RequestMethod.POST  )
     public String createPost( @PathVariable("group_id") int group_id, @PathVariable("user_id") int user_id,PostModel postModel){
     	
     	postModel.setGroupId(group_id);
