@@ -30,6 +30,16 @@ public class PostServiceImplementation implements PostService {
     public List<PostModel> findAll() {
         return this.postRepository.findAll();
     }
+    @Override
+    public void deleteById(int post_id) {
+    	postRepository.delete(post_id);
 
+    }
+	@Override
+	public List<PostModel> search(PostModel postModel) {
+		return postRepository.findTop10ByGroupIdAndOrderByLevelDesc(postModel.getGroupId());
+	}
+    
+    
   
 }
