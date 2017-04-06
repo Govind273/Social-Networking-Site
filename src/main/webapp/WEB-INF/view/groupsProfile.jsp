@@ -117,7 +117,7 @@
 
 
 
-	<div id="section">
+	<div id="section8">
 		<div class="tile_div" id="username" style="position:absolute;  top:555px; left:280px; " align="middle" >
 				<font size="15" color="000000">${searchGroup.groupName}</font>
 		</div>
@@ -142,35 +142,57 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
                 <!--  <a >${searchGroup.groupId }</a>-->
 
 		</div>
+
+
+	
+<!--	<div id="section1">
+		<form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
+    <form action="/createPost/"  method="POST" class="form-inline" align="left">
+                	
+
+
+
 		<div class="userpost" align="middle">
 			<font href="#" class="light"></font>
-		</div>
-	</div>
+		</div>  -->
+	
 	<div id="section1">
 		
-	</div>
 
-  	 	<div>
 
 	   <form action="/createPost/${searchGroup.groupId }/${user.userId }"  method="POST" class="form-inline" align="left">
 
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
+
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>
                          <button type="submit" class="btn btn-default btn-block"> Post</button>
                     </div>
-             </form>
+         </form>
                 <h2>Recent Posts</h2>
 
                 <a href=â#â th:each=âp:${latestposts}â th:text=â${p.title}â th:href=â@{/posts/view/{id}/(id=${p.id})}â>
 </a>
-		</div>  
+
+	</div>
+	<div class="userpost" align="middle" width="841px">
+		<font href="#" class="light"></font>
+	</div>
+
+  <!--  	 	<div>
+	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+
+
+
+
+		</div>  -->
+=======
+  
 
                
                 <h1>${postDesc }<h1>
-               </a>
 
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
