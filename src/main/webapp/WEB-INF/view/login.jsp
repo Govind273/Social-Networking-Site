@@ -77,8 +77,8 @@
 		<div class="gtco-container1" >
 
 							<div class="contain" style=" width:100% height: 500px top:300px " align="middle" >
-							<h1><font color="000000" size="10" padding="200px 0px 0px 0px">Club Connect</font></h1>
-							<h2><font color="#000000">Networking for student organizations redefined</font></h2>
+							<h1><font color="#ffffff" size="10" padding="200px 0px 0px 0px">Club Connect</font></h1>
+							<h2><font color="#ffffff">Networking for student organizations redefined</font></h2>
 
 							<form action="/signUpPage" method="get">
 							<button type="submit">Sign up</button>
