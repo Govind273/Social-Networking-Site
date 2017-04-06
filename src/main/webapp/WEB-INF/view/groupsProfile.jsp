@@ -237,5 +237,4 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 </div> -->
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
 <link rel="stylesheet" href="css/style.css">
-</body>
-</html>
+
