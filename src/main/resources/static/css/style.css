@@ -129,7 +129,7 @@ div#navfirst ul#menu li a{
   padding:270px 70px 70px 70px;    
 }
 #section1 {
-  width:547px;
+  width:700px;
   float:left;
   background-color:#eeeeee;
   padding:130px 70px 70px 70px;  
@@ -140,9 +140,25 @@ div#navfirst ul#menu li a{
   background-color:#000000;
   padding:270px 70px 70px 70px;    
 }
+#section3 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;    
+}
+#section8 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;    
+}
 div#section div#CLubmembership {
   width:100%;
-
+  
+}
+div#section8 div#CLubmembership {
+  width:841px;
+  
 }
 div#section div#userpost {
 	padding:100px 70px 70px 70px;

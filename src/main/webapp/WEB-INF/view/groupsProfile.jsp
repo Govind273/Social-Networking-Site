@@ -117,7 +117,7 @@
 
 
 
-	<div id="section">
+	<div id="section8">
 		<div class="tile_div" id="username" style="position:absolute;  top:555px; left:280px; " align="middle" >
 				<font size="15" color="000000">${searchGroup.groupName}</font>
 		</div>
@@ -142,34 +142,35 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
                 <!--  <a >${searchGroup.groupId }</a>-->
 
 		</div>
-		<div class="userpost" align="middle">
-			<font href="#" class="light"></font>
-		</div>
-	</div>
+
+	
 	<div id="section1">
-		
-	</div>
-<<<<<<< HEAD
-  	 	<div>
-	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
-=======
-
-
-	   <form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
+		<form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
 
->>>>>>> 26251b4d04a22e13255d090b01a202ac9142bc07
+
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc" required class="mytext" maxlength="150">
                          <button type="submit" class="btn btn-default btn-block"> Post</button>
                     </div>
-             </form>
+         </form>
                 <h2>Recent Posts</h2>
                 <a href=“#” th:each=“p:${latestposts}” th:text=“${p.title}” th:href=“@{/posts/view/{id}/(id=${p.id})}”>
 </a>
-		</div>  
+	</div>
+	<div class="userpost" align="middle" width="841px">
+		<font href="#" class="light"></font>
+	</div>
+
+  <!--  	 	<div>
+	 		<form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+
+
+
+
+		</div>  -->
 <!--
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
