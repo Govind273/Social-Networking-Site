@@ -65,7 +65,7 @@
     <input type="password" placeholder="Password" name="password" required>
 
     <button type="submit">Login</button>
-    <input type="checkbox" checked="checked"> Remember me
+    <input type="checkbox" checked="checked"><font color = " #ffffff"> Remember me </font>
   	</div>
 
 	</form>
