@@ -66,25 +66,20 @@
 </div>
   <h2>Edit Profile</h2>
 <link rel="stylesheet" href="css/style.css">
-<form action="/updateProfile"  method="POST">
-    <label><b>email</b></label>
-    <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
-<label><b>First Name</b></label>
-<input type="text"  name="firstName" value="${user.firstName}" required>
+	<form action="/updateProfile" method="PUT">
+		<label><b>email</b></label> <input type="text" name="emailId"
+			value="${user.emailId}" required readonly> <label><b>First
+				Name</b></label> <input type="text" name="firstName" value="${user.firstName}"
+			required> <label><b>last Name</b></label> <input type="text"
+			name="lastName" value="${user.lastName}" required> <label><b>Password</b></label>
+		<input type="password" name="password" value="${user.password}"
+			required> <label><b>About</b></label> <input type="text"
+			name="about" value="${user.about}" required>
 
-    <label><b>last Name</b></label>
-    <input type="text"  name="lastName" value="${user.lastName}" required>
+		<button type="submit">Edit</button>
 
-    <label><b>Password</b></label>
-    <input type="password"  name="password" value="${user.password}" required>
-
-    <label><b>About</b></label>
-    <input type="text"  name="about" value="${user.about}" required>
-
-<button type="submit" >Edit</button>
-
-</form>
+	</form>
 
 </body>
 </html>

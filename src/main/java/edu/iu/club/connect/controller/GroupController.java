@@ -8,19 +8,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import java.time.Clock;
-import java.util.ArrayList;
+
 
 /**
  * Created by walia on 2/19/2017.
  */
 
 @Controller
-@SessionAttributes ({"admin_id"})
+@SessionAttributes ({"admin_id" , "group"})
 public class GroupController {
 
 
@@ -53,6 +50,20 @@ public class GroupController {
 //		}
 //		else return "groupsProfile";
 //	}
+
+	@RequestMapping(value = "/requestGroup/{userId}/{groupId}", method = RequestMethod.POST)
+	public String sendFriendRequest(@PathVariable("userId") int userId, @PathVariable("groupId") int groupId){
+		
+		System.out.println(userId + groupId);
+		
+		GroupModel adminId = groupService.getAdminId(groupId);
+		
+	    
+		
+		return "groupsProfile";
+		
+	}
+
 
 	//    @RequestMapping(value = "/groupsData")
 	//    public  ArrayList<GroupModel> allGroups(){

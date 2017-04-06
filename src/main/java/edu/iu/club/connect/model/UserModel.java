@@ -45,14 +45,6 @@ public class UserModel {
         this.about = about;
     }
 
-
-
-
-
-
-
-
-
     public Integer getUserId() {
         return userId;
     }

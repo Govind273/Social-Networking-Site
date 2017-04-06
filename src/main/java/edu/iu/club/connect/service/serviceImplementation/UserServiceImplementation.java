@@ -56,4 +56,18 @@ public class UserServiceImplementation implements UserService{
 
     }
 
+	@Override
+	public String getPassword(UserModel userModel) {
+		System.out.println("in forget password");
+		String password = null;
+		
+		try {
+			password = userRepository.findByUserEmailId(userModel.getEmailId());
+			
+		} catch ( Exception e){
+			
+		}
+		return password;
+	}
+
 }

@@ -40,11 +40,12 @@
 				</li>
 
 			</ul>   
-
-<!--			<div id="userPic">
-				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
-			</div>   -->
-
+			
+			<div class="search" align="right">
+				<form action="/createGroup" >
+  					<button type="submit">CREATE</button>
+				</form>			
+			</div>
 
 			<div class="search" align="right">
 				<form action="/search" method="get">
@@ -52,78 +53,22 @@
   					<button type="submit">Search</button>
 				</form>			
 			</div>
+			
+			
 		</div>
 	</div>
 	<div id="nav">
 <!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
-		<div >
-			<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;" >
-			
-		</div>
-		<div class="nav-main" style="top:250px">
-			<div class="nav-box">
-				<div class="nav">
-  					<ul class="nav-ul">
-  						<li><a><span>Club Membership</span></a></li>
-  						<li><a href="#" class="develop"><span>Data Science Club</span></a></li>
-  						<li><a href="#" class="wechat"><span>The Karun Fan Club</span></a></li>
-  						<li><a href="#" class="case"><span>I love Junjie Club</span></a></li>
-  						<li><a href="#" class="news"><span>Awesome People Club</span></a></li>
-  						<li><a href="#" class="contact"><span>View All Club</span></a></li>
-  					</ul>
-				</div>
-				<div class="nav-slide">
-    				<div class="nav-slide-o"></div>
-    					<div class="nav-slide-o">
-    						<ul>
-    							<li><a href="#"><span>Tim</span></a></li>
-    							<li><a href="#"><span>Karun</span></a></li>
-    							<li><a href="#"><span>Vishi</span></a></li>
-    							<li><a href="#"><span>Junjie</span></a></li>
-    							<li><a href="#"><span>Nick</span></a></li>
-    						</ul>
-    					</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Tom</span></a></li>
-    							<li><a href="#"><span>Jason</span></a></li>
-    							<li><a href="#"><span>Vincent</span></a></li>
-    							<li><a href="#"><span>Jackie</span></a></li>
-    							<li><a href="#"><span>Martina</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Vicky</span></a></li>
-    							<li><a href="#"><span>Kevin</span></a></li>
-    							<li><a href="#"><span>Vector</span></a></li>
-    							<li><a href="#"><span>Jarvan</span></a></li>
-    							<li><a href="#"><span>Neon</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						<li><a href="#"><span>Rekton</span></a></li>
-    						<li><a href="#"><span>Rengar</span></a></li>
-    						<li><a href="#"><span>Jax</span></a></li>
-    						<li><a href="#"><span>Lucian</span></a></li>
-    						<li><a href="#"><span>Morgana</span></a></li>
-    						<li><a href="#"><span>Rumble</span></a></li>
-    						<li><a href="#"><span>Graves</span></a></li>
-    						<li><a href="#"><span>Gragas</span></a></li>
-    						<li><a href="#"><span>Nocturne</span></a></li>
-    					</ul>
-    				</div>
-				</div>
+		
 			</div>
 		</div>
-	</div>  
+	 
 
 
 
 	<div id="section">
 		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
-				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId} ${user.userId }</font>
 		</div>
 		<div class="CLubmembership" align="middle">
 			${user.about} 

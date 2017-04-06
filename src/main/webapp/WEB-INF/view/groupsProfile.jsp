@@ -43,6 +43,7 @@
 
 			<div class="search" align="right">
 				<form action="/searchGroup" method="post">
+  					----${group.groupId}----
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			
@@ -57,61 +58,7 @@
 		</div>
 		<!-- class="nav-main" Commented by vishi-->
 		<div  style="top:250px">
-<!--			<div class="nav-box">
-				<div class="nav">
-  					<ul class="nav-ul">
-  						<li><a><span>Club Membership</span></a></li>
-  						<li><a href="#" class="develop"><span>Data Science Club</span></a></li>
-  						<li><a href="#" class="wechat"><span>The Karun Fan Club</span></a></li>
-  						<li><a href="#" class="case"><span>I love Junjie Club</span></a></li>
-  						<li><a href="#" class="news"><span>Awesome People Club</span></a></li>
-  						<li><a href="#" class="contact"><span>View All Club</span></a></li>
-  					</ul>
-				</div>
-				<div class="nav-slide">
-    				<div class="nav-slide-o"></div>
-    					<div class="nav-slide-o">
-    						<ul>
-    							<li><a href="#"><span>Tim</span></a></li>
-    							<li><a href="#"><span>Karun</span></a></li>
-    							<li><a href="#"><span>Vishi</span></a></li>
-    							<li><a href="#"><span>Junjie</span></a></li>
-    							<li><a href="#"><span>Nick</span></a></li>
-    						</ul>
-    					</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Tom</span></a></li>
-    							<li><a href="#"><span>Jason</span></a></li>
-    							<li><a href="#"><span>Vincent</span></a></li>
-    							<li><a href="#"><span>Jackie</span></a></li>
-    							<li><a href="#"><span>Martina</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Vicky</span></a></li>
-    							<li><a href="#"><span>Kevin</span></a></li>
-    							<li><a href="#"><span>Vector</span></a></li>
-    							<li><a href="#"><span>Jarvan</span></a></li>
-    							<li><a href="#"><span>Neon</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						<li><a href="#"><span>Rekton</span></a></li>
-    						<li><a href="#"><span>Rengar</span></a></li>
-    						<li><a href="#"><span>Jax</span></a></li>
-    						<li><a href="#"><span>Lucian</span></a></li>
-    						<li><a href="#"><span>Morgana</span></a></li>
-    						<li><a href="#"><span>Rumble</span></a></li>
-    						<li><a href="#"><span>Graves</span></a></li>
-    						<li><a href="#"><span>Gragas</span></a></li>
-    						<li><a href="#"><span>Nocturne</span></a></li>
-    					</ul>
-    				</div>
-				</div>
-			</div>  -->
+
 		</div>
 	</div>  
 
@@ -144,6 +91,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 		</div>
 
 
+
 	
 <!--	<div id="section1">
 		<form action="/createPost/${searchGroup.groupId }"  method="POST" class="form-inline" align="left">
@@ -165,6 +113,15 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
 
+
+	</div>
+	
+	<form action="/requestgroup/${user.userId }/${group.groupId}" method = "POST">
+	<button type = "submit">Join</button>
+	
+	</form>
+	 <form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>
@@ -175,6 +132,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 
                 <a href=â#â th:each=âp:${latestposts}â th:text=â${p.title}â th:href=â@{/posts/view/{id}/(id=${p.id})}â>
 </a>
+<<<<<<< Updated upstream
 
 	</div>
 	<div class="userpost" align="middle" width="841px">
@@ -202,39 +160,17 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	$('.nav-ul li').mouseleave(function(even){
 			thisTime	=	setTimeout(thisMouseOut,1000);
 	})
+=======
+>>>>>>> Stashed changes
 
-	$('.nav-ul li').mouseenter(function(){
-		clearTimeout(thisTime);
-		var thisUB	=	$('.nav-ul li').index($(this));
-		if($.trim($('.nav-slide-o').eq(thisUB).html()) != "")
-		{
-			$('.nav-slide').addClass('hover');
-			$('.nav-slide-o').hide();
-			$('.nav-slide-o').eq(thisUB).show();
-		}
-		else{
-			$('.nav-slide').removeClass('hover');
-		}
-		
-	})
-	
-	function thisMouseOut(){
-		$('.nav-slide').removeClass('hover');
-	}
-	 
-	$('.nav-slide').mouseenter(function(){
-		clearTimeout(thisTime);
-		$('.nav-slide').addClass('hover');
-	})
-	$('.nav-slide').mouseleave(function(){
-		$('.nav-slide').removeClass('hover');
-	})
-
-})
-</script>  
    
--->
+
 </div>
+<<<<<<< Updated upstream
+=======
+
+<!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
+>>>>>>> Stashed changes
 <link rel="stylesheet" href="css/style.css">
 </body>
 </html>

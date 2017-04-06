@@ -69,6 +69,10 @@
   	</div>
 
 	</form>
+	
+	<form action ="/forgetPassword">
+	<button type = " submit "> Forget Password</button>
+	</form>
 </div>
 	<div id="page">
 	
