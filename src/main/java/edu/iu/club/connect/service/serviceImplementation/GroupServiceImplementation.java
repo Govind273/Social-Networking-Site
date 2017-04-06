@@ -30,8 +30,8 @@ public class GroupServiceImplementation implements GroupService {
 
     }
     
-    @Override
-	public GroupModel searchOne(GroupModel groupModel) {
-		return groupRepository.findGroupByName(groupModel.getGroupName());
-	}
+//    @Override
+//	public GroupModel searchOne(GroupModel groupModel) {
+//		return groupRepository.findGroupByName(groupModel.getGroupName());
+//	}
 }

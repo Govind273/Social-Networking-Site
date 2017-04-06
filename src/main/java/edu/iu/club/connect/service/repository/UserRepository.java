@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +32,9 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     @Query("select b from UserModel b where b.emailId = :emailId")
     UserModel findOneByEmailId(@Param("emailId") String emailId);
 
+    @Query("select b from GroupModel b where b.groupName = :groupName")
+	ArrayList<Object> findGroupByName(@Param("groupName") String groupName);
+    
     @Modifying
     @Transactional
     @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about, b.profilePic = :profilePic  where b.emailId = :emailId")
