@@ -89,7 +89,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
                 <!--  <a >${searchGroup.groupId }</a>-->
 
 		</div>
-
+<<<<<<< Updated upstream
 
 
 	
@@ -113,7 +113,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
 
-
+=======
 	</div>
 	
 	<form action="/requestgroup/${user.userId }/${group.groupId}" method = "POST">
@@ -121,7 +121,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 	
 	</form>
 	 <form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
-
+>>>>>>> Stashed changes
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>

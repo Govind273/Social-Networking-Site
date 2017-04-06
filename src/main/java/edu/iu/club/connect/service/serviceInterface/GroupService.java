@@ -14,7 +14,7 @@ public interface GroupService {
 
     //public GroupModel searchOne(GroupModel groupModel);
 
-    public GroupModel searchOne(GroupModel groupModel);
+    public ArrayList<Object> searchOne(GroupModel groupModel);
     public GroupModel getAdminId(int groupId );
 
 }
