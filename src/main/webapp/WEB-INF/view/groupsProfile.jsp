@@ -188,7 +188,11 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 
 
 		</div>  -->
+<<<<<<< HEAD
+
 =======
+=======
+>>>>>>> 3cbecd48e0dbc91364c004000fee14b68c20660c
   
 
                
@@ -236,5 +240,4 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 -->
 </div>
 <link rel="stylesheet" href="css/style.css">
-</body>
-</html>
+
