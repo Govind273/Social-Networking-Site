@@ -36,6 +36,11 @@
 
 			</ul>   
 
+<!--			<div id="userPic">
+				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
+			</div>   -->
+
+
 			<div class="search" align="right">
 				<form action="/searchGroup" method="post">
   					<input type="text" name="groupName" placeholder="Search.." >
@@ -183,7 +188,12 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
 
 
 		</div>  -->
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 3cbecd48e0dbc91364c004000fee14b68c20660c
+  
 
                
                 <h1>${postDesc }<h1>
