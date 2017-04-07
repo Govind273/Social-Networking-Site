@@ -2,6 +2,7 @@ package edu.iu.club.connect.service.serviceInterface;
 
 import java.util.List;
 
+import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
 
 
@@ -12,5 +13,7 @@ public interface PostService {
 
     public boolean saveOne(PostModel postModel);
     List<PostModel> findAll();
+	public void deleteById(int post_id);
+	 public List<PostModel> search(PostModel postModel);
 
 }
