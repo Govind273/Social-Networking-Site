@@ -64,26 +64,50 @@
 		</li>
 		</div>
 </div>
-  <h2>Edit Profile</h2>
-<link rel="stylesheet" href="css/style.css">
+
+ <div id="navfirst" style="width:100% height:20%" valign="top">
+	<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:0px; background:#FFFFFF; top:99px;   solid 1px;no-repeat;">
+		<img src="images/home.jpg">
+	</a>
+			<ul id="menu">
+				<li id="editProfile">
+					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
+				</li>
+				<li id="ch">
+					<a href="#" title="chat">Club Chat</a>
+				</li>
+
+			</ul>   
+			<div class="search" align="right">
+				<form action="/searchGroup" method="post">
+  					<input type="text" name="groupName" placeholder="Search.." >
+  					<button type="submit">Search</button>
+				</form>			
+			</div>
+		</div>
+ 
+
+
+
 <form action="/updateProfile"  method="POST">
     <label><b>email</b></label>
-    <input type="text"  name="emailId" value="${user.emailId}" required readonly>
+    <input type="text1"  name="emailId" value="${user.emailId}" required readonly>
 
 <label><b>First Name</b></label>
-<input type="text"  name="firstName" value="${user.firstName}" required>
+<input type="text1"  name="firstName" value="${user.firstName}" required>
 
     <label><b>last Name</b></label>
-    <input type="text"  name="lastName" value="${user.lastName}" required>
+    <input type="text1"  name="lastName" value="${user.lastName}" required>
 
     <label><b>Password</b></label>
     <input type="password"  name="password" value="${user.password}" required>
 
     <label><b>About</b></label>
-    <input type="text"  name="about" value="${user.about}" required>
+    <input type="text1"  name="about" value="${user.about}" required>
 
-<button type="submit" >Edit</button>
-
+<button1 type="submit" >Edit</button1>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" href="css/style.css">
 </form>
 
 </body>
