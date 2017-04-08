@@ -47,7 +47,7 @@
 
 
 			<div class="search" align="right">
-				<form action="/searchGroup" method="post">
+				<form action="/search" method="get">
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			

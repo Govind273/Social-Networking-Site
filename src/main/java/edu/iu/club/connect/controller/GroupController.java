@@ -40,19 +40,19 @@ public class GroupController {
 		return "profile";
 	}
 
-	@RequestMapping(value = "/searchGroup", method=RequestMethod.POST)
-	public String search(GroupModel groupModel, ModelMap modelMap){
-		System.out.println("I am in search");
-		GroupModel group = groupService.searchOne(groupModel);    
-
-
-		modelMap.addAttribute("searchGroup", group);
-
-		if(group==null){
-			return "redirect:profile";
-		}
-		else return "groupsProfile";
-	}
+//	@RequestMapping(value = "/searchGroup", method=RequestMethod.POST)
+//	public String search(GroupModel groupModel, ModelMap modelMap){
+//		System.out.println("I am in search");
+//		GroupModel group = groupService.searchOne(groupModel);    
+//
+//
+//		modelMap.addAttribute("searchGroup", group);
+//
+//		if(group==null){
+//			return "redirect:profile";
+//		}
+//		else return "groupsProfile";
+//	}
 
 	//    @RequestMapping(value = "/groupsData")
 	//    public  ArrayList<GroupModel> allGroups(){
