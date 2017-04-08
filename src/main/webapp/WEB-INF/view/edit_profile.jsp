@@ -84,7 +84,7 @@
 				</form>			
 			</div>
 		</div>
-  <h2>Edit Profile</h2>
+ 
 
 <form action="/updateProfile"  method="POST">
     <label><b>email</b></label>
