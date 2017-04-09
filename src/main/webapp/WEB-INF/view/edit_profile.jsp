@@ -2,7 +2,7 @@
 <html>
 <style>
     /* Full-width input fields */
-    input[type=text], input[type=password] {
+    input[type=text1], input[type=password] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -12,7 +12,7 @@
     }
 
     /* Set a style for all buttons */
-    button {
+    button1 {
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
