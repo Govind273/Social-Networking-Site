@@ -29,6 +29,22 @@ public class GroupServiceImplementation implements GroupService {
         return groupRepository.findAll();
 
     }
+
+    @Override
+	public GroupModel getAdminId(int groupId) {
+		
+		GroupModel adminId = groupRepository.getAdminById(groupId);
+		
+		return adminId;
+		
+	}
+
+	@Override
+	public GroupModel findGroup(int groupId) {
+		
+		GroupModel group = groupRepository.findGroupById(groupId);
+		return group;
+	}
     
 //    @Override
 //	public GroupModel searchOne(GroupModel groupModel) {

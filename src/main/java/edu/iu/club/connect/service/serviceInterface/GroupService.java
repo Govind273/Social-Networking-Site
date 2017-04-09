@@ -1,5 +1,6 @@
 package edu.iu.club.connect.service.serviceInterface;
 
+
 import edu.iu.club.connect.model.GroupModel;
 
 import java.util.ArrayList;
@@ -12,4 +13,6 @@ public interface GroupService {
     public boolean saveOne(GroupModel groupModel);
     public ArrayList<GroupModel> findOne();
     //public GroupModel searchOne(GroupModel groupModel);
+	public GroupModel getAdminId(int groupId);
+	public GroupModel findGroup(int groupId);
 }
