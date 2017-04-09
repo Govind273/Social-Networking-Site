@@ -19,6 +19,7 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
     @Query("select b from GroupModel b")
     ArrayList<GroupModel> findAll();
     
-    @Query("select b from GroupModel b where b.groupName = :groupName")
+    //returns array list of group names that match the user's search query
+    @Query("select b from GroupModel b where LOWER(b.groupName) LIKE LOWER(CONCAT('%',:groupName, '%'))")
 	ArrayList<Object> findGroupByName(@Param("groupName") String groupName);
 }

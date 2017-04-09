@@ -24,12 +24,21 @@ public class SearchController {
 		
 		System.out.println("i am in search controller" + search);
 		
+		//declare array for search results
 		ArrayList<ArrayList<Object>> finalList = new ArrayList<ArrayList<Object>>();
 		
+		//declare sub-arrays for search of group, user, post and execute SQL code in searchServiceImplementation
 		ArrayList<Object> groupList = searchServiceImplementation.searchGroupByName(search);
+		ArrayList<Object> userList = searchServiceImplementation.searchUserByName(search);
+//		ArrayList<Object> postList = searchServiceImplementation.searchPostByName(search);
 		
+		
+		//add sub-arrays to the main search result array
 		finalList.add(groupList);
-		
+		finalList.add(userList);
+//		finalList.add(postList);
+	
+		//return main array
 		return finalList;
 		
 	}

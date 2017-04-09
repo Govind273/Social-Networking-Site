@@ -35,11 +35,11 @@ public class PostServiceImplementation implements PostService {
     	postRepository.delete(post_id);
 
     }
-	@Override
+
+    //Nick commented out code; otherwise it failed to build--The method findTop10ByGroupIdAndOrderByLevelDesc(Integer) is undefined for the type PostRepository
+    @Override
 	public List<PostModel> search(PostModel postModel) {
-		return postRepository.findTop10ByGroupIdAndOrderByLevelDesc(postModel.getGroupId());
-	}
-    
-    
-  
+//		return postRepository.findTop10ByGroupIdAndOrderByLevelDesc(postModel.getGroupId());
+		return null;
+	}  
 }
