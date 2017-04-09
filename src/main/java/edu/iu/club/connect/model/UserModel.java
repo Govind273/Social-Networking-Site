@@ -20,8 +20,8 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usersSequence")
     @SequenceGenerator(name ="usersSequence",sequenceName = "users_user_id_seq",allocationSize = 1)
     private @Column(name = "user_id")  Integer userId;
-    private @Column(name = "first_name") String firstName;
-    private @Column(name = "last_name") String lastName;
+    private @Column(name = "first_name") String firstName; //used in search feature
+    private @Column(name = "last_name") String lastName;   //used in search feature
     private @Column(name = "password") String password;
     private @Column(name = "email_id") String emailId;
     private @Column(name = "about") String about;

@@ -32,8 +32,9 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     @Query("select b from UserModel b where b.emailId = :emailId")
     UserModel findOneByEmailId(@Param("emailId") String emailId);
 
-    @Query("select b from GroupModel b where b.groupName = :groupName")
-	ArrayList<Object> findGroupByName(@Param("groupName") String groupName);
+    //returns an array list with first name and last name matches to user's search query
+    @Query("select b from UserModel b where LOWER(b.firstName) LIKE LOWER(CONCAT('%',:firstName, '%')) OR LOWER(b.lastName) LIKE LOWER(CONCAT('%',:firstName,'%'))")
+	ArrayList<Object> findUserByName(@Param("firstName") String firstName);
     
     @Modifying
     @Transactional

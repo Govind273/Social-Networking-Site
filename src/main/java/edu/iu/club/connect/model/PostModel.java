@@ -16,7 +16,7 @@ public class PostModel {
 	    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "postSequence")
 	    @SequenceGenerator(name ="postSequence",sequenceName = "posts_post_id_seq",allocationSize = 1)
 	    private @Column(name = "post_id")  Integer post_Id;
-	    private @Column(name = "post_description") String postDesc;
+	    private @Column(name = "post_description") String postDesc; //used in search feature
 	    private @Column(name = "posted_by")  Integer postedby;
 
 	    private @Column(name = "group_id")  Integer group_Id;

@@ -14,7 +14,7 @@ public class GroupModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "groupsSequence")
     @SequenceGenerator(name ="groupsSequence",sequenceName = "groups_group_id_seq",allocationSize = 1)
     private @Column(name = "group_id")  Integer groupId;
-    private @Column(name = "group_name") String groupName;
+    private @Column(name = "group_name") String groupName; //used in search feature
     private @Column(name = "group_about") String about;
     private @Column(name = "admin_id") Integer admin_id;
 
