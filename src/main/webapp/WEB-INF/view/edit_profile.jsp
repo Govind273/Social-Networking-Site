@@ -105,9 +105,13 @@
     <label><b>About</b></label>
     <input type="text"  name="about" value="${user.about}" required>
 
+
 <button type="submit" class="button" >Edit</button>
 <button class="button"><a href="/profile" ><font color = " #ffffff"> Cancel </font></a> </button>
 	
+
+
+
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="stylesheet" href="css/style.css">
 </form>
