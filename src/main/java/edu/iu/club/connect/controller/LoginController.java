@@ -159,6 +159,51 @@ public class LoginController {
 		System.out.println("Logout controller called.");
 		return "login";
 	}
+//=======
+/*Commented by vishy on 04/09/2017 to make sure that the edit functionality works	
+    public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){*/
+ //   public  String editProfile(UserModel userModel,  ModelMap modelMap){
+
+//try {
+//	UUID randonPicUuid = UUID.randomUUID();
+//
+//	String filename = randonPicUuid.toString();
+//	String filepath = Paths.get(pictureDirectoryPath, filename).toString() + ".jpg";
+//
+//	// Save the file locally
+//	BufferedOutputStream stream =
+//			new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+//	stream.write(uploadFile.getBytes());
+//	stream.close();
+//
+//	userModel.setProfilePic(
+//            pictureDirectoryPath+"\\" + randonPicUuid.toString() + ".jpg");
+
+
+//	userService.updateOne(userModel);
+//	UserModel returnedUserModel = userService.findOne(userModel);
+//	modelMap.put("user", returnedUserModel);
+//}catch (Exception e) {
+//	System.out.println(e.getMessage());
+//}
+ //       return "profile";
+ //   }
+
+    /*
+    * This method is responsible for enabling user to logout from his account by ending his session.
+    * */
+  //  @RequestMapping(value = "/logout")
+//    public String logout(HttpSession session, Model model) {
+//        session.removeAttribute("user");
+//        session.invalidate();
+//        if (model.containsAttribute("counter"))
+//            model.asMap().remove("counter");
+//        model.asMap().clear();
+//
+//        System.out.println("Logout controller called.");
+//        return "login";
+//    }
+//>>>>>>> c828ed103aeb43aea85feba33c556827304e8d58
 }
 
 
