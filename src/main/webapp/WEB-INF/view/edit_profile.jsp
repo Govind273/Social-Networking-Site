@@ -22,21 +22,25 @@
         width: 100%;
     }
     
-    search_button{
-    background-color: #750000;
-        color: white;
-        padding: 0;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 20%;
+    button1 {
+    top:20%;
+   width: 100px;
+    height: 28px;
+    line-height: 28px;
+    background: red;
+    color: #FFF;
+    margin: 5px 10px;
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
     }
-    search_text{
-    background-color: #750000;
+    input[type=text1]{
         color: white;
-        padding: 8px 0;
+       position:absolute;
+       right: 15%;
         margin: 8px 0;
-        border: none;
+        
         cursor: pointer;
         width: 20%;
     }
@@ -112,12 +116,12 @@
 
 
 
-			<!-- <div class="search" align="right">
+			 <div class="search" align="right">
 				<form action="/search" method="get">
-  					<input type="text" name="groupName" placeholder="Search.."  class="search_text" width="25%">
-  					<button type="submit" class="search_button">Search</button>
+  					<input type="text1" name="groupName" placeholder="Search.."  class="search_text" >
+  					<button1 type="submit" class="search_button">Search</button1>
 				</form>			
-			</div> -->
+			</div> 
 		</div>
 	</div>
 
