@@ -15,11 +15,30 @@
     button {
         background-color: #750000;
         color: white;
-        padding: 14px 20px;
+        padding: 8px 0;
         margin: 8px 0;
         border: none;
         cursor: pointer;
         width: 100%;
+    }
+    
+    search_button{
+    background-color: #750000;
+        color: white;
+        padding: 0;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+    }
+    search_text{
+    background-color: #750000;
+        color: white;
+        padding: 8px 0;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
     }
 
     /* Extra styles for the cancel button */
@@ -65,11 +84,23 @@
 		</div>
 </div>
 
-<!-- <div id="navfirst" style="width:100% height:20%" valign="top">
-	<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:0px; background:#FFFFFF; top:99px;   solid 1px;no-repeat;">
-		<img src="images/home.jpg">
-	</a>
-			<ul id="menu">
+<div class="gtco-container">
+	<div class="coverTopSection" height="400px">
+		<div class="coverPic" style="width:100% height:80%" valign="top">
+			<img src="images/iu4.jpeg" height="280px" >
+		</div>
+		<div id="navfirst" style="width:100% height:20%" valign="bottom">
+<!--			<div >
+			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
+			</div>  -->
+			
+<!--			<input name="home" type="button" onclick="JavaScript:window.location.hrefï¼'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
+			-->
+			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+				<img src="images/home.jpg">
+			</a>
+			<ul id="menu" width="70%" align="right">
+			
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
@@ -78,25 +109,34 @@
 				</li>
 
 			</ul>   
-			<div class="search" align="right">
-				<form action="/searchGroup" method="post">
-  					<input type="text" name="groupName" placeholder="Search.." >
-  					<button type="submit">Search</button>
+
+
+
+			<!-- <div class="search" align="right">
+				<form action="/search" method="get">
+  					<input type="text" name="groupName" placeholder="Search.."  class="search_text" width="25%">
+  					<button type="submit" class="search_button">Search</button>
 				</form>			
-			</div>
+			</div> -->
 		</div>
- 
+	</div>
 
 
--->
+<div id="nav">
+<div id="section" width="550%">
+
+	<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top: 230px;" align="middle">
+		<label><h4> <b>EDIT PROFILE DETAILS</b></h4></label>
+		</div>
+		<div class="CLubmembership" align="left">
 <form action="/updateProfile"  method="POST">
-    <label><b>email</b></label>
+    <label><b>Email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
 <label><b>First Name</b></label>
 <input type="text"  name="firstName" value="${user.firstName}" required>
 
-    <label><b>last Name</b></label>
+    <label><b>Last Name</b></label>
     <input type="text"  name="lastName" value="${user.lastName}" required>
 
     <label><b>Password</b></label>
@@ -111,6 +151,8 @@
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="stylesheet" href="css/style.css">
 </form>
-
+</div>
+</div>
+</div>
 </body>
 </html>
