@@ -92,7 +92,9 @@ public class LoginController {
     * The Model Map attribute "put" updates the session attribute and changes can be seen as soon as user hits "edit" button.
     * */
 	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
-    public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){
+/*Commented by vishy on 04/09/2017 to make sure that the edit functionality works	
+    public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){*/
+    public  String editProfile(UserModel userModel,  ModelMap modelMap){
 
 //try {
 //	UUID randonPicUuid = UUID.randomUUID();
