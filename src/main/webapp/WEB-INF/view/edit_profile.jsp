@@ -13,7 +13,7 @@
 
     /* Set a style for all buttons */
     button {
-        background-color: #4CAF50;
+        background-color: #750000;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -25,7 +25,7 @@
     /* Extra styles for the cancel button */
     .cancelbtn {
         padding: 14px 20px;
-        background-color: #f44336;
+        background-color: #750000;
     }
 
     /* Float cancel and signup buttons and add an equal width */
@@ -60,12 +60,12 @@
 		</div>
 		<div align="right" style="padding:20px">
 			<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
+			<a href="/logout" title="Logout"><font color = " #ffffff">Logout</font></a>
 		</li>
 		</div>
 </div>
 
- <div id="navfirst" style="width:100% height:20%" valign="top">
+<!-- <div id="navfirst" style="width:100% height:20%" valign="top">
 	<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:0px; background:#FFFFFF; top:99px;   solid 1px;no-repeat;">
 		<img src="images/home.jpg">
 	</a>
@@ -88,24 +88,26 @@
  
 
 
-
+-->
 <form action="/updateProfile"  method="POST">
     <label><b>email</b></label>
-    <input type="text1"  name="emailId" value="${user.emailId}" required readonly>
+    <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
 <label><b>First Name</b></label>
-<input type="text1"  name="firstName" value="${user.firstName}" required>
+<input type="text"  name="firstName" value="${user.firstName}" required>
 
     <label><b>last Name</b></label>
-    <input type="text1"  name="lastName" value="${user.lastName}" required>
+    <input type="text"  name="lastName" value="${user.lastName}" required>
 
     <label><b>Password</b></label>
     <input type="password"  name="password" value="${user.password}" required>
 
     <label><b>About</b></label>
-    <input type="text1"  name="about" value="${user.about}" required>
+    <input type="text"  name="about" value="${user.about}" required>
 
-<button1 type="submit" >Edit</button1>
+<button type="submit" class="button" >Edit</button>
+<button class="button"><a href="/profile" ><font color = " #ffffff"> Cancel </font></a> </button>
+	
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="stylesheet" href="css/style.css">
 </form>
