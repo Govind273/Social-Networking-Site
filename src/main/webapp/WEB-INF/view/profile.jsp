@@ -28,7 +28,7 @@
 			
 <!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
 			-->
-			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;">
 				<img src="images/home.jpg">
 			</a>
 			<ul id="menu" width="70%" align="right">
@@ -66,13 +66,19 @@
 		</div>
 	</div>
 	<div id="nav">
-
-
-	<div id="section">
-		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
-				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+		<div >
+			<img src="images/2.png" width="170" height="120" style="position:absolute; left:80px; top:480px;">
 		</div>
-		<div class="CLubmembership" align="middle">
+		<div style="position:relative; left:80px; top:250px;">
+			<a1>Karun</a1>
+		</div>
+	</div>
+
+	<div id="section" align="right">
+		<div class="tile_div" id="username" style="position:absolute;  top:555px; left:330px;"  align="middle">
+				<a1 font size="10" color="FFFFFF">${user.firstName} ${user.lastName} </a1>
+		</div>
+		<div class="CLubmembership" style="margin:-110px 0px 0px -50px; float:left;">
 			${user.about} 
 
 		</div>
