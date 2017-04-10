@@ -1,9 +1,11 @@
 <html  xmlns:th="http://www.thymeleaf.org">
 <body bgcolor="#FFFFFF">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<link rel="stylesheet" href="/css/style.css">
 
 </head>
 <div id="header1" style="height:72px;">
