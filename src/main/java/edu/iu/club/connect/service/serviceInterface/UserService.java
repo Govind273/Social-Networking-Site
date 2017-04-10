@@ -15,5 +15,7 @@ public interface UserService {
  public boolean saveOne(UserModel userModel);
  public UserModel findOne(UserModel userModel);
  public boolean updateOne(UserModel userModel);
+public String recoverPassword(UserModel userModel);
+public boolean changePassword(String emailId, String password);
  
 }

@@ -40,4 +40,18 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     @Transactional
     @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about, b.profilePic = :profilePic  where b.emailId = :emailId")
     void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("password") String password,@Param("about") String about,@Param("profilePic") String profilePic,@Param("emailId") String emailId);
+
+	@Query("select b from UserModel b where b.emailId = :emailId")
+    List<UserModel> checkEmail(@Param("emailId")String emailId);
+
+	@Query("select b from UserModel b where b.emailId = :emailId AND b.question1 = :question1 AND b.question2 = :question2")
+	List<UserModel> checkAnswers(@Param("emailId")String emailId,@Param("question1") String question1,@Param("question2") String question2);
+
+	@Modifying(clearAutomatically = true)
+    @Transactional
+	@Query("Update UserModel b SET b.password = :password WHERE b.emailId = :emailId")
+	void updatePassword(@Param("emailId")String emailId, @Param("password") String password);
+	
+	
+	
 }

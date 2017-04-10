@@ -26,6 +26,27 @@ public class UserModel {
     private @Column(name = "email_id") String emailId;
     private @Column(name = "about") String about;
     private @Column(name = "profile_pic") String profilePic;
+    private @Column(name = "question1") String question1;
+    private @Column (name = "question2") String question2;
+    
+    
+    public String getQuestion1() {
+		return question1;
+	}
+
+	public void setQuestion1(String question1) {
+		this.question1 = question1;
+	}
+
+	public String getQuestion2() {
+		return question2;
+	}
+
+	public void setQuestion2(String question2) {
+		this.question2 = question2;
+	}
+
+	
 
     public String getProfilePic() {
         return profilePic;
@@ -44,12 +65,6 @@ public class UserModel {
     public void setAbout(String about) {
         this.about = about;
     }
-
-
-
-
-
-
 
 
 
