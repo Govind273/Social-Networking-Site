@@ -137,20 +137,8 @@
     <label><b>Email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
-  <h2>Edit Profile</h2>
-<link rel="stylesheet" href="css/style.css">
-
-
-	<form action="/updateProfile" method="PUT">
-		<label><b>email</b></label> <input type="text" name="emailId"
-			value="${user.emailId}" required readonly> <label><b>First
-				Name</b></label> <input type="text" name="firstName" value="${user.firstName}"
-			required> <label><b>last Name</b></label> <input type="text"
-			name="lastName" value="${user.lastName}" required> <label><b>Password</b></label>
-		<input type="password" name="password" value="${user.password}"
-			required> <label><b>About</b></label> <input type="text"
-			name="about" value="${user.about}" required>
-
+<label><b>First Name</b></label>
+<input type="text"  name="firstName" value="${user.firstName}" required>
 
     <label><b>Last Name</b></label>
     <input type="text"  name="lastName" value="${user.lastName}" required>
@@ -170,10 +158,5 @@
 </div>
 </div>
 </div>
-
-		<button type="submit">Edit</button>
-
-	</form>
-
 </body>
 </html>
