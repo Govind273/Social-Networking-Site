@@ -67,7 +67,6 @@ public class UserModel {
     }
 
 
-
     public Integer getUserId() {
         return userId;
     }

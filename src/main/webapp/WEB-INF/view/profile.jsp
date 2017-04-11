@@ -55,6 +55,11 @@
 
 			</ul>   
 
+			<div class="search" align="right">
+				<form action="/createGroup" >
+  					<button type="submit">CREATE</button>
+				</form>			
+			</div>
 
 
 			<div class="search" align="right">
@@ -63,14 +68,20 @@
   					<button type="submit">Search</button>
 				</form>			
 			</div>
+			
+			
 		</div>
 	</div>
 	<div id="nav">
 
+<!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
+		
+			</div>
+		</div>
 
 	<div id="section">
 		<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top:230px;" align="middle">
-				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+				<a font size="10" color="FFFFFF">${user.firstName} ${user.emailId} ${user.userId }</font>
 		</div>
 		<div class="CLubmembership" align="middle">
 			${user.about} 

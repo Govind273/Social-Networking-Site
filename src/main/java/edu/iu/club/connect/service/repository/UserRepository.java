@@ -41,6 +41,7 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about, b.profilePic = :profilePic  where b.emailId = :emailId")
     void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("password") String password,@Param("about") String about,@Param("profilePic") String profilePic,@Param("emailId") String emailId);
 
+
 	@Query("select b from UserModel b where b.emailId = :emailId")
     List<UserModel> checkEmail(@Param("emailId")String emailId);
 
@@ -54,4 +55,9 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 	
 	
 	
+
+    
+    @Query("Select password from UserModel b where b.emailId = :emailId" )
+    String findByUserEmailId(@Param("emailId") String emailId);
+
 }

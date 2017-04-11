@@ -60,6 +60,7 @@ public class UserServiceImplementation implements UserService{
     }
 
 	@Override
+
 	public String recoverPassword(UserModel userModel) {
 		
 		String response = null;
@@ -93,8 +94,21 @@ public class UserServiceImplementation implements UserService{
 		userRepository.updatePassword(emailId , password);
 		
 		
-			return true;
+			return true;}
 		
+
+	public String getPassword(UserModel userModel) {
+		System.out.println("in forget password");
+		String password = null;
+		
+		try {
+			password = userRepository.findByUserEmailId(userModel.getEmailId());
+			
+		} catch ( Exception e){
+			
+		}
+		return password;
+
 	}
 
 }

@@ -1,6 +1,7 @@
 package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.UserModel;
+import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +31,9 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 
+	@Autowired EmailHandler emailHandler;
+
+
 	@Value("${resource.indexed.folder.name}")
 	private String pictureDirectoryPath;
 
@@ -40,6 +44,23 @@ public class LoginController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/sendMail" , method = RequestMethod.POST)
+	public String forgetpassWord_Email( UserModel userModel) throws Exception {
+		System.out.println("in forget password");
+		System.out.println(
+				"rec: " + userModel.getEmailId() );
+
+		String oldPassword = userService.getPassword(userModel);
+		System.out.println("LoginContro" + oldPassword);
+		@SuppressWarnings("static-access")
+		String sent = emailHandler.sendEmail(userModel.getEmailId(), oldPassword);
+		System.out.println("sendEmail Checker" + sent);
+		if (sent=="false") {
+			return "invalidEntery";
+		} 
+		return "actionSuccess";
+		
+	}
 	/*
 	 * This method checks the Login credentials provided by the user and directs him to his profile if
 	 * credentials matches.
@@ -91,12 +112,32 @@ public class LoginController {
 	 * This method handles the updation of user's profile.
 	 * The Model Map attribute "put" updates the session attribute and changes can be seen as soon as user hits "edit" button.
 	 * */
-	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
-	public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){
+
+
+	@RequestMapping(value="/updateProfile",method = RequestMethod.PUT)
+	public  String editProfile(UserModel userModel, ModelMap modelMap){
+
+		//try {
+		//	UUID randonPicUuid = UUID.randomUUID();
+		//
+		//	String filename = randonPicUuid.toString();
+		//	String filepath = Paths.get(pictureDirectoryPath, filename).toString() + ".jpg";
+		//
+		//	// Save the file locally
+		//	BufferedOutputStream stream =
+		//			new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+		//	stream.write(uploadFile.getBytes());
+		//	stream.close();
+		//
+		//	userModel.setProfilePic(
+		//            pictureDirectoryPath+"\\" + randonPicUuid.toString() + ".jpg");
+
+
 
 		userService.updateOne(userModel);
 		UserModel returnedUserModel = userService.findOne(userModel);
 		modelMap.put("user", returnedUserModel);
+
 		return "profile";
 	}
 
@@ -141,9 +182,8 @@ public class LoginController {
 		System.out.println("password reset done");
 	return "redirect:/";
 
-
-		//else return "redirect:/newPassword?emailId"+emailId;
 	}
+
 
 	/*
 	 * This method is responsible for enabling user to logout from his account by ending his session.
@@ -159,6 +199,7 @@ public class LoginController {
 		System.out.println("Logout controller called.");
 		return "login";
 	}
+
 //=======
 /*Commented by vishy on 04/09/2017 to make sure that the edit functionality works	
     public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){*/
@@ -204,6 +245,7 @@ public class LoginController {
 //        return "login";
 //    }
 //>>>>>>> c828ed103aeb43aea85feba33c556827304e8d58
+
 }
 
 
