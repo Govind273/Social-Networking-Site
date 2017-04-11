@@ -99,7 +99,7 @@
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group" align="center" valign="middle">  
 								 <label><b>Re-enter Password</b></label>
-        <input id="input2" type="password" placeholder="Re-enter Password" name="Re-enter password" required>
+        <input id="input2" type="password" placeholder="Re-enter Password"   name="Re-enter password" required>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
@@ -109,7 +109,7 @@
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4 col-md-offset-2">
-							<button type="submit" class="btn btn-default btn-block"  onclick="check()">Sign Up</button>
+							<button type="submit" class="btn btn-default btn-block" onclick="check()"  >Sign Up</button>
 						</div>
 					</form>
 				</div>
@@ -139,7 +139,7 @@ alert("Password does not match")
 input1.value = "";
 input2.value = "";
 }
-else document.forms[0].submit();
+else return true;      <!--document.forms[0].submit();-->
 }
 }
 </script>

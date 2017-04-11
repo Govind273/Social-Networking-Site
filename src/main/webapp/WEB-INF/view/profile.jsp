@@ -28,7 +28,7 @@
 			
 <!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
 			-->
-			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;">
+			<a id="home" class="homebutton"  type="submit" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;" onclick="javascript:window.location.href ='profile.jsp';">
 				<img src="images/home.jpg">
 			</a>
 			<ul id="menu" width="70%" align="right">
