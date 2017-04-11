@@ -73,27 +73,10 @@
 			</div>
 
 		</form>
-		
+
 		<a href="/forgetPassword">Forget Password?</a>
-		
+
 	</div>
-
-	<form action="/login" method="get">
- 	<div style="float:right; width:50%; height:50px;" align="right">
-    <input type="text" placeholder=" Email ID" name="emailId" required>
-
-    <input type="password" placeholder="Password" name="password" required>
-
-    <button type="submit">Login</button>
-    <input type="checkbox" checked="checked"><font color = " #ffffff"> Remember me </font>
-  	</div>
-
-	</form>
-	
-	<form action ="/forgetPassword">
-	<button type = " submit "> Forget Password</button>
-	</form>
-</div>
 
 	<div id="page">
 
