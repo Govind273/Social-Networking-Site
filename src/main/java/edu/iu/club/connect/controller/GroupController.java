@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes ({"admin_id" , "group" , "groupSearched"})
+
 public class GroupController {
 
 
@@ -61,7 +62,28 @@ public class GroupController {
 //		else return "groupsProfile";
 //	}
 
-	
+
+	@RequestMapping(value = "/requestGroup/{userId}/{groupId}", method = RequestMethod.POST)
+	public String sendFriendRequest(@PathVariable("userId") int userId, @PathVariable("groupId") int groupId){
+		
+		System.out.println(userId + groupId);
+		
+		GroupModel adminId = groupService.getAdminId(groupId);
+		
+	    
+		
+		return "groupsProfile";
+		
+	}
+
+
+	//    @RequestMapping(value = "/groupsData")
+	//    public  ArrayList<GroupModel> allGroups(){
+	//       ArrayList<GroupModel> groupModel= groupService.findOne();
+	//        //modelMap.addAttribute("group",groupModel);
+	//       return groupModel;
+	//    }
+
 
 
 }

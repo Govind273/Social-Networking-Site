@@ -41,6 +41,7 @@
 
 			<div class="search" align="right">
 				<form action="/searchGroup" method="post">
+  					----${group.groupId}----
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			
@@ -77,6 +78,7 @@
                 <!--  <a >${searchGroup.groupId }</a>-->
 
 		</div>
+<<<<<<< Updated upstream
 
 
 	
@@ -89,6 +91,15 @@
     <!-- <form action="/createPost/"  method="POST" class="form-inline" align="left">-->
                 	
 
+=======
+	</div>
+	
+	<form action="/requestgroup/${user.userId }/${group.groupId}" method = "POST">
+	<button type = "submit">Join</button>
+	
+	</form>
+	 <form action="/createPost/${group.group_id}"  method="POST" class="form-inline" align="left">
+>>>>>>> Stashed changes
                 	<div class="posts_div" align="center" valign="middle">
                         <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
                         <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>
@@ -99,6 +110,7 @@
 
                 <a href=â#â th:each=âp:${latestposts}â th:text=â${p.title}â th:href=â@{/posts/view/{id}/(id=${p.id})}â>
 </a>
+<<<<<<< Updated upstream
 
 	</div>
 	<div class="userpost" align="middle" width="841px">
@@ -116,38 +128,16 @@
 	$('.nav-ul li').mouseleave(function(even){
 			thisTime	=	setTimeout(thisMouseOut,1000);
 	})
+=======
+>>>>>>> Stashed changes
 
-	$('.nav-ul li').mouseenter(function(){
-		clearTimeout(thisTime);
-		var thisUB	=	$('.nav-ul li').index($(this));
-		if($.trim($('.nav-slide-o').eq(thisUB).html()) != "")
-		{
-			$('.nav-slide').addClass('hover');
-			$('.nav-slide-o').hide();
-			$('.nav-slide-o').eq(thisUB).show();
-		}
-		else{
-			$('.nav-slide').removeClass('hover');
-		}
-		
-	})
-	
-	function thisMouseOut(){
-		$('.nav-slide').removeClass('hover');
-	}
-	 
-	$('.nav-slide').mouseenter(function(){
-		clearTimeout(thisTime);
-		$('.nav-slide').addClass('hover');
-	})
-	$('.nav-slide').mouseleave(function(){
-		$('.nav-slide').removeClass('hover');
-	})
-
-})
-</script>  
    
--->
+
 </div>
+<<<<<<< Updated upstream
+=======
+
+<!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
+>>>>>>> Stashed changes
 <link rel="stylesheet" href="css/style.css">
 
