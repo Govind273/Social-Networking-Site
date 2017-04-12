@@ -22,6 +22,9 @@
 			<img src="images/iu4.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
+<<<<<<< HEAD
+			<ul id="menu">
+=======
 <!--			<div >
 			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
 			</div>  -->
@@ -46,6 +49,7 @@
 			
 			</form>
 			</li>
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
@@ -55,15 +59,27 @@
 
 			</ul>   
 
+<<<<<<< HEAD
+			<div id="userPic">
+				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
+			</div>
+			<div class="tile_div" id="username" style="position:absolute; left:320px; top:350px;" style="position:absolute; left:80px; top:230px;">
+				<a font size="6" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+=======
 			<div class="search" align="right">
 				<form action="/createGroup" >
   					<button type="submit">CREATE</button>
 				</form>			
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 			</div>
 
 
 			<div class="search" align="right">
+<<<<<<< HEAD
+				<form action="/searchGroup" method="post">
+=======
 				<form action="/search" method="get">
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			
@@ -137,6 +153,32 @@
    
 
 </div>
+<<<<<<< HEAD
+<!--
+<div id ="navfirst">
+	<ul id="menu">
+		<li id="h">
+			<a href="#" title="Home">Home</a>
+				<ul>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>   
+		</li>
+		<li id="ch">
+			<a href="#" title="chat">Chat</a>
+		</li>
+		<li id="cl">
+			<a href="#" title="Clubs">Clubs</a>
+		</li>
+	</ul>
+	<div class="search" align="right">
+		<input type="text" class="search_key" value="" />
+        <input type="submit" class="submit" value="Search">
+	</div>
+</div> -->
+=======
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
 <link rel="stylesheet" href="/css/style.css">
 </body>

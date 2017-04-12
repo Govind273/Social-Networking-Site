@@ -65,6 +65,8 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+  font－size:16px;
+  color:#000;
 }
 
 dfn {
@@ -1361,7 +1363,7 @@ pre code {
   }
 
   .col-md-4 {
-    width: 33.33333%;
+    width: 66%;
   }
 
   .col-md-5 {
@@ -1509,7 +1511,7 @@ pre code {
   }
 
   .col-md-offset-2 {
-    margin-left: 16.66667%;
+    margin-left: 12.66667%;
   }
 
   .col-md-offset-3 {
