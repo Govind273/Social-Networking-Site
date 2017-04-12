@@ -91,8 +91,13 @@ public class LoginController {
 	 * */
 	@RequestMapping(value="/signup" , method= RequestMethod.POST)
 	public  String signup(UserModel userModel){
-		userService.saveOne(userModel);
-		return "profile";
+		UserModel returnedUserModel = userService.findOne(userModel);
+		if(returnedUserModel==null){
+			userService.saveOne(userModel);
+			return "profile";
+		}
+		else
+			return "signup";
 	}
 
 
