@@ -1,6 +1,11 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.List"%>
 
-<!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="utf-8">
@@ -66,19 +71,18 @@
         }
     }
 </style>
-
-<body>
+<body >
 <div id="header1" style="height:72px;">
 		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="/images/2.png" width="65" height="56" >
 		</div>
 		<div align="right" style="padding:20px">
 			<li id="logout">
-			<a href="/logout" title="Logout"><font color = " #ffffff">Logout</font></a>
+			<a href="/logout" title="Logout">Logout</a>
 		</li>
 		</div>
 </div>
-	<div class="gtco-container">
+<div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
 			<img src="/images/iu4.jpeg" height="280px" >
@@ -113,34 +117,33 @@
 	</div>
 	<div id="nav">
 <div id="section" width="550%">
-
 <div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top: 230px;" align="middle">
-		<label><h4> <b>Group Information</b></h4></label>
+		<label><h4> <b>FRIEND REQUESTS</b></h4></label>
 		</div>
+<div class="CLubmembership" align="left">
+<c:forEach items="${friendRequests}" var="post">
+		<div id="left" class="row col-lg-12">
 
-	<div class="CLubmembership" align="left">
-	
-	<form action="/groupInformation/${user.userId }" method="POST">
-		<div class="container">
-			<label><b>Group Name*: </b></label> <input type="text"
-				placeholder="Group Name" name="groupName" required>
-				 <label><b>GROUP DESCRIPTION*: </b></label>
-			<input type="text" width="22%" placeholder="About" name="about" required>
-
-			<div class="clearfix">
-				<button type="submit" class="signupbtn">Create</button>
-				
-<button class="button"><a href="/profile" ><font color = " #ffffff"> Cancel </font></a> </button>
+			<div class="form-group col-lg-6">
+				<label for="PostBy" style="margin-top: 15%; font-size: 20px">Requested
+					By ${post.userId}</label>
 			</div>
-	
+			
+			<div class="form-group col-lg-6">
+				<label for="PostBy" style="margin-top: 15%; font-size: 20px">Requested
+					To ${post.groupName}</label>
+			</div>
+			<form action = "/acceptRequest/${user.userId }/${post.groupId }/${post.requestId }" method="post">
+			<button type="submit"> Accept </button>
+			</form>
+			
+			<form action = "/groupPage/${post.groupId }" method="get">
+			<button type="submit"> see group </button>
+			</form>
 		</div>
-	
-	</form>
 
-</div>
-</div>
-
-
+	</c:forEach>
+	</div>
+	</div>
+	</div>
 </body>
-</html>
-

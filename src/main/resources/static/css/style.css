@@ -45,6 +45,9 @@ body {
     margin:0;
     padding:0;
 }
+#contain {
+    padding-top: 200px;
+}
 .coverPic{
     display: block;
     position: relative;
@@ -83,7 +86,7 @@ div#navfirst{
 
 }
 div#navfirst ul#menu{
-    margin: 0 0 0 300px; 
+    margin: 0 0 0 100px; 
     padding: 0px; 
     font-size: 12px; 
     color: #FFF; 
@@ -93,6 +96,10 @@ div#navfirst ul#menu{
 }
 div#navfirst ul#menu li{
     float:left;/*让li元素左浮动*/
+}
+div#navfirst div#homepage a{
+  width:28px;
+  height:28px;
 }
 div#navfirst ul#menu li a{
   width:150px;/*设置元素宽为80px*/
@@ -106,26 +113,58 @@ div#navfirst ul#menu li a{
   text-align:center;/*让文本居中*/
   text-decoration:none; /*去掉下划线*/
 }
-#CLubmembership{
-  height:500px;
-}
+
 #nav {
   line-height:100px;
   background-color:#eeeeee;
   
   width:294px;
   float:left;
-       
+  height:1000px;     
 }
 #section {
-  width:667px;
+  width:547px;
   float:left;
   background-color:#eeeeee;
-  padding:10px;    
+  padding:270px 70px 70px 70px;    
+  height:660px;
 }
-#CLubmembership {
-  padding-top:200px;
-
+#section1 {
+  width:700px;
+  float:left;
+  background-color:#eeeeee;
+  padding:130px 70px 70px 70px;  
+}
+#section2 {
+  width:547px;
+  float:left;
+  background-color:#000000;
+  padding:270px 70px 70px 70px;    
+}
+#section3 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;    
+}
+#section8 {
+  width:841px;
+  float:left;
+  background-color:#eeeeee;
+  padding:270px 70px 70px 70px;    
+}
+div#section div#CLubmembership {
+  width:100%;
+  padding:70px 70px 70px 70px;
+  
+}
+div#section8 div#CLubmembership {
+  width:841px;
+  
+}
+div#section div#userpost {
+	padding:100px 70px 70px 70px;
+	background-color:#000000;
 }
 #username {
   font-size: 13px;
@@ -157,7 +196,18 @@ div#navfirst ul#menu li a{
   background: rgba(0, 0, 0, 0.7);
   content: "";
 }
-
+a1 {
+  color: #000000;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  font-size:23px;
+}
+a1:hover, a:active, a:focus {
+  color: #52d3aa;
+  outline: none;
+  text-decoration: none;
+}
 a {
   color: #52d3aa;
   -webkit-transition: 0.5s;
@@ -204,6 +254,20 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .gtco-container {
   max-width: 981px;
+  position: relative;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gtco-container1 {
+  max-width: 981px;
+  position: relative;
+  margin: 100px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gtco-container2 {
+  max-width: 100%;
   position: relative;
   margin: 0 auto;
   padding-left: 15px;

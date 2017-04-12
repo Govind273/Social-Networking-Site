@@ -22,7 +22,34 @@
 			<img src="images/iu4.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
+<<<<<<< HEAD
 			<ul id="menu">
+=======
+<!--			<div >
+			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
+			</div>  -->
+			
+<!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
+			-->
+			<a id="home" class="homebutton"  type="submit" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;" onclick="javascript:window.location.href ='profile.jsp';">
+				<img src="images/home.jpg">
+			</a>
+			<ul id="menu" width="70%" align="right">
+			
+			<li>
+			<form action = "/seeAllRequest/${user.userId }" method = "GET">
+			<button type = "submit">Friend Requests</button>
+			
+			</form>
+			</li>
+			
+			<li>
+			<form action = "/createGroup/" method = "GET">
+			<button type = "submit">Create</button>
+			
+			</form>
+			</li>
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
@@ -32,92 +59,56 @@
 
 			</ul>   
 
+<<<<<<< HEAD
 			<div id="userPic">
 				<img src=${user.profilePic} width="170" height="120" style="position:absolute; left:80px; top:230px; border:#000 solid 1px;">
 			</div>
 			<div class="tile_div" id="username" style="position:absolute; left:320px; top:350px;" style="position:absolute; left:80px; top:230px;">
 				<a font size="6" color="FFFFFF">${user.firstName} ${user.emailId}</font>
+=======
+			<div class="search" align="right">
+				<form action="/createGroup" >
+  					<button type="submit">CREATE</button>
+				</form>			
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 			</div>
 
+
 			<div class="search" align="right">
+<<<<<<< HEAD
 				<form action="/searchGroup" method="post">
+=======
+				<form action="/search" method="get">
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			
 			</div>
+			
+			
 		</div>
 	</div>
 	<div id="nav">
-<!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
-		<div class="nav-main">
-			<div class="nav-box">
-				<div class="nav">
-  					<ul class="nav-ul">
-  						<li><a><span>Club Membership</span></a></li>
-  						<li><a href="#" class="develop"><span>Data Science Club</span></a></li>
-  						<li><a href="#" class="wechat"><span>The Karun Fan Club</span></a></li>
-  						<li><a href="#" class="case"><span>I love Junjie Club</span></a></li>
-  						<li><a href="#" class="news"><span>Awesome People Club</span></a></li>
-  						<li><a href="#" class="contact"><span>View All Club</span></a></li>
-  					</ul>
-				</div>
-				<div class="nav-slide">
-    				<div class="nav-slide-o"></div>
-    					<div class="nav-slide-o">
-    						<ul>
-    							<li><a href="#"><span>Tim</span></a></li>
-    							<li><a href="#"><span>Karun</span></a></li>
-    							<li><a href="#"><span>Vishi</span></a></li>
-    							<li><a href="#"><span>Junjie</span></a></li>
-    							<li><a href="#"><span>Nick</span></a></li>
-    						</ul>
-    					</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Tom</span></a></li>
-    							<li><a href="#"><span>Jason</span></a></li>
-    							<li><a href="#"><span>Vincent</span></a></li>
-    							<li><a href="#"><span>Jackie</span></a></li>
-    							<li><a href="#"><span>Martina</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						    <li><a href="#"><span>Vicky</span></a></li>
-    							<li><a href="#"><span>Kevin</span></a></li>
-    							<li><a href="#"><span>Vector</span></a></li>
-    							<li><a href="#"><span>Jarvan</span></a></li>
-    							<li><a href="#"><span>Neon</span></a></li>
-    					</ul>
-    				</div>
-    				<div class="nav-slide-o">
-    					<ul>
-    						<li><a href="#"><span>Rekton</span></a></li>
-    						<li><a href="#"><span>Rengar</span></a></li>
-    						<li><a href="#"><span>Jax</span></a></li>
-    						<li><a href="#"><span>Lucian</span></a></li>
-    						<li><a href="#"><span>Morgana</span></a></li>
-    						<li><a href="#"><span>Rumble</span></a></li>
-    						<li><a href="#"><span>Graves</span></a></li>
-    						<li><a href="#"><span>Gragas</span></a></li>
-    						<li><a href="#"><span>Nocturne</span></a></li>
-    					</ul>
-    				</div>
-				</div>
-			</div>
+		<div >
+			<img src="images/2.png" width="170" height="120" style="position:absolute; left:80px; top:480px;">
 		</div>
-	</div>  
+		<div style="position:relative; left:80px; top:250px;">
+			<a1>Karun</a1>
+		</div>
+	</div>
 
 
+	<div id="section" align="right">
+		<div class="tile_div" id="username" style="position:absolute;  top:555px; left:330px;"  align="middle">
+				<a1 font size="10" color="FFFFFF">${user.firstName} ${user.lastName} </a1>
 
-	<div id="section">
-		<div class="CLubmembership" align="middle" height＝"200px"><p2>Club Menbership</p2>
-			<p>User Profile Page.
-Club Membership list of clubs user belongs to. Star denotes whether user is admin to club. Each club is a link to the member page of the club. The "view all clubs" button goes to the search results page that is filtered by clubs
-</p>
-			<p>Club Profile Page
-The Club Profile Page will be nearly identical except 1) it lists club members instead of clubs that user is a member of. 2) the star denotes the admins, 3) “View all Clubs” is “View all Members” and goes to search results page that is filtered by users who belong to club, and 4) edit profile in the header is grayed out / does not appear unless user is the admin</p>
-
+<!--		<div class="CLubmembership" align="middle" height＝"400px"><p2>Club Menbership</p2></div>     -->
+		
+			</div>
+		
+		</div>
+		<div class="CLubmembership" style="margin:-110px 0px 0px -50px; float:left;">
+			${user.about} 
 
 		</div>
 	</div>
@@ -162,6 +153,7 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
    
 
 </div>
+<<<<<<< HEAD
 <!--
 <div id ="navfirst">
 	<ul id="menu">
@@ -185,6 +177,8 @@ The Club Profile Page will be nearly identical except 1) it lists club members i
         <input type="submit" class="submit" value="Search">
 	</div>
 </div> -->
+=======
+>>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
 <link rel="stylesheet" href="css/style.css">
 </body>

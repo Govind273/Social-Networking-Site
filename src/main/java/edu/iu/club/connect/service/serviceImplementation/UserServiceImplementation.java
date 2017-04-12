@@ -3,6 +3,9 @@ package edu.iu.club.connect.service.serviceImplementation;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.repository.UserRepository;
 import edu.iu.club.connect.service.serviceInterface.UserService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,5 +58,57 @@ public class UserServiceImplementation implements UserService{
         return  true;
 
     }
+
+	@Override
+
+	public String recoverPassword(UserModel userModel) {
+		
+		String response = null;
+		
+		List<UserModel> checkEmail = userRepository.checkEmail(userModel.getEmailId());
+		if(checkEmail != null && !checkEmail.isEmpty()) {
+			
+			List<UserModel> answers = userRepository.checkAnswers(userModel.getEmailId() , userModel.getQuestion1() , userModel.getQuestion2());
+			if(answers !=null && !answers.isEmpty()){
+				
+				response = "true";
+			}
+			else{
+				
+				response = "false";
+			}
+
+		}
+		else{
+			
+			response = "email does not exist";
+		}
+		
+		return response;
+		
+	}
+
+	@Override
+	public boolean changePassword(String emailId, String password) {
+		
+		userRepository.updatePassword(emailId , password);
+		
+		
+			return true;}
+		
+
+	public String getPassword(UserModel userModel) {
+		System.out.println("in forget password");
+		String password = null;
+		
+		try {
+			password = userRepository.findByUserEmailId(userModel.getEmailId());
+			
+		} catch ( Exception e){
+			
+		}
+		return password;
+
+	}
 
 }

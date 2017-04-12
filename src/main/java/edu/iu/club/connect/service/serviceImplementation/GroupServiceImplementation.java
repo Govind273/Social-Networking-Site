@@ -19,6 +19,7 @@ public class GroupServiceImplementation implements GroupService {
     GroupRepository groupRepository;
     @Override
     public boolean saveOne(GroupModel groupModel) {
+    	System.out.println(groupModel.getAdmin_id());
         groupRepository.save(groupModel);
         return true;
 
@@ -29,9 +30,33 @@ public class GroupServiceImplementation implements GroupService {
         return groupRepository.findAll();
 
     }
-    
+
     @Override
-	public GroupModel searchOne(GroupModel groupModel) {
+	public GroupModel getAdminId(int groupId) {
+		
+		GroupModel adminId = groupRepository.getAdminById(groupId);
+		
+		return adminId;
+		
+	}
+
+	@Override
+	public GroupModel findGroup(int groupId) {
+		
+		GroupModel group = groupRepository.findGroupById(groupId);
+		return group;
+	}
+    
+
+//    @Override
+//	public GroupModel searchOne(GroupModel groupModel) {
+//		return groupRepository.findGroupByName(groupModel.getGroupName());
+//	}
+
+    @Override
+	public ArrayList<Object> searchOne(GroupModel groupModel) {
 		return groupRepository.findGroupByName(groupModel.getGroupName());
 	}
+
+
 }

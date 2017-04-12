@@ -2,6 +2,7 @@ package edu.iu.club.connect.service.repository;
 
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.UserModel;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,6 +20,17 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
     @Query("select b from GroupModel b")
     ArrayList<GroupModel> findAll();
     
-    @Query("select b from GroupModel b where b.groupName = :groupName")
-	GroupModel findGroupByName(@Param("groupName") String groupName);
+    //returns array list of group names that match the user's search query
+    @Query("select b from GroupModel b where LOWER(b.groupName) LIKE LOWER(CONCAT('%',:groupName, '%'))")
+	ArrayList<Object> findGroupByName(@Param("groupName") String groupName);
+
+    
+    @Query("select b from GroupModel b where b.groupId = :groupId")
+    GroupModel getAdminById(@Param("groupId") int groupId);
+    
+    @Query("select groupName from GroupModel b where b.groupId = :groupId")
+    String getGroupNameById(@Param("groupId") int groupId);
+
+	@Query("select b from GroupModel b where b.groupId = :groupId")
+    GroupModel findGroupById(@Param("groupId") int groupId);
 }

@@ -20,12 +20,33 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usersSequence")
     @SequenceGenerator(name ="usersSequence",sequenceName = "users_user_id_seq",allocationSize = 1)
     private @Column(name = "user_id")  Integer userId;
-    private @Column(name = "first_name") String firstName;
-    private @Column(name = "last_name") String lastName;
+    private @Column(name = "first_name") String firstName; //used in search feature
+    private @Column(name = "last_name") String lastName;   //used in search feature
     private @Column(name = "password") String password;
     private @Column(name = "email_id") String emailId;
     private @Column(name = "about") String about;
     private @Column(name = "profile_pic") String profilePic;
+    private @Column(name = "question1") String question1;
+    private @Column (name = "question2") String question2;
+    
+    
+    public String getQuestion1() {
+		return question1;
+	}
+
+	public void setQuestion1(String question1) {
+		this.question1 = question1;
+	}
+
+	public String getQuestion2() {
+		return question2;
+	}
+
+	public void setQuestion2(String question2) {
+		this.question2 = question2;
+	}
+
+	
 
     public String getProfilePic() {
         return profilePic;
@@ -44,13 +65,6 @@ public class UserModel {
     public void setAbout(String about) {
         this.about = about;
     }
-
-
-
-
-
-
-
 
 
     public Integer getUserId() {
