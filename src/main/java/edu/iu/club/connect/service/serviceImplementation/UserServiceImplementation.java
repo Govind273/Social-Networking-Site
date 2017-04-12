@@ -111,4 +111,12 @@ public class UserServiceImplementation implements UserService{
 
 	}
 
+	@Override
+	public boolean storeProfilePic(Integer userId, String bucket) {
+		// TODO Auto-generated method stub
+		
+		userRepository.updateProfilePic(bucket, userId);
+		return false;
+	}
+
 }

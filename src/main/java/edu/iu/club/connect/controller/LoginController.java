@@ -1,8 +1,14 @@
 package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.UserModel;
+import edu.iu.club.connect.service.AmazonAWSS3Operation;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.UserService;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -11,12 +17,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.nio.file.Paths;
-import java.util.UUID;
 
 /*
  * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
@@ -33,7 +33,9 @@ public class LoginController {
 
 	@Autowired EmailHandler emailHandler;
 
-
+	@Autowired 
+	private AmazonAWSS3Operation amazonS3OperationService;
+	
 	@Value("${resource.indexed.folder.name}")
 	private String pictureDirectoryPath;
 
@@ -97,7 +99,11 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
-	public  String backToProfile(){
+	public  String backToProfile(ModelMap modelMap){
+		
+		UserModel userModel = (UserModel) modelMap.get("user");
+		UserModel returnedUserModel = userService.findOne(userModel);
+		modelMap.put("user",returnedUserModel);
 		return "profile";
 	}
 
@@ -116,22 +122,6 @@ public class LoginController {
 
 	@RequestMapping(value="/updateProfile",method = RequestMethod.PUT)
 	public  String editProfile(UserModel userModel, ModelMap modelMap){
-
-		//try {
-		//	UUID randonPicUuid = UUID.randomUUID();
-		//
-		//	String filename = randonPicUuid.toString();
-		//	String filepath = Paths.get(pictureDirectoryPath, filename).toString() + ".jpg";
-		//
-		//	// Save the file locally
-		//	BufferedOutputStream stream =
-		//			new BufferedOutputStream(new FileOutputStream(new File(filepath)));
-		//	stream.write(uploadFile.getBytes());
-		//	stream.close();
-		//
-		//	userModel.setProfilePic(
-		//            pictureDirectoryPath+"\\" + randonPicUuid.toString() + ".jpg");
-
 
 
 		userService.updateOne(userModel);
@@ -183,6 +173,16 @@ public class LoginController {
 	return "redirect:/";
 
 	}
+	
+	@RequestMapping(value="/uploadProfilePhoto/{userId:.+}" , method=RequestMethod.POST)
+	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
+		
+		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
+		System.out.println("path to be used -- "+storedPathOnAmazon);
+		
+		userService.storeProfilePic(userId, storedPathOnAmazon);
+		return "redirect:/profile";
+	}
 
 
 	/*
@@ -200,51 +200,7 @@ public class LoginController {
 		return "login";
 	}
 
-//=======
-/*Commented by vishy on 04/09/2017 to make sure that the edit functionality works	
-    public  String editProfile(UserModel userModel, @RequestParam("file") MultipartFile uploadFile, ModelMap modelMap){*/
- //   public  String editProfile(UserModel userModel,  ModelMap modelMap){
 
-//try {
-//	UUID randonPicUuid = UUID.randomUUID();
-//
-//	String filename = randonPicUuid.toString();
-//	String filepath = Paths.get(pictureDirectoryPath, filename).toString() + ".jpg";
-//
-//	// Save the file locally
-//	BufferedOutputStream stream =
-//			new BufferedOutputStream(new FileOutputStream(new File(filepath)));
-//	stream.write(uploadFile.getBytes());
-//	stream.close();
-//
-//	userModel.setProfilePic(
-//            pictureDirectoryPath+"\\" + randonPicUuid.toString() + ".jpg");
-
-
-//	userService.updateOne(userModel);
-//	UserModel returnedUserModel = userService.findOne(userModel);
-//	modelMap.put("user", returnedUserModel);
-//}catch (Exception e) {
-//	System.out.println(e.getMessage());
-//}
- //       return "profile";
- //   }
-
-    /*
-    * This method is responsible for enabling user to logout from his account by ending his session.
-    * */
-  //  @RequestMapping(value = "/logout")
-//    public String logout(HttpSession session, Model model) {
-//        session.removeAttribute("user");
-//        session.invalidate();
-//        if (model.containsAttribute("counter"))
-//            model.asMap().remove("counter");
-//        model.asMap().clear();
-//
-//        System.out.println("Logout controller called.");
-//        return "login";
-//    }
-//>>>>>>> c828ed103aeb43aea85feba33c556827304e8d58
 
 }
 

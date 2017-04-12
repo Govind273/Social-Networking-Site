@@ -150,6 +150,8 @@
 		<input type="password" name="password" value="${user.password}"
 			required> <label><b>About</b></label> <input type="text"
 			name="about" value="${user.about}" required>
+			
+			
 
 
     <label><b>Last Name</b></label>
