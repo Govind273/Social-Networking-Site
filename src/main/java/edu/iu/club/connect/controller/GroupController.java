@@ -63,19 +63,6 @@ public class GroupController {
 //	}
 
 
-//	@RequestMapping(value = "/requestGroup/{userId}/{groupId}", method = RequestMethod.POST)
-//	public String sendFriendRequest(@PathVariable("userId") int userId, @PathVariable("groupId") int groupId){
-//		
-//		System.out.println(userId + groupId);
-//		
-//		GroupModel adminId = groupService.getAdminId(groupId);
-//		
-//	    
-//		
-//		return "groupsProfile";
-//		
-//	}
-
 
 	//    @RequestMapping(value = "/groupsData")
 	//    public  ArrayList<GroupModel> allGroups(){

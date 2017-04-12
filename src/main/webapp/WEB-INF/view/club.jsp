@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 </head>
 <div id="header1" style="height:72px;">
@@ -28,8 +28,8 @@
 			
 <!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
 			-->
-			<a id="home" class="homebutton" href="profile.jsp" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="images/home.jpg">
+			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+				<img src="/images/home.jpg">
 			</a>
 			<ul id="menu" width="70%" align="right">
 				<li id="editProfile">
@@ -47,7 +47,7 @@
 
 
 			<div class="search" align="right">
-				<form action="/searchGroup" method="post">
+				<form action="/search" method="post">
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button type="submit">Search</button>
 				</form>			
@@ -76,6 +76,6 @@
 </div>
 
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </body>
 </html>
