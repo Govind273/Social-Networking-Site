@@ -100,12 +100,14 @@
 							<input type="text" placeholder="Enter Email" name="emailId"
 								required>
 						</div>
-					</div>
+
+
 					<div class="col-md-4 col-sm-4">
 						<div class="form-group" align="center" valign="middle">
 							<label><b>Re-enter Password</b></label> <input id="input2"
 								type="password" placeholder="Re-enter Password"
 								name="Re-enter password" required>
+
 						</div>
 					</div>
 
@@ -115,13 +117,14 @@
 							<label><b>Question 1:What is your mother's first name ?</b></label> <input
 								type="text" placeholder="Answer" name="question1" required>
 						</div>
-					</div>
+
 
 					<div class="col-md-4 col-sm-4">
 
 						<div class="form-group" align="center" valign="middle">
 							<label><b>Question 2:Which is your favourite movie ?</b></label> <input
 								type="text" placeholder="Answer" name="question2" required>
+
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -152,19 +155,23 @@
 
 		</div>
 	</footer>
-	
-	<script>
-		function check() {
-			with (document.all) {
-				if (input1.value != input2.value) {
-					alert("Password does not match")
-					input1.value = "";
-					input2.value = "";
-				} else
-					document.forms[0].submit();
-			}
-		}
-	</script>
+
+
+<script>
+function check()
+{ 
+with(document.all){
+if(input1.value!=input2.value)
+{
+alert("Password does not match")
+input1.value = "";
+input2.value = "";
+}
+else return true;      <!--document.forms[0].submit();-->
+}
+}
+</script>
+
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>

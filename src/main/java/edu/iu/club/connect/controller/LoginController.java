@@ -1,22 +1,21 @@
 package edu.iu.club.connect.controller;
 
+
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import javax.servlet.http.HttpSession;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.nio.file.Paths;
-import java.util.UUID;
+import edu.iu.club.connect.model.UserModel;
+import edu.iu.club.connect.service.serviceInterface.UserService;
 
 /*
  * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
@@ -62,24 +61,29 @@ public class LoginController {
 		
 	}
 	/*
-	 * This method checks the Login credentials provided by the user and directs him to his profile if
-	 * credentials matches.
-	 * */
-	@RequestMapping(value="/login",method = RequestMethod.GET)
-	public String login(UserModel userModel, ModelMap modelMap){
-		UserModel returnedUserModel = userService.findOne(userModel);
-		modelMap.addAttribute("user",returnedUserModel);
-		if(returnedUserModel==null){
-			return "redirect:login";
+
+	* This method checks the Login credentials provided by the user and directs him to his profile if
+	* credentials matches.
+	* */
+    @RequestMapping(value="/login")
+    public String login(UserModel userModel, ModelMap modelMap){
+        UserModel returnedUserModel = userService.findOne(userModel);
+		
+        if(returnedUserModel==null){
+        	modelMap.addAttribute("user",returnedUserModel);
+        	return "redirect:login";
 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
-			return "profile";
-		}
-		else
-			return"redirect:login";
+				return "profile";
+			}
+	else
+			return"login";
 
 	}
 
+    /*
+	* This method checks if the username and password are valid.
+	* */
 
 	/*
 	 * This method takes the values given by the user at time of SignUp and saves them into database.
