@@ -137,18 +137,21 @@
     <label><b>Email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
-<label><b>First Name</b></label>
-<input type="text"  name="firstName" value="${user.firstName}" required>
 
-    <label><b>Last Name</b></label>
-    <input type="text"  name="lastName" value="${user.lastName}" required>
+<link rel="stylesheet" href="css/style.css">
 
-    <label><b>Password</b></label>
-    <input type="password"  name="password" value="${user.password}" required>
 
-    <label><b>About</b></label>
-    <input type="text"  name="about" value="${user.about}" required>
-
+	<form action="/updateProfile" method="PUT">
+		<label><b>email</b></label> <input type="text" name="emailId"
+			value="${user.emailId}" required readonly> <label><b>First
+				Name</b></label> <input type="text" name="firstName" value="${user.firstName}"
+			required> <label><b>last Name</b></label> <input type="text"
+			name="lastName" value="${user.lastName}" required> <label><b>Password</b></label>
+		<input type="password" name="password" value="${user.password}"
+			required> <label><b>About</b></label> <input type="text"
+			name="about" value="${user.about}" required>
+			
+		
 
 <button type="submit" class="button" >Edit</button>
 <button class="button"><a href="/profile" ><font color = " #ffffff"> Cancel </font></a> </button>
