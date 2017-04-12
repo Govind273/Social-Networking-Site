@@ -1,22 +1,23 @@
-package edu.iu.club.connect.controller;
 
+package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import edu.iu.club.connect.model.UserModel;
-import edu.iu.club.connect.service.serviceInterface.UserService;
-
+import javax.servlet.http.HttpSession;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
+import java.util.UUID;
 /*
  * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
  * We are using Session attribute to maintains the session of user i.e the program maintains the session

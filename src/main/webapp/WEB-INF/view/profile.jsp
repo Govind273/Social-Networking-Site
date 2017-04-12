@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 </head>
 <div id="header1" style="height:72px;">
@@ -31,8 +31,8 @@
 			
 <!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
 			-->
-			<a id="home" class="homebutton"  type="submit" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;" onclick="javascript:window.location.href ='profile.jsp';">
-				<img src="images/home.jpg">
+			<a id="home" class="homebutton"  type="submit" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px; no-repeat;" onclick="javascript:window.location.href ='/profile';">
+				<img src="/images/home.jpg">
 			</a>
 			<ul id="menu" width="70%" align="right">
 			
@@ -180,6 +180,6 @@
 =======
 >>>>>>> d86731f3d1f33087cc6a2a092a15cf8e444e32ce
 <!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </body>
 </html>
