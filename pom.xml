@@ -91,6 +91,15 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>3.2.0.RELEASE</version>
+		</dependency>
+		
+
 
 
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
@@ -107,6 +116,7 @@
 		    <artifactId>javax.mail-api</artifactId>
 		    <version>1.5.1</version>
 		</dependency>
+
 		
 		
 		<dependency>
@@ -114,7 +124,14 @@
     <artifactId>javax.mail</artifactId>
     <version>1.5.2</version>
 </dependency>
+
 		
+		
+		<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.5.2</version>
+</dependency>
 	</dependencies>
 
 	<build>
