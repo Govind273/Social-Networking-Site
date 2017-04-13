@@ -1,6 +1,8 @@
 package edu.iu.club.connect.service.serviceImplementation;
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.service.repository.GroupMemberRepository;
 import edu.iu.club.connect.service.repository.GroupRepository;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 
@@ -20,10 +22,25 @@ public class GroupServiceImplementation implements GroupService {
 
     @Autowired
     GroupRepository groupRepository;
+    
+    @Autowired
+    private GroupMemberRepository groupMemberRepository;
     @Override
     public boolean saveOne(GroupModel groupModel) {
     	System.out.println(groupModel.getAdminId());
+    	
         groupRepository.save(groupModel);
+        
+        GroupMembersModel model = new GroupMembersModel();
+        model.setGroupId(groupModel.getGroupId());
+        model.setGroupName(groupModel.getGroupName());
+        model.setUserId(groupModel.getAdminId());
+        
+        groupMemberRepository.save(model);
+        
+       
+        
+        
         return true;
 
     }
