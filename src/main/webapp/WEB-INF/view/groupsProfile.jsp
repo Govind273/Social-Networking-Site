@@ -143,8 +143,7 @@
 <br>
 				<label for="PostBy" style="margin-top: 15%; font-size: 20px"><B>
 				</B> ${post.postedDatetime}</label>
-			<br>
-			=====================================
+			
 		
 	</td>
 </tr>
