@@ -41,6 +41,10 @@ public class LoginController {
 	@Autowired EmailHandler emailHandler;
 
 
+//	@Autowired 
+//	private AmazonAWSS3Operation amazonS3OperationService;
+	
+
 
 
 	@RequestMapping(value="/")
@@ -68,18 +72,31 @@ public class LoginController {
 	}
 	/*
 
+<<<<<<< Updated upstream
 	 * This method checks the Login credentials provided by the user and directs him to his profile if
 	 * credentials matches.
 	 * */
+
+	/* This method checks the Login credentials provided by the user and directs him to his profile if
+	* credentials matches.
+	* */
+
 	@RequestMapping(value="/login")
 	public String login(UserModel userModel, ModelMap modelMap){
 		UserModel returnedUserModel = userService.findOne(userModel);
 
 		if(returnedUserModel==null){
-			modelMap.addAttribute("user",returnedUserModel);
+
 			return "redirect:login";
 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
+
+			return "redirect:login";
+		}
+		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
+			System.out.println("qwerty"+returnedUserModel.getFirstName());
+			modelMap.addAttribute("user",returnedUserModel);
+
 			return "profile";
 		}
 		else
@@ -114,9 +131,11 @@ public class LoginController {
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
 
-		UserModel userModel = (UserModel) modelMap.get("user");
-		UserModel returnedUserModel = userService.findOne(userModel);
-		modelMap.put("user",returnedUserModel);
+		
+		//UserModel userModel = (UserModel) modelMap.get("user");
+		//UserModel returnedUserModel = userService.findOne(userModel);
+		//modelMap.put("user",returnedUserModel);
+
 		return "profile";
 	}
 
@@ -187,6 +206,7 @@ public class LoginController {
 
 	}
 
+
 //<<<<<<< Updated upstream
 //=======
 //
@@ -200,6 +220,8 @@ public class LoginController {
 //		return "redirect:/profile";
 //	}
 //>>>>>>> Stashed changes
+
+
 
 
 

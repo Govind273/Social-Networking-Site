@@ -34,7 +34,7 @@ public class JoinRequestController {
 		List<RequestModel> checkRequest = joinRequestService.checkRequest(userId , groupId);
 		if(checkRequest != null && !checkRequest.isEmpty()) {
 			System.out.println("Friend Request already sent");
-			return "redirect:/FriendRequests";
+			return "redirect:/groupPage?groupId"+groupId;
 
 		}
 		
@@ -53,7 +53,7 @@ public class JoinRequestController {
 		}
 		
 
-		return "redirect:/FriendRequests";
+		return "redirect:/groupPage";
 		
 	}
 

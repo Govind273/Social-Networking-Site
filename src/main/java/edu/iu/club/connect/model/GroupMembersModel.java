@@ -14,8 +14,8 @@ public class GroupMembersModel {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "groupMembersSequence")
-    @SequenceGenerator(name ="groupMembersSequence",sequenceName = "group_members_member_list_id_seq",allocationSize = 1)
-	private @Column(name = "member_list_id") Integer friendId;
+    @SequenceGenerator(name ="groupMembersSequence",sequenceName = "group_members_group_list_id_seq",allocationSize = 1)
+	private @Column(name = "group_list_id") Integer friendId;
 	private @Column(name = "group_name") String groupName;
 	private @Column( name = "group_id") Integer groupId;
 	private @Column(name = " user_id") Integer userId;
