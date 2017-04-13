@@ -32,7 +32,7 @@ import java.util.UUID;
  * */
 
 @Controller
-@SessionAttributes ({"user" , "forgetPassword"})
+@SessionAttributes ({"user" , "forgetPassword" , "picture"})
 public class LoginController {
 
 	@Autowired
@@ -40,11 +40,7 @@ public class LoginController {
 
 	@Autowired EmailHandler emailHandler;
 
-	@Autowired 
-	private AmazonAWSS3Operation amazonS3OperationService;
-	
-	@Value("${resource.indexed.folder.name}")
-	private String pictureDirectoryPath;
+
 
 
 	@RequestMapping(value="/")
@@ -68,32 +64,32 @@ public class LoginController {
 			return "invalidEntery";
 		} 
 		return "actionSuccess";
-		
+
 	}
 	/*
 
-	* This method checks the Login credentials provided by the user and directs him to his profile if
-	* credentials matches.
-	* */
-    @RequestMapping(value="/login")
-    public String login(UserModel userModel, ModelMap modelMap){
-        UserModel returnedUserModel = userService.findOne(userModel);
-		
-        if(returnedUserModel==null){
-        	modelMap.addAttribute("user",returnedUserModel);
-        	return "redirect:login";
+	 * This method checks the Login credentials provided by the user and directs him to his profile if
+	 * credentials matches.
+	 * */
+	@RequestMapping(value="/login")
+	public String login(UserModel userModel, ModelMap modelMap){
+		UserModel returnedUserModel = userService.findOne(userModel);
+
+		if(returnedUserModel==null){
+			modelMap.addAttribute("user",returnedUserModel);
+			return "redirect:login";
 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
-				return "profile";
-			}
-	else
+			return "profile";
+		}
+		else
 			return"login";
 
 	}
 
-    /*
-	* This method checks if the username and password are valid.
-	* */
+	/*
+	 * This method checks if the username and password are valid.
+	 * */
 
 	/*
 	 * This method takes the values given by the user at time of SignUp and saves them into database.
@@ -117,7 +113,7 @@ public class LoginController {
 
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
-		
+
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel);
 		modelMap.put("user",returnedUserModel);
@@ -187,19 +183,24 @@ public class LoginController {
 		System.out.println("password" + password +" email Id "+emailId);
 		userService.changePassword(emailId , password);
 		System.out.println("password reset done");
-	return "redirect:/";
+		return "redirect:/";
 
 	}
-	
-	@RequestMapping(value="/uploadProfilePhoto/{userId:.+}" , method=RequestMethod.POST)
-	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
-		
-		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
-		System.out.println("path to be used -- "+storedPathOnAmazon);
-		
-		userService.storeProfilePic(userId, storedPathOnAmazon);
-		return "redirect:/profile";
-	}
+
+//<<<<<<< Updated upstream
+//=======
+//
+//	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
+//	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
+//
+//		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
+//		System.out.println("path to be used -- "+storedPathOnAmazon);
+//
+//		userService.storeProfilePic(userId, storedPathOnAmazon);
+//		return "redirect:/profile";
+//	}
+//>>>>>>> Stashed changes
+
 
 
 	/*
