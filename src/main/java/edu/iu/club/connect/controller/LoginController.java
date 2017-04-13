@@ -87,7 +87,7 @@ public class LoginController {
 
 		if(returnedUserModel==null){
 
-			return "redirect:login";
+			return "redirect:/";
 		}
 		//Commented by vishi to solve the error "too many re-directs"
 // 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
