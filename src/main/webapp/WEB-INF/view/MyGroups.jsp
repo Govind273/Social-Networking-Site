@@ -118,7 +118,7 @@
 	<div id="nav">
 <div id="section" width="550%">
 <div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top: 230px;" align="middle">
-		<label><h4> <b>FRIEND REQUESTS</b></h4></label>
+		<label><h4> <b>My Groups</b></h4></label>
 		</div>
 <div class="CLubmembership" align="left">
 <c:forEach items="${myGroups}" var="post">
@@ -133,15 +133,8 @@
 				<label for="PostBy" style="margin-top: 15%; font-size: 20px">Description
 					 ${post.about}</label>
 			</div>
-			<form action = "/acceptRequest/${user.userId }/${post.groupId }/${post.requestId }" method="post">
-			<button type="submit"> Accept </button>
-			</form>
-			
-			<form action = "/groupPage/${post.groupId }" method="get">
-			<button type="submit"> see group </button>
-			</form>
 		</div>
-
+==============================
 	</c:forEach>
 	</div>
 	</div>
