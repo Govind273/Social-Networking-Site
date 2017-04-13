@@ -15,5 +15,5 @@ public interface PostService {
     List<PostModel> findAll();
 	public void deleteById(int post_id);
 	 public List<PostModel> search(PostModel postModel);
-
+	 public PostModel getPostedby(int post_id);
 }
