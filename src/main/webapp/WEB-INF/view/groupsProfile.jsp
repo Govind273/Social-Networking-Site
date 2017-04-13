@@ -43,7 +43,7 @@
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="/images/iu6.jpeg" height="280px" >
+			<img src="/images/IU6.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
 			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
