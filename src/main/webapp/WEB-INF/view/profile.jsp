@@ -81,6 +81,11 @@
 			<button type = "submit">Ownership</button>
 			</form>
 		</div>
+		<div style="position: relative; left: 80px; top: 250px;">
+			<form action = "/friends/${user.userId}" method = "GET">
+			<button type = "submit">Friends</button>
+			</form>
+		</div>
 	</div>
 
 	<div id="section" align="right">
