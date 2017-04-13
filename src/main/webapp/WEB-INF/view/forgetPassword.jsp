@@ -57,14 +57,14 @@
 
 	<div class="col-md-4 col-sm-4">
 
-		<div class="form-group" align="center" valign="middle">
+		<div class="form-group" align="left" valign="left">
 			<label><b>The answers you will fill below are case
 					sensitive***.</b></label>
 		</div>
 	</div>
 	<div class="col-md-4 col-sm-4">
 
-		<div class="form-group" align="center" valign="middle">
+		<div class="form-group" align="left" valign="left">
 			<label><b>Email Id</b></label> <input
 				type="text" placeholder="Email" name="emailId" required>
 		</div>
@@ -74,7 +74,7 @@
 
 	<div class="col-md-4 col-sm-4">
 
-		<div class="form-group" align="center" valign="middle">
+		<div class="form-group" align="left" valign="left">
 			<label><b>Question 1:What is mother's first name ?</b></label> <input
 				type="text" placeholder="Answer" name="question1" required>
 		</div>
@@ -82,7 +82,7 @@
 
 	<div class="col-md-4 col-sm-4">
 
-		<div class="form-group" align="center" valign="middle">
+		<div class="form-group" align="left" valign="left">
 			<label><b>Question 2:Which is your favourite movie ?</b></label> <input
 				type="text" placeholder="Answer" name="question2" required>
 		</div>
