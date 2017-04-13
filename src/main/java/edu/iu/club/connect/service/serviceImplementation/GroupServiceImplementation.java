@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -83,6 +85,34 @@ public class GroupServiceImplementation implements GroupService {
 		List<GroupModel> groups = groupRepository.findGroupsByAdminId(adminId);
 		
 		return groups;
+	}
+
+	@SuppressWarnings({ "null"})
+	@Override
+	public List<GroupMembersModel> findMyFriends(int userId) {
+		
+		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
+		
+		System.out.println(myGroups.get(0).getGroupName());
+		System.out.println(myGroups.size());
+		
+		List<GroupMembersModel> myFriends = new ArrayList<GroupMembersModel>();
+		
+		for(GroupMembersModel groupMembersModel : myGroups){
+			
+			int groupId = groupMembersModel.getGroupId();
+			List<GroupMembersModel> list = groupMemberRepository.findAllByGroupId(groupId);
+			System.out.println(list.size());
+			 for(GroupMembersModel lists : list){
+				// lists.getGroupName();
+				  myFriends.add(lists);
+			 }
+//			myFriends.addAll(Arrays.asList(groupMemberRepository.findAllByGroupId(groupId)));
+			
+		}
+		
+		//myFriends.remove(userId);
+		return myFriends;
 	}
 
 

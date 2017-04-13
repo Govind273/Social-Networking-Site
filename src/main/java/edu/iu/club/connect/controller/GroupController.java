@@ -1,5 +1,6 @@
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  */
 
 @Controller
-@SessionAttributes ({"admin_id" , "group" , "groupSearched" , "myGroups"})
+@SessionAttributes ({"admin_id" , "group" , "groupSearched" , "myGroups" ,"myFriends"})
 
 public class GroupController {
 
@@ -58,6 +59,14 @@ public class GroupController {
 		modelMap.put("myGroups", myGroups);
 		
 		return "MyGroups";
+	}
+	
+	@RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
+	public String myFriends(@PathVariable("userId") int userId , ModelMap modelMap){
+		
+		List<GroupMembersModel> myFriends = groupService.findMyFriends(userId);
+		modelMap.put("myFriends", myFriends);
+		return "MyFriends";
 	}
 
 //	@RequestMapping(value = "/searchGroup", method=RequestMethod.POST)

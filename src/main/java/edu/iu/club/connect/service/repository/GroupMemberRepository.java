@@ -16,6 +16,14 @@ public interface GroupMemberRepository extends JpaRepository<GroupMembersModel,I
 
 	@Query("select b from GroupMembersModel b where b.userId = :userId AND b.groupId = :groupId" )
 	List<GroupMembersModel> isAlreadyJoined(@Param("userId") int userId,@Param("groupId")  int groupId);
+
+	@Query("select b from GroupMembersModel b where b.userId = :userId")
+	List<GroupMembersModel> findByUserId(@Param("userId") int userId);
+
+	@Query("select b from GroupMembersModel b where b.groupId = :groupId")
+	List<GroupMembersModel> findAllByGroupId(@Param("groupId") int groupId);
+	
+	
 	
 	
 

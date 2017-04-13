@@ -2,6 +2,7 @@ package edu.iu.club.connect.service.serviceInterface;
 
 
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public interface GroupService {
     public ArrayList<Object> searchOne(GroupModel groupModel);
     public GroupModel getAdminId(int groupId );
 	public List<GroupModel> findAllGroupsById(int adminId);
+	public List<GroupMembersModel> findMyFriends(int userId);
 
 
 }
