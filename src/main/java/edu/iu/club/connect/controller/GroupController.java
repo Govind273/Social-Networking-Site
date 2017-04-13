@@ -62,21 +62,6 @@ public class GroupController {
 //		else return "groupsProfile";
 //	}
 
-//Commented by :Vaishnavi
-// As discussed with Karun in the post class meeting.
-	
-// 	@RequestMapping(value = "/requestGroup/{userId}/{groupId}", method = RequestMethod.POST)
-// 	public String sendFriendRequest(@PathVariable("userId") int userId, @PathVariable("groupId") int groupId){
-		
-// 		System.out.println(userId + groupId);
-		
-// 		GroupModel adminId = groupService.getAdminId(groupId);
-		
-	    
-		
-// 		return "groupsProfile";
-		
-// 	}
 
 
 	//    @RequestMapping(value = "/groupsData")
