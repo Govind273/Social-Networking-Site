@@ -6,23 +6,25 @@
 <%@ page import="java.util.List"%>
 
 <html>
-<body bgcolor="#000000">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<div id="header1" style="height: 72px;">
-	<div class="iulogo" style="float: left; width: 50%; height: 50px;"
-		align="left">
-		<img src="images/2.png" width="65" height="56">
-	</div>
 
-</div>
-
-<form name="forget_form" id="forget_form" action="/sendMail"
+<body >
+<div id="header1" style="height:72px;">
+		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
+		<img src="/images/2.png" width="65" height="56" >
+		</div>
+		
+		</div>
+		<div class="gtco-container">
+	
+		</div>
+	<!--<form name="forget_form" id="forget_form" action="/sendMail"
 	method="POST">
 
 	<div class="row col-lg-12">
@@ -30,7 +32,7 @@
 			details to retrieve your password</h3>
 		<hr size="10" width="100%" noshade style="color: #000000" align="left" />
 
-		<div class="form-group col-lg-12">
+		 <div class="form-group col-lg-12">
 			<label for="emailId">Email</label> <input type="email" name="emailId"
 				required class="form-control" id="emailId">
 		</div>
@@ -40,19 +42,24 @@
 				<button type="submit" name="continue" value="continue" id="continue"
 					class="btn btn-primary" onclick="alert()">Submit</button>
 			</div>
-		</div>
+		</div> 
 	</div>
 
-</form>
+</form>-->
 
-
+	<div id="section">
+		<div class="tile_div" style="position:absolute;  top:35%; align:left "  >
+				<font size="12px" color="000000"><b> Please enter the below details to retrieve your password</b></font>
+		</div>
+	
+<div class="CLubmembership" style="position:absolute;  top:55%; left:25%; " align="left">
 <form action="/recoverPassword" method="GET">
 
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="center" valign="middle">
 			<label><b>The answers you will fill below are case
-					sensitive.</b></label>
+					sensitive***.</b></label>
 		</div>
 	</div>
 	<div class="col-md-4 col-sm-4">
@@ -82,11 +89,16 @@
 	</div>
 
 	<div class="col-md-4 col-sm-4 col-md-offset-2">
-		<button type="submit" class="btn btn-default btn-block">Click</button>
+		<button type="submit" class="btn btn-default btn-block">SUBMIT</button>
+		<button  class="btn btn-default btn-block"><a href="/login" ><font color = " #"> Cancel </font></a> </button>
 	</div>
 
 
 </form>
+</div>
+</div>
+
+
 </body>
 </html>
 
