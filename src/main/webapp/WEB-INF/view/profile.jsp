@@ -12,13 +12,13 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 </head>
 <div id="header1" style="height: 72px;">
 	<div class="iulogo" style="float: left; width: 50%; height: 50px;"
 		align="left">
-		<img src="images/2.png" width="65" height="56">
+		<img src="/images/2.png" width="65" height="56">
 	</div>
 	<div align="right" style="padding: 20px">
 		<li id="logout"><a href="/logout" title="Logout">Logout</a></li>
@@ -27,7 +27,7 @@
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width: 100% height:80%" valign="top">
-			<img src="images/iu4.jpeg" height="280px">
+			<img src="/images/iu4.jpeg" height="280px">
 		</div>
 		<div id="navfirst" style="width: 100% height:20%" valign="bottom">
 			<!--			<div >
@@ -38,7 +38,7 @@
 			-->
 			<a id="home" class="homebutton" href="profile.jsp"
 				style="width: 30px; height =100%; position: absolute; left: 20px; background: #FFFFFF; top: 420px;">
-				<img src="images/home.jpg">
+				<img src="/images/home.jpg">
 			</a>
 			<ul id="menu" width="70%" align="right">
 
