@@ -81,7 +81,7 @@ public class LoginController {
 	* credentials matches.
 	* */
 
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/login" , method = RequestMethod.GET)
 	public String login(UserModel userModel, ModelMap modelMap){
 		UserModel returnedUserModel = userService.findOne(userModel);
 

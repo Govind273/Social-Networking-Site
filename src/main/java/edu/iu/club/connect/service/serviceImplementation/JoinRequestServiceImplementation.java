@@ -56,7 +56,7 @@ public class JoinRequestServiceImplementation implements JoinRequestService{
 		
 		RequestModel newRequest = new RequestModel();
 	
-		newRequest.setAdminId(adminId.getAdmin_id());
+		newRequest.setAdminId(adminId.getAdminId());
 		newRequest.setGroupId(groupId);
 		newRequest.setUserId(userId);
 		newRequest.setGroupName(adminId.getGroupName());

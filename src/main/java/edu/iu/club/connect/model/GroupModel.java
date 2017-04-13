@@ -16,14 +16,16 @@ public class GroupModel {
     private @Column(name = "group_id")  Integer groupId;
     private @Column(name = "group_name") String groupName; //used in search feature
     private @Column(name = "group_about") String about;
-    private @Column(name = "admin_id") Integer admin_id;
+    private @Column(name = "admin_id") Integer adminId;
 
-    public Integer getAdmin_id() {
-		return admin_id;
+  
+
+	public Integer getAdminId() {
+		return adminId;
 	}
 
-	public void setAdmin_id(Integer admin_id) {
-		this.admin_id = admin_id;
+	public void setAdminId(Integer adminId) {
+		this.adminId = adminId;
 	}
 
 	public Integer getGroupId() {
