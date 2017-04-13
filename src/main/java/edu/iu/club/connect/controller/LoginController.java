@@ -89,10 +89,11 @@ public class LoginController {
 
 			return "redirect:login";
 		}
-		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
+		//Commented by vishi to solve the error "too many re-directs"
+// 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 
-			return "redirect:login";
-		}
+// 			return "redirect:login";
+// 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 			System.out.println("qwerty"+returnedUserModel.getFirstName());
 			modelMap.addAttribute("user",returnedUserModel);
