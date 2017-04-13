@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -27,15 +28,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  */
 
 @Controller
-@SessionAttributes ({"group_id", "user_id" })
+@SessionAttributes ({"groupSearched", "user_id" })
 public class PostController {
 	
     @Autowired
     PostService postService;
 
     @RequestMapping(value = "/createPost/{group_id}/{user_id}",method = RequestMethod.POST  )
-    public String createPost( @PathVariable("group_id") int group_id, @PathVariable("user_id") int user_id,PostModel postModel){
-    	
+    public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("user_id") int user_id,PostModel postModel){
+    	ModelAndView mv1=new ModelAndView("groupsProfile");
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
     	//System.out.println("im in");
@@ -44,23 +45,37 @@ public class PostController {
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
     	List<PostModel> ps= postService.search(postModel);
-        return "groupsProfile";
+    	ps.subList(10,ps.size()).clear();
+    	mv1.addObject("ps",ps);
+        return mv1;
         }
     
     
     @RequestMapping(value = "/deletePost/{post_id}/{user_id}",method = RequestMethod.POST)
-    public String deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id){
-//    	postModel.setPostId(post_id);
-    	postService.deleteById(post_id);
-        return "groupsProfile";
+    public ModelAndView deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id,PostModel postModel){
+    	ModelAndView mv=new ModelAndView("groupsProfile");
+    	postModel.setPostId(post_id);
+    	PostModel pm=postService.getPostedby(post_id);
+    	int postby=pm.getPostedby();
+    	if (postby == user_id){
+    		postService.deleteById(post_id);
+    	}
+    	List<PostModel> ps= postService.search(postModel);
+    	ps.subList(10,ps.size()).clear();
+    	mv.addObject("ps",ps);
+        return mv;
         }
    
-//    @RequestMapping(value = "/groupsProfile/{group_id}",method = RequestMethod.GET)
-//    public String listPost( @PathVariable("group_id") int group_id, PostModel postModel){
-//    	postModel.setGroupId(group_id);
-//    	postService.search(postModel);
-//        return "groupsProfile";
-//        }
+    @RequestMapping(value = "/getallposts/{group_id}",method = RequestMethod.GET)
+    public ModelAndView listPost( @PathVariable("group_id") int group_id, PostModel postModel){
+    	ModelAndView mv=new ModelAndView("groupsProfile");
+    	postModel.setGroupId(group_id);
+    	List<PostModel> ps= postService.search(postModel);
+    	ps.subList(10,ps.size()).clear();
+    	System.out.println(ps);
+    	mv.addObject("ps",ps);  	
+        return mv;
+        }
    
 
 }
