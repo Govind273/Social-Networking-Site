@@ -80,8 +80,10 @@ $( document ).ready(function() {
 				<li id="editProfile">
 					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
 				</li>
-				<li id="ch">
-					<a href="#" title="chat">Club Chat</a>
+				<li id="Join">
+					<form action="/requestGroup/${user.userId}/${groupSearched.groupId}" method = "POST">
+					<button type="submit">Join</button>
+					</form>
 				</li>
 
 			</ul>   

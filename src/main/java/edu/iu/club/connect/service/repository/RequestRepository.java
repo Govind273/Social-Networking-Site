@@ -23,6 +23,10 @@ public interface RequestRepository extends JpaRepository<RequestModel,Integer> {
    @Query("select b from RequestModel b where b.userId = :userId AND b.groupId = :groupId")
    List<RequestModel> findRequestById(@Param("userId") int userId, @Param("groupId") int groupId);
 
+   @Query("select b from RequestModel b where b.requestId = :requestId")
+   List<RequestModel> getRequestById(@Param("requestId") int requestId);
+
+
    
 }
 

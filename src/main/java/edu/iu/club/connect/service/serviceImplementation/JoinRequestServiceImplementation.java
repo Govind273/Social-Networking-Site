@@ -25,11 +25,15 @@ public class JoinRequestServiceImplementation implements JoinRequestService{
 	@Override
 	public boolean acceptRequest(int userId, int groupId, int requestId) {
 		String groupName = groupRepository.getGroupNameById(groupId);
+		
+		List<RequestModel> request = requestRepository.getRequestById(requestId);
+		
+		
 
 		GroupMembersModel groupMember = new GroupMembersModel();
 
 		groupMember.setGroupId(groupId);
-		groupMember.setUserId(userId);
+		groupMember.setUserId(request.get(0).getUserId());
 		groupMember.setGroupName(groupName);
 
 		groupMemberRepository.save(groupMember);
