@@ -1,61 +1,34 @@
-<html  xmlns:th="http://www.thymeleaf.org">
-<body >
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.List"%>
+
+<!DOCTYPE html>
+<html>
 <head>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 <link rel="stylesheet" href="/css/style.css">
-<script>
-
-window.onbeforeunload = function() {
-	sessionStorage.setItem(groupId, $('#groupId').val());
-}
-window.onload = function() {
-var groupId=sessionStorage.getItem('groupId');
-}
-$( document ).ready(function() {
-	
-	var url = window.location;
-	
-	// GET REQUEST
-	$("#getBtn").click(function(event){
-		event.preventDefault();
-		ajaxGet();
-	});
-	
-	// DO GET
-	function ajaxGet(){
-		$.ajax({
-			type : "GET",
-			url : url + "/getAllPosts/groupId",
-			async: true,
-			success: function(result){
-				if(result.status == "Done"){
-					$('#getResultDiv .list-group li').remove();
-					var custList = "";
-					$.each(result.data, function(i, post){
-						var post = ": PostBy=" + post.postedBy + " ,PostDesc=" + post.postDesc + "<br\>";
-						$('#getResultDiv .list-group').append('<li><h4 class="list-group-item">'+PostDesc+'</h4></li>')
-			        });
-					console.log("Success: ", result);
-				}else{
-					$("#getResultDiv").html("<strong>Error</strong>");
-					console.log("Fail: ", result);
-				}
-			},
-			error : function(e) {
-				$("#getResultDiv").html("<strong>Error</strong>");
-				console.log("ERROR: ", e);
-			}
-		});	
-	}
-})
+<style>
+ #text_post {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 25%;
+    }
 
 
-</script>
+</style>
 
 </head>
+
+<body >
 <div id="header1" style="height:72px;">
 		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="/images/2.png" width="65" height="56" >
@@ -70,10 +43,10 @@ $( document ).ready(function() {
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="images/iu6.jpeg" height="280px" >
+			<img src="/images/iu6.jpeg" height="280px" >
 		</div>
 		<div id="navfirst" style="width:100% height:20%" valign="bottom">
-			<a id="home" class="homebutton" href="profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
+			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
 				<img src="/images/home.jpg">
 			</a>
 			<ul id="menu">
@@ -82,7 +55,7 @@ $( document ).ready(function() {
 				</li>
 				<li id="Join">
 					<form action="/requestGroup/${user.userId}/${groupSearched.groupId}" method = "POST">
-					<button type="submit">Join</button>
+					<button class="btn btn-default btn-block" type="submit">Join</button>
 					</form>
 				</li>
 
@@ -92,21 +65,33 @@ $( document ).ready(function() {
 			<div class="search" align="right">
 				<form action="/search" method="post">
   					<input type="text" name="groupName" placeholder="Search.." >
-  					<button type="submit">Search</button>
+  					<button class="btn btn-default btn-block" type="submit">Search</button>
 				</form>			
 			</div>
 		</div>
 	</div>
-	<div id="nav">
-<!--		<div class="CLubmembership" align="middle" heightÃ¯Â¼Â"400px"><p2>Club Menbership</p2></div>     -->
+	<div id="navGroupPage">
+<!--		<div class="CLubmembership" align="middle" heightÃÂ¯ÃÂ¼ÃÂ"400px"><p2>Club Menbership</p2></div>     -->
 		<div >
-			<img src="images/2.png" width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
+			<img src="/images/2.png" width="170" height="120" style="position:absolute; left:80px; top:480px; border:#000 solid 1px;">
 			
 		</div>
 		<!-- class="nav-main" Commented by vishi-->
 		<div  style="top:250px">
 
 		</div>
+		<c:forEach items="${membersList}" var="ml">
+			<b>members></b>
+			<div class="form-group col-lg-6">
+				<label for="memberName" style="margin-top: 15%; font-size: 20px; left:20%">
+				 ${memberName.userId}<br></label>
+			</div>
+			
+	
+
+
+	</c:forEach>
+		
 	</div>  
 
 
@@ -123,35 +108,49 @@ $( document ).ready(function() {
 				</form>
 		</div>
 
-	<div id="section1">
 		
-<form action="/requestgroup/${user.userId }/${group.groupId}" method = "POST">
-	<button type = "submit">Join</button>
-	
-	</form>
 
+<div class="posts_div" align="left" valign="middle">
+                    
 	   <form action="/createPost/${groupSearched.groupId }/${user.userId }"  method="POST" class="form-inline" align="left">
                 	
 
-                	<div class="posts_div" align="center" valign="middle">
-                        <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Club Posts</b></label>
+                	    <label><b>Club Posts</b></label>
                         
-						<input type="hidden" name="groupId" value="${groupSearched.groupId }">
-                        <input type="text" placeholder="posts" name="postDesc"  class="mytext" maxlength="150" required>
+						<input type="hidden" name="groupId" id="groupId" value="${groupSearched.groupId }">
+                        <input type="text" placeholder="posts" name="postDesc"  width="25%" height="25%" maxlength="150" required>
                          <button type="submit" class="btn btn-default btn-block"> Post</button>
-                    </div>
+                   
          </form>
-                <h2>Recent Posts</h2>
-				<button id="getBtn">get posts</button>
                 
-
+                <form action="/getallposts/${groupSearched.groupId }" method="get">
+                
+				<button type="submit"  class="btn btn-default btn-block" id="getBtn">get posts</button>
+                </form>
+                 <th><h2>Recent Posts</h2></th>
+         <table style="width:100%">
+  <tr>
+ 
+  </tr>
+        
+		<c:forEach items="${ps}" var="post">
+		<tr>
+		<td class="td">
+			
+				<label for="PostBy" style="margin-top: 15%; font-size: 20px; left:20%; align:left">
+				 ${post.postDesc}</label>
+		
+<br>
+				<label for="PostBy" style="margin-top: 15%; font-size: 20px"><B>
+				</B> ${post.postedDatetime}</label>
+		
+	</td>
+</tr>
+	</c:forEach>
+	</table> 
+	 </div>
 	</div>
-	<div class="userpost" align="middle" width="841px">
-		<font href="#" class="light"></font>
-	</div>
-
-
-                <h1>${postDesc }<h1>
+	         
 </div>
 
 </div>
