@@ -1,5 +1,5 @@
 package edu.iu.club.connect.service.serviceImplementation;
-
+import org.springframework.data.domain.PageRequest;
 import edu.iu.club.connect.model.PostModel;
 import edu.iu.club.connect.service.repository.PostRepository;
 //import edu.iu.club.connect.service.serviceInterface.GroupService;
@@ -39,7 +39,12 @@ public class PostServiceImplementation implements PostService {
     //Nick commented out code; otherwise it failed to build--The method findTop10ByGroupIdAndOrderByLevelDesc(Integer) is undefined for the type PostRepository
     @Override
 	public List<PostModel> search(PostModel postModel) {
-//		return postRepository.findTop10ByGroupIdAndOrderByLevelDesc(postModel.getGroupId());
-		return null;
+		return postRepository.findTop10ByGroupIdOrderByPostedDatetimeDesc( postModel.getGroupId());
+//		return null;
+	}
+	@Override
+	public PostModel getPostedby(int post_id) {
+		
+		return postRepository.findpostedBy(post_id);
 	}  
 }
