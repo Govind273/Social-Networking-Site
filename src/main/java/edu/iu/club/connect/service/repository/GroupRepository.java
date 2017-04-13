@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by walia on 2/19/2017.
@@ -33,4 +34,8 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
 
 	@Query("select b from GroupModel b where b.groupId = :groupId")
     GroupModel findGroupById(@Param("groupId") int groupId);
+
+	@Query("select b from GroupModel b where b.adminId = :adminId ")
+	List<GroupModel> findGroupsByAdminId(@Param("adminId")int adminId);
+
 }

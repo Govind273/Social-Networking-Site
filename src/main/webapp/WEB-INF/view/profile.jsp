@@ -77,7 +77,9 @@
 				style="position: absolute; left: 80px; top: 480px;">
 		</div>
 		<div style="position: relative; left: 80px; top: 250px;">
-			<a1>Karun</a1>
+			<form action = "/yourGroups/${user.userId}" method = "GET">
+			<button type = "submit">Ownership</button>
+			</form>
 		</div>
 	</div>
 
