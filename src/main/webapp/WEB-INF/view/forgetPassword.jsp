@@ -89,7 +89,7 @@
 	</div>
 
 	<div class="col-md-4 col-sm-4 col-md-offset-2">
-		<button type="submit" class="btn btn-default btn-block">Submit</button>
+		<button type="submit" class="btn btn-default btn-block">Submit!</button>
 		<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel</font></a></button>
 	</div>
 
