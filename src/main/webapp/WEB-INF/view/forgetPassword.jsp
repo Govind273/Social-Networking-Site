@@ -49,7 +49,7 @@
 
 	<div id="section">
 		<div class="tile_div" style="position:absolute;  top:35%; align:left "  >
-				<font size="12px" color="000000"><b> Please enter the below details to retrieve your password</b></font>
+				<font size="12px" color="000000"><b> Recover Password by Security Question</b></font>
 		</div>
 	
 <div class="CLubmembership" style="position:absolute;  top:55%; left:25%; " align="left">
@@ -58,14 +58,13 @@
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="left" valign="left">
-			<label><b>The answers you will fill below are case
-					sensitive***.</b></label>
+			<label><b>Please enter your details below. Responses are case sensitive</b></label>
 		</div>
 	</div>
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="left" valign="left">
-			<label><b>Email Id</b></label> <input
+			<label><b>Email ID</b></label> <input
 				type="text" placeholder="Email" name="emailId" required>
 		</div>
 	</div>
@@ -75,7 +74,7 @@
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="left" valign="left">
-			<label><b>Question 1:What is mother's first name ?</b></label> <input
+			<label><b>Question 1: What is mother's first name?</b></label> <input
 				type="text" placeholder="Answer" name="question1" required>
 		</div>
 	</div>
@@ -83,14 +82,14 @@
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="left" valign="left">
-			<label><b>Question 2:What is your favorite movie ?</b></label> <input
+			<label><b>Question 2: What is your favorite movie?</b></label> <input
 				type="text" placeholder="Answer" name="question2" required>
 		</div>
 	</div>
 
 	<div class="col-md-4 col-sm-4 col-md-offset-2">
-		<button type="submit" class="btn btn-default btn-block">Submit!</button>
-		<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel</font></a></button>
+		<button type="submit" class="btn btn-default btn-block">Submit</button>
+		<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel--BROKEN!</font></a></button>
 	</div>
 
 
