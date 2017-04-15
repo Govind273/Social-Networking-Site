@@ -59,7 +59,7 @@
 		<div class="col-md-4 col-sm-4 col-md-offset-2">
 			<button type="submit" class="btn btn-default btn-block">Change Password</button>
 			
-			<button class="btn btn-default btn-block"><a href="/forgetPassword"><font color = " #">Change Password</font></a></button>
+			<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel</font></a></button>
 	</div>
 	</form>
 	</div>

@@ -83,14 +83,14 @@
 	<div class="col-md-4 col-sm-4">
 
 		<div class="form-group" align="left" valign="left">
-			<label><b>Question 2:Which is your favourite movie ?</b></label> <input
+			<label><b>Question 2:What is your favorite movie ?</b></label> <input
 				type="text" placeholder="Answer" name="question2" required>
 		</div>
 	</div>
 
 	<div class="col-md-4 col-sm-4 col-md-offset-2">
-		<button type="submit" class="btn btn-default btn-block">SUBMIT</button>
-		<button  class="btn btn-default btn-block"><a href="/login" ><font color = " #"> Cancel </font></a> </button>
+		<button type="submit" class="btn btn-default btn-block">Submit</button>
+		<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel</font></a></button>
 	</div>
 
 
