@@ -45,35 +45,44 @@ public class PostController {
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
     	List<PostModel> ps= postService.search(postModel);
-    	ps.subList(10,ps.size()).clear();
+    	if (ps.size()>10){
+    	ps.subList(10,ps.size()).clear();}
     	mv1.addObject("ps",ps);
         return mv1;
         }
     
     
-    @RequestMapping(value = "/deletePost/{post_id}/{user_id}",method = RequestMethod.POST)
-    public ModelAndView deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id,PostModel postModel){
+    @RequestMapping(value = "/deletePost/{post_id}/{user_id}")
+    public ModelAndView deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id,  @PathVariable("group_id") int group_id,PostModel postModel){
     	ModelAndView mv=new ModelAndView("groupsProfile");
     	postModel.setPostId(post_id);
     	PostModel pm=postService.getPostedby(post_id);
+    	
     	int postby=pm.getPostedby();
     	if (postby == user_id){
     		postService.deleteById(post_id);
     	}
+    	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
-    	ps.subList(10,ps.size()).clear();
+    	if (ps.size()>10){
+    	ps.subList(10,ps.size()).clear();}
     	mv.addObject("ps",ps);
         return mv;
         }
    
-    @RequestMapping(value = "/getallposts/{group_id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/getallposts/{group_id}" ,method = RequestMethod.GET)
     public ModelAndView listPost( @PathVariable("group_id") int group_id, PostModel postModel){
     	ModelAndView mv=new ModelAndView("groupsProfile");
     	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
+    	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();
+    	
+    	}
+    		mv.addObject("ps",ps); 
+    	
     	System.out.println(ps);
-    	mv.addObject("ps",ps);  	
+    	 	
         return mv;
         }
    
