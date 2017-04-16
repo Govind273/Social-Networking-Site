@@ -40,36 +40,15 @@
 		</div>
 
  
-<div class="gtco-container">
+	
+	<div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="/images/IU6.jpeg" height="280px" >
+			<img src="images/iu6.jpeg" height="280px" >
 		</div>
-		<div id="navfirst" style="width:100% height:20%" valign="bottom">
-			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="/images/home.jpg">
-			</a>
-			<ul id="menu">
-				<li id="editProfile">
-					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
-				</li>
-				<li id="Join">
-					<form action="/requestGroup/${user.userId}/${groupSearched.groupId}" method = "POST">
-					<button class="btn btn-default btn-block" type="submit">Join</button>
-					</form>
-				</li>
-
-			</ul>   
-
-
-			<div class="search" align="right">
-				<form action="/search" method="get">
-  					<input type="text" name="groupName" placeholder="Search.." >
-  					<button class="btn btn-default btn-block" type="submit">Search</button>
-				</form>			
-			</div>
-		</div>
+	<jsp:include page="menuBar.jsp"/>	
 	</div>
+	
 	<div id="navGroupPage">
 <!--		<div class="CLubmembership" align="middle" heightÃÂ¯ÃÂ¼ÃÂ"400px"><p2>Club Menbership</p2></div>     -->
 		<div >
