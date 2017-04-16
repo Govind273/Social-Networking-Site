@@ -26,51 +26,12 @@
 </div>
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
-		<div class="coverPic" style="width: 100% height:80%" valign="top">
-			<img src="/images/iu4.jpeg" height="280px">
+		<div class="coverPic" style="width:100% height:80%" valign="top">
+			<img src="images/iu6.jpeg" height="280px" >
 		</div>
-		<div id="navfirst" style="width: 100% height:20%" valign="bottom">
-			<!--			<div >
-			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
-			</div>  -->
-
-			<!--			<input name="home" type="button" onclick="JavaScript:window.location.href＝'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
-			-->
-			<a id="home" class="homebutton" href="profile.jsp"
-				style="width: 30px; height =100%; position: absolute; left: 20px; background: #FFFFFF; top: 420px;">
-				<img src="/images/home.jpg">
-			</a>
-			<ul id="menu" width="70%" align="right">
-
-				<li>
-					<form action="/seeAllRequest/${user.userId }" method="GET">
-						<button type="submit">Friend Requests</button>
-
-					</form>
-				</li>
-
-				<li>
-					<form action="/createGroup/" method="GET">
-						<button type="submit">Create</button>
-
-					</form>
-				</li>
-				<li id="editProfile"><a href="/editProfile" title="Edit"
-					type="submit">Edit Profile</a></li>
-				<li id="ch"><a href="#" title="chat">Club Chat</a></li>
-
-			</ul>
-
-
-
-			<div class="search" align="right">
-				<form action="/search" method="get">
-					<input type="text" name="groupName" placeholder="Search..">
-					<button type="submit">Search</button>
-				</form>
-			</div>
-		</div>
+	<jsp:include page="menuBar.jsp"/>	
 	</div>
+	
 	<div id="nav">
 		<div>
 			<img src="images/2.png" width="170" height="120"
