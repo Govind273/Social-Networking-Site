@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%@ page import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -43,6 +43,7 @@
 		</div>
 	<div class="CLubmembership" align="middle">
         
+        <c:if test="${fn:length(search) > 0}">  
 	<c:forEach items="${search}" var="post">
 		<div id="left" class="row col-lg-12">
 
@@ -67,6 +68,12 @@
 
 
 	</c:forEach>
+	</c:if>
+	
+        <c:if test="${fn:length(search) == 0}">
+        No groups by that name[TO be CHANGED]
+        
+        </c:if> 
 	</div>
 	</div>
 	</div>
