@@ -42,8 +42,8 @@
 				<font size="15" color="000000"><b>SEARCH RESULTS</b></font>
 		</div>
 	<div class="CLubmembership" align="middle">
-        
-        <c:if test="${fn:length(search) > 0}">  
+<!--         
+        <c:if test="${fn:length(search) > 0}">   -->
 	<c:forEach items="${search}" var="post">
 		<div id="left" class="row col-lg-12">
 
@@ -68,12 +68,13 @@
 
 
 	</c:forEach>
-	</c:if>
+<!-- 	
+</c:if>
 	
         <c:if test="${fn:length(search) == 0}">
         No groups by that name[TO be CHANGED]
         
-        </c:if> 
+        </c:if>  -->
 	</div>
 	</div>
 	</div>
