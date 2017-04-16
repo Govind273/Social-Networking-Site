@@ -24,10 +24,27 @@
 		<li id="logout"><a href="/logout" title="Logout">Logout</a></li>
 	</div>
 </div>
+<form action="/uploadProfilePhoto/${user.userId}"
+		enctype="multipart/form-data" method="POST">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<label for="file">Picture to upload:</label> <input type="file"
+				name="file" class="form-control" id="file" required="true">
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+			<button type="submit" name="register" value="register" id="register"
+				class="btn btn-primary">Upload</button>
+		</div>
+
+	</form>
+
 <div class="gtco-container">
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width: 100% height:80%" valign="top">
-			<img src="/images/iu4.jpeg" height="280px">
+
+			<img src="${user.profilePic}" height="280px">
+
 		</div>
 		<div id="navfirst" style="width: 100% height:20%" valign="bottom">
 			<!--			<div >

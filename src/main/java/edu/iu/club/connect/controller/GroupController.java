@@ -5,6 +5,7 @@ import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,7 +65,7 @@ public class GroupController {
 	@RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
 	public String myFriends(@PathVariable("userId") int userId , ModelMap modelMap){
 		
-		List<GroupMembersModel> myFriends = groupService.findMyFriends(userId);
+		Set<GroupMembersModel> myFriends = groupService.findMyFriends(userId);
 		modelMap.put("myFriends", myFriends);
 		return "MyFriends";
 	}
