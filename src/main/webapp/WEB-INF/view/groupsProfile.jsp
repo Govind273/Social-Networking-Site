@@ -63,7 +63,7 @@
 
 
 			<div class="search" align="right">
-				<form action="/search" method="post">
+				<form action="/search" method="get">
   					<input type="text" name="groupName" placeholder="Search.." >
   					<button class="btn btn-default btn-block" type="submit">Search</button>
 				</form>			
