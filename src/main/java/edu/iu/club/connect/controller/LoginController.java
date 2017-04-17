@@ -153,7 +153,7 @@ public class LoginController {
 	 * */
 
 
-	@RequestMapping(value="/updateProfile",method = RequestMethod.PUT)
+	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
 	public  String editProfile(UserModel userModel, ModelMap modelMap){
 
 
