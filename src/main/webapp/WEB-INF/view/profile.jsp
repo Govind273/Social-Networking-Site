@@ -15,36 +15,33 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 
 </head>
-<div id="header1" style="height: 72px;">
-	<div class="iulogo" style="float: left; width: 50%; height: 50px;"
-		align="left">
-		<img src="/images/2.png" width="65" height="56">
-	</div>
-	<div align="right" style="padding: 20px">
-		<li id="logout"><a href="/logout" title="Logout">Logout</a></li>
-	</div>
-</div>
+
+<!--Top header -->
+<jsp:include page="header.jsp" />
+
 <div class="gtco-container">
+
+	<!--Background Image, Menu Bar -->
 	<div class="coverTopSection" height="400px">
-		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="images/iu6.jpeg" height="280px" >
+		<div class="coverPic" style="width: 100% height:80%" valign="top">
+			<img src="images/iu6.jpeg" height="280px">
 		</div>
-	<jsp:include page="menuBar.jsp"/>	
+		<jsp:include page="menuBar.jsp" />
 	</div>
-	
+
 	<div id="nav">
 		<div>
 			<img src="images/2.png" width="170" height="120"
 				style="position: absolute; left: 80px; top: 480px;">
 		</div>
 		<div style="position: relative; left: 80px; top: 250px;">
-			<form action = "/yourGroups/${user.userId}" method = "GET">
-			<button type = "submit">Ownership</button>
+			<form action="/yourGroups/${user.userId}" method="GET">
+				<button type="submit">Ownership</button>
 			</form>
 		</div>
 		<div style="position: relative; left: 80px; top: 250px;">
-			<form action = "/friends/${user.userId}" method = "GET">
-			<button type = "submit">Friends</button>
+			<form action="/friends/${user.userId}" method="GET">
+				<button type="submit">Friends</button>
 			</form>
 		</div>
 	</div>
