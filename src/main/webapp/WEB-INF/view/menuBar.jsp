@@ -3,6 +3,57 @@
 
 <!-- The same menu bar is referenced on every page except the landing, sign up, and password-related pages-->
 
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(117,0,0);
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(177,0,0);
+}
+
+.active {
+    background-color: rgb(210,0,0)
+}
+
+
+</style>
+
+<ul>
+  <li><a href="/profile">Profile</a></li>
+  <li><a href="/editProfile">Edit Profile</a></li>
+  <li><a href="/createGroup/">Create Club</a></li>
+  <li><a href="/FriendRequests/">Colleague Request</a></li>
+  <li style="float:right">
+		<form action="/search" method="get">
+			<input type="text" name="groupName" valign="middle" placeholder="Search..">
+			<button type="submit">Search</button>
+		</form></li>
+</ul>
+
+
+<!-- THE WORKING CODE as of 4/17, 11am
 <div id="navfirst" style="width: 100% height:20%" valign="bottom">
 	<a id="home" class="homebutton" href="/profile"
 		style="width: 30px; height =100%; position: absolute; left: 20px; top: 420px">
@@ -34,7 +85,9 @@
 		</form>
 	</div>
 </div>
-
+ -->
+ 
+ 
 <!--	
 			<a id="home" class="homebutton" href="profile.jsp"
 				style="width: 30px; height =100%; position: absolute; left: 20px; background: #FFFFFF; top: 420px;">
