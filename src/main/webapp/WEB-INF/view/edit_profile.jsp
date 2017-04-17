@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-<style>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 100%;
@@ -75,7 +81,7 @@
             width: 100%;
         }
     }
-</style>
+</style> -->
 <body>
 	<!--Top header -->
 	<jsp:include page="header.jsp" />
@@ -90,8 +96,8 @@
 				<img src="images/iu6.jpeg" height="280px">
 			</div>
 			<jsp:include page="menuBar.jsp" />
-		</div>
-
+		
+</div>
 
 
 
@@ -130,4 +136,7 @@
 			</div>
 		</div>
 	</div>
+	
+	</body>
+	</html>
 
