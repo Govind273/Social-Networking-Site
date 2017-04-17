@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 <link rel="stylesheet" href="/css/style.css">
 </head>
+<!-- Commented out by Nick on 4/16 as develop a central CSS page
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -70,8 +71,11 @@
             width: 100%;
         }
     }
-</style>
+</style>  -->
+
+
 <body >
+<!-- Top header -->
 <div id="header1" style="height:72px;">
 		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="/images/2.png" width="65" height="56" >
@@ -82,7 +86,11 @@
 		</li>
 		</div>
 </div>
+
+
 <div class="gtco-container">
+
+<!-- Background Photo, Menu Bar -->
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
 			<img src="/images/iu4.jpeg" height="280px" >
