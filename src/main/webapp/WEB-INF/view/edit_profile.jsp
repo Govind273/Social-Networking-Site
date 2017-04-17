@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- <style>
+<style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 100%;
@@ -75,12 +75,14 @@
             width: 100%;
         }
     }
-</style> -->
+</style>
 <body>
 	<!--Top header -->
 	<jsp:include page="header.jsp" />
 
+
 	<div class="gtco-container">
+
 
 		<!--Background Image, Menu Bar -->
 		<div class="coverTopSection" height="400px">
@@ -89,6 +91,7 @@
 			</div>
 			<jsp:include page="menuBar.jsp" />
 		</div>
+
 
 
 
@@ -127,5 +130,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+

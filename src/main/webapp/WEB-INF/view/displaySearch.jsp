@@ -3,6 +3,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +34,18 @@
 
 
 	<div id="section">
-		<div class="tile_div" style="position:absolute;  top:555px; left:25%; " align="middle" >
+		<div class="tile_div" style="position:absolute;  top:555px; left:25%; " align="left" >
+		
 				<font size="15" color="000000"><b>SEARCH RESULTS</b></font>
 		</div>
-	<div class="CLubmembership" align="middle">
+	<c:if test="${fn:length(search) > 0}">
+	<div class="CLubmembership" align="left">
 
 	<c:forEach items="${search}" var="post">
 		<div id="left" class="row col-lg-12">
 
 			<div class="form-group col-lg-6">
+			
 				<label for="PostBy" style="margin-top: 15%; font-size: 20px; left:20%">
 				<b>Group
 					Name:</b> ${post.groupName}</label>
@@ -61,11 +66,15 @@
 
 
 	</c:forEach>
-
+	</div>
+</c:if>
+<c:if test="${fn:length(search) == 0}">
+No results found
+</c:if>
 	</div>
 	</div>
 	</div>
-	</div>
+	
 	
 </body>
 </html>
