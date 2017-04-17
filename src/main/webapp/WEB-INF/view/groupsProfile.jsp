@@ -41,8 +41,10 @@
 		</li>
 		</div>
 
- 
+<div class="gtco-container">
+ 	
 <!--Background Image, Menu Bar -->
+
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
 			<img src="images/iu6.jpeg" height="280px" >
