@@ -82,7 +82,7 @@ img {
 div#navfirst{
     height: 40px; 
     width: 100%; 
-    background-color: #750000; 
+    background-color: #0000ff; 
 
 }
 div#navfirst ul#menu{
@@ -95,23 +95,23 @@ div#navfirst ul#menu{
     list-style-type: none;
 }
 div#navfirst ul#menu li{
-    float:left;/*让li元素左浮动*/
+    float:left;/*è®©liå…ƒç´ å·¦æµ®åŠ¨*/
 }
 div#navfirst div#homepage a{
   width:28px;
   height:28px;
 }
 div#navfirst ul#menu li a{
-  width:150px;/*设置元素宽为80px*/
-  height:28px;/*设置高度为28px*/
-  line-height:28px;/*设置行距为28px，让文字在每行的中间位置*/
-  background:red;/*设置元素的背景为红色*/
-  color:#FFF;/*文字颜色是白色*/
+  width:150px;/*è®¾ç½®å…ƒç´ å®½ä¸º80px*/
+  height:28px;/*è®¾ç½®é«˜åº¦ä¸º28px*/
+  line-height:28px;/*è®¾ç½®è¡Œè·�ä¸º28pxï¼Œè®©æ–‡å­—åœ¨æ¯�è¡Œçš„ä¸­é—´ä½�ç½®*/
+  background:red;/*è®¾ç½®å…ƒç´ çš„èƒŒæ™¯ä¸ºçº¢è‰²*/
+  color:#FFF;/*æ–‡å­—é¢œè‰²æ˜¯ç™½è‰²*/
   margin:5px 10px;
-  font-size:12px;/*用12号字*/
-  display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
-  text-align:center;/*让文本居中*/
-  text-decoration:none; /*去掉下划线*/
+  font-size:12px;/*ç”¨12å�·å­—*/
+  display:block;/*è¿™ä¸ªæ¯”è¾ƒå…³é”®ï¼Œå› ä¸ºaæœ¬èº«å°±æ˜¯è�”çº§å…ƒç´ ï¼Œæœ¬èº«ä¸�å…·æœ‰å®½é«˜ï¼Œç”¨è¿™ä¸ªæŠŠå®ƒå�˜æˆ�å�—çº§å…ƒç´ ï¼Œè¿™æ ·å‰�é�¢è®¾ç½®çš„å®½å’Œé«˜å°±èƒ½èµ·ä½œç”¨äº†*/
+  text-align:center;/*è®©æ–‡æœ¬å±…ä¸­*/
+  text-decoration:none; /*åŽ»æŽ‰ä¸‹åˆ’çº¿*/
 }
 
 #nav {
@@ -253,7 +253,8 @@ h1, h2, h3, h4, h5, h6, figure {
 	overflow:hidden;
 }
 .gtco-container {
-  max-width: 981px;
+    color: #ff00ff;
+    max-width: 981px;
   position: relative;
   margin: 0 auto;
   padding-left: 15px;

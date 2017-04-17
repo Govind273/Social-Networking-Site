@@ -5,7 +5,7 @@
 
 <div id="navfirst" style="width: 100% height:20%" valign="bottom">
 	<a id="home" class="homebutton" href="/profile"
-		style="width: 30px; height =100%; position: absolute; left: 20px; background: rgb(117,0,0); top: 420px">
+		style="width: 30px; height =100%; position: absolute; left: 20px; top: 420px">
 		<img src="/images/home.jpg">
 	</a>
 	
