@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- <style>
+<style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 100%;
@@ -75,7 +75,7 @@
             width: 100%;
         }
     }
-</style> -->
+</style>
 <body>
 <div id="header1" style="height:72px;">
 		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
@@ -124,7 +124,7 @@
 			</div> 
 		</div>
 	</div>
-
+	</div>
 
 <div id="nav">
 <div id="section" width="550%">
@@ -151,13 +151,12 @@
 
 <button type="submit" class="button" >Edit</button>
 <button class="button"><a href="/profile" ><font color = " #ffffff"> Cancel </font></a> </button>
-	<!-- 
+	
 <link rel="stylesheet" type="text/css" href="css/index.css">
-<link rel="stylesheet" href="css/style.css"> -->
+<link rel="stylesheet" href="/css/style.css">
 </form>
 </div>
 </div>
 </div>
-	</div>
 </body>
 </html>
