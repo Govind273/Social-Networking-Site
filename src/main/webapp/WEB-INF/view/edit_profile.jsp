@@ -110,7 +110,7 @@
 		<label><h4> <b>EDIT PROFILE DETAILS</b></h4></label>
 		</div>
 		<div class="CLubmembership" align="left">
-<form action="/updateProfile"  method="POST">
+<form action="/updateProfile"  method="PUT">
     <label><b>Email</b></label>
     <input type="text"  name="emailId" value="${user.emailId}" required readonly>
 
