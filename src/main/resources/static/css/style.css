@@ -82,7 +82,7 @@ img {
 div#navfirst{
     height: 40px; 
     width: 100%; 
-    background-color: #0000ff; 
+    background-color: rgb(117,0,0); 
 
 }
 div#navfirst ul#menu{
