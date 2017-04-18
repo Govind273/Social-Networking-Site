@@ -20,8 +20,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.UUID;
 
@@ -207,6 +209,22 @@ public class LoginController {
 		userService.storeProfilePic(userId, storedPathOnAmazon); 
 		
 		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/some" , method=RequestMethod.GET)
+	public void some(){
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("~/app/.aws/credentials"))) {
+
+			String sCurrentLine;
+
+			while ((sCurrentLine = br.readLine()) != null) {
+				System.out.println(sCurrentLine);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
