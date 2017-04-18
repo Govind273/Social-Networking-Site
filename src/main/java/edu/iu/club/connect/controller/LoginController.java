@@ -204,7 +204,8 @@ public class LoginController {
 		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
 		System.out.println("path to be used -- "+storedPathOnAmazon);
 
-		userService.storeProfilePic(userId, storedPathOnAmazon);
+		userService.storeProfilePic(userId, storedPathOnAmazon); 
+		
 		return "redirect:/profile";
 	}
 

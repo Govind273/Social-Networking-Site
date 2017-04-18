@@ -91,7 +91,7 @@ public class GroupServiceImplementation implements GroupService {
 	}
 
 	@Override
-	public Set<GroupMembersModel> findMyFriends(int userId) {
+	public List<GroupMembersModel> findMyFriends(int userId) {
 		
 		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
 		
@@ -99,8 +99,8 @@ public class GroupServiceImplementation implements GroupService {
 		System.out.println(myGroups.size());
 		
 		
-		GroupMembersModel members = new GroupMembersModel();
-		Set<Integer> myFriends = new HashSet<Integer>();
+		//GroupMembersModel members = new GroupMembersModel();
+		List<GroupMembersModel> myFriends = new ArrayList<GroupMembersModel>();
 		
 		for(GroupMembersModel groupMembersModel : myGroups){
 			
@@ -109,17 +109,17 @@ public class GroupServiceImplementation implements GroupService {
 			System.out.println(list.size());
 			 for(GroupMembersModel lists : list){
 				// lists.getGroupName();
-				  myFriends.add(lists.getUserId());
+				  myFriends.add(lists);
 				  
 				  System.out.println("friends"+lists.getUserId());
 			 }
 //			myFriends.addAll(Arrays.asList(groupMemberRepository.findAllByGroupId(groupId)));
-			 List<UserModel> friends = new ArrayList<UserModel>();
-			 friends.add(myFriends.)
-			
+//			 List<UserModel> friends = new ArrayList<UserModel>();
+//			 friends.add(myFriends.)
+//			
 		}
 		
-		myFriends.remove(userId);
+		//myFriends.remove(userId);
 		return myFriends;
 	}
 

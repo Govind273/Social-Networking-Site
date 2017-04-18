@@ -25,7 +25,7 @@ public interface GroupService {
     public ArrayList<Object> searchOne(GroupModel groupModel);
     public GroupModel getAdminId(int groupId );
 	public List<GroupModel> findAllGroupsById(int adminId);
-	public Set<GroupMembersModel> findMyFriends(int userId);
+	public List<GroupMembersModel> findMyFriends(int userId);
 
 
 }

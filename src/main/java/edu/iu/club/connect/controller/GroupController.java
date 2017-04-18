@@ -65,7 +65,7 @@ public class GroupController {
 	@RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
 	public String myFriends(@PathVariable("userId") int userId , ModelMap modelMap){
 		
-		Set<GroupMembersModel> myFriends = groupService.findMyFriends(userId);
+		List<GroupMembersModel> myFriends = groupService.findMyFriends(userId);
 		modelMap.put("myFriends", myFriends);
 		return "MyFriends";
 	}
