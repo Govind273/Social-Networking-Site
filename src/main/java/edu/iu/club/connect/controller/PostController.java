@@ -1,7 +1,9 @@
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
 
 import java.text.DateFormat;
@@ -32,6 +34,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @SessionAttributes ({"groupSearched", "user_id" })
 public class PostController {
+
+	@Autowired
+	JoinRequestService joinRequestService;
 	
     @Autowired
     PostService postService;
@@ -41,14 +46,14 @@ public class PostController {
     	ModelAndView mv1=new ModelAndView("groupsProfile");
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
-    	//System.out.println("im in");
-    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
     	Date date = new Date();
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
+    	mv1.addObject("groupmember",alreadyFriend);
     	mv1.addObject("ps",ps);
         return mv1;
         }
@@ -73,6 +78,9 @@ public class PostController {
     		 rror="Not authorised to delete this post.";
     		message.put("message","Not authorised to delete this post.");
     	}
+
+    	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
+    	mv.addObject("groupmember",alreadyFriend);
     	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
