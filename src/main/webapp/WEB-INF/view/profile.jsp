@@ -30,14 +30,17 @@ html, body, h1, h2, h3, h4, h5 {
 }
 
 .cover {
-	width: . . . /* whatever width you want for the cover div */
-   height: 270px;
-	background-color: white; /* optional */
-	overflow: hidden;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
 }
 
 .cover>img {
-	width: 100%;
+ position: absolute;
+  display: block;
+  max-width:1400px;
+  top: 0;
+  left: 0;
 }
 </style>
 <body class="w3-theme-l5">
@@ -49,21 +52,20 @@ html, body, h1, h2, h3, h4, h5 {
 
 	<!-- ********************Page Container******************** -->
 	<div class="w3-container w3-content"
-		style="max-width: 1400px; margin-top: 80px">
+		style="max-width: 1400px">
 
 
 
 
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="images/iu6.jpeg" height="280px">
+			<img src="images/iu6.jpeg">
 		</div>
 
-		<jsp:include page="menuBar.jsp" />
+		
 		<!--********** The Grid ***********-->
 		<div class="w3-row">
-
-
+<jsp:include page="menuBar.jsp" />
 			<!-- **********Left Column********** -->
 			<div class="w3-col m3">
 				<br>
@@ -98,6 +100,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<p>Karun Fan Club</p>
 						<p>Data Science Club</p>
 						<p>We Love Vandana Club</p>
+						</p>
 					</div>
 				</div>
 
@@ -117,67 +120,74 @@ html, body, h1, h2, h3, h4, h5 {
 						</div>
 					</div>
 				</div>
-        
-	<div id="nav">
-		<div>
-			<img src="images/2.png" width="170" height="120"
-				style="position: absolute; left: 80px; top: 480px;">
+
+				<!-- Container for biographic information of user -->
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+					<br>
+					<h4>Current Job</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat.</p>
+					<h4>Education</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat.</p>
+					<h4>Last Job</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+
+				<!-- **********End Middle Column********** -->
+			</div>
+			<!-- **********Right Column********** -->
+			<div class="w3-col m2">
+				<br>
+				<!-- Colleague Requests -->
+				<div class="w3-card-2 w3-round w3-white w3-center">
+					<div class="w3-container">
+						<p>Friend Request</p>
+						<img src="/w3images/avatar6.png" alt="Avatar" style="width: 50%"><br>
+						<span>Jane Doe</span>
+						<div class="w3-row w3-opacity">
+							<div class="w3-half">
+								<button class="w3-button w3-block w3-green w3-section"
+									title="Accept">
+									<i class="fa fa-check"></i>
+								</button>
+							</div>
+							<div class="w3-half">
+								<button class="w3-button w3-block w3-red w3-section"
+									title="Decline">
+									<i class="fa fa-remove"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+
+				<!-- Ads -->
+				<div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
+					<p>ADS</p>
+				</div>
+				<br>
+
+				<!--********** End Right Column **********-->
+			</div>
+			<!--********** End Grid **********-->
 		</div>
-		<div style="position: relative; left: 80px; top: 250px;">
-			<form action="/yourGroups/${user.userId}" method="GET">
-				<button type="submit">Ownership</button>
-			</form>
-		</div>
-		<div style="position: relative; left: 80px; top: 250px;">
-			<form action="/friends/${user.userId}" method="GET">
-				<button type="submit">Friends</button>
-			</form>
-		</div>
-		
-		<div style="position: relative; left: 80px; top: 250px;">
-			<form action="/messages/${user.userId}" method="GET">
-				<button type="submit">Message</button>
-			</form>
-		</div>
+		<!--********** End Page Container **********-->
 	</div>
 
 	<br>
-	<!-- Footer-->
+
+	<!-- Footer <footer class="w3-container w3-theme-d5"><color: rgb(117,0,0)>
+  <p style="color:white;"><p style="text-align:center;">&copy; 2017 Club Connect</p>
+</footer>-->
 	<jsp:include page="footer.jsp" />
-	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			var thisTime;
-			$('.nav-ul li').mouseleave(function(even) {
-				thisTime = setTimeout(thisMouseOut, 1000);
-			})
-			$('.nav-ul li').mouseenter(function() {
-				clearTimeout(thisTime);
-				var thisUB = $('.nav-ul li').index($(this));
-				if ($.trim($('.nav-slide-o').eq(thisUB).html()) != "") {
-					$('.nav-slide').addClass('hover');
-					$('.nav-slide-o').hide();
-					$('.nav-slide-o').eq(thisUB).show();
-				} else {
-					$('.nav-slide').removeClass('hover');
-				}
-			})
-			function thisMouseOut() {
-				$('.nav-slide').removeClass('hover');
-			}
-			$('.nav-slide').mouseenter(function() {
-				clearTimeout(thisTime);
-				$('.nav-slide').addClass('hover');
-			})
-			$('.nav-slide').mouseleave(function() {
-				$('.nav-slide').removeClass('hover');
-			})
-		})
-	</script>
-
-
-</div>
-<!--<iframe src="signup.html" width="100%" height="100%"></iframe>-->
-<link rel="stylesheet" href="css/style.css">
 </body>
 </html>
