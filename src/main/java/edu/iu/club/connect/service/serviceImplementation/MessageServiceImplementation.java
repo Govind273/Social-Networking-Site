@@ -36,7 +36,8 @@ public class MessageServiceImplementation implements MessageService{
 	@Override
 	public boolean saveNewMessage(String message, int senderId, int receiverId) {
 		
-		System.out.println(senderId);
+		System.out.println(" sender id "+senderId);
+		System.out.println("receiver id"+receiverId);
 		String senderName = userRepository.findUserNameById(senderId);
 		String receiverName = userRepository.findUserNameById(receiverId);
 		
