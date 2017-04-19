@@ -111,7 +111,8 @@
 				
 					<th><h2>Recent Posts</h2></th>
 					
-    						<div >${message}</div>
+    						
+    						<div >${message.message}</div>
 						
 					<table style="width: 100%" border="2">
 						
