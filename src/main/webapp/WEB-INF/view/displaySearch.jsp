@@ -59,7 +59,7 @@
 			<button type="submit"> Join </button>
 			</form>
 			
-			<form action = "/groupPage/${post.groupId }" method="get">
+			<form action = "/groupPage/${post.groupId }/${user.userId }" method="get">
 			<button type="submit"> see group </button>
 			</form>
 		</div>
