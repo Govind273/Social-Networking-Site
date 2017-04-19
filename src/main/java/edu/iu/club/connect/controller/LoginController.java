@@ -20,8 +20,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.UUID;
 
@@ -41,9 +43,9 @@ public class LoginController {
 	@Autowired EmailHandler emailHandler;
 
 
-//	@Autowired 
-//	private AmazonAWSS3Operation amazonS3OperationService;
-	
+	@Autowired 
+	private AmazonAWSS3Operation amazonS3OperationService;
+
 
 
 
@@ -70,16 +72,11 @@ public class LoginController {
 		return "actionSuccess";
 
 	}
-	/*
 
-<<<<<<< Updated upstream
-	 * This method checks the Login credentials provided by the user and directs him to his profile if
-	 * credentials matches.
-	 * */
 
 	/* This method checks the Login credentials provided by the user and directs him to his profile if
-	* credentials matches.
-	* */
+	 * credentials matches.
+	 * */
 
 	@RequestMapping(value="/login" , method = RequestMethod.GET)
 	public String login(UserModel userModel, ModelMap modelMap){
@@ -89,11 +86,7 @@ public class LoginController {
 
 			return "redirect:/";
 		}
-		//Commented by vishi to solve the error "too many re-directs"
-// 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 
-// 			return "redirect:login";
-// 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 			System.out.println("qwerty"+returnedUserModel.getFirstName());
 			modelMap.addAttribute("user",returnedUserModel);
@@ -132,10 +125,10 @@ public class LoginController {
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
 
-		
-		//UserModel userModel = (UserModel) modelMap.get("user");
-		//UserModel returnedUserModel = userService.findOne(userModel);
-		//modelMap.put("user",returnedUserModel);
+
+		UserModel userModel = (UserModel) modelMap.get("user");
+		UserModel returnedUserModel = userService.findOne(userModel);
+		modelMap.put("user",returnedUserModel);
 
 		return "profile";
 	}
@@ -207,24 +200,32 @@ public class LoginController {
 
 	}
 
+	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
+	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
 
-//<<<<<<< Updated upstream
-//=======
-//
-//	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
-//	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
-//
-//		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
-//		System.out.println("path to be used -- "+storedPathOnAmazon);
-//
-//		userService.storeProfilePic(userId, storedPathOnAmazon);
-//		return "redirect:/profile";
-//	}
-//>>>>>>> Stashed changes
+		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
+		System.out.println("path to be used -- "+storedPathOnAmazon);
 
+		userService.storeProfilePic(userId, storedPathOnAmazon); 
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/some" , method=RequestMethod.GET)
+	public void some(){
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("~/app/.aws/credentials"))) {
 
+			String sCurrentLine;
 
+			while ((sCurrentLine = br.readLine()) != null) {
+				System.out.println(sCurrentLine);
+			}
 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/*
 	 * This method is responsible for enabling user to logout from his account by ending his session.

@@ -118,10 +118,10 @@
 	<div id="nav">
 <div id="section" width="550%">
 <div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top: 230px;" align="middle">
-		<label><h4> <b>My Friends</b></h4></label>
+		<label><h4> <b>My Messages</b></h4></label>
 		</div>
 <div class="CLubmembership" align="left">
-<c:forEach items="${myFriends}" var="post">
+<c:forEach items="${friensMessageList}" var="post">
 		<div id="left" class="row col-lg-12">
 
 			<div class="form-group col-lg-6">
@@ -129,9 +129,9 @@
 					Id ${post.userId}</label>
 			</div>
 			
-			<div class="form-group col-lg-6">
-			<form action = "doMessageToThisFriend/${user.userId }/${post.userId }" method = "GET">
-				<button type = "submit">Message</button>
+		 	<div class="form-group col-lg-6">
+			<form action = "openMessagesOfThisFriend/${user.userId }/${post.userId }" method = "GET">
+				<button type = "submit">View</button>
 				</form>
 			</div>
 		

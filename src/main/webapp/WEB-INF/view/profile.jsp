@@ -44,6 +44,12 @@
 				<button type="submit">Friends</button>
 			</form>
 		</div>
+		
+		<div style="position: relative; left: 80px; top: 250px;">
+			<form action="/messages/${user.userId}" method="GET">
+				<button type="submit">Message</button>
+			</form>
+		</div>
 	</div>
 
 	<div id="section" align="right">
@@ -74,13 +80,10 @@
 				} else {
 					$('.nav-slide').removeClass('hover');
 				}
-
 			})
-
 			function thisMouseOut() {
 				$('.nav-slide').removeClass('hover');
 			}
-
 			$('.nav-slide').mouseenter(function() {
 				clearTimeout(thisTime);
 				$('.nav-slide').addClass('hover');
