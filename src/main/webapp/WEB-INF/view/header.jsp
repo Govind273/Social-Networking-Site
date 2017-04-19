@@ -44,6 +44,41 @@ li a:hover:not(.active) {
 
 </style>
 
+<!-- this references the style necesary for the header css...probably most of these links aren't actually needed -->
+<link href="https://assets.iu.edu/brand/legacy/brand.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="https://assets.iu.edu/search/legacy/search.css" rel="stylesheet" type="text/css" />
+<link href="https://inlocc.iu.edu/CAS/_iu-brand/css/Inlocc-print.css" rel="stylesheet" type="text/css" media="print">
+<link href="https://inlocc.iu.edu/CAS/_iu-brand/css/global.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="https://inlocc.iu.edu/CAS/css/swanky-purse.min.css" rel="stylesheet" type="text/css">
+	<link href="https://inlocc.iu.edu/CAS/css/jquery-ui-1.11.4.custom.min.css" type="text/css" />
+	<link href="https://inlocc.iu.edu/CAS/css/jquery-ui-1.11.4.custom.structure.min.css" type="text/css" />
+	<link href="https://inlocc.iu.edu/CAS/css/jquery-ui-1.11.4.custom.theme.min.css" type="text/css" />
+
+
+
+<div id="branding-bar-v1" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+	<div class="bar">
+		<div class="wrapper">
+	        <div class="banner-width940plus">
+				<p class="campus">
+					<a href="https://club-connect.herokuapp.com/" title="Indiana University Club Connect">
+						<img src="https://assets.iu.edu/brand/legacy/trident-tab.gif" height="73" width="64" alt="IU" border="0" />
+						<span class="show-on-desktop" itemprop="name">Indiana University Club Connect</span>
+						<span class="show-on-tablet" itemprop="name">Indiana University Club Connect</span>
+						<span class="show-on-mobile" itemprop="name">Indiana University Club Connect</span>
+					</a>
+				</p>
+			</div>
+
+         </div> 
+         									<ul><li style="float:right">
+							<a href="/logout" title="Logout">Logout</a>
+						</li></ul>
+	</div>
+</div>
+
+
+<!-- 
 <ul>
   		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
 		<img src="/images/2.png" width="100" height="100" >
@@ -51,7 +86,7 @@ li a:hover:not(.active) {
 		<li style="float:right">
 		<a href="/logout" title="Logout">Logout</a>
 </li>
-</ul>
+</ul> -->
 	
 <!-- 
 <div id="header1" style="height:30px;">
