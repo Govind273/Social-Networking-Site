@@ -45,7 +45,7 @@
 
 
 		<div id="navGroupPage">
-			<!--		<div class="CLubmembership" align="middle" heightÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂ"400px"><p2>Club Menbership</p2></div>     -->
+			<!--		<div class="CLubmembership" align="middle" heightÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ"400px"><p2>Club Menbership</p2></div>     -->
 			<div>
 				<img src="/images/2.png" width="170" height="120"
 					style="position: absolute; left: 80px; top: 480px; border: #000 solid 1px;">
@@ -83,7 +83,7 @@
 				<form></form>
 			</div>
 
-
+				<c:if test="${fn:length(groupmember) > 0}">
 
 			<div class="posts_div" align="left" valign="middle">
 
@@ -142,10 +142,9 @@
 					<p>No posts</p>
 				</c:if>
 			</div>
+			</c:if>
 		</div>
 
 	</div>
 
-	</div>
-	</div>
 </html>
