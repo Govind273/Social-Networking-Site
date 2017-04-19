@@ -95,7 +95,7 @@ public class GroupServiceImplementation implements GroupService {
 		
 		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
 		
-		System.out.println(myGroups.get(0).getGroupName());
+		//System.out.println(myGroups.get(0).getGroupName());
 		System.out.println(myGroups.size());
 		
 		
