@@ -7,6 +7,7 @@ import edu.iu.club.connect.model.GroupModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by walia on 2/19/2017.

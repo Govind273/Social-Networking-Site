@@ -2,6 +2,7 @@ package edu.iu.club.connect.service.serviceImplementation;
 
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.repository.GroupMemberRepository;
 import edu.iu.club.connect.service.repository.GroupRepository;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by walia on 2/19/2017.
@@ -87,15 +90,16 @@ public class GroupServiceImplementation implements GroupService {
 		return groups;
 	}
 
-	@SuppressWarnings({ "null"})
 	@Override
 	public List<GroupMembersModel> findMyFriends(int userId) {
 		
 		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
 		
-		System.out.println(myGroups.get(0).getGroupName());
+		//System.out.println(myGroups.get(0).getGroupName());
 		System.out.println(myGroups.size());
 		
+		
+		//GroupMembersModel members = new GroupMembersModel();
 		List<GroupMembersModel> myFriends = new ArrayList<GroupMembersModel>();
 		
 		for(GroupMembersModel groupMembersModel : myGroups){
@@ -106,9 +110,13 @@ public class GroupServiceImplementation implements GroupService {
 			 for(GroupMembersModel lists : list){
 				// lists.getGroupName();
 				  myFriends.add(lists);
+				  
+				  System.out.println("friends"+lists.getUserId());
 			 }
 //			myFriends.addAll(Arrays.asList(groupMemberRepository.findAllByGroupId(groupId)));
-			
+//			 List<UserModel> friends = new ArrayList<UserModel>();
+//			 friends.add(myFriends.)
+//			
 		}
 		
 		//myFriends.remove(userId);
