@@ -52,7 +52,7 @@ public class PostController {
         }
     
     
-    @RequestMapping(value = "/deletePost/{post_id}/{user_id}")
+    @RequestMapping(value = "/deletePost/{post_id}/{user_id}/{group_id}")
     public ModelAndView deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id,  @PathVariable("group_id") int group_id,PostModel postModel){
     	ModelAndView mv=new ModelAndView("groupsProfile");
     	postModel.setPostId(post_id);
@@ -62,6 +62,7 @@ public class PostController {
     	if (postby == user_id){
     		postService.deleteById(post_id);
     	}
+    	
     	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
