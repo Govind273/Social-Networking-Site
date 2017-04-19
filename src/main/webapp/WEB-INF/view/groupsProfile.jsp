@@ -118,16 +118,13 @@
 									style="margin-top: 15%; font-size: 20px; left: 20%; align: left">
 										${post.postDesc}</label> <br> <label for="PostBy"
 									style="margin-top: 15%; font-size: 20px"><B> </B>
-										${post.postedDatetime} </label> <%-- <b> ${post.postId}</b> --%></td>
-								<%-- DELETE FUNCTIONALITY:TO IMPLEMENT<td>
-<a id="delete"  href="<c:url value="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"/>"  >
-
-<!-- style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;"/>
- -->				
-				<img src="/images/home.jpg">
-			</a> 
-
-</td> --%>
+										${post.postedDatetime} </label> <%-- <b> ${post.postId}</b> --%>
+	</td>					
+	<td class="td">
+ <form action = "/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }" method="post">
+			<button type="submit"> <img  src="/images/deleteicon.png"> </button>
+</form>
+</td>
 							</tr>
 						</c:forEach>
 
