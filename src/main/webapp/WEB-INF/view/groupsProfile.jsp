@@ -45,7 +45,7 @@
 
 
 		<div id="navGroupPage">
-			<!--		<div class="CLubmembership" align="middle" heightÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ"400px"><p2>Club Menbership</p2></div>     -->
+			<!--		<div class="CLubmembership" align="middle" heightÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂ"400px"><p2>Club Menbership</p2></div>     -->
 			<div>
 				<img src="/images/2.png" width="170" height="120"
 					style="position: absolute; left: 80px; top: 480px; border: #000 solid 1px;">
@@ -105,26 +105,32 @@
 				<button type="submit"  class="btn btn-default btn-block" id="getBtn">get posts</button>
                 </form>
                  --%>
-
+				
 				<c:if test="${fn:length(ps) > 0}">
+				
+				
 					<th><h2>Recent Posts</h2></th>
+					
+    						<div >${message}</div>
+						
 					<table style="width: 100%" border="2">
-						<tr>
-
-						</tr>
+						
 						<c:forEach items="${ps}" var="post">
 							<tr>
 								<td class="td"><label for="PostBy"
 									style="margin-top: 15%; font-size: 20px; left: 20%; align: left">
 										${post.postDesc}</label> <br> <label for="PostBy"
 									style="margin-top: 15%; font-size: 20px"><B> </B>
-										${post.postedDatetime} </label> <%-- <b> ${post.postId}</b> --%>
-	</td>					
-	<td class="td">
+										${post.postedDatetime} </label> <%-- <b> ${post.postId}</b> --%></td>
+<!-- 								DELETE FUNCTIONALITY:TO IMPLEMENT
+ -->
+ <td>
  <form action = "/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }" method="post">
-			<button type="submit"> <img  src="/images/deleteicon.png"> </button>
+
+<!-- style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;"/>
+ -->			<button type="submit"> <img  src="/images/deleteicon.png"> </button>
 </form>
-</td>
+</td> 
 							</tr>
 						</c:forEach>
 
