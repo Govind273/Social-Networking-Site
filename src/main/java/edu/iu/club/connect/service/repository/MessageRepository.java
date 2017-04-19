@@ -6,9 +6,10 @@ import java.util.Set;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import edu.iu.club.connect.model.MessageModel;
-
+@Repository
 public interface MessageRepository extends JpaRepository<MessageModel,Integer>{
 	
 	@Query("select b from MessageModel b where b.senderId = :senderId AND b.receiverId = :receiverId OR b.senderId = :receiverId AND b.receiverId = :senderId")
