@@ -1140,6 +1140,8 @@ form label {
 #gtco-footer .gtco-footer-links {
   padding: 0;
   margin: 0;
+   background: #52d3aa;
+     color: #000;
 }
 #gtco-footer .gtco-footer-links li {
   padding: 0;
