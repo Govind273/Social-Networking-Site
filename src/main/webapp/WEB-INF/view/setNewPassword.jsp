@@ -12,6 +12,30 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 <link rel="stylesheet" href="/css/style.css">
 <title>Change Password</title>
+<script>
+			/* $('#password, #confirm_password').on('keyup', function() {
+				if ($('#password').val() == $('#confirm_password').val()) {
+					$('#message').html('Matching').css('color', 'green');
+				} else
+					$('#message').html('Not Matching').css('color', 'red');
+			}); */
+			
+			function check()
+			{ 
+			with(document.all){
+				var ok = true;
+			if(input1.value!=input2.value)
+			{
+			alert("Password does not match")
+			input1.value = "";
+			input2.value = "";
+			ok= false;
+			}
+			else ok= true; 
+			return ok;<!--document.forms[0].submit();-->
+			}
+			}
+		</script>
 </head>
 <body>
 <div id="header1" style="height:72px;">
@@ -28,38 +52,32 @@
 				<font size="12px" color="000000"><b> Please enter the new password</b></font>
 		</div>
 		<div class="CLubmembership" style="position:absolute;  top:55%; left:25%; " align="left">
-	<form action="/newPassword/${forgetPassword}" method="POST">
+	<form action="/newPassword/${forgetPassword}"    method="POST">
 
 		<div class="col-md-4 col-sm-4">
 			<div class="form-group" align="left" valign="middle">
 				<label><b>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
 				<input type="password" placeholder="Enter New Password"
-					name="password" id="password" required>
+					name="password" id="input1" required>
 
 			</div>
 		</div>
 		<div class="col-md-4 col-sm-4">
 			<div class="form-group" align="left" valign="middle">
-				<label><b>Re-enter Password</b></label> <input id="input2"
+				<label><b>Re-enter Password</b></label> 
+				<input id="input2"
 					type="password" placeholder="Re-enter Password"
-					name="Re-enter password" id="confirm_password" required>
+					name="Re-enter password"  required>
 			</div>
 		</div>
 
 		<span id='message'></span>
-		<script>
-			$('#password, #confirm_password').on('keyup', function() {
-				if ($('#password').val() == $('#confirm_password').val()) {
-					$('#message').html('Matching').css('color', 'green');
-				} else
-					$('#message').html('Not Matching').css('color', 'red');
-			});
-		</script>
+		
 
 		<div class="col-md-4 col-sm-4 col-md-offset-2">
-			<button type="submit" class="btn btn-default btn-block">Change Password</button>
+			<button type="submit" onclick="return check()" class="btn btn-default btn-block">Change Password</button>
 			
-			<button class="btn btn-default btn-block"><a href="/#"><font color = " #">Cancel</font></a></button>
+			<button class="btn btn-default btn-block"><a href="/signup"><font color = " #">Cancel</font></a></button>
 	</div>
 	</form>
 	</div>

@@ -1,8 +1,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.List"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,44 +15,18 @@
 </head>
 
 <body>
-<div id="header1" style="height:72px;">
-		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
-		<img src="/images/2.png" width="65" height="56" >
-		</div>
-		<div align="right" style="padding:20px">
-			<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
-		</li>
-		</div>
 
+<!--Top header -->
+<jsp:include page="header.jsp"/>	
  
 <div class="gtco-container">
+
+<!--Background Image, Menu Bar -->
 	<div class="coverTopSection" height="400px">
 		<div class="coverPic" style="width:100% height:80%" valign="top">
 			<img src="images/iu6.jpeg" height="280px" >
 		</div>
-		<div id="navfirst" style="width:100% height:20%" valign="bottom">
-			<a id="home" class="homebutton" href="profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="/images/home.jpg">
-			</a>
-			<ul id="menu">
-				<li id="editProfile">
-					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
-				</li>
-				<li id="ch">
-					<a href="#" title="chat">Club Chat</a>
-				</li>
-
-			</ul>   
-
-
-			<div class="search" align="right">
-				<form action="/search" method="get">
-  					<input type="text" name="groupName" placeholder="Search.." >
-  					<button type="submit">Search</button>
-				</form>			
-			</div>
-		</div>
+	<jsp:include page="menuBar.jsp"/>	
 	</div>
 	
 
@@ -59,15 +34,18 @@
 
 
 	<div id="section">
-		<div class="tile_div" style="position:absolute;  top:555px; left:25%; " align="middle" >
+		<div class="tile_div" style="position:absolute;  top:555px; left:25%; " align="left" >
+		
 				<font size="15" color="000000"><b>SEARCH RESULTS</b></font>
 		</div>
-	<div class="CLubmembership" align="middle">
-        
+	<c:if test="${fn:length(search) > 0}">
+	<div class="CLubmembership" align="left">
+
 	<c:forEach items="${search}" var="post">
 		<div id="left" class="row col-lg-12">
 
 			<div class="form-group col-lg-6">
+			
 				<label for="PostBy" style="margin-top: 15%; font-size: 20px; left:20%">
 				<b>Group
 					Name:</b> ${post.groupName}</label>
@@ -81,7 +59,7 @@
 			<button type="submit"> Join </button>
 			</form>
 			
-			<form action = "/groupPage/${post.groupId }" method="get">
+			<form action = "/groupPage/${post.groupId }/${user.userId }" method="get">
 			<button type="submit"> see group </button>
 			</form>
 		</div>
@@ -89,9 +67,14 @@
 
 	</c:forEach>
 	</div>
+</c:if>
+<c:if test="${fn:length(search) == 0}">
+No results found
+</c:if>
 	</div>
 	</div>
 	</div>
+	
 	
 </body>
 </html>
