@@ -1,34 +1,123 @@
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page import="java.util.List"%>
-
-
+<!DOCTYPE html>
 <html>
-<body bgcolor="#000000">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
+<title>Club Connect</title>
+<meta charset="UTF-8">
+<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet'
+	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
+}
 
-</head>
+#coverTopSection {
+	margin: 0;
+	padding: 0;
+}
 
-<!--Top header -->
-<jsp:include page="header.jsp" />
+.coverPic {
+	display: block;
+	position: relative;
+	height: 415px;
+	overflow: hidden;
+	text-decoration: none;
+}
 
-<div class="gtco-container">
+.cover {
+	width: . . . /* whatever width you want for the cover div */
+   height: 270px;
+	background-color: white; /* optional */
+	overflow: hidden;
+}
 
-	<!--Background Image, Menu Bar -->
-	<div class="coverTopSection" height="400px">
-		<div class="coverPic" style="width: 100% height:80%" valign="top">
+.cover>img {
+	width: 100%;
+}
+</style>
+<body class="w3-theme-l5">
+
+	<!-- ********************Header, Cover Photo, Menu Bar******************** -->
+	<jsp:include page="header.jsp" />
+
+
+
+	<!-- ********************Page Container******************** -->
+	<div class="w3-container w3-content"
+		style="max-width: 1400px; margin-top: 80px">
+
+
+
+
+		<!--Background Image, Menu Bar -->
+		<div class="cover">
 			<img src="images/iu6.jpeg" height="280px">
 		</div>
-		<jsp:include page="menuBar.jsp" />
-	</div>
 
+		<jsp:include page="menuBar.jsp" />
+		<!--********** The Grid ***********-->
+		<div class="w3-row">
+
+
+			<!-- **********Left Column********** -->
+			<div class="w3-col m3">
+				<br>
+				<!-- Profile Picture and brief info on user -->
+				<div class="w3-card-2 w3-round w3-white">
+					<div class="w3-container">
+						<p class="w3-center">
+							<img src="images/2.png" width="170" height="170">
+						</p>
+						<hr>
+						<p>
+							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
+							Designer, UI
+						</p>
+						<p>
+							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+							London, UK
+						</p>
+						<p>
+							<i
+								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+							April 1, 1988
+						</p>
+					</div>
+				</div>
+				<br>
+
+				<!-- Clubs -->
+				<div class="w3-card-2 w3-round w3-white w3-hide-small">
+					<div class="w3-container">
+						<h3>Club Membership</h3>
+						<p>Karun Fan Club</p>
+						<p>Data Science Club</p>
+						<p>We Love Vandana Club</p>
+					</div>
+				</div>
+
+				<!-- **********End Left Column********** -->
+			</div>
+			<!-- **********Middle Column********** -->
+			<div class="w3-col m7">
+				<br>
+				<!-- Container for name and user briefing -->
+				<div class="w3-row-padding">
+					<div class="w3-col m12">
+						<div class="w3-card-2 w3-round w3-white">
+							<div class="w3-container w3-padding">
+								<h2>${user.firstName}${user.lastName}</h2>
+								<p>${user.about}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+        
 	<div id="nav">
 		<div>
 			<img src="images/2.png" width="170" height="120"
@@ -52,17 +141,9 @@
 		</div>
 	</div>
 
-	<div id="section" align="right">
-		<div class="tile_div" id="username"
-			style="position: absolute; top: 555px; left: 330px;" align="middle">
-			<a1 font size="10" color="FFFFFF">${user.firstName}
-			${user.lastName} </a1>
-		</div>
-		<div class="CLubmembership"
-			style="margin: -110px 0px 0px -50px; float: left;">
-			${user.about}</div>
-	</div>
-
+	<br>
+	<!-- Footer-->
+	<jsp:include page="footer.jsp" />
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
