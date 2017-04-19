@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,19 +57,28 @@ public class PostController {
     @RequestMapping(value = "/deletePost/{post_id}/{user_id}/{group_id}")
     public ModelAndView deletePost( @PathVariable("post_id") int post_id, @PathVariable("user_id") int user_id,  @PathVariable("group_id") int group_id,PostModel postModel){
     	ModelAndView mv=new ModelAndView("groupsProfile");
+    	Map<String, String> message = new HashMap<String, String>();
     	postModel.setPostId(post_id);
     	PostModel pm=postService.getPostedby(post_id);
+    	String rror="  ";
     	
     	int postby=pm.getPostedby();
     	if (postby == user_id){
     		postService.deleteById(post_id);
+    		rror="Post deleted! ";
+    		message.put("message",rror);
+    		
     	}
-    	
+    	else {
+    		 rror="Not authorised to delete this post.";
+    		message.put("message","Not authorised to delete this post.");
+    	}
     	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
     	mv.addObject("ps",ps);
+    	mv.addObject("message", message);
         return mv;
         }
    
@@ -78,7 +89,6 @@ public class PostController {
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();
-    	
     	}
     		mv.addObject("ps",ps); 
     	
