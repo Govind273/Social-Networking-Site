@@ -17,6 +17,7 @@ public class MessageModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "messageSequence")
     @SequenceGenerator(name ="messageSequence",sequenceName = "messages_messageid_seq",allocationSize = 1)
+	private @Column(name = "messageid") Integer messageId;
     private @Column(name = "senderid")  Integer senderId;
     private @Column(name = "receiverid") Integer receiverId; //used in search feature
     private @Column(name = "sendername") String senderName;
