@@ -25,6 +25,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Random;
 import java.util.UUID;
 
 /*
@@ -48,6 +50,7 @@ public class LoginController {
 
 
 
+	HashMap<String , Integer> forgetPasswordEntry = new HashMap<String , Integer>();
 
 	@RequestMapping(value="/")
 	public String loginPage(){
@@ -61,18 +64,42 @@ public class LoginController {
 		System.out.println(
 				"rec: " + userModel.getEmailId() );
 
-		String oldPassword = userService.getPassword(userModel);
-		System.out.println("LoginContro" + oldPassword);
-		@SuppressWarnings("static-access")
-		String sent = emailHandler.sendEmail(userModel.getEmailId(), oldPassword);
-		System.out.println("sendEmail Checker" + sent);
-		if (sent=="false") {
-			return "invalidEntery";
-		} 
-		return "actionSuccess";
+		UserModel userExist = userService.findOne(userModel);
+		if(userExist !=null){
+
+			String email = userExist.getEmailId();
+			Random r = new Random( System.currentTimeMillis() );
+			int OTP = ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+		
+			forgetPasswordEntry.put(email, OTP);
+
+			@SuppressWarnings("static-access")
+			String sent = emailHandler.sendEmail(userModel.getEmailId(), OTP);
+
+			System.out.println("sendEmail Checker" + sent);
+			if (sent=="false") {
+				return "forgetPassword";
+			} 
+			return "OTP";
+		}
+
+		else  return "forgetPassword";
 
 	}
-
+	
+	@RequestMapping(value = "/checkOTP" , method = RequestMethod.GET)
+	public String checkOTP(@RequestParam("emailId") String emailId , @RequestParam("OTP") int OTP , ModelMap modelMap){
+		
+		if(forgetPasswordEntry.containsKey(emailId)){
+			if(OTP == forgetPasswordEntry.get(emailId)){
+				
+				modelMap.put("forgetPassword", emailId);
+				return "setNewPassword";
+			}
+			else return "OTP";
+		}
+		else  return "OTP";
+	}
 
 	/* This method checks the Login credentials provided by the user and directs him to his profile if
 	 * credentials matches.
