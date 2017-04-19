@@ -18,22 +18,22 @@ import org.springframework.stereotype.Service;
 public class EmailHandler {
 
 
-	public static String sendEmail(String emailID, String oldPassword) throws Exception {
+	public static String sendEmail(String emailID, Integer OTP) throws Exception {
 		System.out.println("Entered ForgetPassword");
-		if(oldPassword != null){
+		if(OTP != null){
 			String host = "smtp.gmail.com";
-			final String username = "socialnetworkiu@gmail.com";
-			final String password = "Se5652016";
-			System.out.println("EmailHandler"+oldPassword);
+			final String username = "clubconnect565@gmail.com";
+			final String password = "softwareengineering";
+			System.out.println("EmailHandler"+OTP);
 
 			Properties props = new Properties();
-//			props.put("mail.smtp.auth", "true");
+			//			props.put("mail.smtp.auth", "true");
 			props.put("mail.smtp.starttls.enable", "true");
-//			props.put("mail.smtp.user", username);
-//	        props.put("mail.smtp.password", password);
-//			props.put("mail.smtp.host", host);
+			//			props.put("mail.smtp.user", username);
+			//	        props.put("mail.smtp.password", password);
+			//			props.put("mail.smtp.host", host);
 			props.put("mail.smtp.port", "587");
-			
+
 			props.put("mail.smtp.host", "smtp.gmail.com");
 			props.put("mail.smtp.socketFactory.port", "465");
 			props.put("mail.smtp.socketFactory.class",
@@ -49,11 +49,11 @@ public class EmailHandler {
 				message.setFrom(new InternetAddress("from-email@gmail.com"));
 				message.setRecipients( Message.RecipientType.TO, InternetAddress.parse(emailID));
 				message.setSubject("Your old password!");
-				message.setText("Dear " + emailID + ",\n\n\n Your password is: " + oldPassword);
+				message.setText("Dear " + emailID + ",\n\n\n Thanks for the interest in Club Connect.\n\n\n Your One Time Password is: " + OTP);
 
 				Transport transport = session.getTransport("smtp");
-		        transport.connect(host, username, password);
-		        message.saveChanges();
+				transport.connect(host, username, password);
+				message.saveChanges();
 				Transport.send(message);
 
 				System.out.println("Email Done");
