@@ -6,7 +6,7 @@ import javax.mail.PasswordAuthentication;
 
 class GMailAuthenticator extends Authenticator {
      String user;
-     String pw;
+     String pw;    
      public GMailAuthenticator (String username, String password)
      {
         super();
