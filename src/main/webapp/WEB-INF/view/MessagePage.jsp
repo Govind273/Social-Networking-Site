@@ -124,7 +124,7 @@ input[type=text1] {
 					style="position: absolute; top: 555px;"
 					style="position:absolute; left:80px; top: 230px;" align="middle">
 					<label><h4>
-							<b>My Friends</b>
+							<b>Message</b>
 						</h4></label>
 				</div>
 				<div class="CLubmembership" align="left">
@@ -133,12 +133,12 @@ input[type=text1] {
 
 							<div class="form-group col-lg-6">
 								<label for="PostBy" style="margin-top: 15%; font-size: 20px">Sender
-									Name ${post.senderName}</label>
+									Name: ${post.senderName}</label>
 							</div>
 
 							<div class="form-group col-lg-6">
-								<label for="PostBy" style="margin-top: 15%; font-size: 20px">Receiver
-									Name ${post.receiverName}</label>
+								<label for="PostBy" style="margin-top: 15%; font-size: 20px">Message:
+									${post.message}</label>
 							</div>
 
 						</div>
