@@ -67,9 +67,10 @@
 					<h2>Join now!</h2>
 				</div>
 			</div>
+			
 			<div class="row col-md-offset-2 animate-box" style="width: 100%">
 				<!--	<div class="col-md-12">  -->
-				<form action="/signup" method="POST" >
+				<form action="/validatebySendingMail" method="POST" >
 					<div class="col-md-4 col-sm-4">
 						<div align="middle">
 							<label><b>First
@@ -90,17 +91,17 @@
 								placeholder="Last Name" name="lastName" required>
 						</div>
 					</div>
+					
 					<div class="col-md-4 col-sm-4">
 						<div align="middle">
 							<label><b>Email</b></label>
 						</div>
 						<div class="form-group" align="center" valign="middle">
-							
-							<input type="text" placeholder="Enter Email" name="emailId"
-								required>
+							 <input type="text"
+								placeholder="Email" name="emailId" required>
 						</div>
-
 					</div>
+			  	 	
 					<div class="col-md-4 col-sm-4">
 						<div align="middle">
 							<label><b>Password</b></label>
@@ -191,6 +192,16 @@ input2.value = "";
 }
 else return true;      <!--document.forms[0].submit();-->
 }
+}
+</script>
+<script>
+function myFunction() {
+    alert("An email with One Time Password has been sent on thiis mail id for validation. Use that OTP to fill in the text box below");
+    var text_box = document.getElementById('mytextbox');
+     {       
+         text_box.setAttribute('readonly', 'readonly');
+     }
+     
 }
 </script>
 
