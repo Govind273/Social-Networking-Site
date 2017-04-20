@@ -58,7 +58,7 @@ li a:hover:not(.active) {
 
 <div id="branding-bar-v1" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
 	<div class="bar">
-		<div class="wrapper">
+		
 	        <div class="banner-width940plus">
 				<p class="campus">
 					<a href="https://club-connect.herokuapp.com/" title="Indiana University Club Connect">
@@ -70,7 +70,7 @@ li a:hover:not(.active) {
 				</p>
 			</div>
 
-         </div> 
+         
          									<ul><li style="float:right">
 							<a href="/logout" title="Logout">Logout</a>
 						</li></ul>
