@@ -51,7 +51,10 @@ public class LoginController {
 
 
 	HashMap<String , Integer> forgetPasswordEntry = new HashMap<String , Integer>();
-
+	
+	HashMap<String , UserModel> signUpEntry = new HashMap<String , UserModel>();
+	
+	
 	@RequestMapping(value="/")
 	public String loginPage(){
 
@@ -64,17 +67,17 @@ public class LoginController {
 		System.out.println(
 				"rec: " + userModel.getEmailId() );
 
-		UserModel userExist = userService.findOne(userModel);
+		UserModel userExist = userService.findOne(userModel.getEmailId());
 		if(userExist !=null){
 
-			String email = userExist.getEmailId();
+			String forgetPasswordEmail = userExist.getEmailId();
 			Random r = new Random( System.currentTimeMillis() );
 			int OTP = ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
 		
-			forgetPasswordEntry.put(email, OTP);
+			forgetPasswordEntry.put(forgetPasswordEmail, OTP);
 
 			@SuppressWarnings("static-access")
-			String sent = emailHandler.sendEmail(userModel.getEmailId(), OTP);
+			String sent = emailHandler.sendEmail(forgetPasswordEmail, OTP);
 
 			System.out.println("sendEmail Checker" + sent);
 			if (sent=="false") {
@@ -92,7 +95,7 @@ public class LoginController {
 		
 		if(forgetPasswordEntry.containsKey(emailId)){
 			if(OTP == forgetPasswordEntry.get(emailId)){
-				
+				forgetPasswordEntry.remove(emailId);
 				modelMap.put("forgetPassword", emailId);
 				return "setNewPassword";
 			}
@@ -107,7 +110,7 @@ public class LoginController {
 
 	@RequestMapping(value="/login" , method = RequestMethod.GET)
 	public String login(UserModel userModel, ModelMap modelMap){
-		UserModel returnedUserModel = userService.findOne(userModel);
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 
 		if(returnedUserModel==null){
 
@@ -124,6 +127,44 @@ public class LoginController {
 			return"login";
 
 	}
+	
+	@RequestMapping(value = "/validatebySendingMail" , method = RequestMethod.POST)
+	public String validateMail(UserModel userModel) throws Exception{
+		
+		System.out.println("in validate email id");
+		System.out.println(
+				"rec: " + userModel.getEmailId() );
+		
+		
+
+		UserModel userExist = userService.findOne(userModel.getEmailId());
+		
+		if(userExist == null){
+
+			signUpEntry.put(userModel.getEmailId() , userModel);
+			@SuppressWarnings("null")
+			String email = userModel.getEmailId();
+			Random r = new Random( System.currentTimeMillis() );
+			int OTP = ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+		
+			forgetPasswordEntry.put(email, OTP);
+
+			@SuppressWarnings("static-access")
+			String sent = emailHandler.sendEmail(email, OTP);
+
+			System.out.println("sendEmail Checker" + sent);
+			if (sent=="false") {
+				return "signup";
+			} 
+			else return "SignUpOTP";
+			
+		}
+		
+		else  {
+			System.out.println("user already exist");
+			return "signup" ;
+		}
+	}
 
 	/*
 	 * This method checks if the username and password are valid.
@@ -133,15 +174,27 @@ public class LoginController {
 	 * This method takes the values given by the user at time of SignUp and saves them into database.
 	 * */
 	@RequestMapping(value="/signup" , method= RequestMethod.POST)
-	public  String signup(UserModel userModel){
-		UserModel returnedUserModel = userService.findOne(userModel);
-		if(returnedUserModel==null){
-			userService.saveOne(userModel);
-			return "profile";
+	public  String signup(@RequestParam("emailId") String emailId , @RequestParam("OTP") int OTP , ModelMap modelMap){
+
+		if(forgetPasswordEntry.containsKey(emailId)){
+			if(OTP == forgetPasswordEntry.get(emailId)){
+				
+				userService.saveOne(signUpEntry.get(emailId));	
+				modelMap.put("user" , signUpEntry.get(emailId));
+				
+				forgetPasswordEntry.remove(emailId);
+				signUpEntry.remove(emailId);
+
+				return "profile";
+			}
 		}
-		else
-			return "signup";
+			
+			
+				return "signup";
+			
 	}
+				
+		
 
 
 	@RequestMapping(value="/signUpPage" , method= RequestMethod.GET)
@@ -154,7 +207,7 @@ public class LoginController {
 
 
 		UserModel userModel = (UserModel) modelMap.get("user");
-		UserModel returnedUserModel = userService.findOne(userModel);
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user",returnedUserModel);
 
 		return "profile";
@@ -178,7 +231,7 @@ public class LoginController {
 
 
 		userService.updateOne(userModel);
-		UserModel returnedUserModel = userService.findOne(userModel);
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user", returnedUserModel);
 
 		return "profile";
