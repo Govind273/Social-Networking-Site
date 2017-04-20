@@ -13,7 +13,7 @@ import edu.iu.club.connect.model.UserModel;
 public interface UserService {
 
  public boolean saveOne(UserModel userModel);
- public UserModel findOne(UserModel userModel);
+ public UserModel findOne(String  emailId);
  public boolean updateOne(UserModel userModel);
 
 public String recoverPassword(UserModel userModel);

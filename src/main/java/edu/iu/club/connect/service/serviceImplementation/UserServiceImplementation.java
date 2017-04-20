@@ -38,10 +38,10 @@ public class UserServiceImplementation implements UserService{
     * This method takes credentials added at time of login and pass them to repository to find user.
     * */
     @Override
-    public UserModel findOne(UserModel userModel) {
+    public UserModel findOne(String emailId) {
 
-        System.out.println(" email id "+userModel.getEmailId());
-      return  userRepository.findOneByEmailId(userModel.getEmailId());
+        System.out.println(" email id "+ emailId);
+      return  userRepository.findOneByEmailId(emailId);
     }
 
     /*
