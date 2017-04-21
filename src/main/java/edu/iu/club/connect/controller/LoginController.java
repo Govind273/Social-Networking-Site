@@ -3,6 +3,8 @@ package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.AmazonAWSS3Operation;
+import edu.iu.club.connect.service.CloudnaryService;
+import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
@@ -44,7 +46,9 @@ public class LoginController {
 
 	@Autowired EmailHandler emailHandler;
 
-
+	@Autowired CloudnaryService CloudnaryService;
+	@Autowired MultipartToFile multipartFile;
+	
 	@Autowired 
 	private AmazonAWSS3Operation amazonS3OperationService;
 
@@ -282,11 +286,15 @@ public class LoginController {
 
 	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
 	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
+		
+		System.out.println(" ------------------------------------------>>>>>>>>>>>>>>");
 
-		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
-		System.out.println("path to be used -- "+storedPathOnAmazon);
+		String storedPathOnCloudnary = CloudnaryService.soemthing(multipartFile.convertToFile(uploadfile));
+		
+	//	String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
+		System.out.println("path to be used -- "+storedPathOnCloudnary);
 
-		userService.storeProfilePic(userId, storedPathOnAmazon); 
+		userService.storeProfilePic(userId, storedPathOnCloudnary); 
 		
 		return "redirect:/profile";
 	}

@@ -1,3 +1,8 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <title>Club Connect</title>
@@ -59,8 +64,17 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="images/iu6.jpeg">
+
+			<img src="${user.profilePic}">
 		</div>
+		
+		<form action = "/uploadProfilePhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
+		<div class="form-group col-lg-6" >
+				    <label for="profilePic">Upload Your Profile Picture</label>
+					<input type="file" name="file" >
+				</div>
+				<button type="submit">Upload</button>
+		</form>
 
 		
 		<!--********** The Grid ***********-->
