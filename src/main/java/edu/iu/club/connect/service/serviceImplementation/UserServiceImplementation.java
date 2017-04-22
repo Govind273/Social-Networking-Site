@@ -44,8 +44,9 @@ public class UserServiceImplementation implements UserService{
       return  userRepository.findOneByEmailId(emailId);
     }
 
-    /*
+    /*Modified by Vaishnavi on 04/21/2017
     * This service takes the updated values entered by user and passes them to repository.
+    *
     * */
     @Override
     public boolean updateOne(UserModel userModel) {
@@ -53,8 +54,8 @@ public class UserServiceImplementation implements UserService{
         //System.out.println(" email id "+userModel.getEmailId());
 
         System.out.println("I am here");
-
-        userRepository.updateOneForString(userModel.getFirstName(),userModel.getLastName(),userModel.getPassword(),userModel.getAbout(),userModel.getProfilePic(),userModel.getEmailId());
+        userRepository.updateOneForString(userModel.getFirstName(),userModel.getLastName(),userModel.getPassword(),userModel.getAbout(),userModel.getProfilePic(),
+         		userModel.getEmailId(),userModel.getGender(),userModel.getLanguages(),userModel.getLocation(),userModel.getBirthdate());
         return  true;
 
     }
