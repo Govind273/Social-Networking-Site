@@ -150,11 +150,11 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 				</div>
 
-				<!-- Container for biographic information of user -->
+								<!-- Education-->
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<br>
 					
-					<h4>Job Details</h4> <br>
+					<h4>Education</h4> <br>
 					<button type="button"  data-toggle="modal" data-target="#myModal">add</button>
 					
 					<c:if test="${fn:length(myJobDetails) > 0}"><!-- 
@@ -170,26 +170,47 @@ html, body, h1, h2, h3, h4, h5 {
 					<tr><td><label> Skills:</label></td>
 					<td>${jobs.skills}<br></td><tr>
 					</table>
+					<hr>
 					</c:forEach>
 					
 					</c:if>
 					<c:if test="${fn:length(myJobDetails) == 0}">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.</p>
-					<h4>Education</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.</p>
-					<h4>Last Job</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.</p> 
+					<p>User does not have any work experience listed</p> 
 						</c:if>
 				</div>
+				
+				
+				<!-- Work Experience-->
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+					<br>
+					
+					<h4>Work Experience</h4> <br>
+					<button type="button"  data-toggle="modal" data-target="#myModal">add</button>
+					
+					<c:if test="${fn:length(myJobDetails) > 0}"><!-- 
+					<button type="button"  data-toggle="modal" data-target="#myeditModal">edit</button><br> -->
+					<c:forEach items="${myJobDetails}" var="jobs">
+					<table style=" border-collapse: separate;   border-spacing: 11px;">
+					<tr><td><label> Company:</label></td>
+				<td>	${jobs.company}<br></td></tr>
+					<tr><td><label>Position:</label></td>
+				<td>	${jobs.position}:<br></td></tr>
+					<tr><td><label>Description:</label></td>
+					<td>${jobs.jobDesc}<br></td></tr>
+					<tr><td><label> Skills:</label></td>
+					<td>${jobs.skills}<br></td><tr>
+					</table>
+					<hr>
+					</c:forEach>
+					
+					</c:if>
+					<c:if test="${fn:length(myJobDetails) == 0}">
+					<p>User does not have any work experience listed</p> 
+						</c:if>
+				</div>
+				
+
+				
 
 				<!-- **********End Middle Column********** -->
 			</div>
