@@ -26,6 +26,6 @@ public interface GroupService {
     public GroupModel getAdminId(int groupId );
 	public List<GroupModel> findAllGroupsById(int adminId);
 	public List<GroupMembersModel> findMyFriends(int userId);
-
+	public boolean isadmin(int userId,int groupId);
 
 }
