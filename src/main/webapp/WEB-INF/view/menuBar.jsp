@@ -21,7 +21,7 @@ input[type=text1] {
 }
 input[type=text1]:focus {
     width: 100%;
-    folat:right;
+    float:right;
 }
 
 ul {
@@ -61,10 +61,23 @@ li a:hover:not(.active) {
 </style>
 
 <ul>
-  <li><a href="/profile">Profile</a></li>
+  <li><a href="/profile">PROFILE</a></li>
   <li><a href="/editProfile">Edit Profile</a></li>
   <li><a href="/createGroup/">Create Club</a></li>
   <li><a href="/FriendRequests/">Colleague Request</a></li>
+	<li><a href = "/friends/${user.userId}" method = "GET">MY COLLEAGUES</a></li>
+  <li>
+					<form action="/seeAllRequest/${user.userId }" method="GET">
+						<button type="submit">Friend Requests</button>
+
+					</form>
+				</li>
+	  	<li>
+			<form action = "/yourGroups/${user.userId}" method = "GET">
+			<button type = "submit">Ownership</button>
+			</form>
+</li>
+			
   <li style="float:right">
 		<form action="/search" method="get">
 
@@ -74,124 +87,3 @@ li a:hover:not(.active) {
 		</form>
 	</li>
 </ul>
-
-
-<!-- THE WORKING CODE as of 4/17, 11am
-<div id="navfirst" style="width: 100% height:20%" valign="bottom">
-	<a id="home" class="homebutton" href="/profile"
-		style="width: 30px; height =100%; position: absolute; left: 20px; top: 420px">
-		<img src="/images/home.jpg">
-	</a>
-	
-	<ul id="menu">
-		<li>
-			<form action="/seeAllRequest/${user.userId }" method="GET">
-				<button type="submit">Friend Requests</button>
-
-			</form>
-		</li>
-
-		<li>
-			<form action="/createGroup/" method="GET">
-				<button type="submit">Create</button>
-			</form>
-		</li>
-		<li id="editProfile"><a href="/editProfile" title="Edit"
-			type="submit">Edit Profile</a></li>
-		<li id="ch"><a href="#" title="chat">Club Chat</a></li>
-	</ul>
-
-	<div class="search" align="right">
-		<form action="/search" method="get">
-			<input type="text" name="groupName" placeholder="Search..">
-			<button type="submit">Search</button>
-		</form>
-	</div>
-</div>
- -->
- 
- 
-<!--	
-			<a id="home" class="homebutton" href="profile.jsp"
-				style="width: 30px; height =100%; position: absolute; left: 20px; background: #FFFFFF; top: 420px;">
-				<img src="/images/home.jpg">
-			</a>
-
-<div id="navfirst" style="width: 100% height:20%" valign="bottom">
-	<a id="home" class="homebutton" href="profile.jsp"
-		style="width: 30px; height =100%; position: absolute; left: 20px; background: #FFFFFF; top: 420px;">
-		<img src="/images/home.jpg">
-	</a>
-	<ul id="menu" width="70%" align="right">
-
-		<li>
-			<form action="/seeAllRequest/${user.userId }" method="GET">
-				<button type="submit">Friend Requests</button>
-
-			</form>
-		</li>
-
-		<li>
-			<form action="/createGroup/" method="GET">
-				<button type="submit">Create</button>
-			</form>
-		</li>
-		<li id="editProfile"><a href="/editProfile" title="Edit"
-			type="submit">Edit Profile</a></li>
-		<li id="ch"><a href="#" title="chat">Club Chat</a></li>
-
-	</ul>
-	<div class="search" align="right">
-		<form action="/search" method="get">
-			<input type="text" name="groupName" placeholder="Search..">
-			<button type="submit">Search</button>
-		</form>
-	</div>
-</div>
-	
-<div id="navfirst" style="width:100% height:20%" valign="bottom">
-			<a id="home" class="homebutton" href="profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="/images/home.jpg">
-			</a>
-			<ul id="menu">
-				<li id="editProfile">
-					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
-				</li>
-				<li id="ch">
-					<a href="#" title="chat">Club Chat</a>
-				</li>
-
-			</ul>   
-
-
-			<div class="search" align="right">
-				<form action="/search" method="get">
-  					<input type="text" name="groupName" placeholder="Search.." >
-  					<button type="submit">Search</button>
-				</form>			
-			</div>
-		</div> 		  -->
-<!-- SSEARCH BOX...KIND OF WORKING but notreally
-
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 100%;
-}
-	  <form>
-	  	<input type="text" name="search" placeholder="Search..">
-	  </form></li>
-	   -->
