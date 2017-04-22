@@ -1,11 +1,13 @@
 
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.AmazonAWSS3Operation;
 import edu.iu.club.connect.service.CloudnaryService;
 import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
+import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
 import java.io.IOException;
@@ -28,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -52,6 +55,8 @@ public class LoginController {
 	@Autowired 
 	private AmazonAWSS3Operation amazonS3OperationService;
 
+	@Autowired
+	GroupService groupService;
 
 
 	HashMap<String , Integer> forgetPasswordEntry = new HashMap<String , Integer>();
@@ -125,7 +130,7 @@ public class LoginController {
 			System.out.println("qwerty"+returnedUserModel.getFirstName());
 			modelMap.addAttribute("user",returnedUserModel);
 
-			return "profile";
+			return "redirect:/profile";
 		}
 		else
 			return"login";
@@ -213,7 +218,8 @@ public class LoginController {
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user",returnedUserModel);
-
+		List<GroupMembersModel> myFriends = groupService.findMyFriends(returnedUserModel.getUserId());
+		modelMap.put("myFriends", myFriends);
 		return "profile";
 	}
 
