@@ -1,11 +1,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <title>Club Connect</title>
+<head>
 <meta charset="UTF-8">
 <!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,12 @@
 	href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
@@ -92,7 +99,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>
 							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
-							Designer, UI
+							${user.gender}
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
@@ -146,7 +153,27 @@ html, body, h1, h2, h3, h4, h5 {
 				<!-- Container for biographic information of user -->
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<br>
-					<h4>Current Job</h4>
+					
+					<h4>Job Details</h4> <br>
+					<button type="button"  data-toggle="modal" data-target="#myModal">add</button>
+					
+					<c:if test="${fn:length(myJobDetails) > 0}"><!-- 
+					<button type="button"  data-toggle="modal" data-target="#myeditModal">edit</button><br> -->
+					<c:forEach items="${myJobDetails}" var="jobs">
+					<table style=" border-collapse: separate;   border-spacing: 11px;">
+					<tr><td><label> Company:</label></td>
+				<td>	${jobs.company}<br></td></tr>
+					<tr><td><label>Position:</label></td>
+				<td>	${jobs.position}:<br></td></tr>
+					<tr><td><label>Description:</label></td>
+					<td>${jobs.jobDesc}<br></td></tr>
+					<tr><td><label> Skills:</label></td>
+					<td>${jobs.skills}<br></td><tr>
+					</table>
+					</c:forEach>
+					
+					</c:if>
+					<c:if test="${fn:length(myJobDetails) == 0}">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -160,7 +187,8 @@ html, body, h1, h2, h3, h4, h5 {
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.</p>
+						nisi ut aliquip ex ea commodo consequat.</p> 
+						</c:if>
 				</div>
 
 				<!-- **********End Middle Column********** -->
@@ -207,9 +235,99 @@ html, body, h1, h2, h3, h4, h5 {
 
 	<br>
 
-	<!-- Footer <footer class="w3-container w3-theme-d5"><color: rgb(117,0,0)>
-  <p style="color:white;"><p style="text-align:center;">&copy; 2017 Club Connect</p>
-</footer>-->
+
 	<jsp:include page="footer.jsp" />
+	<!-- 
+	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h
+	 -->
+	
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+	<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Job Details</h4>
+      </div>
+      <div class="modal-body">
+        <form action="addJobDetails" method="post">
+        <table>
+        <tr>
+       <td> <label>Company </label></td>
+      <td>  <input type="hidden" value="${user.userId}" name="userId">
+        <input type="text" name="company" placeholder="coompany"/></td>
+      </tr>
+      <tr>
+      <td>  <label> Position</label>       </td>
+     <td>   <input type="text" name="position" placeholder="position"/></td>
+       </tr>
+       <tr> 
+     <td>   <label> Description</label> </td>
+     <td>   <input type="text" name="jobDesc" placeholder="description"/> </td>
+        </tr>
+        <tr>
+     <td>   <label> Skills</label></td>
+   <td>     <input type="text" name="skills" placeholder="skill"/> </td>
+        </tr>
+        </table>
+         <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>     
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+      
+        </form>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+
+
+<div id="myeditModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+	<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Job Details</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/editJobDetails" method="post">
+        <c:forEach items="${myJobDetails}" var="jobs">
+        <table style=" border-collapse: separate;   border-spacing: 11px;">
+        
+        <tr>
+       <td> <label>Company </label></td>
+      <td>  <input type="hidden" value="${user.userId}" name="userId">
+        <input type="text" name="company" value="${jobs.company}" placeholder="coompany"/></td>
+      </tr>
+      <tr>
+      <td>  <label> Position</label>       </td>
+     <td>   <input type="text" name="position" value="${jobs.position}" placeholder="position"/></td>
+       </tr>
+       <tr> 
+     <td>   <label> Description</label> </td>
+     <td>   <input type="text" name="jobDesc" value="${jobs.jobDesc}" placeholder="description"/> </td>
+        </tr>
+        <tr>
+     <td>   <label> Skills</label></td>
+   <td>     <input type="text" name="skills" value="${jobs.skills}" placeholder="skill"/> </td>
+        </tr>
+        
+        </table>
+        </c:forEach>
+         <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>     
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+      
+        </form>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
