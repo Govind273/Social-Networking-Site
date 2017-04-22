@@ -2,6 +2,7 @@
 package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.GroupMembersModel;
+import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.AmazonAWSS3Operation;
 import edu.iu.club.connect.service.CloudnaryService;
@@ -211,15 +212,23 @@ public class LoginController {
 		return "signup";
 	}
 
+//	This controller is called when we need to load the user profile page and collects all the requeiered information to be displayed in the user profile page
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
-
-
+		
+		//User details
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user",returnedUserModel);
+		//Groups the user is part of
 		List<GroupMembersModel> myFriends = groupService.findMyFriends(returnedUserModel.getUserId());
 		modelMap.put("myFriends", myFriends);
+		//Groups user is admin of
+		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
+		if (GroupsByMe.size()>4){
+			GroupsByMe.subList(4,GroupsByMe.size()).clear();
+		}
+		modelMap.put("GroupsByMe", GroupsByMe);
 		return "profile";
 	}
 
