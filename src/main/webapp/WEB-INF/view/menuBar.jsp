@@ -4,7 +4,7 @@
 <!-- The same menu bar is referenced on every page except the landing, sign up, and password-related pages-->
 
 <style>
-input[type=text] {
+input[type=text1] {
     width: 100px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -18,7 +18,7 @@ input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-input[type=text]:focus {
+input[type=text1]:focus {
     width: 100%;
     folat:right;
 }
@@ -65,7 +65,7 @@ li a:hover:not(.active) {
   <li><a href="/FriendRequests/">Colleague Request</a></li>
   <li style="float:right">
 		<form action="/search" method="get">
-			<input type="text" name="groupName" valign="middle" placeholder="Search..">
+			<input type="text1" name="groupName" valign="middle" placeholder="Search..">
 <!--  			<button type="submit">Search</button>  -->
 		</form>
 	</li>
