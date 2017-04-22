@@ -1,4 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -67,14 +67,14 @@ html, body, h1, h2, h3, h4, h5 {
 
 			<img src="${user.profilePic}">
 		</div>
-		
+		<%-- Commented by Vaishnavi as moved this block of code to the edit page
 		<form action = "/uploadProfilePhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
 				    <label for="profilePic">Upload Your Profile Picture</label>
 					<input type="file" name="file" >
 				</div>
 				<button type="submit">Upload</button>
-		</form>
+		</form> --%>
 
 		
 		<!--********** The Grid ***********-->
@@ -96,12 +96,12 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-							London, UK
+							${user.location}
 						</p>
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							April 1, 1988
+							${user.birthdate}
 						</p>
 					</div>
 				</div>
