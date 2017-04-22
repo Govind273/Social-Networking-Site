@@ -19,6 +19,17 @@ public class GroupMembersModel {
 	private @Column(name = "group_name") String groupName;
 	private @Column( name = "group_id") Integer groupId;
 	private @Column(name = " user_id") Integer userId;
+	//****vishi
+	public GroupMembersModel(int user_id, int group_id) {
+		// TODO Auto-generated constructor stub
+		this.groupId=group_id;
+		this.userId=user_id;
+	}
+	
+	public GroupMembersModel() {
+		super();
+	}
+
 	public Integer getFriendId() {
 		return friendId;
 	}
