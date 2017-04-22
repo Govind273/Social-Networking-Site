@@ -111,13 +111,18 @@ html, body, h1, h2, h3, h4, h5 {
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
 					<h3>Club Membership</h3>
+					<c:forEach items="${GroupsByMe}" var="admingroups">
+					<p>${admingroups.groupName} *</p>
+					</c:forEach>
 					<c:forEach items="${myFriends}" var="friends">
 						<p> ${friends.groupName}</p>
+						
 						<!-- <p>Karun Fan Club</p>
 						<p>Data Science Club</p>
 						<p>We Love Vandana Club</p> 
 						</p>-->
 						</c:forEach>
+					
 					</div>
 				</div>
 
