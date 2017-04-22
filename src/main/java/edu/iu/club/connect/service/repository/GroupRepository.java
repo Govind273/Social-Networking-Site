@@ -37,5 +37,9 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
 
 	@Query("select b from GroupModel b where b.adminId = :adminId ")
 	List<GroupModel> findGroupsByAdminId(@Param("adminId")int adminId);
+	
+
+	@Query("select b from GroupModel b where b.adminId = :adminId and b.groupId= :groupId")
+	GroupModel isadmin(@Param("adminId")int userId,@Param("groupId")int groupId);
 
 }
