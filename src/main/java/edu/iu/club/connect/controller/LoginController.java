@@ -3,12 +3,14 @@ package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.model.JobDetailsModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.AmazonAWSS3Operation;
 import edu.iu.club.connect.service.CloudnaryService;
 import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
+import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
 import java.io.IOException;
@@ -52,6 +54,10 @@ public class LoginController {
 
 	@Autowired CloudnaryService CloudnaryService;
 	@Autowired MultipartToFile multipartFile;
+	
+	
+	@Autowired
+	JobDetailsService jobDetailsService;
 	
 	@Autowired 
 	private AmazonAWSS3Operation amazonS3OperationService;
@@ -126,7 +132,6 @@ public class LoginController {
 
 			return "redirect:/";
 		}
-
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 			System.out.println("qwerty"+returnedUserModel.getFirstName());
 			modelMap.addAttribute("user",returnedUserModel);
@@ -197,9 +202,7 @@ public class LoginController {
 
 				return "profile";
 			}
-		}
-			
-			
+		}		
 				return "signup";
 			
 	}
@@ -229,6 +232,9 @@ public class LoginController {
 			GroupsByMe.subList(4,GroupsByMe.size()).clear();
 		}
 		modelMap.put("GroupsByMe", GroupsByMe);
+		/// adding jobdetails
+		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
+		modelMap.put("myJobDetails", myJobDetails);
 		return "profile";
 	}
 
@@ -247,14 +253,19 @@ public class LoginController {
 
 	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
 	public  String editProfile(UserModel userModel, ModelMap modelMap){
-
-
 		userService.updateOne(userModel);
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user", returnedUserModel);
-
 		return "profile";
 	}
+	
+	
+	@RequestMapping(value="/addJobDetails",method = RequestMethod.POST)
+	public  String addDetails(JobDetailsModel jobDetailsModel, ModelMap modelMap){
+		jobDetailsService.saveOne(jobDetailsModel);	
+		return "redirect:/profile";
+	}
+
 
 	@RequestMapping( value = "/recoverPassword" , method = RequestMethod.GET)
 	public String recoverPassword(UserModel userModel , ModelMap modelMap){
