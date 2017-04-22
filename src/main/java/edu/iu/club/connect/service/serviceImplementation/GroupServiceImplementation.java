@@ -42,10 +42,6 @@ public class GroupServiceImplementation implements GroupService {
         model.setUserId(groupModel.getAdminId());
         
         groupMemberRepository.save(model);
-        
-       
-        
-        
         return true;
 
     }
@@ -57,13 +53,21 @@ public class GroupServiceImplementation implements GroupService {
     }
 
     @Override
-	public GroupModel getAdminId(int groupId) {
-		
-		GroupModel adminId = groupRepository.getAdminById(groupId);
-		
+	public GroupModel getAdminId(int groupId) {	
+		GroupModel adminId = groupRepository.getAdminById(groupId);	
 		return adminId;
 		
 	}
+    
+    @Override
+   	public boolean isadmin(int userId,int groupId) {	
+   		GroupModel group = groupRepository.isadmin( userId, groupId);	
+   		if( group.getGroupId()>0){
+   			return true;
+   		}
+   		return false;
+   		
+   	}
 
 	@Override
 	public GroupModel findGroup(int groupId) {
