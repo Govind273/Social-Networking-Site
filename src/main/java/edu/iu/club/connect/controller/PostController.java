@@ -3,6 +3,7 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
 
@@ -40,6 +41,9 @@ public class PostController {
 	
     @Autowired
     PostService postService;
+    
+    @Autowired
+    GroupService groupService;
 
     @RequestMapping(value = "/createPost/{group_id}/{user_id}",method = RequestMethod.POST  )
     public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("user_id") int user_id,PostModel postModel){
@@ -47,12 +51,18 @@ public class PostController {
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
     	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
+    	boolean isadmin= groupService.isadmin(user_id , group_id);
+    	mv1.addObject("admin",isadmin);
+    	GroupMembersModel gmmadmin=new GroupMembersModel(user_id,group_id);
+    	
+    	alreadyFriend.add(gmmadmin);
     	Date date = new Date();
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
+    	
     	mv1.addObject("groupmember",alreadyFriend);
     	mv1.addObject("ps",ps);
         return mv1;
