@@ -66,13 +66,7 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 				<img src="${user.profilePic}">
 		</div>
-	<form action = "/uploadProfilePhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
-		<div class="form-group col-lg-6" >
-				    <label for="profilePic">Upload Your Profile Picture</label>
-					<input type="file" name="file" >
-				</div>
-				<button type="submit">Upload</button>
-		</form>
+	
 		<!--The Grid-->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
