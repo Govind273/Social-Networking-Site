@@ -159,39 +159,17 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
-							<div style="padding: 0px 30px 20px 0px">
-							<form
-								action="/createPost/${groupSearched.groupId }/${user.userId }"
-								method="POST" class="form-inline" align="left">
-								<input type="hidden" name="groupId" id="groupId"
-									value="${groupSearched.groupId }"> <input type="text"
-									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="150" size="75%" required></div>
-								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i>Post
-								</button>
-							</form>
+							<br><div style="padding: 0px 30px 20px 0px">
+							<c:if test="${empty user.lifestatus}">
+							<label> Life needs a status</label>
+							</c:if>
+							<c:if test="${not empty user.lifestatus}">
+							<label>${user.lifestatus}</label> <br></c:if>
+							<button type="button" data-toggle="modal" data-target="#lifestatusModal">Life Status</button><br> 
+				
 						</div>
 					</div>
-
-					<!-- Display Life Status -->
-							<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
-								<br> <span class="w3-right w3-opacity">${post.postedDatetime}</span>
-								
-								<hr class="w3-clear">
-								<div>${post.postDesc}</div>
-								<br>
-
-								<button type="button"
-									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i>  Like
-								</button>
-
-								<button type="button"
-									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i>Comment
-								</button>
-								</div>
+					</div>
 								
 				<!-- Education-->
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
@@ -199,34 +177,6 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<h4>Education</h4>
 					<br>
-					<button type="button" data-toggle="modal" data-target="#myModal">add</button>
-
-					<c:if test="${fn:length(myJobDetails) > 0}">
-						<!-- 
-					<button type="button"  data-toggle="modal" data-target="#myeditModal">edit</button><br> -->
-						<c:forEach items="${myJobDetails}" var="jobs">
-							<table style="border-collapse: separate; border-spacing: 11px;">
-								<tr>
-									<td><label> Company:</label></td>
-									<td>${jobs.company}<br></td>
-								</tr>
-								<tr>
-									<td><label>Position:</label></td>
-									<td>${jobs.position}:<br></td>
-								</tr>
-								<tr>
-									<td><label>Description:</label></td>
-									<td>${jobs.jobDesc}<br></td>
-								</tr>
-								<tr>
-									<td><label> Skills:</label></td>
-									<td>${jobs.skills}<br></td>
-								<tr>
-							</table>
-							<hr>
-						</c:forEach>
-
-					</c:if>
 					<c:if test="${fn:length(myJobDetails) == 0}">
 						<p>User does not have any work experience listed</p>
 					</c:if>
@@ -239,29 +189,33 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<h4>Work Experience</h4>
 					<br>
-					<button type="button" data-toggle="modal" data-target="#myModal">add</button>
+					<button type="button" data-toggle="modal" data-target="#myModal">Add Experience</button>
 
 					<c:if test="${fn:length(myJobDetails) > 0}">
-						<!-- 
-					<button type="button"  data-toggle="modal" data-target="#myeditModal">edit</button><br> -->
-						<c:forEach items="${myJobDetails}" var="jobs">
+						<button type="button"  data-toggle="modal" data-target="#myeditModal">Modify Experience</button><br> 
+						
+						<c:forEach items="${myJobDetails}" var="myJobDetails">
+						
 							<table style="border-collapse: separate; border-spacing: 11px;">
+							
 								<tr>
-									<td><label> Company:</label></td>
-									<td>${jobs.company}<br></td>
+									<td><label> Company:</label>
+									<input type="hidden" data-id="company" value="${myJobDetails.company}" name="company"></input></td>
+									
+									<td>${myJobDetails.company}<br></td>
 								</tr>
 								<tr>
 									<td><label>Position:</label></td>
-									<td>${jobs.position}:<br></td>
+									<td>${myJobDetails.position}<br></td>
 								</tr>
 								<tr>
 									<td><label>Description:</label></td>
-									<td>${jobs.jobDesc}<br></td>
+									<td>${myJobDetails.jobDesc}<br></td>
 								</tr>
 								<tr>
 									<td><label> Skills:</label></td>
-									<td>${jobs.skills}<br></td>
-								<tr>
+									<td>${myJobDetails.skills}<br></td>
+								</tr>
 							</table>
 							<hr>
 						</c:forEach>
@@ -271,10 +225,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<p>User does not have any work experience listed</p>
 					</c:if>
 				</div>
-			</div>
-		</div>
-	</div>
-
+				
 	<br>
 
 
@@ -292,27 +243,27 @@ html, body, h1, h2, h3, h4, h5 {
 					<h4 class="modal-title">Add Job Details</h4>
 				</div>
 				<div class="modal-body">
-					<form action="addJobDetails" method="post">
+					<form action="/addJobDetails" method="post">
 						<table>
 							<tr>
 								<td><label>Company </label></td>
 								<td><input type="hidden" value="${user.userId}"
 									name="userId"> <input type="text" name="company"
-									placeholder="coompany" /></td>
+									placeholder="company" required/></td>
 							</tr>
 							<tr>
 								<td><label> Position</label></td>
 								<td><input type="text" name="position"
-									placeholder="position" /></td>
+									placeholder="position" required /></td>
 							</tr>
 							<tr>
 								<td><label> Description</label></td>
 								<td><input type="text" name="jobDesc"
-									placeholder="description" /></td>
+									placeholder="description" required /></td>
 							</tr>
 							<tr>
 								<td><label> Skills</label></td>
-								<td><input type="text" name="skills" placeholder="skill" />
+								<td><input type="text" name="skills" placeholder="skill" required/>
 								</td>
 							</tr>
 						</table>
@@ -329,57 +280,83 @@ html, body, h1, h2, h3, h4, h5 {
 
 		</div>
 	</div>
-
-
+	
 	<div id="myeditModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Edit Job Details</h4>
+					<h4 class="modal-title">Modify Job Details</h4>
 				</div>
 				<div class="modal-body">
-					<form action="/editJobDetails" method="post">
-						<c:forEach items="${myJobDetails}" var="jobs">
-							<table style="border-collapse: separate; border-spacing: 11px;">
-
-								<tr>
-									<td><label>Company </label></td>
-									<td><input type="hidden" value="${user.userId}"
-										name="userId"> <input type="text" name="company"
-										value="${jobs.company}" placeholder="company" /></td>
+					
+					<c:forEach items="${myJobDetails}" var="myJobDetails">
+					
+						<table>
+						<form action="/editJobDetail"  method="post">
+							<tr>
+								<td><label> Company:</label></td><td>
+									<input type="hidden" value="${myJobDetails.jobdetails_Id}" name="jobdetails_Id">
+									<input type="text"  value="${myJobDetails.company}" name="company"></input><br></td>
 								</tr>
 								<tr>
-									<td><label> Position</label></td>
-									<td><input type="text" name="position"
-										value="${jobs.position}" placeholder="position" /></td>
+									<td><label>Position:</label></td>
+									<td><input type="text"  value="${myJobDetails.position}" name="position"></input><br></td>
 								</tr>
 								<tr>
-									<td><label> Description</label></td>
-									<td><input type="text" name="jobDesc"
-										value="${jobs.jobDesc}" placeholder="description" /></td>
+									<td><label>Description:</label></td>
+									<td><input type="text"  value="${myJobDetails.jobDesc}" name="jobDesc"></input><br></td>
 								</tr>
 								<tr>
-									<td><label> Skills</label></td>
-									<td><input type="text" name="skills"
-										value="${jobs.skills}" placeholder="skill" /></td>
-								</tr>
-
-							</table>
-						</c:forEach>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</div>
-
-					</form>
+									<td><label> Skills:</label></td>
+									<td><input type="text"  value="${myJobDetails.skills}" name="skills"></input><br></td>
+									<td><button type="submit">edit</button>
+									<td>
+									</form>
+							<form action="/deleteJobDetails/${myJobDetails.jobdetails_Id }" method="post">
+							<input type="hidden" value="${myJobDetails.jobdetails_Id}" name="jobdetails_Id"></input>
+							<button type="submit">delete</button><br> 
+							</form>		
+				</td>								
+								</tr>	
+						</table>
+						<hr>	
+					</c:forEach>
 				</div>
-
 			</div>
-
+			
 		</div>
 	</div>
+	<!-- Modal for life status -->
+	<div id="lifestatusModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Your life status</h4>
+				</div>
+				<div class="modal-body">
+					<form action="/updateliftstatus" method="post">
+							<input type="hidden"  value="${user.userId}" name="userId">
+							<input type="text" width="25%" height="55%" maxlength="150" size="75%" name="lifestatus" placeholder="Whats on your mind?" value="${user.lifestatus}"></input>
+							<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-default">Change your Status</button>
+						</div>
+
+							</form>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	
 </body>
 </html>
+	
