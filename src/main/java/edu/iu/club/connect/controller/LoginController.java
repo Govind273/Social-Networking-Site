@@ -238,7 +238,7 @@ public class LoginController {
 		userService.updateOne(userModel);
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user", returnedUserModel);
-		return "profile";
+		return "redirect:/profile";//vishi
 	}
 	
 	
@@ -247,7 +247,26 @@ public class LoginController {
 		jobDetailsService.saveOne(jobDetailsModel);	
 		return "redirect:/profile";
 	}
-
+//vishi	
+	@RequestMapping(value="/editJobDetail",method = RequestMethod.POST)
+	public  String editDetails(JobDetailsModel myJobDetails, ModelMap modelMap){
+			jobDetailsService.edit(myJobDetails);	
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/deleteJobDetails/{jobdetails_Id}",method = RequestMethod.POST)
+	public  String deleteDetails(@PathVariable("jobdetails_Id") int jobdetails_Id, JobDetailsModel jobDetailsModel,ModelMap modelMap){
+		jobDetailsService.deleteOne(jobdetails_Id);	
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/updateliftstatus",method = RequestMethod.POST)
+	public  String editlifestatus(UserModel userModel, ModelMap modelMap){
+			userService.editlifestatus(userModel);	
+		
+		return "redirect:/profile";
+	}
 
 	@RequestMapping( value = "/recoverPassword" , method = RequestMethod.GET)
 	public String recoverPassword(UserModel userModel , ModelMap modelMap){
