@@ -59,7 +59,6 @@ public class GroupController {
        	mv.addObject("ps",ps); 
     	mv.addObject("groupmember",alreadyFriend);
 		GroupModel group = groupService.findGroup(groupId);
-		mv.addObject("admin_id", group.getAdminId());
 		mv.addObject("groupSearched", group);
 		return mv;
 	}
