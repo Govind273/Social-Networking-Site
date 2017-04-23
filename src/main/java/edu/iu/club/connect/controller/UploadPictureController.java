@@ -52,8 +52,8 @@ public class UploadPictureController {
 		return "redirect:/profile";
 	}
 	
-	@RequestMapping(value="/uploadGroupBackgroundPhoto/{groupId}" , method=RequestMethod.POST)
-	public String uploadGroupBackgroundPhoto(@PathVariable("groupId") Integer groupId,@RequestParam("file") MultipartFile uploadfile) throws IOException{
+	@RequestMapping(value="/uploadGroupBackgroundPhoto/{groupId}/{userId}" , method=RequestMethod.POST)
+	public String uploadGroupBackgroundPhoto(@PathVariable("groupId") Integer groupId,@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile) throws IOException{
 		
 		System.out.println(" ------------------------------------------>>>>>>>>>>>>>>");
 
@@ -63,11 +63,11 @@ public class UploadPictureController {
 
 		uploadPictureService.storeGroupBackgroundPic(groupId, storedPathOnCloudnary); 
 		multipartFile.deleteFile(uploadfile.getOriginalFilename());
-		return "redirect:/groupsProfile";
+		return "redirect:/groupPage/"+groupId+"/"+userId;
 	}
 	
-	@RequestMapping(value="/uploadGroupProfilePhoto/{groupId}" , method=RequestMethod.POST)
-	public String uploadGroupProfilePhoto(@PathVariable("groupId") Integer groupId,@RequestParam("file") MultipartFile uploadfile) throws IOException{
+	@RequestMapping(value="/uploadGroupProfilePhoto/{groupId}/{userId}" , method=RequestMethod.POST)
+	public String uploadGroupProfilePhoto(@PathVariable("groupId") Integer groupId,@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile) throws IOException{
 		
 		System.out.println(" ------------------------------------------>>>>>>>>>>>>>>");
 
@@ -77,7 +77,7 @@ public class UploadPictureController {
 
 		uploadPictureService.storeGroupProfilePic(groupId, storedPathOnCloudnary); 
 		multipartFile.deleteFile(uploadfile.getOriginalFilename());
-		return "redirect:/groupsProfile";
+		return "redirect:/groupPage/"+groupId+"/"+userId;
 	}
 	
 	
