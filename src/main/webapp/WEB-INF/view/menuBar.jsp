@@ -65,19 +65,11 @@ li a:hover:not(.active) {
   <li><a href="/editProfile">Edit Profile</a></li>
   <li><a href="/createGroup/">Create Club</a></li>
   <li><a href="/FriendRequests/">Colleague Request</a></li>
-	<li><a href = "/friends/${user.userId}" method = "GET">MY COLLEAGUES</a></li>
+  <li><a href = "/friends/${user.userId}" method = "GET">MY COLLEAGUES</a></li>
   <li>
-					<form action="/seeAllRequest/${user.userId }" method="GET">
-						<button type="submit">Friend Requests</button>
+					<a href="/seeAllRequest/${user.userId }" method="GET">Join Requests</a>
 
-					</form>
-				</li>
-	  	<li>
-			<form action = "/yourGroups/${user.userId}" method = "GET">
-			<button type = "submit">Ownership</button>
-			</form>
-</li>
-			
+				</li>		
   <li style="float:right">
 		<form action="/search" method="get">
 
@@ -87,3 +79,7 @@ li a:hover:not(.active) {
 		</form>
 	</li>
 </ul>
+
+<!--  <c:if test="${fn:length(friendRequests) > 0}"><li>
+					<li>									<form action="/seeAllRequest/${user.userId }" method="GET">
+						<button type="submit">Join Requests (${fn:length(friendRequests)})</button>  --> 
