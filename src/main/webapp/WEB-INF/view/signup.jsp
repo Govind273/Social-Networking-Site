@@ -53,12 +53,8 @@
 <body>
 
 
-	<div id="header1" style="height: 72px;">
-		<div class="iulogo" style="float: left; width: 50%; height: 50px;"
-			align="left">
-			<img src="images/2.png" width="65" height="56">
-		</div>
-	</div>
+	<!-----------------------------Header------------------------------------->
+	<jsp:include page="header-simple.jsp" />
 
 	<div id="gtco-started">
 		<div class="gtco-container2">
@@ -128,7 +124,7 @@
 
 					<div class="col-md-4 col-sm-4">
 						<div align="middle">
-							<label><b>Question 1:What is your mother's first name ?</b></label>
+							<label><b>Question 1:What is your mother's maiden name ?</b></label>
 						</div>					
 						<div class="form-group" align="center" valign="middle" >
 							 <input type="text" placeholder="Answer" name="question1" required>
@@ -136,32 +132,16 @@
 					</div>
 					<div class="col-md-4 col-sm-4">
 						<div align="middle">
-							<label><b>Question 2:Which is your favourite movie ?</b></label>
+							<label><b>Question 2:Which is your favorite movie ?</b></label>
 						</div>
 						<div class="form-group" align="center" valign="middle" >
 							 <input type="text" placeholder="Answer" name="question2" style="align:middle" required>
 
 						</div>
 					</div>
-<!--  					
-					<div class="col-md-4 col-sm-4">
-						<div class="form-group">
-							<input type="checkbox" checked="checked"> Remember me
-							<p>
-								By creating an account you agree to our <a href="#">Terms &
-									Privacy</a>.
-							</p>
-						</div>
-					</div>
-					-->
-
 					<div class="col-md-4 col-sm-4 " align="center">
 						<button type="submit" class="btn btn-default btn-block"
 							onclick="check()">Sign Up</button>
-					</div>
-					<div class="col-md-4 col-sm-4 "  align="middle">
-						<button type="submit" class="btn btn-default btn-block"
-							onclick="javascript :history.back(-1);">Cancel</button>
 					</div>
 				</form>
 			</div>
@@ -169,15 +149,9 @@
 	</div>
 	
 
-	<footer id="gtco-footer" role="contentinfo">
-		<div class="gtco-container">
-			<div class="row"></div>
 
 
 
-
-		</div>
-	</footer>
 
 
 <script>
@@ -196,7 +170,7 @@ else return true;      <!--document.forms[0].submit();-->
 </script>
 <script>
 function myFunction() {
-    alert("An email with One Time Password has been sent on thiis mail id for validation. Use that OTP to fill in the text box below");
+    alert("An email with One Time Password has been sent on this mail id for validation. Use that temporary password to fill in the text box below");
     var text_box = document.getElementById('mytextbox');
      {       
          text_box.setAttribute('readonly', 'readonly');
@@ -227,6 +201,7 @@ function myFunction() {
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>
 

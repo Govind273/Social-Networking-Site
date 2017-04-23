@@ -60,17 +60,14 @@ html, body, h1, h2, h3, h4, h5 {
 </style>
 <body class="w3-theme-l5">
 
-	<!-- ********************Header, Cover Photo, Menu Bar******************** -->
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
 	<jsp:include page="header.jsp" />
 
 
 
-	<!-- ********************Page Container******************** -->
-	<div class="w3-container w3-content" style="max-width: 1400px">
-
-
-
-
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
+<br>
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
 
@@ -91,7 +88,7 @@ html, body, h1, h2, h3, h4, h5 {
 			<jsp:include page="menuBar.jsp" />
 			
 			<!-----------------------Left Column----------------------->
-			<div class="w3-col m3">
+			<div class="w3-col m4">
 				<br>
 				<!-- Profile Picture and brief info on user -->
 				<div class="w3-card-2 w3-round w3-white">
@@ -126,26 +123,20 @@ html, body, h1, h2, h3, h4, h5 {
 						</c:forEach>
 						<c:forEach items="${myFriends}" var="friends">
 							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a>
-
-							<!-- <p>Karun Fan Club</p>
-						<p>Data Science Club</p>
-						<p>We Love Vandana Club</p> 
-						</p>-->
 						</c:forEach>
-
 					</div>
 				</div>
 			</div>
 			
 			<!--------------------Middle Column--------------------->
-			<div class="w3-col m7">
+			<div class="w3-col m8">
 				<br>
 				<!-- Container for name and user briefing -->
 				<div class="w3-row-padding">
 					<div class="w3-col m12">
 						<div class="w3-card-2 w3-round w3-white">
 							<div class="w3-container w3-padding">
-								<h2>${user.firstName} &nbsp; ${user.lastName}</h2>
+								<h2>${user.firstName} ${user.lastName}</h2>
 								<p>${user.about}</p>
 							</div>
 						</div>
@@ -162,9 +153,9 @@ html, body, h1, h2, h3, h4, h5 {
 								<input type="hidden" name="groupId" id="groupId"
 									value="${groupSearched.groupId }"> <input type="text"
 									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="150" size="85%" required></div>
+									maxlength="150" size="75%" required></div>
 								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i>  Post
+									<i class="fa fa-pencil"></i>Post
 								</button>
 							</form>
 						</div>
@@ -185,7 +176,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 								<button type="button"
 									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i>  Comment
+									<i class="fa fa-comment"></i>Comment
 								</button>
 								</div>
 								
@@ -267,50 +258,8 @@ html, body, h1, h2, h3, h4, h5 {
 						<p>User does not have any work experience listed</p>
 					</c:if>
 				</div>
-
-
-
-
-				<!-- **********End Middle Column********** -->
 			</div>
-			<!-- **********Right Column********** -->
-			<div class="w3-col m2">
-				<br>
-				<!-- Colleague Requests -->
-				<div class="w3-card-2 w3-round w3-white w3-center">
-					<div class="w3-container">
-						<p>Friend Request</p>
-						<img src="/w3images/avatar6.png" alt="Avatar" style="width: 50%"><br>
-						<span>Jane Doe</span>
-						<div class="w3-row w3-opacity">
-							<div class="w3-half">
-								<button class="w3-button w3-block w3-green w3-section"
-									title="Accept">
-									<i class="fa fa-check"></i>
-								</button>
-							</div>
-							<div class="w3-half">
-								<button class="w3-button w3-block w3-red w3-section"
-									title="Decline">
-									<i class="fa fa-remove"></i>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-
-				<!-- Ads -->
-				<div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
-					<p>ADS</p>
-				</div>
-				<br>
-
-				<!--********** End Right Column **********-->
-			</div>
-			<!--********** End Grid **********-->
 		</div>
-		<!--********** End Page Container **********-->
 	</div>
 
 	<br>
@@ -386,7 +335,7 @@ html, body, h1, h2, h3, h4, h5 {
 									<td><label>Company </label></td>
 									<td><input type="hidden" value="${user.userId}"
 										name="userId"> <input type="text" name="company"
-										value="${jobs.company}" placeholder="coompany" /></td>
+										value="${jobs.company}" placeholder="company" /></td>
 								</tr>
 								<tr>
 									<td><label> Position</label></td>

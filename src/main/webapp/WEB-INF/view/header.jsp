@@ -72,7 +72,7 @@ li a:hover:not(.active) {
 
          
          									<ul><li style="float:right">
-							<a href="/logout" title="Logout">Logout</a>
+							<a href="/logout" title="Logout">LOGOUT</a>
 						</li></ul>
 	</div>
 </div>

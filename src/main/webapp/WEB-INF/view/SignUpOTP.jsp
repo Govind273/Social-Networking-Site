@@ -15,10 +15,7 @@
 
 </head>
 <body>
-<div id="header1" style="height:72px;">
-		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
-		<img src="/images/2.png" width="65" height="56" >
-		</div>
+	<jsp:include page="header.jsp" />
 		
 		</div>
 		<div class="gtco-container">
