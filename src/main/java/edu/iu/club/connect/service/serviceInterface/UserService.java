@@ -20,6 +20,7 @@ public String recoverPassword(UserModel userModel);
 public boolean changePassword(String emailId, String password);
 
  public String getPassword(UserModel userModel);
+public void editlifestatus(UserModel userModel);
  
 
  
