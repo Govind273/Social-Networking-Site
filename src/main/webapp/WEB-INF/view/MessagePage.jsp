@@ -154,4 +154,5 @@ input[type=text1] {
 		
 		</form>
 		</div>
+	<!--  <jsp:include page="footer.jsp" /> -->		
 </body>

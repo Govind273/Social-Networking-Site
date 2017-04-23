@@ -20,19 +20,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/js/jquerygroupsProfile.js""></script>
 
-<!--
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<link rel="stylesheet" href="/css/style.css">
-</head>
-  -->
-
-
 <style>
+
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
@@ -72,23 +61,28 @@ html, body, h1, h2, h3, h4, h5 {
 
 
 	<!-----------------------------Page Container------------------------------------->
-	<div class="w3-container w3-content" style="max-width: 1400px">
+	<div class="w3-container w3-content" style="max-width: 1100px">
 
 		<!--The Grid -->
 		<div class="w3-row">
+		<br>
+			<div class="w3-card-2 w3-round w3-white">
+			<br>
 			<h1 align="center">Password Recovery</h1>
+			<br>
+			</div>
 			<br>
 
 
 			<!----------Left Column----------->
-			<div class="w3-col m5">
+			<div class="w3-col m6">
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
 						<form action="/sendMail" method="POST">
 							<h4>Recovery by Email</h4>
 								<hr size = "3">
-							<h6>Please enter your email to receive a temporary password
-								in your inbox</h6>
+							<h5>Please enter your email to receive a temporary password
+								in your inbox</h5>
 							<label for="emailId">Email</label> <input type="email"
 								name="emailId" required class="form-control" id="emailId">
 							<button type="submit">Submit</button>
@@ -97,49 +91,45 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 				</div>
 			</div>
-			<!----------Middle Column...does nothing!----------->
-			<div class="w3-col m2"></div>
+			<!----------Middle Column...does nothing!
+			<div class="w3-col m1" style="opacity: 0">1</div>----------->
 
 			<!---------Right Column----------->
-			<div class="w3-col m5">
+			<div class="w3-col m6">
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
 						<form action="/recoverPassword" method="GET">
 
-							<div class="col-md-4 col-sm-4">
-
 								<h4>Recovery by Security Questions</h4>
 								<hr size = "3">
-								<h6>Please enter your email ID and security questions
-									answers</h6>
+								<h5>Please enter your email ID and security questions
+									answers</h5>
 
-									<div class="form-group" align="left" valign="left">
-										<label>Email ID</label> <input type="text" placeholder="Email"
+										<label>Email ID &nbsp;</label><br><input type="text" placeholder="Email"
 											name="emailId" required>
-									</div>
-									<br>
-								</div>
+								<p></p>
 
-									<div class="form-group" align="left" valign="left">
-										<label>Question 1: What is mother's maiden name?</label> <input
+
+										<label>Question 1: What is mother's maiden name? &nbsp;</label><br> <input
 											type="text" placeholder="Answer" name="question1" required>
-									</div>
+<p></p>
 
-									<div class="form-group" align="left" valign="left">
-										<label>Question 2: What is your favorite movie?</label> <input
+
+										<label>Question 2: What is your favorite movie? &nbsp;</label><br> <input
 											type="text" placeholder="Answer" name="question2" required>
-									</div>
+<p></p>
 
-								<div class="col-md-4 col-sm-4 col-md-offset-2">
+
 									<button type="submit" class="btn btn-default btn-block">Submit</button>
-								</div>
-								<br>
+
+								<p></p>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!--  <jsp:include page="footer.jsp" /> -->		
 </body>
 </html>
 

@@ -75,6 +75,6 @@ No results found
 	</div>
 	</div>
 	
-	
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>

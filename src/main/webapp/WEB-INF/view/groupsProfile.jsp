@@ -115,7 +115,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<!-- Members List -->
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
-						<h3>Membership</h3>
+						<h3>Members</h3>
 						<c:forEach items="${membersList}" var="ml">
 							<label for="memberName"
 								style="margin-top: 15%; font-size: 20px; left: 20%">
@@ -147,28 +147,13 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
-
-							<!--copied code from master branch...probably delete soon...
-							<form
-								action="/createPost/${groupSearched.groupId }/${user.userId }"
-								method="POST" class="form-inline" align="left">
-								<label><b>Club Posts</b></label> <input type="hidden"
-									name="groupId" id="groupId" value="${groupSearched.groupId }">
-								<input type="text" placeholder="posts" name="postDesc"
-									width="25%" height="25%" maxlength="150" required>
-								<button type="submit" class="btn btn-default btn-block">
-									Post</button>
-							</form>-->
-							<!--ATTEMPTED CODE FROM w3 schools with a nice looking input box but couldn't get it to work			
-							<p contenteditable="true" class="w3-border w3-padding">My
-								club update is...</p>-->
 							<div style="padding: 0px 30px 20px 0px"><form
 								action="/createPost/${groupSearched.groupId }/${user.userId }"
 								method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
 									value="${groupSearched.groupId }"> <input type="text"
 									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="150" size="85%" required></div>
+									maxlength="150" size="75%" required></div>
 								<button type="submit" class="w3-button w3-theme">
 									<i class="fa fa-pencil"></i>  Post
 								</button>
@@ -216,4 +201,5 @@ html, body, h1, h2, h3, h4, h5 {
 					</c:if>
 				</c:if>
 			</div>
+				<jsp:include page="footer.jsp" />
 </html>

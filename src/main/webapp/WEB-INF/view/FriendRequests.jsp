@@ -172,4 +172,5 @@ th, td {
 			</div>
 		</div>
 	</div>
+		<jsp:include page="footer.jsp" />
 </body>

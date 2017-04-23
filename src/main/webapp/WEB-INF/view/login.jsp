@@ -120,11 +120,11 @@
 							<span class="icon"> <i class="icon-command"></i>
 							</span>
 							<h3>Built by students for students</h3>
-							<p>Do not settle for one of the massive social networking
+							<p><font color="black">Do not settle for one of the massive social networking
 								platforms that attempts to cater to everyone. Rather, seamlessly
 								discover and connect with other students and faculty who share
 								common interests on a platform designed specifically for
-								networking on campus</p>
+								networking on campus</font></p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4" style="width: 30%">
@@ -133,9 +133,9 @@
 							<span class="icon"> <i class="icon-command"></i>
 							</span>
 							<h3>discover the power of a club</h3>
-							<p>Got a student organization? Or just a close group of
+							<p><font color="black">Got a student organization? Or just a close group of
 								friends? Take the pilot's seat by launching and managing your
-								own club. Your new contacts will thank you for your initiative</p>
+								own club. Your new contacts will thank you for your initiative</font></p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4" style="width: 30%">
@@ -144,8 +144,8 @@
 							<span class="icon"> <i class="icon-command"></i>
 							</span>
 							<h3>stay connected</h3>
-							<p>Connect with your club members through comments, file
-								sharing, chatting, messaging, and fun</p>
+							<p><font color="black">Connect with your club members through comments, file
+								sharing, chatting, messaging, and fun</font></p>
 						</div>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 
 
 	</div>
-
+	<jsp:include page="footer.jsp" />
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
