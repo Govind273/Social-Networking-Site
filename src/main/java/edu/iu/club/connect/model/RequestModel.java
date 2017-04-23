@@ -16,7 +16,20 @@ public class RequestModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "requestSequence")
     @SequenceGenerator(name ="requestSequence",sequenceName = "request_request_id_seq",allocationSize = 1)
 	private @Column(name = "request_id") Integer requestId;
-    public Integer getRequestId() {
+	private @Column(name = "group_id")  Integer groupId;
+    private @Column(name = "user_id") Integer userId;
+    private @Column(name = "group_name") String groupName;
+    private @Column(name = "admin_id") Integer adminId;
+    private @Column(name = "profile_pic") String profilePic;
+    
+    
+    public String getProfilePic() {
+		return profilePic;
+	}
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+	public Integer getRequestId() {
 		return requestId;
 	}
 	public void setRequestId(Integer requestId) {
@@ -46,10 +59,7 @@ public class RequestModel {
 	public void setAdminId(Integer adminId) {
 		this.adminId = adminId;
 	}
-	private @Column(name = "group_id")  Integer groupId;
-    private @Column(name = "user_id") Integer userId;
-    private @Column(name = "group_name") String groupName;
-    private @Column(name = "admin_id") Integer adminId;
+	
 	
     	
 
