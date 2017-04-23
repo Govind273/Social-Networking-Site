@@ -20,4 +20,12 @@ public class MultipartToFile {
 		    fos.close(); 
 		    return convFile;
 	}
+	
+	public void deleteFile(String path){
+		
+		File file = new File(path);
+		
+		file.delete();
+		
+	}
 }

@@ -24,12 +24,23 @@
 <!-------------------------------------------------------------------------------CSS------------------------------------------------------------------------------->
 <style>
 #text_post {
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid #ccc;
 	box-sizing: border-box;
+
 	height: 25%;
 }
 
@@ -139,3 +150,6 @@ th, td {
 	</div>
 	<!--  <jsp:include page="footer.jsp" /> -->		
 </body>
+
+</html>
+

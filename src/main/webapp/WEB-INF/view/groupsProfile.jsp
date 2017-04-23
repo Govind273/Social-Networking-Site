@@ -77,8 +77,19 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="images/iu6.jpeg">
+			<img src="${group.backgroundPic }">
 		</div>
+		
+		<!-- form to upload background picture -->	
+		<form action = "/uploadGroupBackgroundPhoto/${group.groupId}" enctype="multipart/form-data" method = "POST">
+		<div class="form-group col-lg-6" >
+				    <label for="profilePic">Picture</label>
+					<input type="file" name="file" >
+				</div>
+				<button type="submit">Upload</button>
+		</form>
+
+	<!-- form ends here -->	
 
 		<!--The Grid-->
 		<div class="w3-row">
@@ -92,8 +103,19 @@ html, body, h1, h2, h3, h4, h5 {
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
 						<p class="w3-center">
-							<img src="images/2.png" width="170" height="170">
+							<img src="${group.profilePic }" width="190" height="170">
 						</p>
+						<p>
+						
+						<form action="/uploadGroupProfilePhoto/${group.groupId}"
+							enctype="multipart/form-data" method="POST">
+							<div class="form-group col-lg-6">
+								<label for="profilePic">Picture</label> <input
+									type="file" name="file">
+							</div>
+							<button type="submit">Upload</button>
+						</form>
+						
 						<hr>
 						<p>
 							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>

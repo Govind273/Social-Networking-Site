@@ -75,12 +75,6 @@ public class GroupServiceImplementation implements GroupService {
 		GroupModel group = groupRepository.findGroupById(groupId);
 		return group;
 	}
-    
-
-//    @Override
-//	public GroupModel searchOne(GroupModel groupModel) {
-//		return groupRepository.findGroupByName(groupModel.getGroupName());
-//	}
 
     @Override
 	public ArrayList<Object> searchOne(GroupModel groupModel) {
@@ -99,11 +93,7 @@ public class GroupServiceImplementation implements GroupService {
 		
 		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
 		
-		//System.out.println(myGroups.get(0).getGroupName());
 		System.out.println(myGroups.size());
-		
-		
-		//GroupMembersModel members = new GroupMembersModel();
 		List<GroupMembersModel> myFriends = new ArrayList<GroupMembersModel>();
 		
 		for(GroupMembersModel groupMembersModel : myGroups){
@@ -112,18 +102,12 @@ public class GroupServiceImplementation implements GroupService {
 			List<GroupMembersModel> list = groupMemberRepository.findAllByGroupId(groupId);
 			System.out.println(list.size());
 			 for(GroupMembersModel lists : list){
-				// lists.getGroupName();
+				
 				  myFriends.add(lists);
 				  
 				  System.out.println("friends"+lists.getUserId());
 			 }
-//			myFriends.addAll(Arrays.asList(groupMemberRepository.findAllByGroupId(groupId)));
-//			 List<UserModel> friends = new ArrayList<UserModel>();
-//			 friends.add(myFriends.)
-//			
 		}
-		
-		//myFriends.remove(userId);
 		return myFriends;
 	}
 

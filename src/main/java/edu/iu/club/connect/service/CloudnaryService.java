@@ -12,7 +12,7 @@ import com.cloudinary.utils.ObjectUtils;
 @Service
 public class CloudnaryService {
 
-	public String soemthing(File fileToBeUploaded) throws IOException{
+	public String uploadPhoto(File fileToBeUploaded) throws IOException{
 		
 		Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
 				  "cloud_name", "dtrkytk4b",
