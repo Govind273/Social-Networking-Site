@@ -116,7 +116,7 @@ th, td {
 							<table style="width: 100%">
 								<tr>
 									<td><img
-										src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+										src="${post.profilePic }"
 										height="70" width="70" alt="IU" border="0" /></td>
 									<td style="text-align: center"><h6>Friend Name
 											${post.userId} requests to join ${post.groupName}</h6></td>
@@ -128,7 +128,7 @@ th, td {
 										</form>
 										<!-- DOES NOT DENY -->
 										<form
-											action="/acceptRequest/${user.userId }/${post.groupId }/${post.requestId}"
+											action="/denyRequest/${post.requestId}/${user.userId }"
 											method="post">
 											<button type="submit">Deny</button>
 										</form>

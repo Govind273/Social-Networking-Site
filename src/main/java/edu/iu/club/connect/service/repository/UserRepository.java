@@ -70,4 +70,7 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 	@Query("Update UserModel b SET b.backgroundPic = :backgroundPic WHERE b.userId = :userId")
 	void updateBackgroundPic(@Param("backgroundPic")String backgroundPic, @Param("userId") Integer userId);
 
+	@Query("select profilePic from UserModel b where b.userId = :userId")
+    String getPrifilePic(@Param("userId")int userId);
+
 }

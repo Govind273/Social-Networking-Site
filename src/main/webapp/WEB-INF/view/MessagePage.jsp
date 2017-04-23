@@ -81,7 +81,7 @@ th, td {
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
 			<p></p>
-			<img src="${user.profilePic}">
+			<img src="${user.backgroundPic}">
 		</div>
 
 

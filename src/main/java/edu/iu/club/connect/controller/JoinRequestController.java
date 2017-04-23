@@ -86,6 +86,15 @@ public class JoinRequestController {
 		System.out.println("request accepted");
 		return "redirect:/profile";
 	}
+	
+	@RequestMapping(value = "/denyRequest/{requestId}/{userId}" , method = RequestMethod.PUT)
+	public String denyRequest(@PathVariable("requestId") int requestId,@PathVariable("userId") int userId){
+		
+		System.out.println("inside deny request");
+		joinRequestService.denyRequest(requestId);
+		System.out.println("requested deleted");
+		return "redirect:/seeAllRequest?userId="+userId;
+	}
 
 
 }

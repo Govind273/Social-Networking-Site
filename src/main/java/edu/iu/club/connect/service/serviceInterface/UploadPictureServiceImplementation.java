@@ -31,7 +31,7 @@ public class UploadPictureServiceImplementation implements UploadPictureService{
 
 	@Override
 	public boolean storeGroupBackgroundPic(Integer groupId, String storedPathOnCloudnary) {
-		
+		System.out.println("inside group background pic upload service");
 		groupRepository.updateBackgroundPic(groupId , storedPathOnCloudnary);
 		return false;
 	}

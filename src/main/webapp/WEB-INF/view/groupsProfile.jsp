@@ -77,11 +77,11 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="${group.backgroundPic }">
+			<img src="${groupSearched.backgroundPic }">
 		</div>
 		
 		<!-- form to upload background picture -->	
-		<form action = "/uploadGroupBackgroundPhoto/${group.groupId}" enctype="multipart/form-data" method = "POST">
+		<form action = "/uploadGroupBackgroundPhoto/${groupSearched.groupId}/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
 				    <label for="profilePic">Picture</label>
 					<input type="file" name="file" >
@@ -103,11 +103,11 @@ html, body, h1, h2, h3, h4, h5 {
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
 						<p class="w3-center">
-							<img src="${group.profilePic }" width="190" height="170">
+							<img src="${groupSearched.profilePic }" width="190" height="170">
 						</p>
 						<p>
 						
-						<form action="/uploadGroupProfilePhoto/${group.groupId}"
+						<form action="/uploadGroupProfilePhoto/${groupSearched.groupId}/${user.userId}"
 							enctype="multipart/form-data" method="POST">
 							<div class="form-group col-lg-6">
 								<label for="profilePic">Picture</label> <input
