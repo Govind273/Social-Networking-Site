@@ -21,7 +21,6 @@
 <script type="text/javascript" src="/js/jquerygroupsProfile.js""></script>
 
 <style>
-
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
@@ -65,22 +64,22 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!--The Grid -->
 		<div class="w3-row">
-		<br>
-			<div class="w3-card-2 w3-round w3-white">
 			<br>
-			<h1 align="center">Password Recovery</h1>
-			<br>
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+
+				<h1 align="center">Password Recovery</h1>
+
 			</div>
-			<br>
+
 
 
 			<!----------Left Column----------->
 			<div class="w3-col m6">
-				<div class="w3-card-2 w3-round w3-white">
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<form action="/sendMail" method="POST">
 							<h4>Recovery by Email</h4>
-								<hr size = "3">
+							<hr size="3">
 							<h5>Please enter your email to receive a temporary password
 								in your inbox</h5>
 							<label for="emailId">Email</label> <input type="email"
@@ -91,45 +90,43 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 				</div>
 			</div>
-			<!----------Middle Column...does nothing!
-			<div class="w3-col m1" style="opacity: 0">1</div>----------->
 
 			<!---------Right Column----------->
 			<div class="w3-col m6">
-				<div class="w3-card-2 w3-round w3-white">
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<form action="/recoverPassword" method="GET">
 
-								<h4>Recovery by Security Questions</h4>
-								<hr size = "3">
-								<h5>Please enter your email ID and security questions
-									answers</h5>
+							<h4>Recovery by Security Questions</h4>
+							<hr size="3">
+							<h5>Please enter your email ID and security questions
+								answers</h5>
 
-										<label>Email ID &nbsp;</label><br><input type="text" placeholder="Email"
-											name="emailId" required>
-								<p></p>
-
-
-										<label>Question 1: What is mother's maiden name? &nbsp;</label><br> <input
-											type="text" placeholder="Answer" name="question1" required>
-<p></p>
+							<label>Email ID &nbsp;</label><br>
+							<input type="text" placeholder="Email" name="emailId" required>
+							<p></p>
 
 
-										<label>Question 2: What is your favorite movie? &nbsp;</label><br> <input
-											type="text" placeholder="Answer" name="question2" required>
-<p></p>
+							<label>Question 1: What is mother's maiden name? &nbsp;</label><br>
+							<input type="text" placeholder="Answer" name="question1" required>
+							<p></p>
 
 
-									<button type="submit" class="btn btn-default btn-block">Submit</button>
+							<label>Question 2: What is your favorite movie? &nbsp;</label><br>
+							<input type="text" placeholder="Answer" name="question2" required>
+							<p></p>
 
-								<p></p>
+
+							<button type="submit" class="btn btn-default btn-block">Submit</button>
+
+							<p></p>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--  <jsp:include page="footer.jsp" /> -->		
+	<!--  <jsp:include page="footer.jsp" /> -->
 </body>
 </html>
 
