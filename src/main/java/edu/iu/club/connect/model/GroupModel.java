@@ -17,6 +17,27 @@ public class GroupModel {
     private @Column(name = "group_name") String groupName; //used in search feature
     private @Column(name = "group_about") String about;
     private @Column(name = "admin_id") Integer adminId;
+    private @Column(name = "profile_pic") String profilePic;
+    private @Column(name = "background_pic") String backgroundPic;
+   
+    
+    public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	public String getBackgroundPic() {
+		return backgroundPic;
+	}
+
+	public void setBackgroundPic(String backgroundPic) {
+		this.backgroundPic = backgroundPic;
+	}
+
+	
 
   
 

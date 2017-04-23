@@ -70,20 +70,25 @@ html, body, h1, h2, h3, h4, h5 {
 <br>
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-<p></p>
-			<img src="${user.profilePic}">
-		</div>
-		<%-- Commented by Vaishnavi as moved this block of code to the edit page--%>
-		<form action = "/uploadProfilePhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
+
+			<img src="${user.backgroundPic}">
+	</div>
+	<!-- form to upload background picture -->	
+		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
-				    <label for="profilePic">Upload Your Profile Picture</label>
+				    <label for="profilePic">Picture</label>
 					<input type="file" name="file" >
 				</div>
 				<button type="submit">Upload</button>
 		</form> 
 
 
+
 		<!--The Grid -->
+
+	<!-- form ends here -->	
+		<!--********** The Grid ***********-->
+
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
 			
@@ -93,9 +98,23 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<p class="w3-center">
+
 						<br>
-							<img src="images/2.png" width="170" height="170">
+							<img src="${user.profilePic}" width="190" height="170">
+
 						</p>
+						<p>
+						
+						<form action="/uploadProfilePhoto/${user.userId}"
+							enctype="multipart/form-data" method="POST">
+							<div class="form-group col-lg-6">
+								<label for="profilePic">Picture</label> <input
+									type="file" name="file">
+							</div>
+							<button type="submit">Upload</button>
+						</form>
+						</p>
+
 						<hr>
 						<p>
 							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
@@ -145,7 +164,8 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
-							<div style="padding: 0px 30px 20px 0px"><form
+							<div style="padding: 0px 30px 20px 0px">
+							<form
 								action="/createPost/${groupSearched.groupId }/${user.userId }"
 								method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
