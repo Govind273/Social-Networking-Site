@@ -1,0 +1,75 @@
+#this style sheet was started on apr 19 by nick. it likely includes some redundant info as the style is scattered across mutliple css styles but it is not high enough priority to clean up
+
+#4-19--Nick thinks we can delete header1
+#header1 {
+    background-color:#750000;
+    color:black;
+    text-align:center;
+    padding:5px;
+}
+
+#defines lists for menu bar and header
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(117,0,0);
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(177,0,0);
+}
+
+.active {
+    background-color: rgb(210,0,0)
+}
+
+
+
+#defines header fonts (probably redundant)
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
+}
+
+
+#defines cover image css to allow for it to show the top without distortion
+.coverPic {
+	display: block;
+	position: relative;
+	height: 415px;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.cover {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover>img {
+ position: absolute;
+  display: block;
+  max-width:1400px;
+  top: 0;
+  left: 0;
+}
+

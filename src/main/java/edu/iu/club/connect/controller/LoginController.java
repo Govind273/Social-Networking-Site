@@ -1,9 +1,16 @@
 
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.GroupMembersModel;
+import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.model.JobDetailsModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.AmazonAWSS3Operation;
+import edu.iu.club.connect.service.CloudnaryService;
+import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
+import edu.iu.club.connect.service.serviceInterface.GroupService;
+import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
 import java.io.IOException;
@@ -20,9 +27,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /*
@@ -40,13 +52,25 @@ public class LoginController {
 
 	@Autowired EmailHandler emailHandler;
 
-
-//	@Autowired 
-//	private AmazonAWSS3Operation amazonS3OperationService;
+	@Autowired CloudnaryService CloudnaryService;
+	@Autowired MultipartToFile multipartFile;
 	
+	
+	@Autowired
+	JobDetailsService jobDetailsService;
+	
+	@Autowired 
+	private AmazonAWSS3Operation amazonS3OperationService;
+
+	@Autowired
+	GroupService groupService;
 
 
-
+	HashMap<String , Integer> forgetPasswordEntry = new HashMap<String , Integer>();
+	
+	HashMap<String , UserModel> signUpEntry = new HashMap<String , UserModel>();
+	
+	
 	@RequestMapping(value="/")
 	public String loginPage(){
 
@@ -59,50 +83,102 @@ public class LoginController {
 		System.out.println(
 				"rec: " + userModel.getEmailId() );
 
-		String oldPassword = userService.getPassword(userModel);
-		System.out.println("LoginContro" + oldPassword);
-		@SuppressWarnings("static-access")
-		String sent = emailHandler.sendEmail(userModel.getEmailId(), oldPassword);
-		System.out.println("sendEmail Checker" + sent);
-		if (sent=="false") {
-			return "invalidEntery";
-		} 
-		return "actionSuccess";
+		UserModel userExist = userService.findOne(userModel.getEmailId());
+		if(userExist !=null){
+
+			String forgetPasswordEmail = userExist.getEmailId();
+			Random r = new Random( System.currentTimeMillis() );
+			int OTP = ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+		
+			forgetPasswordEntry.put(forgetPasswordEmail, OTP);
+
+			@SuppressWarnings("static-access")
+			String sent = emailHandler.sendEmail(forgetPasswordEmail, OTP);
+
+			System.out.println("sendEmail Checker" + sent);
+			if (sent=="false") {
+				return "forgetPassword";
+			} 
+			return "OTP";
+		}
+
+		else  return "forgetPassword";
 
 	}
-	/*
+	
+	@RequestMapping(value = "/checkOTP" , method = RequestMethod.GET)
+	public String checkOTP(@RequestParam("emailId") String emailId , @RequestParam("OTP") int OTP , ModelMap modelMap){
+		
+		if(forgetPasswordEntry.containsKey(emailId)){
+			if(OTP == forgetPasswordEntry.get(emailId)){
+				forgetPasswordEntry.remove(emailId);
+				modelMap.put("forgetPassword", emailId);
+				return "setNewPassword";
+			}
+			else return "OTP";
+		}
+		else  return "OTP";
+	}
 
-<<<<<<< Updated upstream
-	 * This method checks the Login credentials provided by the user and directs him to his profile if
+	/* This method checks the Login credentials provided by the user and directs him to his profile if
 	 * credentials matches.
 	 * */
 
-	/* This method checks the Login credentials provided by the user and directs him to his profile if
-	* credentials matches.
-	* */
-
 	@RequestMapping(value="/login" , method = RequestMethod.GET)
 	public String login(UserModel userModel, ModelMap modelMap){
-		UserModel returnedUserModel = userService.findOne(userModel);
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 
 		if(returnedUserModel==null){
 
 			return "redirect:/";
 		}
-		//Commented by vishi to solve the error "too many re-directs"
-// 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
-
-// 			return "redirect:login";
-// 		}
 		else if(userModel.getPassword().equals(returnedUserModel.getPassword())==true){
 			System.out.println("qwerty"+returnedUserModel.getFirstName());
 			modelMap.addAttribute("user",returnedUserModel);
 
-			return "profile";
+			return "redirect:/profile";
 		}
 		else
 			return"login";
 
+	}
+	
+	@RequestMapping(value = "/validatebySendingMail" , method = RequestMethod.POST)
+	public String validateMail(UserModel userModel) throws Exception{
+		
+		System.out.println("in validate email id");
+		System.out.println(
+				"rec: " + userModel.getEmailId() );
+		
+		
+
+		UserModel userExist = userService.findOne(userModel.getEmailId());
+		
+		if(userExist == null){
+
+			signUpEntry.put(userModel.getEmailId() , userModel);
+			@SuppressWarnings("null")
+			String email = userModel.getEmailId();
+			Random r = new Random( System.currentTimeMillis() );
+			int OTP = ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+		
+			forgetPasswordEntry.put(email, OTP);
+
+			@SuppressWarnings("static-access")
+			String sent = emailHandler.sendEmail(email, OTP);
+
+			System.out.println("sendEmail Checker" + sent);
+			if (sent=="false") {
+				return "signup";
+			} 
+			else return "SignUpOTP";
+			
+		}
+		
+		else  {
+			System.out.println("user already exist");
+			return "signup" ;
+		}
 	}
 
 	/*
@@ -113,15 +189,25 @@ public class LoginController {
 	 * This method takes the values given by the user at time of SignUp and saves them into database.
 	 * */
 	@RequestMapping(value="/signup" , method= RequestMethod.POST)
-	public  String signup(UserModel userModel){
-		UserModel returnedUserModel = userService.findOne(userModel);
-		if(returnedUserModel==null){
-			userService.saveOne(userModel);
-			return "profile";
-		}
-		else
-			return "signup";
+	public  String signup(@RequestParam("emailId") String emailId , @RequestParam("OTP") int OTP , ModelMap modelMap){
+
+		if(forgetPasswordEntry.containsKey(emailId)){
+			if(OTP == forgetPasswordEntry.get(emailId)){
+				
+				userService.saveOne(signUpEntry.get(emailId));	
+				modelMap.put("user" , signUpEntry.get(emailId));
+				
+				forgetPasswordEntry.remove(emailId);
+				signUpEntry.remove(emailId);
+
+				return "profile";
+			}
+		}		
+				return "signup";
+			
 	}
+				
+		
 
 
 	@RequestMapping(value="/signUpPage" , method= RequestMethod.GET)
@@ -129,14 +215,23 @@ public class LoginController {
 		return "signup";
 	}
 
+//	This controller is called when we need to load the user profile page and collects all the requeiered information to be displayed in the user profile page
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
-
 		
-		//UserModel userModel = (UserModel) modelMap.get("user");
-		//UserModel returnedUserModel = userService.findOne(userModel);
-		//modelMap.put("user",returnedUserModel);
-
+		//User details
+		UserModel userModel = (UserModel) modelMap.get("user");
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
+		modelMap.put("user",returnedUserModel);
+		//Groups the user is part of
+		List<GroupMembersModel> myFriends = groupService.findMyFriends(returnedUserModel.getUserId());
+		modelMap.put("myFriends", myFriends);
+		//Groups user is admin of
+		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
+		modelMap.put("GroupsByMe", GroupsByMe);
+		/// adding jobdetails
+		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
+		modelMap.put("myJobDetails", myJobDetails);
 		return "profile";
 	}
 
@@ -153,16 +248,21 @@ public class LoginController {
 	 * */
 
 
-	@RequestMapping(value="/updateProfile",method = RequestMethod.PUT)
+	@RequestMapping(value="/updateProfile",method = RequestMethod.POST)
 	public  String editProfile(UserModel userModel, ModelMap modelMap){
-
-
 		userService.updateOne(userModel);
-		UserModel returnedUserModel = userService.findOne(userModel);
+		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user", returnedUserModel);
-
 		return "profile";
 	}
+	
+	
+	@RequestMapping(value="/addJobDetails",method = RequestMethod.POST)
+	public  String addDetails(JobDetailsModel jobDetailsModel, ModelMap modelMap){
+		jobDetailsService.saveOne(jobDetailsModel);	
+		return "redirect:/profile";
+	}
+
 
 	@RequestMapping( value = "/recoverPassword" , method = RequestMethod.GET)
 	public String recoverPassword(UserModel userModel , ModelMap modelMap){
@@ -207,24 +307,36 @@ public class LoginController {
 
 	}
 
+	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
+	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
+		
+		System.out.println(" ------------------------------------------>>>>>>>>>>>>>>");
 
-//<<<<<<< Updated upstream
-//=======
-//
-//	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
-//	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
-//
-//		String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
-//		System.out.println("path to be used -- "+storedPathOnAmazon);
-//
-//		userService.storeProfilePic(userId, storedPathOnAmazon);
-//		return "redirect:/profile";
-//	}
-//>>>>>>> Stashed changes
+		String storedPathOnCloudnary = CloudnaryService.soemthing(multipartFile.convertToFile(uploadfile));
+		
+	//	String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
+		System.out.println("path to be used -- "+storedPathOnCloudnary);
 
+		userService.storeProfilePic(userId, storedPathOnCloudnary); 
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/some" , method=RequestMethod.GET)
+	public void some(){
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("~/app/.aws/credentials"))) {
 
+			String sCurrentLine;
 
+			while ((sCurrentLine = br.readLine()) != null) {
+				System.out.println(sCurrentLine);
+			}
 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/*
 	 * This method is responsible for enabling user to logout from his account by ending his session.

@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 /**
  * Created by walia on 2/14/2017.
+ * Edited by Vaishnavi M to add additional fields 
  */
 
 /*
@@ -28,8 +29,43 @@ public class UserModel {
     private @Column(name = "profile_pic") String profilePic;
     private @Column(name = "question1") String question1;
     private @Column (name = "question2") String question2;
-    
-    
+
+    private @Column(name = "gender") String gender; //used in search feature
+    private @Column(name = "birthdate") String birthdate;   //used in search feature
+    private @Column(name = "languages") String languages;
+    private @Column(name = "locationfrom") String location;
+
+    public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
     public String getQuestion1() {
 		return question1;
 	}
