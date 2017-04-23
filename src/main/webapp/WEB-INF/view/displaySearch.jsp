@@ -14,22 +14,64 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
+<style>
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
+}
 
-<!--Top header -->
-<jsp:include page="header.jsp"/>	
- 
-<div class="gtco-container">
+#coverTopSection {
+	margin: 0;
+	padding: 0;
+}
 
-<!--Background Image, Menu Bar -->
-	<div class="coverTopSection" height="400px">
-		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="images/iu6.jpeg" height="280px" >
+.coverPic {
+	display: block;
+	position: relative;
+	height: 415px;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.cover {
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.cover>img {
+	position: absolute;
+	display: block;
+	max-width: 1100px;
+	top: 0;
+	left: 0;
+}
+
+table, th, td {
+	border: 0px border-collapse: collapse;
+	align: center;
+}
+
+th, td {
+	padding: 5px;
+	text-align: left;
+}
+</style>
+<body class="w3-theme-l5">
+
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
+	<jsp:include page="header.jsp" />
+
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
+		<!--Background Image, Menu Bar -->
+		<div class="cover">
+			<img src="${user.backgroundPic}">
 		</div>
-	<jsp:include page="menuBar.jsp"/>	
-	</div>
-	
 
+		<!--********** The Grid ***********-->
+
+		<div class="w3-row">
+			<jsp:include page="menuBar.jsp" />
 
 
 

@@ -50,28 +50,37 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
  position: absolute;
   display: block;
-  max-width:1400px;
+  max-width:1100px;
   top: 0;
   left: 0;
 }
 </style>
-<body>
-
 <body class="w3-theme-l5">
-	<!--Top header -->
+
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
 	<jsp:include page="header.jsp" />
 
-
-
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
+		<!--Background Image, Menu Bar -->
 		<div class="cover">
-				<img src="${user.profilePic}">
-		</div>
-	
-		<!--The Grid-->
+
+			<img src="${user.backgroundPic}">
+	</div>
+	<!-- form to upload background picture -->	
+		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
+		<div class="form-group col-lg-6" >
+				    <label for="profilePic">Picture</label>
+					<input type="file" name="file" >
+				</div>
+				<button type="submit">Upload</button>
+		</form> 
+
+
+
+		<!--The Grid -->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
-		
-</div>
 
 <div class="w3-col m7">
 				<br>
@@ -144,7 +153,7 @@ html, body, h1, h2, h3, h4, h5 {
 		</div>
 		
 	</div>
-	
+	</div>
 	</body>
 	</html>
 

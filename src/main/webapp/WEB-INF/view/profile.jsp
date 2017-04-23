@@ -53,7 +53,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -67,12 +67,11 @@ html, body, h1, h2, h3, h4, h5 {
 
 	<!--Page Container-->
 	<div class="w3-container w3-content" style="max-width: 1100px">
-<br>
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-
 			<img src="${user.backgroundPic}">
 	</div>
+	
 	<!-- form to upload background picture -->	
 		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
@@ -85,10 +84,6 @@ html, body, h1, h2, h3, h4, h5 {
 
 
 		<!--The Grid -->
-
-	<!-- form ends here -->	
-		<!--********** The Grid ***********-->
-
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
 			

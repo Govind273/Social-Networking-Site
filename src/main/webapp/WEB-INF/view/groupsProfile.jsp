@@ -59,7 +59,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -223,5 +223,8 @@ html, body, h1, h2, h3, h4, h5 {
 					</c:if>
 				</c:if>
 			</div>
+			</div>
+							</div>
 				<jsp:include page="footer.jsp" />
+</body>
 </html>
