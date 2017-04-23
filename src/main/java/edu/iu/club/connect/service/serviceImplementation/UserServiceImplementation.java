@@ -112,6 +112,14 @@ public class UserServiceImplementation implements UserService{
 
 	}
 
+	@Override
+	public void editlifestatus(UserModel userModel) {
+		// TODO Auto-generated method stub
+		
+		userRepository.editletstatus(userModel.getUserId(),userModel.getLifestatus());
+		
+	}
+
 	
 
 }
