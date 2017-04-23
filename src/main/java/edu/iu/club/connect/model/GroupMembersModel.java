@@ -19,6 +19,27 @@ public class GroupMembersModel {
 	private @Column(name = "group_name") String groupName;
 	private @Column( name = "group_id") Integer groupId;
 	private @Column(name = " user_id") Integer userId;
+	private @Column(name = "profile_pic") String profilePic;
+	private @Column(name = "user_name") String friendName;
+	
+	
+	
+	public String getFriendName() {
+		return friendName;
+	}
+
+	public void setFriendName(String friendName) {
+		this.friendName = friendName;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
 	//****vishi
 	public GroupMembersModel(int user_id, int group_id) {
 		// TODO Auto-generated constructor stub
