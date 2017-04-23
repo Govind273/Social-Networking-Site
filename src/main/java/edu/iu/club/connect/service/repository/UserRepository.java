@@ -65,4 +65,9 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     @Query("select firstName from UserModel b where b.userId = :userId")
     String findUserNameById(@Param("userId") int userId );
 
+    @Modifying(clearAutomatically = true)
+    @Transactional
+	@Query("Update UserModel b SET b.backgroundPic = :backgroundPic WHERE b.userId = :userId")
+	void updateBackgroundPic(@Param("backgroundPic")String backgroundPic, @Param("userId") Integer userId);
+
 }

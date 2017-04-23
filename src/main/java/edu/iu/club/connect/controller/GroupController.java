@@ -56,14 +56,10 @@ public class GroupController {
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear(); 	
     	}
-    	/****vishi***/
-    	boolean isadmin= groupService.isadmin(userId , groupId);
-    	mv.addObject("admin",isadmin);
-    	GroupMembersModel gmmadmin=new GroupMembersModel(userId,groupId);
-    	alreadyFriend.add(gmmadmin);
        	mv.addObject("ps",ps); 
     	mv.addObject("groupmember",alreadyFriend);
 		GroupModel group = groupService.findGroup(groupId);
+		mv.addObject("admin_id", group.getAdminId());
 		mv.addObject("groupSearched", group);
 		return mv;
 	}
@@ -94,28 +90,6 @@ public class GroupController {
 		return "MyFriends";
 	}
 
-//	@RequestMapping(value = "/searchGroup", method=RequestMethod.POST)
-//	public String search(GroupModel groupModel, ModelMap modelMap){
-//		System.out.println("I am in search");
-//		GroupModel group = groupService.searchOne(groupModel);    
-//
-//
-//		modelMap.addAttribute("searchGroup", group);
-//
-//		if(group==null){
-//			return "redirect:profile";
-//		}
-//		else return "groupsProfile";
-//	}
-
-
-
-	//    @RequestMapping(value = "/groupsData")
-	//    public  ArrayList<GroupModel> allGroups(){
-	//       ArrayList<GroupModel> groupModel= groupService.findOne();
-	//        //modelMap.addAttribute("group",groupModel);
-	//       return groupModel;
-	//    }
 
 
 

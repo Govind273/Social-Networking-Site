@@ -27,9 +27,9 @@ public class UserModel {
     private @Column(name = "email_id") String emailId;
     private @Column(name = "about") String about;
     private @Column(name = "profile_pic") String profilePic;
+    private @Column(name = "background_pic") String backgroundPic;
     private @Column(name = "question1") String question1;
     private @Column (name = "question2") String question2;
-
     private @Column(name = "gender") String gender; //used in search feature
     private @Column(name = "birthdate") String birthdate;   //used in search feature
     private @Column(name = "languages") String languages;
@@ -66,6 +66,15 @@ public class UserModel {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
+    public String getBackgroundPic() {
+		return backgroundPic;
+	}
+
+	public void setBackgroundPic(String backgroundPic) {
+		this.backgroundPic = backgroundPic;
+	}
+
     public String getQuestion1() {
 		return question1;
 	}

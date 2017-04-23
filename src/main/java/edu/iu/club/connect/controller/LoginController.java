@@ -5,7 +5,7 @@ import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.JobDetailsModel;
 import edu.iu.club.connect.model.UserModel;
-import edu.iu.club.connect.service.AmazonAWSS3Operation;
+
 import edu.iu.club.connect.service.CloudnaryService;
 import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
@@ -13,29 +13,19 @@ import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
-import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpSession;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 /*
  * The LoginController class handles all the functionality related to Login , SignUp and Authentication.
@@ -51,20 +41,15 @@ public class LoginController {
 	UserService userService;
 
 	@Autowired EmailHandler emailHandler;
-
 	@Autowired CloudnaryService CloudnaryService;
 	@Autowired MultipartToFile multipartFile;
 	
 	
 	@Autowired
 	JobDetailsService jobDetailsService;
-	
-	@Autowired 
-	private AmazonAWSS3Operation amazonS3OperationService;
 
 	@Autowired
 	GroupService groupService;
-
 
 	HashMap<String , Integer> forgetPasswordEntry = new HashMap<String , Integer>();
 	
@@ -307,36 +292,7 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value="/uploadProfilePhoto/{userId}" , method=RequestMethod.POST)
-	public String uploadPhoto(@PathVariable("userId") Integer userId,@RequestParam("file") MultipartFile uploadfile,ModelMap userModelMap) throws IOException{
-		
-		System.out.println(" ------------------------------------------>>>>>>>>>>>>>>");
-
-		String storedPathOnCloudnary = CloudnaryService.soemthing(multipartFile.convertToFile(uploadfile));
-		
-	//	String storedPathOnAmazon = amazonS3OperationService.uploadFilesToS3(uploadfile, "clubconnect");
-		System.out.println("path to be used -- "+storedPathOnCloudnary);
-
-		userService.storeProfilePic(userId, storedPathOnCloudnary); 
-		
-		return "redirect:/profile";
-	}
 	
-	@RequestMapping(value="/some" , method=RequestMethod.GET)
-	public void some(){
-		
-		try (BufferedReader br = new BufferedReader(new FileReader("~/app/.aws/credentials"))) {
-
-			String sCurrentLine;
-
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	/*
 	 * This method is responsible for enabling user to logout from his account by ending his session.
