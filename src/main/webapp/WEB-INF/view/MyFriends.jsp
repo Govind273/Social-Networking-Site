@@ -23,14 +23,6 @@
 
 <!-------------------------------------------------------------------------------CSS------------------------------------------------------------------------------->
 <style>
-#text_post {
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<style>
 /* Full-width input fields */
 input[type=text], input[type=password] {
 
@@ -70,7 +62,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -90,27 +82,25 @@ th, td {
 <!------------------------------------------------------------------------------Body------------------------------------------------------------------------------->
 <body class="w3-theme-l5">
 
-	<!---------------------------------------Header, Container, Cover Photo, Menu Bar--------------------------------------->
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
 	<jsp:include page="header.jsp" />
 
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width: 1400px">
-
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="${user.backgroundPic }">
+			<img src="${user.backgroundPic}">
 		</div>
 
-		<!--The Grid-->
-		<div class="w3-row">
-			<jsp:include page="menuBar.jsp" />
+
+		<jsp:include page="menuBar.jsp" />
+		<br>
 			
 			<!-------------------Left Column (empty...used only to center middle------------------->
 			<div class="w3-col m3" style="opacity: 0.0">1</div>
 
 			<!-------------------Middle Column------------------->
 			<div class="w3-col m5">
-				<br>
 				<!-- Add a container for each colleague-->
 				<c:if test="${fn:length(myFriends) > 0}">
 				<c:forEach items="${myFriends}" var="post">
@@ -147,7 +137,6 @@ th, td {
 
 			</div>
 		</div>
-	</div>
 	<!--  <jsp:include page="footer.jsp" /> -->		
 </body>
 

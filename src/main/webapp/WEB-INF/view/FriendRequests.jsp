@@ -23,16 +23,6 @@
 
 <!-------------------------------------------------------------------------------CSS------------------------------------------------------------------------------->
 <style>
-#text_post {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	height: 25%;
-}
-
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
@@ -59,13 +49,14 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
 
 table, th, td {
 	border: 0px border-collapse: collapse;
+	align: center;
 }
 
 th, td {
@@ -73,25 +64,20 @@ th, td {
 	text-align: left;
 }
 </style>
-
-
-<!------------------------------------------------------------------------------Body------------------------------------------------------------------------------->
 <body class="w3-theme-l5">
 
-	<!---------------------------------------Header, Container, Cover Photo, Menu Bar--------------------------------------->
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
 	<jsp:include page="header.jsp" />
-
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width: 1400px">
-
+	
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="images/iu6.jpeg">
+			<img src="${user.backgroundPic}">
 		</div>
 
-		<!--The Grid-->
-		<div class="w3-row">
-			<jsp:include page="menuBar.jsp" />
+
+		<jsp:include page="menuBar.jsp" />
 
 			<!-------------------Left Column (empty...used only to center middle)------------------->
 			<div class="w3-col m3" style="opacity: 0.0">1</div>
