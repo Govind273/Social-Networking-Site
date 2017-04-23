@@ -70,7 +70,7 @@ html, body, h1, h2, h3, h4, h5 {
 <br>
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-
+<p></p>
 			<img src="${user.profilePic}">
 		</div>
 		<%-- Commented by Vaishnavi as moved this block of code to the edit page--%>
@@ -89,11 +89,11 @@ html, body, h1, h2, h3, h4, h5 {
 			
 			<!-----------------------Left Column----------------------->
 			<div class="w3-col m4">
-				<br>
 				<!-- Profile Picture and brief info on user -->
-				<div class="w3-card-2 w3-round w3-white">
+					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<p class="w3-center">
+						<br>
 							<img src="images/2.png" width="170" height="170">
 						</p>
 						<hr>
@@ -112,11 +112,9 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 					</div>
 				</div>
-				<br>
 
 				<!-- Clubs -->
-				<div class="w3-card-2 w3-round w3-white w3-hide-small">
-					<div class="w3-container">
+					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<h3>Club Membership</h3>
 						<c:forEach items="${GroupsByMe}" var="admingroups">
 				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a>
@@ -125,7 +123,7 @@ html, body, h1, h2, h3, h4, h5 {
 							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a>
 						</c:forEach>
 					</div>
-				</div>
+	
 			</div>
 			
 			<!--------------------Middle Column--------------------->
