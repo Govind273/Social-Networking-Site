@@ -98,7 +98,7 @@ th, td {
 
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<img src="images/iu6.jpeg">
+			<img src="${user.backgroundPic }">
 		</div>
 
 		<!--The Grid-->
@@ -120,7 +120,7 @@ th, td {
 						<table style="width: 100%">
 							<tr>
 								<td><img
-									src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+									src="${post.profilePic }"
 									height="70" width="70" alt="IU" border="0" /></td>
 								<td style="text-align: center"><h6><b>Friend Name ${post.userId}</b></h6> &nbsp; (# of
 									messages)</td>
