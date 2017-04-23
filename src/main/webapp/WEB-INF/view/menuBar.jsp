@@ -79,7 +79,3 @@ li a:hover:not(.active) {
 		</form>
 	</li>
 </ul>
-
-<!--  <c:if test="${fn:length(friendRequests) > 0}"><li>
-					<li>									<form action="/seeAllRequest/${user.userId }" method="GET">
-						<button type="submit">Join Requests (${fn:length(friendRequests)})</button>  --> 
