@@ -175,9 +175,9 @@ html, body, h1, h2, h3, h4, h5 {
 								<input type="hidden" name="groupId" id="groupId"
 									value="${groupSearched.groupId }"> <input type="text"
 									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="150" size="75%" required></div>
+									maxlength="100" size="60%" required></div>
 								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i>  Post
+									<i class="fa fa-pencil"></i> ï¿½Post
 								</button>
 							</form>
 						</div>
@@ -198,12 +198,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 								<button type="button"
 									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i>  Like
+									<i class="fa fa-thumbs-up"></i> ï¿½Like
 								</button>
 
 								<button type="button"
 									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i>  Comment
+									<i class="fa fa-comment"></i> ï¿½Comment
 								</button>
 
 								<form
