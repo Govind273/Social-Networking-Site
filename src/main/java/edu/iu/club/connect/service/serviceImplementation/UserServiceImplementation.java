@@ -1,5 +1,6 @@
 package edu.iu.club.connect.service.serviceImplementation;
 
+import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.repository.UserRepository;
 import edu.iu.club.connect.service.serviceInterface.UserService;
@@ -118,6 +119,13 @@ public class UserServiceImplementation implements UserService{
 		
 		userRepository.editletstatus(userModel.getUserId(),userModel.getLifestatus());
 		
+	}
+
+	@Override
+	public UserModel listUserName(int userId) {
+		// TODO Auto-generated method stub
+		UserModel user=userRepository.findUserById(userId);		
+		return user;
 	}
 
 	
