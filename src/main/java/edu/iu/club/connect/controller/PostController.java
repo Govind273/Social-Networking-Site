@@ -45,9 +45,12 @@ public class PostController {
     @Autowired
     GroupService groupService;
 
-    @RequestMapping(value = "/createPost/{group_id}/{user_id}",method = RequestMethod.POST  )
-    public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("user_id") int user_id,PostModel postModel){
+    @RequestMapping(value = "/createPost/{group_id}/{user_id}/{firstName}/{lastName}",method = RequestMethod.POST  )
+    public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("firstName") String firstName,
+    		 @PathVariable("lastName") String lastName,@PathVariable("user_id") int user_id,PostModel postModel){
     	ModelAndView mv1=new ModelAndView("groupsProfile");
+    	String postbyname=firstName+" "+lastName;
+    	postModel.setPostbyname(postbyname);
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
     	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
@@ -76,7 +79,12 @@ public class PostController {
     	postModel.setPostId(post_id);
     	PostModel pm=postService.getPostedby(post_id);
     	String rror="  ";
-    	
+    	boolean isadmin= groupService.isadmin(user_id , group_id);
+    	mv.addObject("admin",isadmin);
+    	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
+    	GroupMembersModel gmmadmin=new GroupMembersModel(user_id,group_id);
+    	alreadyFriend.add(gmmadmin);
+    	mv.addObject("groupmember",alreadyFriend);
     	int postby=pm.getPostedby();
     	if (postby == user_id){
     		postService.deleteById(post_id);
@@ -88,9 +96,6 @@ public class PostController {
     		 rror="Not authorised to delete this post.";
     		message.put("message","Not authorised to delete this post.");
     	}
-
-    	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
-    	mv.addObject("groupmember",alreadyFriend);
     	postModel.setGroupId(group_id);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
