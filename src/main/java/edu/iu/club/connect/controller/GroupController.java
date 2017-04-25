@@ -56,6 +56,8 @@ public class GroupController {
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear(); 	
     	}
+    	boolean isadmin=groupService.isadmin(userId, groupId);
+    	mv.addObject("isadmin", isadmin);
        	mv.addObject("ps",ps); 
     	mv.addObject("groupmember",alreadyFriend);
 		GroupModel group = groupService.findGroup(groupId);
