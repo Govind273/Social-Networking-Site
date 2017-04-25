@@ -179,8 +179,41 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<h4>Education</h4>
 					<br>
-					<c:if test="${fn:length(myJobDetails) == 0}">
-						<p>User does not have any work experience listed</p>
+					<c:if test="${myProfile eq true }">	
+					<button type="button" data-toggle="modal" data-target="#myeduModal">Add Education Details</button>
+					</c:if>
+					<c:if test="${fn:length(myEduDetails) > 0}">
+					<c:if test="${myProfile eq true }">	
+						<button type="button"  data-toggle="modal" data-target="#myedueditModal">Modify Education</button><br> 
+						</c:if>
+						<c:forEach items="${myEduDetails}" var="myEduDetails">
+						
+							<table style="border-collapse: separate; border-spacing: 11px;">
+							
+								<tr>
+									<td><label> Education:</label>
+									
+									<td>${myEduDetails.school}<br></td>
+								</tr>
+								<tr>
+									<td><label>Major:</label></td>
+									<td>${myEduDetails.major}<br></td>
+								</tr>
+								<tr>
+									<td><label>Description:</label></td>
+									<td>${myEduDetails.description}<br></td>
+								</tr>
+								<tr>
+									<td><label> Skills:</label></td>
+									<td>${myEduDetails.skills}<br></td>
+								</tr>
+							</table>
+							<hr>
+						</c:forEach>
+
+					</c:if>
+					<c:if test="${fn:length(myEduDetails) == 0}">
+						<p>User does not have any education experience listed</p>
 					</c:if>
 				</div>
 
@@ -358,8 +391,101 @@ html, body, h1, h2, h3, h4, h5 {
 			
 		</div>
 	</div>
-	
-	
+	<!-- Modal for Education Details -->
+	<div id="myeduModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Education Details</h4>
+				</div>
+				<div class="modal-body">
+					<form action="/addEducationDetails" method="post">
+						<table>
+							<tr>
+								<td><label>University </label></td>
+								<td><input type="hidden" value="${user.userId}"
+									name="userId"> <input type="text" name="school"
+									placeholder="What university did you attend?" required/></td>
+							</tr>
+							<tr>
+								<td><label> Major </label></td>
+								<td><input type="text" name="major"
+									placeholder="What did you major in?" required /></td>
+							</tr>
+							<tr>
+								<td><label> Description</label></td>
+								<td><input type="text" name="description"
+									placeholder="description" required /></td>
+							</tr>
+							<tr>
+								<td><label> Skills</label></td>
+								<td><input type="text" name="skills" placeholder="skills you've accquired" required/>
+								</td>
+							</tr>
+						</table>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- Edit job details -->
+	<div id="myedueditModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modify Education Details</h4>
+				</div>
+				<div class="modal-body">
+					
+					<c:forEach items="${myEduDetails}" var="myEduDetails">
+					
+						<table>
+						<form action="/editEducationDetail"  method="post">
+							<tr>
+								<td><label> University:</label></td><td>
+									<input type="hidden" value="${myEduDetails.eduDetailsId}" name="eduDetailsId">
+									<input type="text"  value="${myEduDetails.school}" name="school"></input><br></td>
+								</tr>
+								<tr>
+									<td><label>Major:</label></td>
+									<td><input type="text"  value="${myEduDetails.major}" name="major"></input><br></td>
+								</tr>
+								<tr>
+									<td><label>Description:</label></td>
+									<td><input type="text"  value="${myEduDetails.description}" name="description"></input><br></td>
+								</tr>
+								<tr>
+									<td><label> Skills:</label></td>
+									<td><input type="text"  value="${myEduDetails.skills}" name="skills"></input><br></td>
+									<td><button type="submit">edit</button>
+									<td>
+									</form>
+							<form action="/deleteEducationDetails/${myEduDetails.eduDetailsId }" method="post">
+							<input type="hidden" value="${myEduDetails.eduDetailsId}" name="eduDetailsId"></input>
+							<button type="submit">delete</button><br> 
+							</form>		
+								</td>								
+								</tr>	
+						</table>
+						<hr>	
+					</c:forEach>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 	
 </body>
 </html>
