@@ -71,7 +71,7 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${user.backgroundPic}">
 	</div>
-	
+	<c:if test="${myProfile eq true }">
 	<!-- form to upload background picture -->	
 		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
@@ -81,7 +81,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<button type="submit">Upload</button>
 		</form> 
 
-
+</c:if>
 
 		<!--The Grid -->
 		<div class="w3-row">
@@ -99,7 +99,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 						</p>
 						<p>
-						
+					<c:if test="${myProfile eq true }">	
 						<form action="/uploadProfilePhoto/${user.userId}"
 							enctype="multipart/form-data" method="POST">
 							<div class="form-group col-lg-6">
@@ -108,6 +108,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
+						</c:if>
 						</p>
 
 						<hr>
@@ -165,8 +166,9 @@ html, body, h1, h2, h3, h4, h5 {
 							</c:if>
 							<c:if test="${not empty user.lifestatus}">
 							<label>${user.lifestatus}</label> <br></c:if>
+						<c:if test="${myProfile eq true }">	
 							<button type="button" data-toggle="modal" data-target="#lifestatusModal">Life Status</button><br> 
-				
+						</c:if>
 						</div>
 					</div>
 					</div>
@@ -189,11 +191,13 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<h4>Work Experience</h4>
 					<br>
+					<c:if test="${myProfile eq true }">	
 					<button type="button" data-toggle="modal" data-target="#myModal">Add Experience</button>
-
+					</c:if>
 					<c:if test="${fn:length(myJobDetails) > 0}">
+					<c:if test="${myProfile eq true }">	
 						<button type="button"  data-toggle="modal" data-target="#myeditModal">Modify Experience</button><br> 
-						
+						</c:if>
 						<c:forEach items="${myJobDetails}" var="myJobDetails">
 						
 							<table style="border-collapse: separate; border-spacing: 11px;">
