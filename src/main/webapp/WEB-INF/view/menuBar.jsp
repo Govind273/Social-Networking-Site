@@ -64,8 +64,8 @@ li a:hover:not(.active) {
   <li><a href="/profile">PROFILE</a></li>
   <li><a href="/editProfile">Edit Profile</a></li>
   <li><a href="/createGroup/">Create Club</a></li>
-  <li><a href = "/friends/${user.userId}" method = "GET">MY COLLEAGUES</a></li>
-  <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS</a></li>		
+  <li><a href = "/friends/${user.userId}" method = "GET">My Colleagues</a></li>
+  <li><a href="/seeAllRequest/${user.userId }" method="GET">Join Request</a></li>		
   <li><a href="/messages/${user.userId }">Messages</a></li>
   <li style="float:right">
 		<form action="/search" method="get">
