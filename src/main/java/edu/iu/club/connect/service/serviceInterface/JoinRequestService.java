@@ -14,5 +14,6 @@ public interface JoinRequestService {
 	public List<RequestModel> checkRequest(int userId, int groupId);
 	public List<GroupMembersModel> isAlreadyJoined(int userId, int groupId);
 	public boolean denyRequest(int requestId);
+	public List<GroupMembersModel> groupMembers(int groupId);
 
 }
