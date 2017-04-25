@@ -1,6 +1,7 @@
 
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.EducationalDetailsModel;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.JobDetailsModel;
@@ -12,7 +13,7 @@ import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
-
+import edu.iu.club.connect.service.serviceInterface.EducationDetailsService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +40,9 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	EducationDetailsService educationDetailsService;
 
 	@Autowired EmailHandler emailHandler;
 	@Autowired CloudnaryService CloudnaryService;
@@ -217,6 +221,8 @@ public class LoginController {
 		modelMap.put("GroupsByMe", GroupsByMe);
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
+		List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(returnedUserModel.getUserId());
+		modelMap.put("myEduDetails", myEduDetails);
 		modelMap.put("myJobDetails", myJobDetails);
 		modelMap.put("myProfile", myProfile);
 		return "profile";
@@ -249,6 +255,10 @@ public class LoginController {
 				modelMap.put("GroupsByMe", GroupsByMe);
 				/// adding jobdetails
 				List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(toGoUserModel.getUserId());
+				///adding education details
+
+				List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(toGoUserModel.getUserId());
+				modelMap.put("myEduDetails", myEduDetails);
 				modelMap.put("myJobDetails", myJobDetails);
 				modelMap.put("myProfile", myProfile);
 		
@@ -285,11 +295,33 @@ public class LoginController {
 		return "redirect:/profile";
 	}
 	
-	@RequestMapping(value="/deleteJobDetails/{jobdetails_Id}",method = RequestMethod.POST)
+	@RequestMapping(value="/deleteJobDetails/{eduDetailsId}",method = RequestMethod.POST)
 	public  String deleteDetails(@PathVariable("jobdetails_Id") int jobdetails_Id, JobDetailsModel jobDetailsModel,ModelMap modelMap){
 		jobDetailsService.deleteOne(jobdetails_Id);	
 		return "redirect:/profile";
 	}
+	
+	/// Adding Education Details
+	
+	@RequestMapping(value="/addEducationDetails",method = RequestMethod.POST)
+	public  String addEducationDetails(EducationalDetailsModel educationalDetailsModel, ModelMap modelMap){
+		educationDetailsService.saveOne(educationalDetailsModel);	
+		return "redirect:/profile";
+	}
+//vishi	
+	@RequestMapping(value="/editEducationDetail",method = RequestMethod.POST)
+	public  String editDetails(EducationalDetailsModel educationalDetailsModel, ModelMap modelMap){
+		educationDetailsService.edit(educationalDetailsModel);	
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/deleteEducationDetails/{eduDetailsId}",method = RequestMethod.POST)
+	public  String deleteDetails(@PathVariable("eduDetailsId") int eduDetailsId, EducationalDetailsModel educationalDetailsModel,ModelMap modelMap){
+		educationDetailsService.deleteOne(eduDetailsId);	
+		return "redirect:/profile";
+	}
+	///
 	
 	@RequestMapping(value="/updateliftstatus",method = RequestMethod.POST)
 	public  String editlifestatus(UserModel userModel, ModelMap modelMap){
