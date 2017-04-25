@@ -116,7 +116,7 @@ th, td {
 				<form action="/sendMessage/${user.userId }/${friendMessage}"
 					method="POST">
 					<p></p>
-					<textarea cols="60" rows="5" name="message"></textarea>
+					<textarea cols="60" rows="5" name="message" style="width:95%"></textarea>
 					<p></p>
 					<button type="submit">Send</button>
 				</form>
