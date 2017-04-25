@@ -232,10 +232,14 @@ public class LoginController {
 	@RequestMapping(value = "/goToProfile/{userId}")
 	public String goToProfile(@PathVariable("userId") int userId2,ModelMap modelMap){
 		//User details
-				
+		UserModel userModel = (UserModel) modelMap.get("user");
+				int myuserId=userModel.getUserId();
+				if (myuserId == userId2){
+					return "redirect:/profile";
+				}
 				boolean myProfile=false;
 				UserModel toGoUserModel = userService.listUserName(userId2);
-				modelMap.put("user",toGoUserModel);
+				modelMap.put("user2",toGoUserModel);
 				//Groups the user is part of
 				List<GroupMembersModel> myFriends = groupService.findMyFriends(toGoUserModel.getUserId());
 				modelMap.put("myFriends", myFriends);
@@ -248,7 +252,7 @@ public class LoginController {
 				modelMap.put("myJobDetails", myJobDetails);
 				modelMap.put("myProfile", myProfile);
 		
-		return "profile";
+		return "myfriendspage";
 	}
 	
 	
