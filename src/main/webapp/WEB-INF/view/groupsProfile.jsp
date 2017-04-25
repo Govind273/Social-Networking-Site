@@ -79,7 +79,8 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${groupSearched.backgroundPic }">
 		</div>
-		
+	
+		<c:if test="${isadmin eq true }">
 		<!-- form to upload background picture -->	
 		<form action = "/uploadGroupBackgroundPhoto/${groupSearched.groupId}/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
@@ -88,7 +89,7 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 				<button type="submit">Upload</button>
 		</form>
-
+</c:if>
 	<!-- form ends here -->	
 
 		<!--The Grid-->
@@ -106,7 +107,7 @@ html, body, h1, h2, h3, h4, h5 {
 							<img src="${groupSearched.profilePic }" width="190" height="170">
 						</p>
 						<p>
-						
+						<c:if test="${isadmin eq true }">
 						<form action="/uploadGroupProfilePhoto/${groupSearched.groupId}/${user.userId}"
 							enctype="multipart/form-data" method="POST">
 							<div class="form-group col-lg-6">
@@ -115,6 +116,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
+						</c:if>
 						
 						<hr>
 						<p>
@@ -177,7 +179,7 @@ html, body, h1, h2, h3, h4, h5 {
 									placeholder="posts" name="postDesc" width="25%" height="55%"
 									maxlength="100" size="60%" required></div>
 								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i> �Post
+									<i class="fa fa-pencil"></i> ï¿½Post
 								</button>
 							</form>
 						</div>
@@ -198,12 +200,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 								<button type="button"
 									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i> �Like
+									<i class="fa fa-thumbs-up"></i> ï¿½Like
 								</button>
 
 								<button type="button"
 									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i> �Comment
+									<i class="fa fa-comment"></i> ï¿½Comment
 								</button>
 
 								<form
