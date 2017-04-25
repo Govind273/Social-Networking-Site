@@ -203,7 +203,7 @@ public class LoginController {
 //	This controller is called when we need to load the user profile page and collects all the requeiered information to be displayed in the user profile page
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
-		
+		boolean myProfile=true;
 		//User details
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
@@ -218,6 +218,7 @@ public class LoginController {
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
 		modelMap.put("myJobDetails", myJobDetails);
+		modelMap.put("myProfile", myProfile);
 		return "profile";
 	}
 
@@ -227,6 +228,30 @@ public class LoginController {
 	public String editProfileOpen(){
 		return "edit_profile";
 	}
+	
+	@RequestMapping(value = "/goToProfile/{userId}")
+	public String goToProfile(@PathVariable("userId") int userId2,ModelMap modelMap){
+		//User details
+				
+				boolean myProfile=false;
+				UserModel toGoUserModel = userService.listUserName(userId2);
+				modelMap.put("user",toGoUserModel);
+				//Groups the user is part of
+				List<GroupMembersModel> myFriends = groupService.findMyFriends(toGoUserModel.getUserId());
+				modelMap.put("myFriends", myFriends);
+				//Groups user is admin of
+				List<GroupModel> GroupsByMe = groupService.findAllGroupsById(toGoUserModel.getUserId());
+				
+				modelMap.put("GroupsByMe", GroupsByMe);
+				/// adding jobdetails
+				List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(toGoUserModel.getUserId());
+				modelMap.put("myJobDetails", myJobDetails);
+				modelMap.put("myProfile", myProfile);
+		
+		return "profile";
+	}
+	
+	
 
 	/*
 	 * This method handles the updation of user's profile.
