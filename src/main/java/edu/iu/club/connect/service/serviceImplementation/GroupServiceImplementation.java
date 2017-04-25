@@ -63,9 +63,9 @@ public class GroupServiceImplementation implements GroupService {
    	public boolean isadmin(int userId,int groupId) {	
    		GroupModel group = groupRepository.isadmin( userId, groupId);	
    		if( group ==null){
-   			return true;
+   			return false;
    		}
-   		return false;
+   		return true;
    		
    	}
 
