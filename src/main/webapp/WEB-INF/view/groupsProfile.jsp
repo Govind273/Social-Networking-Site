@@ -137,15 +137,14 @@ html, body, h1, h2, h3, h4, h5 {
 					
 				
 				<br>
-			<c:if test="${fn:length(groupmember) > 0}">
+			<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 				<!-- Members List -->
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
 						<h3>Members</h3>
 						<c:forEach items="${membersList}" var="ml">
-							<label for="memberName"
-								style="margin-top: 15%; font-size: 20px; left: 20%">
-								${ml.firstName} ${ml.lastName}<br><br>
+							<label style="margin-top: 15%; font-size: 20px; left: 20%">
+								<a href="/goToProfile/${ml.userId }" >${ml.firstName} ${ml.lastName}</a><br>
 							</label>
 						</c:forEach>
 					</div>
@@ -169,7 +168,7 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 
 				<!-- The following appears only to club members -->
-				<c:if test="${fn:length(groupmember) > 0}">
+				<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 					<!-- Make a new Post -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
