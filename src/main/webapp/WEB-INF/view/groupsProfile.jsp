@@ -174,7 +174,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
 							<div style="padding: 0px 30px 20px 0px">
-						<form action="/createPost/${groupSearched.groupId }/${user.userId }" method="POST" class="form-inline" align="left">
+						<form action="/createPost/${groupSearched.groupId }/${user.userId }/${user.firstName }/${user.lastName }" method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
 									value="${groupSearched.groupId }"> 
 								<input type="text"
@@ -190,13 +190,14 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<!-- See existing posts, in reverse chrono order -->
 					<c:if test="${fn:length(ps) > 0}">
+					${message.message}
 						<c:forEach items="${ps}" var="post">
-
+			
 							<!-- Creates new container for each post on club all -->
 							<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 								<br> <span class="w3-right w3-opacity">${post.postedDatetime}</span>
 								
-								<h6 class="w3-opacity">The poster's name goes here!</h6>
+								<h6 class="w3-opacity"><a href="/goToProfile/${post.postedby }" >${post.postbyname}</a></h6>
 								<hr class="w3-clear">
 								<div>${post.postDesc}</div>
 								<br>
@@ -205,19 +206,13 @@ html, body, h1, h2, h3, h4, h5 {
 									class="w3-button w3-theme-d1 w3-margin-bottom">
 									<i class="fa fa-thumbs-up"></i> Like
 								</button>
-
-								<button type="button"
-									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i> Comment
-								</button>
-
-								<form
-									action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
+								<form action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
 									method="post">
-
-								<button type="submit">
-									<img src="/images/deleteicon.png">
-								</button></form>
+								<button type="submit"
+									class="w3-button w3-theme-d2 w3-margin-bottom">
+									<i class="fa fa-delete"></i> Delete
+								</button>
+		</form>
 								
 							</div>
 
