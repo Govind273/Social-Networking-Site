@@ -213,6 +213,7 @@ public class LoginController {
 		modelMap.put("myFriends", myFriends);
 		//Groups user is admin of
 		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
+		
 		modelMap.put("GroupsByMe", GroupsByMe);
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
