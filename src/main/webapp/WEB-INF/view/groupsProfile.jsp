@@ -134,8 +134,10 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 					</div>
 				</div>
+					
+				
 				<br>
-
+			<c:if test="${fn:length(groupmember) > 0}">
 				<!-- Members List -->
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
@@ -143,11 +145,12 @@ html, body, h1, h2, h3, h4, h5 {
 						<c:forEach items="${membersList}" var="ml">
 							<label for="memberName"
 								style="margin-top: 15%; font-size: 20px; left: 20%">
-								${memberName.userId}<br>
+								${ml.firstName} ${ml.lastName}<br><br>
 							</label>
 						</c:forEach>
 					</div>
 				</div>
+				</c:if>
 			</div>
 
 			<!-------------------Middle Column------------------->
@@ -171,17 +174,18 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
-							<div style="padding: 0px 30px 20px 0px"><form
-								action="/createPost/${groupSearched.groupId }/${user.userId }"
-								method="POST" class="form-inline" align="left">
+							<div style="padding: 0px 30px 20px 0px">
+						<form action="/createPost/${groupSearched.groupId }/${user.userId }" method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
-									value="${groupSearched.groupId }"> <input type="text"
+									value="${groupSearched.groupId }"> 
+								<input type="text"
 									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="100" size="60%" required></div>
+									maxlength="100" size="60%" required/>
 								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i> ï¿½Post
+									<i class="fa fa-pencil"></i> Post
 								</button>
 							</form>
+							</div>
 						</div>
 					</div>
 
@@ -200,12 +204,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 								<button type="button"
 									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i> ï¿½Like
+									<i class="fa fa-thumbs-up"></i> Like
 								</button>
 
 								<button type="button"
 									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i> ï¿½Comment
+									<i class="fa fa-comment"></i> Comment
 								</button>
 
 								<form
