@@ -3,10 +3,13 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
+import edu.iu.club.connect.service.serviceInterface.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -35,8 +38,10 @@ public class GroupController {
 
 	@Autowired
 	GroupService groupService;
-	
 
+	@Autowired
+	UserService userService;
+	
 	@Autowired
 	JoinRequestService joinRequestService;
 	
@@ -51,14 +56,20 @@ public class GroupController {
 	public ModelAndView openGroupPage(@PathVariable("groupId") int groupId, @PathVariable("userId") int userId , ModelMap modelMap, PostModel postModel){
 		ModelAndView mv=new ModelAndView("groupsProfile");
 		List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(userId , groupId);
+		List<GroupMembersModel> groupmembers = joinRequestService.groupMembers( groupId);
     	postModel.setGroupId(groupId);
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear(); 	
     	}
     	boolean isadmin=groupService.isadmin(userId, groupId);
+    	List<UserModel> userList=new ArrayList<UserModel>();
+    	for (GroupMembersModel gp:groupmembers){
+    		 userList.add(userService.listUserName(gp.getUserId()));
+    	}
     	mv.addObject("isadmin", isadmin);
        	mv.addObject("ps",ps); 
+       	mv.addObject("membersList",userList);
     	mv.addObject("groupmember",alreadyFriend);
 		GroupModel group = groupService.findGroup(groupId);
 		mv.addObject("groupSearched", group);
