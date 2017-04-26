@@ -110,6 +110,18 @@ public class GroupServiceImplementation implements GroupService {
 		}
 		return myFriends;
 	}
-
+	//vishi
+	@Override
+	public boolean updateOne(GroupModel groupModel) {
+		// TODO Auto-generated method stub
+		groupRepository.updateOneForString(groupModel.getGroupId(),
+				groupModel.getAbout(),
+				groupModel.getGroupName(),
+				groupModel.getClubclocation(),
+				groupModel.getClubemail()
+				);
+		
+		return true;
+	}
 
 }
