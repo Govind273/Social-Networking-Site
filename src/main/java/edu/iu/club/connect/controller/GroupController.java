@@ -76,14 +76,25 @@ public class GroupController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/groupInformation/{admin_id}",method = RequestMethod.POST)
+		@RequestMapping(value = "/groupInformation/{admin_id}",method = RequestMethod.POST)
 	public String createGroup(@PathVariable("admin_id") int admin_id , GroupModel groupModel){
-
+	//vishi
+		Date date=new Date();
+		groupModel.setClubstartdate(date);
+		///vishi end -also import date
 		groupModel.setAdminId(admin_id);
 		groupModel.setType("group");
 		groupService.saveOne(groupModel);
 		
 		return "redirect:/profile";
+	}
+	///vishi start
+	@RequestMapping(value = "/editGroupDetails/{userId}",method = RequestMethod.POST)
+	public String editGroup(@PathVariable("userId") int userId, GroupModel groupModel){		
+		groupService.updateOne(groupModel);
+		int groupId=groupModel.getGroupId();
+		
+		return "redirect:/groupPage/"+groupId+"/"+userId;
 	}
 	
 	@RequestMapping(value = "/yourGroups/{adminId}", method = RequestMethod.GET)
