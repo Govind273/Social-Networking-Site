@@ -81,7 +81,7 @@ li a:hover:not(.active) {
 	 </c:if>
 		<form action="/search" method="get">
 
-			<input type="text1" name="groupName" valign="middle" placeholder="Search..">
+			<input type="text1" name="search_value" valign="middle" placeholder="Search..">
 <!--  			<button type="submit">Search</button>  -->
 
 		</form>

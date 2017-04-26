@@ -34,7 +34,28 @@ public class UserModel {
     private @Column(name = "birthdate") String birthdate;   //used in search feature
     private @Column(name = "languages") String languages;
     private @Column(name = "locationfrom") String location;
+
+    private @Column(name = "type") String type;
+    public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	private @Column(name = "status") boolean status;
+
     private @Column(name="lifestatus") String lifestatus ;
+
 
     public String getLifestatus() {
 		return lifestatus;

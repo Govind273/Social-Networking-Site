@@ -88,7 +88,8 @@ html, body, h1, h2, h3, h4, h5 {
 		<!--The Grid -->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
-			
+
+
 			<!-----------------------Left Column----------------------->
 			<div class="w3-col m4">
 				<!-- Profile Picture and brief info on user -->

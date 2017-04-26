@@ -16,6 +16,7 @@ public class SearchServiceImplementation implements SearchService{
 	
 	@Autowired 
 	private GroupRepository groupRepository;
+	
 
 	//returns array list of gruop names that is returned by search function
 	@Override
@@ -37,14 +38,19 @@ public class SearchServiceImplementation implements SearchService{
 	private UserRepository userRepository;
 	
 	//returns array list of user first and last names that is returned by search function
+	@SuppressWarnings("unused")
 	@Override
 	public ArrayList<Object> searchUserByName(String search) {
 		
-		System.out.println("i am in service search looking for users" + search);
+		System.out.println("i am in service search looking for users" + search.length());
 		
 		if(search == null){
+			
+			System.out.println("nothing can be find");
 			return null;
 		}
+		
+		System.out.println("its not 0000000000");
 		
 		ArrayList<Object> list = userRepository.findUserByName(search);
 		
