@@ -150,7 +150,8 @@ html, body, h1, h2, h3, h4, h5 {
 					<p>Input Search box here and pre-filter by clubs</p>
 				</div>
 			</div>
-
+	</div>
+	</div>
 
 			<!--------------------Middle Column--------------------->
 			<div class="w3-col m8">
@@ -235,6 +236,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 		</div>
 	</div>
+
 		<jsp:include page="footer.jsp" />
 </body>
 </html>

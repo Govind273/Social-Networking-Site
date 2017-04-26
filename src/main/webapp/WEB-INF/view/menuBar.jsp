@@ -65,10 +65,10 @@ li a:hover:not(.active) {
 
 <ul>
   <li><a href="/profile">PROFILE</a></li>
-  <li><a href="/editProfile">Edit Profile</a></li>
+  <li><a href="/editProfile">EDIT PROFILE</a></li>
   <li><a href="/createGroup/">Create Club</a></li>
-  <li><a href = "/friends/${user.userId}" method = "GET">My Colleagues</a></li>
-  <li><a href="/seeAllRequest/${user.userId }" method="GET">Join Request</a></li>		
+  <li><a href = "/friends/${user.userId}" method = "GET">MY COLLEGAUES</a></li>
+  <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS</a></li>		
   <li><a href="/messages/${user.userId }">Messages</a></li>
   <li style="float:right">
   <c:if test="${fn:length(friendRequests)} > 0}">	
