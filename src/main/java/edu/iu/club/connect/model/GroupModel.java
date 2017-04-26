@@ -19,9 +19,18 @@ public class GroupModel {
     private @Column(name = "admin_id") Integer adminId;
     private @Column(name = "profile_pic") String profilePic;
     private @Column(name = "background_pic") String backgroundPic;
+    private @Column(name = "type") String type;
    
     
-    public String getProfilePic() {
+    public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getProfilePic() {
 		return profilePic;
 	}
 
