@@ -66,7 +66,7 @@ li a:hover:not(.active) {
 <ul>
   <li><a href="/profile">PROFILE</a></li>
   <li><a href="/editProfile">EDIT PROFILE</a></li>
-  <li><a href="/createGroup/">Create Club</a></li>
+ 
   <li><a href = "/friends/${user.userId}" method = "GET">MY COLLEGAUES</a></li>
   <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS</a></li>		
   <li><a href="/messages/${user.userId }">Messages</a></li>
