@@ -54,5 +54,13 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
     @Transactional
 	@Query("Update GroupModel b SET b.backgroundPic = :backgroundPic WHERE b.groupId = :groupId")
 	void updateBackgroundPic(@Param("groupId") Integer groupId, @Param("backgroundPic")String backgroundPic);
-
+///vishi
+	@Modifying
+    @Transactional
+    @Query("update GroupModel b SET b.groupName = :groupName ,b.about = :about , b.clubclocation = :clubclocation, b.clubemail = :clubemail  where b.groupId = :groupId")
+    void updateOneForString(@Param("groupId") int groupId,
+    		@Param("about") String about,
+    		@Param("groupName") String groupName,
+    		@Param("clubclocation") String clubclocation,
+    		@Param("clubemail") String clubemail);
 }
