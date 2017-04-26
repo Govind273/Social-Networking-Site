@@ -30,6 +30,8 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public boolean saveOne(UserModel userModel) {
+    	
+    	userModel.setType("user");
         userRepository.save(userModel);
         return true;
     }
