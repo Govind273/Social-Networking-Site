@@ -153,10 +153,9 @@ th, td {
 							<form action="/groupPage/${post.groupId }" method="get">
 								<button type="submit">see group</button>
 							</form>
-						</div>
-  -->
+						</div>-->
+
 			</div>
 		</div>
-	</div>
-<!-- 		<jsp:include page="footer.jsp" /> -->
+<jsp:include page="footer.jsp" />
 </body>

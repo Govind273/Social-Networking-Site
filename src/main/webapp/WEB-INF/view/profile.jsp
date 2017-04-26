@@ -71,8 +71,10 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${user.backgroundPic}">
 	</div>
+	
+<!-- Nick Commented out 4/26...
 	<c:if test="${myProfile eq true }">
-	<!-- form to upload background picture -->	
+	<!-- form to upload background picture	
 		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
 				    <label for="profilePic">Picture</label>
@@ -81,7 +83,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<button type="submit">Upload</button>
 		</form> 
 
-</c:if>
+</c:if> -->
 
 		<!--The Grid -->
 		<div class="w3-row">
@@ -99,6 +101,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 						</p>
 						<p>
+<!-- Nick Commented out 4/26...
 					<c:if test="${myProfile eq true }">	
 						<form action="/uploadProfilePhoto/${user.userId}"
 							enctype="multipart/form-data" method="POST">
@@ -108,7 +111,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
-						</c:if>
+						</c:if>-->
 						</p>
 
 						<hr>
@@ -486,7 +489,10 @@ html, body, h1, h2, h3, h4, h5 {
 			
 		</div>
 	</div>
-	
+	</div>
+	</div>
+	</div>
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>
 	

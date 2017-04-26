@@ -179,6 +179,8 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	<jsp:include page="footer.jsp" />
 </body>
+
 </html>
 

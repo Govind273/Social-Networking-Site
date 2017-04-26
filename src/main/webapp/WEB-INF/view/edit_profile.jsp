@@ -88,7 +88,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 			<!-----------------------Left Column----------------------->
 			<div class="w3-col m4">
-				<!-- COULD NOT GET TO WORK - NICK 4/25 ; KEPT GETTING "Attribute value must not be null" error
+		
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<p class="w3-center">
@@ -105,9 +105,9 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
-
+		<!-- COULD NOT GET TO WORK - NICK 4/25 ; KEPT GETTING "Attribute value must not be null" error
 						<hr>
-						<form action="/updateProfile" method="POST">
+						<form action="/updateProfileDate/${user.emailId }" method="POST">
 							<table style="border-collapse: separate; border-spacing: 11px;">
 								<tr>
 									<td><label><b>Gender</b></label></td>
@@ -235,6 +235,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 		</div>
 	</div>
+		<jsp:include page="footer.jsp" />
 </body>
 </html>
 
