@@ -1,4 +1,6 @@
 package edu.iu.club.connect.model;
+//vishi
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -20,8 +22,35 @@ public class GroupModel {
     private @Column(name = "profile_pic") String profilePic;
     private @Column(name = "background_pic") String backgroundPic;
     private @Column(name = "type") String type;
+    ///vishi
+    private @Column(name = "clublocation") String clubclocation;
+    private @Column(name = "clubemail") String clubemail;
+    private @Column(name = "clubstartdate") Date clubstartdate;
    
-    
+    public String getClubclocation() {
+		return clubclocation;
+	}
+
+	public void setClubclocation(String clubclocation) {
+		this.clubclocation = clubclocation;
+	}
+
+	public String getClubemail() {
+		return clubemail;
+	}
+
+	public void setClubemail(String clubemail) {
+		this.clubemail = clubemail;
+	}
+
+	public Date getClubstartdate() {
+		return clubstartdate;
+	}
+
+	public void setClubstartdate(Date clubstartdate) {
+		this.clubstartdate = clubstartdate;
+	}
+///vishi
     public String getType() {
 		return type;
 	}
