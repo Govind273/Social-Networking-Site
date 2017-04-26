@@ -64,7 +64,7 @@ html, body, h1, h2, h3, h4, h5 {
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
-​
+â
 </style>
 <body class="w3-theme-l5">
 
@@ -139,18 +139,33 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 					</div>
 				</div>
-
+				<c:if test="${myProfile eq true }">	
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+				<a href="#" data-toggle="modal" data-target="#mycreateclubModal" >Create Club</a>
+				</div>
+				</c:if>
+					
 				<!-- Clubs -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<h3>Club Membership</h3>
+						<c:if test="${fn:length(GroupsByMe) >0 }">
 						<c:forEach items="${GroupsByMe}" var="admingroups">
-				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a>
+			<label style="margin-top: 2%; font-size: 20px; left: 20%"><font color="000000">
+				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a></font><br>
+				</label>
 						</c:forEach>
 						<c:forEach items="${myFriends}" var="friends">
-							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a>
+						<label style="margin-top: 2%; font-size: 20px; left: 20%"><font color="000000">
+							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a></font><br>
+							</label>
 						</c:forEach>
+						</c:if>
+						<c:if test="${fn:length(GroupsByMe) ==0 }">
+						Join Clubs!!!
+						</c:if>
 					</div>
-	
+				
+				
 			</div>
 			
 			<!--------------------Middle Column--------------------->
@@ -499,6 +514,42 @@ html, body, h1, h2, h3, h4, h5 {
 	</div>
 	</div>
 	</div>
+	<!--  Modal to create club-->
+	<div id="mycreateclubModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">CREATE CLUBS</h4>
+				</div>
+				<div class="modal-body">
+					<form action="/groupInformation/${user.userId }" method="POST">
+		<table>
+		<tr>
+		<td>
+		<label><b>Group Name*: </b></label>
+		</td><td> <input type="text" placeholder="Group Name" name="groupName" required></td></tr>
+		<tr>
+		<td> <label><b>Group Description*: </b></label></td>
+     	<td><input type="text" width="22%" placeholder="About" name="about" required><br></td></tr>
+		<tr><td><label><b>Group Location*: </b></label></td>
+		<td><input type="text" width="22%" placeholder="About" name="clubclocation" required><br></td></tr>
+		<tr><td><label><b>Group Email*: </b></label></td>
+		<td><input type="text" width="22%" placeholder="About" name="clubemail" required><br></td></tr>
+		</table>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default">Create</button>
+				<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+			</div>
+	</form>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--END  -->
 	<jsp:include page="footer.jsp" />	
 </body>
 </html>
