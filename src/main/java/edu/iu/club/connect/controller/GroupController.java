@@ -67,6 +67,7 @@ public class GroupController {
 	public String createGroup(@PathVariable("admin_id") int admin_id , GroupModel groupModel){
 
 		groupModel.setAdminId(admin_id);
+		groupModel.setType("group");
 		groupService.saveOne(groupModel);
 		
 		return "redirect:/profile";
