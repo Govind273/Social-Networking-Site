@@ -29,6 +29,16 @@
 	<jsp:include page="menuBar.jsp"/>	
 	</div>
 	
+	<form action="/advancedSearchUser/${searched_string }" method = "GET">
+	
+	<button type="submit">Users Only</button>
+	</form>
+
+	<form action="/advancedSearchGroup/${searched_string }" method = "GET">
+	
+	<button type="submit">Groups Only</button>
+	</form>	
+	
 
 
 
@@ -38,42 +48,68 @@
 		
 				<font size="15" color="000000"><b>SEARCH RESULTS</b></font>
 		</div>
-	<c:if test="${fn:length(search) > 0}">
-	<div class="CLubmembership" align="left">
+			<c:if test="${fn:length(search) > 0}">
+				<div class="CLubmembership" align="left">
 
-	<c:forEach items="${search}" var="post">
-		<div id="left" class="row col-lg-12">
+					<c:forEach items="${search_group}" var="post">
+						<div id="left" class="row col-lg-12">
 
-			<div class="form-group col-lg-6">
+
+
+							<div class="form-group col-lg-6">
+
+								<label for="PostBy"
+									style="margin-top: 15%; font-size: 20px; left: 20%"> <b>Group
+										Name:</b> ${post.groupName}
+								</label>
+							</div>
+
+							<div class="form-group col-lg-6">
+								<label for="PostBy" style="margin-top: 15%; font-size: 20px"><B>Group
+										About:</B> ${post.about}</label>
+							</div>
+							<form action="/requestGroup/${user.userId }/${post.groupId }"
+								method="post">
+								<button type="submit">Join</button>
+							</form>
+
+							<form action="/groupPage/${post.groupId }/${user.userId }"
+								method="get">
+								<button type="submit">see group</button>
+							</form>
+						</div>
+					</c:forEach>
+
+					<c:forEach items="${search_user}" var="post">
+						<div id="left" class="row col-lg-12">
+
+
+
+							<div class="form-group col-lg-6">
+
+								<label for="PostBy"
+									style="margin-top: 15%; font-size: 20px; left: 20%"> <b>User
+										Name:</b> ${post.firstName}
+								</label>
+							</div>
+
+							<div class="form-group col-lg-6">
+								<label for="PostBy" style="margin-top: 15%; font-size: 20px"><B>User
+										About:</B> ${post.about}</label>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>
 			
-				<label for="PostBy" style="margin-top: 15%; font-size: 20px; left:20%">
-				<b>Group
-					Name:</b> ${post.groupName}</label>
-			</div>
 			
-			<div class="form-group col-lg-6">
-				<label for="PostBy" style="margin-top: 15%; font-size: 20px"><B>Group
-					About:</B> ${post.about}</label>
-			</div>
-			<form action = "/requestGroup/${user.userId }/${post.groupId }" method="post">
-			<button type="submit"> Join </button>
-			</form>
 			
-			<form action = "/groupPage/${post.groupId }/${user.userId }" method="get">
-			<button type="submit"> see group </button>
-			</form>
-		</div>
-
-
-	</c:forEach>
-	</div>
-</c:if>
-<c:if test="${fn:length(search) == 0}">
+			<c:if test="${fn:length(search)==0 }">
 No results found
 </c:if>
 	</div>
 	</div>
-	</div>
+	
 	
 	<jsp:include page="footer.jsp" />	
 </body>
