@@ -97,10 +97,10 @@ th, td {
 		<br>
 			
 			<!-------------------Left Column (empty...used only to center middle------------------->
-			<div class="w3-col m3" style="opacity: 0.0">1</div>
+			<div class="w3-col m2" style="opacity: 0.0">1</div>
 
 			<!-------------------Middle Column------------------->
-			<div class="w3-col m5">
+			<div class="w3-col m8">
 				<!-- Add a container for each colleague-->
 				<c:if test="${fn:length(myFriends) > 0}">
 				<c:forEach items="${myFriends}" var="post">

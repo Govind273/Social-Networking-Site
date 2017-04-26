@@ -3,123 +3,148 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.List"%>
+<!DOCTYPE html>
 <html>
-
+<title>Club Connect</title>
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<link rel="stylesheet" href="/css/style.css">
+<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank" and  https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&stacked=h-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet'
+	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="/js/jquerygroupsProfile.js"></script>
+
 </head>
 <style>
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
+}
 
-    /* Set a style for all buttons */
-    button {
-        background-color: #750000;
-        color: white;
-        padding: 8px 0;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
-    
-    button1 {
-    top:20%;
-   width: 100px;
-    height: 28px;
-    line-height: 28px;
-    background: red;
-    color: #FFF;
-    margin: 5px 10px;
-    font-size: 12px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    }
-    input[type=text1]{
-        color: white;
-       position:absolute;
-       right: 15%;
-        margin: 8px 0;  
-        cursor: pointer;
-        width: 20%;
-    }
+#coverTopSection {
+	margin: 0;
+	padding: 0;
+}
 
-    /* Clear floats */
-    .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+.coverPic {
+	display: block;
+	position: relative;
+	height: 415px;
+	overflow: hidden;
+	text-decoration: none;
+}
 
-    /* Change styles for cancel button and signup button on extra small screens */
-    @media screen and (max-width: 300px) {
-        .cancelbtn, .signupbtn {
-            width: 100%;
-        }
-    }
+.cover {
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.cover>img {
+	position: absolute;
+	display: block;
+	max-width: 1100px;
+	top: 0;
+	left: 0;
+}
+
+table, th, td {
+	border: 0px border-collapse: collapse;
+	align: center;
+}
+
+th, td {
+	padding: 5px;
+	text-align: left;
+}
 </style>
-<body >
-<div id="header1" style="height:72px;">
-		<div class="iulogo" style="float:left; width:50%; height:50px;" align="left">
-		<img src="/images/2.png" width="65" height="56" >
-		</div>
-		<div align="right" style="padding:20px">
-			<li id="logout">
-			<a href="/logout" title="Logout">Logout</a>
-		</li>
-		</div>
-</div>
-<div class="gtco-container">
-	<div class="coverTopSection" height="400px">
-		<div class="coverPic" style="width:100% height:80%" valign="top">
-			<img src="/images/iu4.jpeg" height="280px" >
-		</div>
-		<div id="navfirst" style="width:100% height:20%" valign="bottom">
-<!--			<div >
-			<img src="images/home.png" width="30px" height="30px" style="position:absolute; left:30px; top:420px; border:#000 solid 1px;" onclick="profile.html" >
-			</div>  -->
-			
-<!--			<input name="home" type="button" onclick="JavaScript:window.location.hrefï¼'profile.html'" style="width:30px; height=30px; position:absolute; left:30px; top:420px;  border:#000 solid 1px;background:url("images/home.png") no-repeat;"> 
-			-->
-			<a id="home" class="homebutton" href="/profile" style="width:30px; height=100%; position:absolute; left:20px; background:#FFFFFF; top:420px;  border:#000 solid 1px;no-repeat;">
-				<img src="/images/home.jpg">
-			</a>
-			<ul id="menu" width="70%" align="right">
-			
-				<li id="editProfile">
-					<a href="/editProfile" title="Edit" type="submit" >Edit Profile</a>
-				</li>
-				<li id="ch">
-					<a href="#" title="chat">Club Chat</a>
-				</li>
+<body class="w3-theme-l5">
 
-			</ul>   
-			 <div class="search" align="right">
-				<form action="/search" method="get">
-  					<input type="text1" name="groupName" placeholder="Search.."  class="search_text" >
-  					<button1 type="submit" class="search_button">Search</button1>
-				</form>			
-			</div> 
+	<!----------------------Header, Cover Photo, Menu Bar---------------------- -->
+	<jsp:include page="header.jsp" />
+
+
+
+	<!--Page Container-->
+	<div class="w3-container w3-content" style="max-width: 1100px">
+		<!--Background Image, Menu Bar -->
+		<div class="cover">
+			<img src="${user.backgroundPic}">
 		</div>
-	</div>
-	<div id="nav">
-<div id="section" width="550%">
-<div class="tile_div" id="username" style="position:absolute;  top:555px;" style="position:absolute; left:80px; top: 230px;" align="middle">
-		<label><h4> <b>My Messages</b></h4></label>
+
+
+		<!--The Grid -->
+		<div class="w3-row">
+			<jsp:include page="menuBar.jsp" />
+
+		<!-----------------------Page Title Info----------------------->
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+			<table style="width: 100%">
+				<tr>
+					<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+					<td style="text-align: center"><h2>My Messages</h2> &nbsp; </td>
+				<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+										</tr>
+			</table>
 		</div>
-<div class="CLubmembership" align="left">
+
+			<!-------------------Left Column (empty...used only to center middle------------------->
+			<div class="w3-col m2" style="opacity: 0.0">1</div>
+			
+		<!-----------------------Main Column----------------------->
+		<div class="w3-col m8">
+		
+		<!-- Section Header -->
+				<c:if test="${fn:length(friensMessageList) > 0}">
+
+				<c:forEach items="${friensMessageList}" var="post">
+
+					<!-- Creates new container for each post on club all -->
+
+					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+						<table style="width: 100%">
+							<tr>
+								<td><img
+									src="${post.profilePic }"
+									height="70" width="70" alt="IU" border="0" /></td>
+								<td style="text-align: center"><h6><b>Friend
+					Id ${post.userId}</b></h6> &nbsp; (# of
+									messages)</td>
+								<td style="text-align: right">
+									<form
+										action="openMessagesOfThisFriend/${user.userId }/${post.userId }"
+										method="GET">
+										<button type="submit">Message</button>
+									</form>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</c:forEach>
+				</c:if>
+								
+				<!-- Display message if user has no colleagues -->
+				<c:if test="${fn:length(friensMessageList) == 0}">
+					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+					<h4 style = "align: center">That's weird, you don't have any messages. Start the conversations on your own!
+					</h4></div>
+				</c:if>
+
+			</div>
+
+
+	
+	<!-- commented out old code to revert to in case screwed up, Nick 4/26 
+
 <c:forEach items="${friensMessageList}" var="post">
 		<div id="left" class="row col-lg-12">
 
@@ -136,9 +161,9 @@
 		
 		</div>
 ==============================
-	</c:forEach>
+	</c:forEach>-->	
+
 	</div>
 	</div>
-	</div>
-	<!--  <jsp:include page="footer.jsp" /> -->		
+<jsp:include page="footer.jsp" />	
 </body>
