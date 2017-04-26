@@ -126,7 +126,7 @@ html, body, h1, h2, h3, h4, h5 {
 			</div>
 		</div>
 	</div>
-	<!--  <jsp:include page="footer.jsp" /> -->
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
 

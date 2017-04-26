@@ -57,6 +57,14 @@ html, body, h1, h2, h3, h4, h5 {
 	top: 0;
 	left: 0;
 }
+
+.profile-pic-container {
+    background-image: url("http://i.stack.imgur.com/2OrtT.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+​
 </style>
 <body class="w3-theme-l5">
 
@@ -71,8 +79,10 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${user.backgroundPic}">
 	</div>
+	
+<!-- Nick Commented out 4/26...
 	<c:if test="${myProfile eq true }">
-	<!-- form to upload background picture -->	
+	<!-- form to upload background picture	
 		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
 				    <label for="profilePic">Picture</label>
@@ -81,7 +91,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<button type="submit">Upload</button>
 		</form> 
 
-</c:if>
+</c:if> -->
 
 		<!--The Grid -->
 		<div class="w3-row">
@@ -96,10 +106,11 @@ html, body, h1, h2, h3, h4, h5 {
 						<p class="w3-center">
 
 						<br>
-							<img src="${user.profilePic}" width="190" height="170">
+							<img src="${user.profilePic}" width="200" height="200">
 
 						</p>
 						<p>
+<!-- Nick Commented out 4/26...
 					<c:if test="${myProfile eq true }">	
 						<form action="/uploadProfilePhoto/${user.userId}"
 							enctype="multipart/form-data" method="POST">
@@ -109,7 +120,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
-						</c:if>
+						</c:if>-->
 						</p>
 
 						<hr>
@@ -266,8 +277,6 @@ html, body, h1, h2, h3, h4, h5 {
 				
 	<br>
 
-
-	<jsp:include page="footer.jsp" />
 	<!-- 
 	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h
 	 -->
@@ -487,7 +496,10 @@ html, body, h1, h2, h3, h4, h5 {
 			
 		</div>
 	</div>
-	
+	</div>
+	</div>
+	</div>
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>
 	

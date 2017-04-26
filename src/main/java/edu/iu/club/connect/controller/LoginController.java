@@ -281,6 +281,14 @@ public class LoginController {
 		return "redirect:/profile";//vishi
 	}
 	
+	@RequestMapping(value="/updateProfileDate/{emailId:.+}",method = RequestMethod.POST)
+	public  String editProfileDate(UserModel userModel, @PathVariable("emailId") String emailId,ModelMap modelMap){
+		userService.updateOne(userModel);
+		UserModel returnedUserModel = userService.findOne(emailId);
+		modelMap.put("user", returnedUserModel);
+		return "redirect:/profile";//vishi
+	}
+	
 	
 	@RequestMapping(value="/addJobDetails",method = RequestMethod.POST)
 	public  String addDetails(JobDetailsModel jobDetailsModel, ModelMap modelMap){
