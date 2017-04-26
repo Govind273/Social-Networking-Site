@@ -95,7 +95,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<p class="w3-center">
 
 						<br>
-							<img src="${user2.profilePic}" width="190" height="170">
+							<img src="${user2.profilePic}" width="200" height="200">
 
 						</p>
 						<p>

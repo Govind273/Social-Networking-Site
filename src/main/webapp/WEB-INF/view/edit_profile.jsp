@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
+<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank" and  https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&stacked=h-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"

@@ -11,6 +11,7 @@
 
 input[type=text1] {
     width: 100px;
+    height: 10px
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -58,7 +59,11 @@ li a:hover:not(.active) {
 }
 
 .active {
-    background-color: rgb(210,0,0)
+    background-color: rgb(210,0,0);
+}
+
+.selected{
+background-color: rgb(0,0,0);
 }
 
 </style>
@@ -68,15 +73,12 @@ li a:hover:not(.active) {
   <li><a href="/editProfile">EDIT PROFILE</a></li>
   <li><a href="/createGroup/">Create Club</a></li>
   <li><a href = "/friends/${user.userId}" method = "GET">MY COLLEGAUES</a></li>
-  <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS</a></li>		
-  <li><a href="/messages/${user.userId }">Messages</a></li>
+  <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS (${fn:length(friendRequests)})</a></li>		
+  <li><a href="/messages/${user.userId }">MESSAGES</a></li>
   <li style="float:right">
-  <c:if test="${fn:length(friendRequests)} > 0}">	
+  <c:if test="${fn:length(friendRequests) > 0}">	
 		<li>
-			<form action="/seeAllRequest/${user.userId }" method="GET">
-				<button type="submit">Friend Requests
-</button>
-			</form>
+Experiment!
 		</li>
 	 </c:if>
 		<form action="/search" method="get">
