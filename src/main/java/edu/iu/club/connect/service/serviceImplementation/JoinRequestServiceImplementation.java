@@ -96,6 +96,12 @@ public class JoinRequestServiceImplementation implements JoinRequestService{
 		return isAlreadyJoined;
 	}
 
-	
+	@Override
+	public List<GroupMembersModel> groupMembers( int groupId) {
+		
+		List<GroupMembersModel> groupmemberList = groupMemberRepository.findAllByGroupId( groupId);
+		
+		return groupmemberList;
+	}
 
 }

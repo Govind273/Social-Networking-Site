@@ -59,7 +59,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -79,7 +79,8 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${groupSearched.backgroundPic }">
 		</div>
-		
+	
+		<c:if test="${isadmin eq true }">
 		<!-- form to upload background picture -->	
 		<form action = "/uploadGroupBackgroundPhoto/${groupSearched.groupId}/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
@@ -88,7 +89,7 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 				<button type="submit">Upload</button>
 		</form>
-
+</c:if>
 	<!-- form ends here -->	
 
 		<!--The Grid-->
@@ -106,7 +107,7 @@ html, body, h1, h2, h3, h4, h5 {
 							<img src="${groupSearched.profilePic }" width="190" height="170">
 						</p>
 						<p>
-						
+						<c:if test="${isadmin eq true }">
 						<form action="/uploadGroupProfilePhoto/${groupSearched.groupId}/${user.userId}"
 							enctype="multipart/form-data" method="POST">
 							<div class="form-group col-lg-6">
@@ -115,6 +116,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
+						</c:if>
 						
 						<hr>
 						<p>
@@ -132,20 +134,22 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 					</div>
 				</div>
+					
+				
 				<br>
-
+			<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 				<!-- Members List -->
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
 						<h3>Members</h3>
 						<c:forEach items="${membersList}" var="ml">
-							<label for="memberName"
-								style="margin-top: 15%; font-size: 20px; left: 20%">
-								${memberName.userId}<br>
+							<label style="margin-top: 15%; font-size: 20px; left: 20%">
+								<a href="/goToProfile/${ml.userId }" >${ml.firstName} ${ml.lastName}</a><br>
 							</label>
 						</c:forEach>
 					</div>
 				</div>
+				</c:if>
 			</div>
 
 			<!-------------------Middle Column------------------->
@@ -164,55 +168,51 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 
 				<!-- The following appears only to club members -->
-				<c:if test="${fn:length(groupmember) > 0}">
+				<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 					<!-- Make a new Post -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
 							<h6 class="w3-opacity">What would you like to share?</h6>
-							<div style="padding: 0px 30px 20px 0px"><form
-								action="/createPost/${groupSearched.groupId }/${user.userId }"
-								method="POST" class="form-inline" align="left">
+							<div style="padding: 0px 30px 20px 0px">
+						<form action="/createPost/${groupSearched.groupId }/${user.userId }/${user.firstName }/${user.lastName }" method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
-									value="${groupSearched.groupId }"> <input type="text"
+									value="${groupSearched.groupId }"> 
+								<input type="text"
 									placeholder="posts" name="postDesc" width="25%" height="55%"
-									maxlength="150" size="75%" required></div>
+									maxlength="100" size="60%" required/>
 								<button type="submit" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i>  Post
+									<i class="fa fa-pencil"></i> Post
 								</button>
 							</form>
+							</div>
 						</div>
 					</div>
 
 					<!-- See existing posts, in reverse chrono order -->
 					<c:if test="${fn:length(ps) > 0}">
+					${message.message}
 						<c:forEach items="${ps}" var="post">
-
+			
 							<!-- Creates new container for each post on club all -->
 							<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 								<br> <span class="w3-right w3-opacity">${post.postedDatetime}</span>
 								
-								<h6 class="w3-opacity">The poster's name goes here!</h6>
+								<h6 class="w3-opacity"><a href="/goToProfile/${post.postedby }" >${post.postbyname}</a></h6>
 								<hr class="w3-clear">
 								<div>${post.postDesc}</div>
 								<br>
 
 								<button type="button"
 									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i>  Like
+									<i class="fa fa-thumbs-up"></i> Like
 								</button>
-
-								<button type="button"
-									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-comment"></i>  Comment
-								</button>
-
-								<form
-									action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
+								<form action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
 									method="post">
-
-								<button type="submit">
-									<img src="/images/deleteicon.png">
-								</button></form>
+								<button type="submit"
+									class="w3-button w3-theme-d2 w3-margin-bottom">
+									<i class="fa fa-delete"></i> Delete
+								</button>
+		</form>
 								
 							</div>
 
@@ -223,5 +223,8 @@ html, body, h1, h2, h3, h4, h5 {
 					</c:if>
 				</c:if>
 			</div>
+			</div>
+							</div>
 				<jsp:include page="footer.jsp" />
+</body>
 </html>

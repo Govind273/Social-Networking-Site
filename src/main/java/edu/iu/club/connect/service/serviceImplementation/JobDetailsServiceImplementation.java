@@ -29,4 +29,17 @@ public class JobDetailsServiceImplementation implements JobDetailsService {
 		
 		return myjobs;
 	}
+	@Override
+	public void deleteOne(int jobdetails_Id) {
+		// TODO Auto-generated method stub
+		jobDetailsRepository.delete(jobdetails_Id);
+		
+	}
+	@Override
+	public void edit(JobDetailsModel jobDetailsModel) {
+		// TODO Auto-generated method stub
+		jobDetailsRepository.updateOne(jobDetailsModel.getJobDesc(),jobDetailsModel.getCompany(),
+				jobDetailsModel.getJobdetails_Id(),jobDetailsModel.getPosition(),jobDetailsModel.getSkills());
+		
+	}
 }

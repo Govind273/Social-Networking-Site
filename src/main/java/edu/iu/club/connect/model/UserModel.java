@@ -34,6 +34,7 @@ public class UserModel {
     private @Column(name = "birthdate") String birthdate;   //used in search feature
     private @Column(name = "languages") String languages;
     private @Column(name = "locationfrom") String location;
+
     private @Column(name = "type") String type;
     public String getType() {
 		return type;
@@ -53,7 +54,18 @@ public class UserModel {
 
 	private @Column(name = "status") boolean status;
 
-    public String getGender() {
+    private @Column(name="lifestatus") String lifestatus ;
+
+
+    public String getLifestatus() {
+		return lifestatus;
+	}
+
+	public void setLifestatus(String lifestatus) {
+		this.lifestatus = lifestatus;
+	}
+
+	public String getGender() {
 		return gender;
 	}
 

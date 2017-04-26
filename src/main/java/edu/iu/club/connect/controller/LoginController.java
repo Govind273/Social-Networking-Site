@@ -1,6 +1,7 @@
 
 package edu.iu.club.connect.controller;
 
+import edu.iu.club.connect.model.EducationalDetailsModel;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.JobDetailsModel;
@@ -12,7 +13,7 @@ import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
-
+import edu.iu.club.connect.service.serviceInterface.EducationDetailsService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +40,9 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	EducationDetailsService educationDetailsService;
 
 	@Autowired EmailHandler emailHandler;
 	@Autowired CloudnaryService CloudnaryService;
@@ -203,7 +207,7 @@ public class LoginController {
 //	This controller is called when we need to load the user profile page and collects all the requeiered information to be displayed in the user profile page
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
-		
+		boolean myProfile=true;
 		//User details
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
@@ -213,10 +217,14 @@ public class LoginController {
 		modelMap.put("myFriends", myFriends);
 		//Groups user is admin of
 		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
+		
 		modelMap.put("GroupsByMe", GroupsByMe);
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
+		List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(returnedUserModel.getUserId());
+		modelMap.put("myEduDetails", myEduDetails);
 		modelMap.put("myJobDetails", myJobDetails);
+		modelMap.put("myProfile", myProfile);
 		return "profile";
 	}
 
@@ -226,6 +234,38 @@ public class LoginController {
 	public String editProfileOpen(){
 		return "edit_profile";
 	}
+	
+	@RequestMapping(value = "/goToProfile/{userId}")
+	public String goToProfile(@PathVariable("userId") int userId2,ModelMap modelMap){
+		//User details
+		UserModel userModel = (UserModel) modelMap.get("user");
+				int myuserId=userModel.getUserId();
+				if (myuserId == userId2){
+					return "redirect:/profile";
+				}
+				boolean myProfile=false;
+				UserModel toGoUserModel = userService.listUserName(userId2);
+				modelMap.put("user2",toGoUserModel);
+				//Groups the user is part of
+				List<GroupMembersModel> myFriends = groupService.findMyFriends(toGoUserModel.getUserId());
+				modelMap.put("myFriends", myFriends);
+				//Groups user is admin of
+				List<GroupModel> GroupsByMe = groupService.findAllGroupsById(toGoUserModel.getUserId());
+				
+				modelMap.put("GroupsByMe", GroupsByMe);
+				/// adding jobdetails
+				List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(toGoUserModel.getUserId());
+				///adding education details
+
+				List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(toGoUserModel.getUserId());
+				modelMap.put("myEduDetails", myEduDetails);
+				modelMap.put("myJobDetails", myJobDetails);
+				modelMap.put("myProfile", myProfile);
+		
+		return "myfriendspage";
+	}
+	
+	
 
 	/*
 	 * This method handles the updation of user's profile.
@@ -238,7 +278,7 @@ public class LoginController {
 		userService.updateOne(userModel);
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user", returnedUserModel);
-		return "profile";
+		return "redirect:/profile";//vishi
 	}
 	
 	
@@ -247,7 +287,48 @@ public class LoginController {
 		jobDetailsService.saveOne(jobDetailsModel);	
 		return "redirect:/profile";
 	}
-
+//vishi	
+	@RequestMapping(value="/editJobDetail",method = RequestMethod.POST)
+	public  String editDetails(JobDetailsModel myJobDetails, ModelMap modelMap){
+			jobDetailsService.edit(myJobDetails);	
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/deleteJobDetails/{eduDetailsId}",method = RequestMethod.POST)
+	public  String deleteDetails(@PathVariable("jobdetails_Id") int jobdetails_Id, JobDetailsModel jobDetailsModel,ModelMap modelMap){
+		jobDetailsService.deleteOne(jobdetails_Id);	
+		return "redirect:/profile";
+	}
+	
+	/// Adding Education Details
+	
+	@RequestMapping(value="/addEducationDetails",method = RequestMethod.POST)
+	public  String addEducationDetails(EducationalDetailsModel educationalDetailsModel, ModelMap modelMap){
+		educationDetailsService.saveOne(educationalDetailsModel);	
+		return "redirect:/profile";
+	}
+//vishi	
+	@RequestMapping(value="/editEducationDetail",method = RequestMethod.POST)
+	public  String editDetails(EducationalDetailsModel educationalDetailsModel, ModelMap modelMap){
+		educationDetailsService.edit(educationalDetailsModel);	
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/deleteEducationDetails/{eduDetailsId}",method = RequestMethod.POST)
+	public  String deleteDetails(@PathVariable("eduDetailsId") int eduDetailsId, EducationalDetailsModel educationalDetailsModel,ModelMap modelMap){
+		educationDetailsService.deleteOne(eduDetailsId);	
+		return "redirect:/profile";
+	}
+	///
+	
+	@RequestMapping(value="/updateliftstatus",method = RequestMethod.POST)
+	public  String editlifestatus(UserModel userModel, ModelMap modelMap){
+			userService.editlifestatus(userModel);	
+		
+		return "redirect:/profile";
+	}
 
 	@RequestMapping( value = "/recoverPassword" , method = RequestMethod.GET)
 	public String recoverPassword(UserModel userModel , ModelMap modelMap){

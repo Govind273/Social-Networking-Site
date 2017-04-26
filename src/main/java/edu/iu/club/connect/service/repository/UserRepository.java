@@ -64,7 +64,10 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     
     @Query("select firstName from UserModel b where b.userId = :userId")
     String findUserNameById(@Param("userId") int userId );
-
+    
+    @Query("select b from UserModel b where b.userId = :userId")
+    UserModel findUserById(@Param("userId") int userId );
+    
     @Modifying(clearAutomatically = true)
     @Transactional
 	@Query("Update UserModel b SET b.backgroundPic = :backgroundPic WHERE b.userId = :userId")
@@ -72,5 +75,10 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 
 	@Query("select profilePic from UserModel b where b.userId = :userId")
     String getPrifilePic(@Param("userId")int userId);
+
+	  @Modifying(clearAutomatically = true)
+	  @Transactional
+	@Query("update UserModel b SET b.lifestatus = :lifestatus where b.userId = :userId")
+	void editletstatus(@Param("userId")int userId, @Param("lifestatus")String lifestatus);
 
 }

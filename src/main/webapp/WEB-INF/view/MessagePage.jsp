@@ -53,7 +53,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -77,16 +77,15 @@ th, td {
 
 	<!--Page Container-->
 	<div class="w3-container w3-content" style="max-width: 1100px">
-		<br>
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
-			<p></p>
 			<img src="${user.backgroundPic}">
 		</div>
 
 
-		<jsp:include page="menuBar.jsp" />
-		<br>
+		<!--The Grid -->
+		<div class="w3-row">
+			<jsp:include page="menuBar.jsp" />
 
 		<!-----------------------Page Title Info----------------------->
 			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
@@ -117,7 +116,7 @@ th, td {
 				<form action="/sendMessage/${user.userId }/${friendMessage}"
 					method="POST">
 					<p></p>
-					<textarea cols="60" rows="5" name="message"></textarea>
+					<textarea cols="60" rows="5" name="message" style="width:95%"></textarea>
 					<p></p>
 					<button type="submit">Send</button>
 				</form>

@@ -1,28 +1,12 @@
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.List"%>
-
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<link rel="stylesheet" href="/css/style.css">
-</head>
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page import="java.util.List"%>
-
 <!DOCTYPE html>
 <html>
 <title>Club Connect</title>
+<head>
 <meta charset="UTF-8">
 <!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,19 +17,14 @@
 	href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="/js/jquerygroupsProfile.js""></script>
 
-<!--
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<link rel="stylesheet" href="/css/style.css">
-</head>
-  -->
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 html, body, h1, h2, h3, h4, h5 {
@@ -74,7 +53,7 @@ html, body, h1, h2, h3, h4, h5 {
 .cover>img {
 	position: absolute;
 	display: block;
-	max-width: 1400px;
+	max-width: 1100px;
 	top: 0;
 	left: 0;
 }
@@ -92,24 +71,23 @@ html, body, h1, h2, h3, h4, h5 {
 		<!--The Grid -->
 		<div class="w3-row">
 			<br>
-			<div class="w3-card-2 w3-round w3-white">
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 				<br>
-				<h1 align="center">Recovery by Email</h1>
+				<h2 align="center">Recovery by Email</h2>
 				<br>
 			</div>
 			<br>
-			<div class="w3-card-2 w3-round w3-white">
-				<form action="/checkOTP" method="GET">
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+			<form action= "/checkOTP" method = "GET">
+			<br>
 					<label for="emailId">Email</label> <input type="email"
 						name="emailId" required class="form-control" id="emailId">
 					<p></p>
 
-					<label for="OTP">Temporary Password</label> <input type="OTP"
+					<label for="OTP">Temporary Password sent to your email</label> <input type="OTP"
 						name="OTP" required class="form-control" id="OTP">
 					<p></p>
-					<div class="col-lg-12">
-						<button type="submit">Check</button>
-					</div>
+						<button type="submit">Submit</button>
 					<p></p>
 
 				</form>

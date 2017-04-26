@@ -62,10 +62,10 @@ public class GroupServiceImplementation implements GroupService {
     @Override
    	public boolean isadmin(int userId,int groupId) {	
    		GroupModel group = groupRepository.isadmin( userId, groupId);	
-   		if( group.getGroupId()>0){
-   			return true;
+   		if( group ==null){
+   			return false;
    		}
-   		return false;
+   		return true;
    		
    	}
 
