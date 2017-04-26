@@ -27,5 +27,5 @@ public interface GroupService {
 	public List<GroupModel> findAllGroupsById(int adminId);
 	public List<GroupMembersModel> findMyFriends(int userId);
 	public boolean isadmin(int userId,int groupId);
-
+	 public boolean updateOne(GroupModel groupModel);
 }
