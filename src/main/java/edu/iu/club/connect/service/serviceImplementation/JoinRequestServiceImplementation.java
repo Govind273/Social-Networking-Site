@@ -31,24 +31,21 @@ public class JoinRequestServiceImplementation implements JoinRequestService{
 		
 		List<RequestModel> request = requestRepository.getRequestById(requestId);
 		
-		String picture = userRepository.getPrifilePic(userId);
-
 		GroupMembersModel groupMember = new GroupMembersModel();
 
 		groupMember.setGroupId(groupId);
 		groupMember.setUserId(request.get(0).getUserId());
 		groupMember.setGroupName(groupName);
-		groupMember.setProfilePic(picture);
+		groupMember.setProfilePic(request.get(0).getProfilePic());
+		groupMember.setFriendName(request.get(0).getUserName());
 
 		groupMemberRepository.save(groupMember);
-
-		requestRepository.delete(requestId);
 
 		return true;
 	}
 	
 	@Override
-	public boolean denyRequest(int requestId) {
+	public boolean deleteRequest(int requestId) {
 		
 		requestRepository.delete(requestId);
 		return true;
@@ -67,11 +64,13 @@ public class JoinRequestServiceImplementation implements JoinRequestService{
 		
 		RequestModel newRequest = new RequestModel();
 		String picture = userRepository.getPrifilePic(userId);
+		String userName = userRepository.getUserNameById(userId);
 		newRequest.setAdminId(adminId.getAdminId());
 		newRequest.setGroupId(groupId);
 		newRequest.setUserId(userId);
 		newRequest.setGroupName(adminId.getGroupName());
 		newRequest.setProfilePic(picture);
+		newRequest.setUserName(userName);
 		
 		requestRepository.save(newRequest);
 		

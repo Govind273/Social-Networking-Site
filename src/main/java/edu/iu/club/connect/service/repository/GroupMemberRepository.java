@@ -22,6 +22,9 @@ public interface GroupMemberRepository extends JpaRepository<GroupMembersModel,I
 
 	@Query("select b from GroupMembersModel b where b.groupId = :groupId")
 	List<GroupMembersModel> findAllByGroupId(@Param("groupId") int groupId);
+
+	@Query("select userId from GroupMembersModel b where b.groupId = :groupId")
+	List<Integer> findAll(@Param("groupId")int groupId);
 	
 	
 	

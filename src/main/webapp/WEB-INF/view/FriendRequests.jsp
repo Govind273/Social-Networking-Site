@@ -105,7 +105,7 @@ th, td {
 										src="${post.profilePic }"
 										height="70" width="70" alt="IU" border="0" /></td>
 									<td style="text-align: center"><h6>Friend Name
-											${post.userId} requests to join ${post.groupName}</h6></td>
+											${post.userName} requests to join ${post.groupName}</h6></td>
 									<td style="text-align: right">
 										<form
 											action="/acceptRequest/${user.userId }/${post.groupId }/${post.requestId}"

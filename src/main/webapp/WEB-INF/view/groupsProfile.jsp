@@ -221,10 +221,12 @@ html, body, h1, h2, h3, h4, h5 {
 								<div>${post.postDesc}</div>
 								<br>
 
-								<button type="button"
+								<form action="/likeThePost/${ps.post_Id}/${user.userId}" method = "get">
+								<button type="submit" 
 									class="w3-button w3-theme-d1 w3-margin-bottom">
-									<i class="fa fa-thumbs-up"></i> Like
+									<i class="fa fa-thumbs-up"></i> Like (${ps.Likes})
 								</button>
+								</form>
 								<form action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
 									method="post">
 								<button type="submit"

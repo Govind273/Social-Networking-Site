@@ -116,8 +116,7 @@ th, td {
 									src="${post.profilePic }"
 									height="70" width="70" alt="IU" border="0" /></td>
 								<td style="text-align: center"><h6><b>Friend
-					Id ${post.userId}</b></h6> &nbsp; (# of
-									messages)</td>
+					Id ${post.userId}</b></h6> &nbsp; </td>
 								<td style="text-align: right">
 									<form
 										action="openMessagesOfThisFriend/${user.userId }/${post.userId }"
