@@ -38,8 +38,8 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
     //Modified by Vaishnavi on 04/21/2017
     @Modifying
     @Transactional
-    @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about, b.profilePic = :profilePic,b.location= :location,b.gender= :gender,b.languages= :languages,b.birthdate= :birthdate  where b.emailId = :emailId")
-    void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("password") String password,@Param("about") String about,@Param("profilePic") String profilePic,@Param("emailId") String emailId,
+    @Query("update UserModel b SET b.firstName = :firstName , b.lastName= :lastName,b.password = :password, b.about = :about, b.location= :location,b.gender= :gender,b.languages= :languages,b.birthdate= :birthdate  where b.emailId = :emailId")
+    void updateOneForString(@Param("firstName") String firstName,@Param("lastName") String lastName,@Param("password") String password,@Param("about") String about,@Param("emailId") String emailId,
     		@Param("gender") String gender,@Param("languages") String languages,@Param("location") String location, @Param("birthdate") String birthdate);
 
 	@Query("select b from UserModel b where b.emailId = :emailId")

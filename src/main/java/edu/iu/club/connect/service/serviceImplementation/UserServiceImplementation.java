@@ -57,7 +57,7 @@ public class UserServiceImplementation implements UserService{
         //System.out.println(" email id "+userModel.getEmailId());
 
         System.out.println("I am here");
-        userRepository.updateOneForString(userModel.getFirstName(),userModel.getLastName(),userModel.getPassword(),userModel.getAbout(),userModel.getProfilePic(),
+        userRepository.updateOneForString(userModel.getFirstName(),userModel.getLastName(),userModel.getPassword(),userModel.getAbout(),
          		userModel.getEmailId(),userModel.getGender(),userModel.getLanguages(),userModel.getLocation(),userModel.getBirthdate());
         return  true;
 

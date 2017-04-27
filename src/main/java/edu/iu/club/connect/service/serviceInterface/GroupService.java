@@ -26,6 +26,10 @@ public interface GroupService {
     public ArrayList<Object> searchOne(GroupModel groupModel);
     public GroupModel getAdminId(int groupId );
 	public List<GroupModel> findAllGroupsById(int adminId);
+
+	
+	public List<GroupModel> findMyGroups(int userId);
+
 	public boolean isadmin(int userId,int groupId);
 	 public boolean updateOne(GroupModel groupModel);
 	public List<UserModel> MyFriends(int userId);

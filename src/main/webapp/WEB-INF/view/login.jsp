@@ -55,26 +55,25 @@
 
 	<!--	<div class="gtco-loader"></div> -->
 
-	<div id="header1" style="height: 70px;">
-		<div class="iulogo" style="float: left; width: 50%; height: 50px;"
+	<div id="header1" style="height: 50px;">
+<!--  		<div class="iulogo" style="float: left; width: 50%; height: 50px;"
 			align="left">
-			<img src="images/2.png" width="65" height="56">
-		</div>
+			<img src="images/2.png" width="60" height="50">
+		</div>-->
 		<form action="/login" method="get">
-			<div style="float: right; width: 50%; height: 50px;" align="right">
+			<div style="float: right; width: 50%; height: 30px;" align="right">
 				<input type="text" placeholder=" Email ID" name="emailId" required>
 
 				<input type="password" placeholder="Password" name="password"
 					required>
 
 				<button type="submit">Login</button>
-				<input type="checkbox" checked="checked"><font
-					color=" #ffffff"> Remember me </font>
+<a href="/forgetPassword">&nbsp; Forget Password? &nbsp;</a>
 			</div>
 
 		</form>
 
-		<a href="/forgetPassword">Forget Password?</a>
+		
 
 	</div>
 
@@ -156,6 +155,7 @@
 
 
 	</div>
+	<jsp:include page="footer.jsp" />
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
@@ -178,8 +178,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	<jsp:include page="footer.jsp" />
 </body>
-
 </html>
 

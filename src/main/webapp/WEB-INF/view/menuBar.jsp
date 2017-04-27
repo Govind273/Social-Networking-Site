@@ -10,7 +10,7 @@
 <style>
 
 input[type=text1] {
-    width: 100px;
+    width: 150px;
     height: 10px
     box-sizing: border-box;
     border: 2px solid #ccc;

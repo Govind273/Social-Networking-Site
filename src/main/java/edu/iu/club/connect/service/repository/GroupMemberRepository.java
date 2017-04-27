@@ -17,7 +17,7 @@ public interface GroupMemberRepository extends JpaRepository<GroupMembersModel,I
 	@Query("select b from GroupMembersModel b where b.userId = :userId AND b.groupId = :groupId" )
 	List<GroupMembersModel> isAlreadyJoined(@Param("userId") int userId,@Param("groupId")  int groupId);
 
-	@Query("select b from GroupMembersModel b where b.userId = :userId")
+	@Query("select  b from GroupMembersModel b where b.userId = :userId")
 	List<GroupMembersModel> findByUserId(@Param("userId") int userId);
 
 	@Query("select b from GroupMembersModel b where b.groupId = :groupId")
@@ -26,7 +26,9 @@ public interface GroupMemberRepository extends JpaRepository<GroupMembersModel,I
 	@Query("select userId from GroupMembersModel b where b.groupId = :groupId")
 	List<Integer> findAll(@Param("groupId")int groupId);
 	
-	
+
+	@Query("select  distinct b.groupId from GroupMembersModel b where b.userId = :userId")
+	List<Integer> findgroupsbyUserId(@Param("userId") int userId);
 	
 	
 

@@ -5,6 +5,7 @@ import edu.iu.club.connect.model.EducationalDetailsModel;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.JobDetailsModel;
+import edu.iu.club.connect.model.RequestModel;
 import edu.iu.club.connect.model.UserModel;
 
 import edu.iu.club.connect.service.CloudnaryService;
@@ -12,6 +13,7 @@ import edu.iu.club.connect.service.MultipartToFile;
 import edu.iu.club.connect.service.serviceImplementation.EmailHandler;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JobDetailsService;
+import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 import edu.iu.club.connect.service.serviceInterface.EducationDetailsService;
 
@@ -48,7 +50,8 @@ public class LoginController {
 	@Autowired CloudnaryService CloudnaryService;
 	@Autowired MultipartToFile multipartFile;
 	
-	
+
+	@Autowired private JoinRequestService joinRequestService;
 	@Autowired
 	JobDetailsService jobDetailsService;
 
@@ -208,20 +211,24 @@ public class LoginController {
 	@RequestMapping(value="/profile" , method= RequestMethod.GET)
 	public  String backToProfile(ModelMap modelMap){
 		boolean myProfile=true;
+
 		//User details
 		UserModel userModel = (UserModel) modelMap.get("user");
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user",returnedUserModel);
 		//Groups the user is part of
-		List<GroupMembersModel> myFriends = groupService.findMyFriends(returnedUserModel.getUserId());
-		modelMap.put("myFriends", myFriends);
+		List<GroupModel> mygroups = groupService.findMyGroups(returnedUserModel.getUserId());
+		modelMap.put("mygroups", mygroups);
 		//Groups user is admin of
-		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
-		
+		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());	
 		modelMap.put("GroupsByMe", GroupsByMe);
+		
+		System.out.println(GroupsByMe.get(0));
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
 		List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(returnedUserModel.getUserId());
+		List<RequestModel> requestModel = joinRequestService.findAllRequests(returnedUserModel.getUserId());
+		modelMap.put("friendRequests", requestModel);
 		modelMap.put("myEduDetails", myEduDetails);
 		modelMap.put("myJobDetails", myJobDetails);
 		modelMap.put("myProfile", myProfile);
@@ -240,6 +247,8 @@ public class LoginController {
 		//User details
 		UserModel userModel = (UserModel) modelMap.get("user");
 				int myuserId=userModel.getUserId();
+				List<RequestModel> requestModel = joinRequestService.findAllRequests(myuserId);
+				
 				if (myuserId == userId2){
 					return "redirect:/profile";
 				}
@@ -247,8 +256,9 @@ public class LoginController {
 				UserModel toGoUserModel = userService.listUserName(userId2);
 				modelMap.put("user2",toGoUserModel);
 				//Groups the user is part of
-				List<GroupMembersModel> myFriends = groupService.findMyFriends(toGoUserModel.getUserId());
-				modelMap.put("myFriends", myFriends);
+
+				List<GroupModel> mygroups = groupService.findMyGroups(toGoUserModel.getUserId());
+				modelMap.put("mygroups", mygroups);
 				//Groups user is admin of
 				List<GroupModel> GroupsByMe = groupService.findAllGroupsById(toGoUserModel.getUserId());
 				
@@ -256,8 +266,8 @@ public class LoginController {
 				/// adding jobdetails
 				List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(toGoUserModel.getUserId());
 				///adding education details
-
 				List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(toGoUserModel.getUserId());
+				modelMap.put("friendRequests", requestModel);
 				modelMap.put("myEduDetails", myEduDetails);
 				modelMap.put("myJobDetails", myJobDetails);
 				modelMap.put("myProfile", myProfile);

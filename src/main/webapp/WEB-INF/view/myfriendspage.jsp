@@ -134,7 +134,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<c:forEach items="${GroupsByMe}" var="admingroups">
 				<a href="/groupPage/${admingroups.groupId }/${user2.userId }"><p>${admingroups.groupName}*</p></a>
 						</c:forEach>
-						<c:forEach items="${myFriends}" var="friends">
+						<c:forEach items="${mygroups}" var="friends">
 							<a href="/groupPage/${friends.groupId }/${user2.userId }"><p> ${friends.groupName}</p></a>
 						</c:forEach>
 					</div>
@@ -159,7 +159,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<!-- Edit Life Status -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
-							<h6 class="w3-opacity">What would you like to share?</h6>
+							<h6 class="w3-opacity">Life Status</h6>
 							<br><div style="padding: 0px 30px 20px 0px">
 							<c:if test="${empty user2.lifestatus}">
 							<label> Life needs a status</label>
@@ -231,6 +231,9 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 				
 	<br>
+	</div>
+	</div>
+	</div>
 
 
 	<jsp:include page="footer.jsp" />

@@ -3,16 +3,18 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.model.RequestModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,11 +70,16 @@ public class GroupController {
     	for (GroupMembersModel gp:groupmembers){
     		 userList.add(userService.listUserName(gp.getUserId()));
     	}
+		List<RequestModel> requestModel = joinRequestService.findAllRequests(userId);
+		mv.addObject("friendRequests", requestModel);
     	mv.addObject("isadmin", isadmin);
        	mv.addObject("ps",ps); 
        	mv.addObject("membersList",userList);
     	mv.addObject("groupmember",alreadyFriend);
 		GroupModel group = groupService.findGroup(groupId);
+		String clubstartdate=(group.getClubstartdate()).toString();
+		clubstartdate=clubstartdate.substring(0,10);
+		mv.addObject("clubstartdate",clubstartdate);
 		mv.addObject("groupSearched", group);
 		return mv;
 	}
@@ -80,7 +87,8 @@ public class GroupController {
 		@RequestMapping(value = "/groupInformation/{admin_id}",method = RequestMethod.POST)
 	public String createGroup(@PathVariable("admin_id") int admin_id , GroupModel groupModel){
 	//vishi
-		Date date=new Date();
+		Date date=new  Date();
+		
 		groupModel.setClubstartdate(date);
 		///vishi end -also import date
 		groupModel.setAdminId(admin_id);

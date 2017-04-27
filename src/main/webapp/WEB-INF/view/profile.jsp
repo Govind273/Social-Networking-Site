@@ -7,8 +7,8 @@
 <html>
 <title>Club Connect</title>
 <head>
-
-<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank" and  https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&stacked=h-->
+<meta charset="UTF-8">
+<!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
@@ -17,9 +17,14 @@
 	href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="/js/jquerygroupsProfile.js"></script>
+
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
 html, body, h1, h2, h3, h4, h5 {
@@ -52,14 +57,6 @@ html, body, h1, h2, h3, h4, h5 {
 	top: 0;
 	left: 0;
 }
-
-.profile-pic-container {
-    background-image: url("http://i.stack.imgur.com/2OrtT.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-â
 </style>
 <body class="w3-theme-l5">
 
@@ -74,10 +71,8 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="cover">
 			<img src="${user.backgroundPic}">
 	</div>
-	
-<!-- Nick Commented out 4/26...
-	<c:if test="${myProfile eq true }">
-	<!-- form to upload background picture	
+	<%-- <c:if test="${myProfile eq true }">
+	<!-- form to upload background picture -->	
 		<form action = "/uploadBackgroundPhoto/${user.userId}" enctype="multipart/form-data" method = "POST">
 		<div class="form-group col-lg-6" >
 				    <label for="profilePic">Picture</label>
@@ -86,13 +81,12 @@ html, body, h1, h2, h3, h4, h5 {
 				<button type="submit">Upload</button>
 		</form> 
 
-</c:if> -->
+</c:if> --%>
 
 		<!--The Grid -->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
-
-
+		</div>	
 			<!-----------------------Left Column----------------------->
 			<div class="w3-col m4">
 				<!-- Profile Picture and brief info on user -->
@@ -105,8 +99,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 						</p>
 						<p>
-<!-- Nick Commented out 4/26...
-					<c:if test="${myProfile eq true }">	
+				<%-- 	<c:if test="${myProfile eq true }">	
 						<form action="/uploadProfilePhoto/${user.userId}"
 							enctype="multipart/form-data" method="POST">
 							<div class="form-group col-lg-6">
@@ -115,7 +108,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
-						</c:if>-->
+						</c:if> --%>
 						</p>
 
 						<hr>
@@ -134,33 +127,20 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 					</div>
 				</div>
-				<c:if test="${myProfile eq true }">	
-				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
-				<a href="#" data-toggle="modal" data-target="#mycreateclubModal" >Create Club</a>
+	<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+				<br><a href="#" data-toggle="modal" data-target="#mycreateclubModal" >Create Club</a><p></p>
 				</div>
-				</c:if>
-					
 				<!-- Clubs -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<h3>Club Membership</h3>
-						<c:if test="${fn:length(GroupsByMe) >0 }">
 						<c:forEach items="${GroupsByMe}" var="admingroups">
-			<label style="margin-top: 2%; font-size: 20px; left: 20%"><font color="000000">
-				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a></font><br>
-				</label>
+				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a>
 						</c:forEach>
-						<c:forEach items="${myFriends}" var="friends">
-						<label style="margin-top: 2%; font-size: 20px; left: 20%"><font color="000000">
-							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a></font><br>
-							</label>
+						<c:forEach items="${mygroups}" var="friends">
+							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a>
 						</c:forEach>
-						</c:if>
-						<c:if test="${fn:length(GroupsByMe) ==0 }">
-						Join Clubs!!!
-						</c:if>
 					</div>
-				
-				
+	
 			</div>
 			
 			<!--------------------Middle Column--------------------->
@@ -181,7 +161,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<!-- Edit Life Status -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
-							<h6 class="w3-opacity">What would you like to share?</h6>
+							<h6 class="w3-opacity">What would you like to share...?</h6>
 							<br><div style="padding: 0px 30px 20px 0px">
 							<c:if test="${empty user.lifestatus}">
 							<label> Life needs a status</label>
@@ -286,6 +266,8 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 				
 	<br>
+
+
 
 	<!-- 
 	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h
@@ -411,6 +393,44 @@ html, body, h1, h2, h3, h4, h5 {
 			
 		</div>
 	</div>
+	<!--  Modal to create club-->
+	<div id="mycreateclubModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">CREATE CLUBS</h4>
+				</div>
+				<div class="modal-body">
+					<form action="/groupInformation/${user.userId }" method="POST">
+		<table>
+		<tr><td>
+			<label><b>Group Name*: </b></label></td><td> <input type="text"
+				placeholder="Group Name" name="groupName" required></td></tr>
+				<tr><td> <label><b>Group Description*: </b></label></td>
+     <td><input type="text" width="22%" placeholder="About" name="about" required><br></td></tr>
+<tr><td>				<label><b>Group Location*: </b></label></td>
+			<td><input type="text" width="22%" placeholder="About" name="clubclocation" required><br></td></tr>
+<tr><td>			<label><b>Group Email*: </b></label></td>
+		<td>	<input type="text" width="22%" placeholder="About" name="clubemail" required><br></td></tr>
+			</table>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default">Create</button>
+				<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+				</div>
+	
+
+	
+	</form>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--END  -->
 	<!-- Modal for Education Details -->
 	<div id="myeduModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -508,44 +528,7 @@ html, body, h1, h2, h3, h4, h5 {
 	</div>
 	</div>
 	</div>
-	</div>
-	<!--  Modal to create club-->
-	<div id="mycreateclubModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">CREATE CLUBS</h4>
-				</div>
-				<div class="modal-body">
-					<form action="/groupInformation/${user.userId }" method="POST">
-		<table>
-		<tr>
-		<td>
-		<label><b>Group Name*: </b></label>
-		</td><td> <input type="text" placeholder="Group Name" name="groupName" required></td></tr>
-		<tr>
-		<td> <label><b>Group Description*: </b></label></td>
-     	<td><input type="text" width="22%" placeholder="About" name="about" required><br></td></tr>
-		<tr><td><label><b>Group Location*: </b></label></td>
-		<td><input type="text" width="22%" placeholder="About" name="clubclocation" required><br></td></tr>
-		<tr><td><label><b>Group Email*: </b></label></td>
-		<td><input type="text" width="22%" placeholder="About" name="clubemail" required><br></td></tr>
-		</table>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-default">Create</button>
-				<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-			</div>
-	</form>
-			</div>
-			</div>
-			
-		</div>
-	</div>
-	<!--END  -->
-	<jsp:include page="footer.jsp" />	
+		<jsp:include page="footer.jsp" />
 </body>
 </html>
 	
