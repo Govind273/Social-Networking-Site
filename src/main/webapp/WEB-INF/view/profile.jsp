@@ -128,7 +128,7 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 				</div>
 	<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
-				<a href="#" data-toggle="modal" data-target="#mycreateclubModal" >Create Club</a>
+				<br><a href="#" data-toggle="modal" data-target="#mycreateclubModal" >Create Club</a><p></p>
 				</div>
 				<!-- Clubs -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">

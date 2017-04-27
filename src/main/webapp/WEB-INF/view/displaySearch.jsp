@@ -92,6 +92,8 @@ th, td {
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<div class="w3-container">
 						<p class="w3-center">
+						<h4>View Results By...</h4>
+						<hr>
 						<c:if test="${fn:length(search_user) > 0}">
 						<button style="margin-top: 15%;" type="button" data-toggle="modal" data-target="#Showusers"> Users</button> <br>
 						</c:if>
@@ -107,10 +109,11 @@ th, td {
 			<!-- Middle Column -->
 			<div class="w3-col m8">
 			<div class="w3-row-padding">
+			<br>
 					<div class="w3-col m12">
 						<div class="w3-card-2 w3-round w3-white">
 							<div class="w3-container w3-padding">
-							<p style="margin-top: 5%;">SEARCH RESULTS</p>
+							<p><h2>Search Results</h2></p>
 							</div>
 						</div>
 					</div>

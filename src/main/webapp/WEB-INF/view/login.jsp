@@ -56,12 +56,12 @@
 	<!--	<div class="gtco-loader"></div> -->
 
 	<div id="header1" style="height: 50px;">
-		<div class="iulogo" style="float: left; width: 50%; height: 50px;"
+<!--  		<div class="iulogo" style="float: left; width: 50%; height: 50px;"
 			align="left">
 			<img src="images/2.png" width="60" height="50">
-		</div>
+		</div>-->
 		<form action="/login" method="get">
-			<div style="float: right; width: 50%; height: 50px;" align="right">
+			<div style="float: right; width: 50%; height: 30px;" align="right">
 				<input type="text" placeholder=" Email ID" name="emailId" required>
 
 				<input type="password" placeholder="Password" name="password"
