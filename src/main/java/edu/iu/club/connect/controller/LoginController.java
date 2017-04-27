@@ -217,12 +217,13 @@ public class LoginController {
 		UserModel returnedUserModel = userService.findOne(userModel.getEmailId());
 		modelMap.put("user",returnedUserModel);
 		//Groups the user is part of
-		List<GroupMembersModel> myFriends = groupService.findMyFriends(returnedUserModel.getUserId());
-		modelMap.put("myFriends", myFriends);
+		List<GroupModel> mygroups = groupService.findMyGroups(returnedUserModel.getUserId());
+		modelMap.put("mygroups", mygroups);
 		//Groups user is admin of
-		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());
-		
+		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());	
 		modelMap.put("GroupsByMe", GroupsByMe);
+		
+		System.out.println(GroupsByMe.get(0));
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
 		List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(returnedUserModel.getUserId());
@@ -255,8 +256,9 @@ public class LoginController {
 				UserModel toGoUserModel = userService.listUserName(userId2);
 				modelMap.put("user2",toGoUserModel);
 				//Groups the user is part of
-				List<GroupMembersModel> myFriends = groupService.findMyFriends(toGoUserModel.getUserId());
-				modelMap.put("myFriends", myFriends);
+
+				List<GroupModel> mygroups = groupService.findMyGroups(toGoUserModel.getUserId());
+				modelMap.put("mygroups", mygroups);
 				//Groups user is admin of
 				List<GroupModel> GroupsByMe = groupService.findAllGroupsById(toGoUserModel.getUserId());
 				
