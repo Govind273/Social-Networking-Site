@@ -19,3 +19,11 @@ public interface MessageRepository extends JpaRepository<MessageModel,Integer>{
 	Set<Integer> getAllMessageList(@Param("receiverId") int receiverId);
 
 }
+
+/*
+<%-- <form action="/likeThePost/${post.postId }/${user.userId }" method = "get">
+<button type="submit" 
+	class="w3-button w3-theme-d1 w3-margin-bottom">
+	<i class="fa fa-thumbs-up"></i> Like (${post.Likes})
+</button>
+</form> --%>*/

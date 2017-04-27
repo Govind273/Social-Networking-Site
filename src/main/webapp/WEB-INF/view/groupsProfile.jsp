@@ -237,8 +237,17 @@ html, body, h1, h2, h3, h4, h5 {
 								<hr class="w3-clear">
 								<div>${post.postDesc}</div>
 								<br>
+								<hr class="w3-clear">
+								<div>${likes}</div>
+								<br>
 
-						
+								 <form action="/likeThePost/${post.postId }/${user.userId }/${groupSearched.groupId }" method = "get">
+								<button type="submit" 
+									class="w3-button w3-theme-d1 w3-margin-bottom">
+									<i class="fa fa-thumbs-up"></i> Like (${post.likes})
+								</button>
+								</form>
+
 								<form action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
 									method="post">
 								<button type="submit"

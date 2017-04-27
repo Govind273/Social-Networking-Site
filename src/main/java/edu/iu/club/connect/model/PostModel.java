@@ -22,7 +22,16 @@ public class PostModel {
 	    
 		private @Column(name = "group_id")  Integer group_Id;
 	    private @Column(name = "posted_datetime")  Date postedDatetime;
-	    public Integer getPost_Id() {
+	    
+	    private @Column(name = "likes") Integer likes;
+	    
+		public Integer getLikes() {
+			return likes;
+		}
+		public void setLikes(Integer likes) {
+			this.likes = likes;
+		}
+		public Integer getPost_Id() {
 			return post_Id;
 		}
 		public void setPost_Id(Integer post_Id) {

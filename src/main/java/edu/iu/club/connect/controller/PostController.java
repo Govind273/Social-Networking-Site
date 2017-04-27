@@ -2,8 +2,11 @@ package edu.iu.club.connect.controller;
 
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.model.LikeModel;
 import edu.iu.club.connect.model.PostModel;
 import edu.iu.club.connect.model.UserModel;
+import edu.iu.club.connect.service.repository.LikeRepository;
+import edu.iu.club.connect.service.repository.PostRepository;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
@@ -36,7 +39,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@SessionAttributes ({"groupSearched", "user_id" })
+@SessionAttributes ({"groupSearched", "user_id" , "likes"})
 public class PostController {
 
 	@Autowired
@@ -51,15 +54,21 @@ public class PostController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired PostRepository postRepository;
+	
+	
+	
 
     @RequestMapping(value = "/createPost/{group_id}/{user_id}/{firstName}/{lastName}",method = RequestMethod.POST  )
     public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("firstName") String firstName,
     		 @PathVariable("lastName") String lastName,@PathVariable("user_id") int user_id,PostModel postModel){
     	ModelAndView mv1=new ModelAndView("groupsProfile");
+    	
     	String postbyname=firstName+" "+lastName;
     	postModel.setPostbyname(postbyname);
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
+    	postModel.setLikes(0);
     	List<GroupMembersModel> groupmembers = joinRequestService.groupMembers( group_id);
     	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
     	boolean isadmin= groupService.isadmin(user_id , group_id);
@@ -74,6 +83,7 @@ public class PostController {
     	postModel.setPostedDatetime(date);
     	postService.saveOne(postModel);
     	List<PostModel> ps= postService.search(postModel);
+    	
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
     	mv1.addObject("membersList",userList);
@@ -139,6 +149,29 @@ public class PostController {
     	 	
         return mv;
         }
+    
+    public void findNoOfLIkes(){
+    	
+    	
+    }
+    
+    @RequestMapping(value = "/likeThePost/{postId}/{userId}/{groupId}" , method = RequestMethod.GET)
+    public String likePost(@PathVariable("postId") int postId,@PathVariable("userId") int userId,@PathVariable("groupId") int groupId, ModelMap modelMap){
+    	
+    	
+    	List<LikeModel> hasLiked = postService.hasLiked(postId , userId);
+    	if(hasLiked != null && !hasLiked.isEmpty()){
+    		System.out.println("already liked");
+    		return "redirect:/groupPage/"+groupId+"/"+userId;
+    	}
+    	else{
+    		
+    		postService.likeThePost(postId , userId);
+    		return "redirect:/groupPage/"+groupId+"/"+userId;
+    	}
+    	
+    	//return "redirect/groupPage/"+groupId+"/"+userId;
+    }
    
 
 }

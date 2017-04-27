@@ -4,6 +4,7 @@ import edu.iu.club.connect.model.PostModel;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 /**
  * Created by vishi on 2/19/2017.
@@ -32,6 +35,14 @@ public interface PostRepository extends JpaRepository<PostModel,Integer> {
 
     @Query("select b from PostModel b where b.post_Id = :post_Id")
    PostModel findpostedBy(@Param("post_Id") int post_Id);
+
+	@Query("select likes from PostModel b where b.post_Id = :post_Id")
+    int getLikes(@Param("post_Id")int post_Id);
+
+	@Modifying(clearAutomatically = true)
+    @Transactional
+    @Query("update PostModel b SET b.likes = :likes where b.post_Id= :post_Id")
+	void updateLike(@Param("post_Id") int post_Id , @Param("likes")int likes);
     	
         
         

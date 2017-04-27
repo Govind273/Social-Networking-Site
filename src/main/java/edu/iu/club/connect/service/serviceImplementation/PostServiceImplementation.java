@@ -1,6 +1,9 @@
 package edu.iu.club.connect.service.serviceImplementation;
 import org.springframework.data.domain.PageRequest;
+
+import edu.iu.club.connect.model.LikeModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.service.repository.LikeRepository;
 import edu.iu.club.connect.service.repository.PostRepository;
 //import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
@@ -20,6 +23,10 @@ public class PostServiceImplementation implements PostService {
 
     @Autowired
     PostRepository postRepository;
+    
+@Autowired LikeRepository likeRepository;
+	
+	
     @Override
     public boolean saveOne(PostModel PostModel) {
     	postRepository.save(PostModel);
@@ -46,5 +53,22 @@ public class PostServiceImplementation implements PostService {
 	public PostModel getPostedby(int post_id) {
 		
 		return postRepository.findpostedBy(post_id);
+	}
+	@Override
+	public void likeThePost(int postId , int userId) {
+		int numberOfLikes = postRepository.getLikes(postId);
+		numberOfLikes = numberOfLikes + 1;
+		postRepository.updateLike(postId , numberOfLikes);
+		
+		LikeModel like = new LikeModel();
+		like.setPost_id(postId);
+		like.setUser_id(userId);
+		likeRepository.save(like);
+		
+	}
+	@Override
+	public List<LikeModel> hasLiked(int postId, int userId) {
+		List<LikeModel> hasLiked = likeRepository.hasLiked(postId , userId);
+		return hasLiked;
 	}  
 }
