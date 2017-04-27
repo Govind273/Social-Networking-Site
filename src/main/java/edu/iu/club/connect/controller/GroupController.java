@@ -3,6 +3,7 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.model.RequestModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
@@ -68,6 +69,8 @@ public class GroupController {
     	for (GroupMembersModel gp:groupmembers){
     		 userList.add(userService.listUserName(gp.getUserId()));
     	}
+		List<RequestModel> requestModel = joinRequestService.findAllRequests(userId);
+		mv.addObject("friendRequests", requestModel);
     	mv.addObject("isadmin", isadmin);
        	mv.addObject("ps",ps); 
        	mv.addObject("membersList",userList);
