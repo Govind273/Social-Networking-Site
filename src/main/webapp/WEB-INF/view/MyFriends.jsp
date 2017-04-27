@@ -94,8 +94,22 @@ th, td {
 
 
 		<jsp:include page="menuBar.jsp" />
-		<br>
-			
+		
+					<!-----------------------Page Title Info----------------------->
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+			<table style="width: 100%">
+				<tr>
+					<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+					<td style="text-align: center"><h2>My Colleagues</h2> &nbsp; </td>
+				<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+										</tr>
+			</table>
+		</div>
+		
 			<!-------------------Left Column (empty...used only to center middle------------------->
 			<div class="w3-col m2" style="opacity: 0.0">1</div>
 
@@ -112,7 +126,9 @@ th, td {
 								<td><img
 									src="${post.profilePic }"
 									height="70" width="70" alt="IU" border="0" /></td>
-								<td style="text-align: center"><h6><b>Friend Name ${post.firstName} </b></h6> </td>
+								<td style="text-align: center"><h6><b> ${post.firstName} &nbsp; ${post.lastName}</b><br>
+								<a href="/goToProfile/${post.userId }" >User Profile</a></h6> </td>
+								
 								<td style="text-align: right">
 									<form
 										action="doMessageToThisFriend/${user.userId }/${post.userId }"
@@ -123,7 +139,6 @@ th, td {
 							</tr>
 						</table>
 					</div>
-
 				</c:forEach>
 				</c:if>
 								

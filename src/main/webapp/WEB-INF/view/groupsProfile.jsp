@@ -143,7 +143,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container">
 						<h3>Members</h3>
 						<c:forEach items="${membersList}" var="ml">
-							<label style="margin-top: 15%; font-size: 20px; left: 20%">
+							<label style="margin-top: 15%; font-size: 12px; left: 20%">
 								<a href="/goToProfile/${ml.userId }" >${ml.firstName} ${ml.lastName}</a><br>
 							</label>
 						</c:forEach>

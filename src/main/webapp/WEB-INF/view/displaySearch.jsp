@@ -81,9 +81,25 @@ th, td {
 		</div>
 
 	
+		<!--The Grid -->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
-		<!--********** The Grid ***********-->
+
+		<!-----------------------Page Title Info----------------------->
+			<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+			<table style="width: 100%">
+				<tr>
+					<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+					<td style="text-align: center"><h2>Search Results</h2> &nbsp; </td>
+				<td style="text-align: center"><img
+						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
+						height="70" width="70" alt="IU" border="0" /></td>
+										</tr>
+			</table>
+		</div>
+		
 <c:if test="${fn:length(search)>0 }">
 
 			<!--  Left column -->
@@ -109,14 +125,6 @@ th, td {
 			<!-- Middle Column -->
 			<div class="w3-col m8">
 			<div class="w3-row-padding">
-			<br>
-					<div class="w3-col m12">
-						<div class="w3-card-2 w3-round w3-white">
-							<div class="w3-container w3-padding">
-							<p><h2>Search Results</h2></p>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<c:forEach items="${search_user}" var="post">
