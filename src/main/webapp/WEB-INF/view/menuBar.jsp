@@ -76,11 +76,7 @@ background-color: rgb(0,0,0);
   <li><a href="/seeAllRequest/${user.userId }" method="GET">JOIN REQUESTS (${fn:length(friendRequests)})</a></li>		
   <li><a href="/messages/${user.userId }">MESSAGES</a></li>
   <li style="float:right">
-  <c:if test="${fn:length(friendRequests) > 0}">	
-		<li>
-Experiment!
-		</li>
-	 </c:if>
+ 
 		<form action="/search" method="get">
 
 			<input type="text1" name="search_value" valign="middle" placeholder="Search..">

@@ -14,13 +14,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.iu.club.connect.model.MessageModel;
 import edu.iu.club.connect.model.UserModel;
+import edu.iu.club.connect.service.repository.UserRepository;
 import edu.iu.club.connect.service.serviceInterface.MessageService;
 
 @Controller
-@SessionAttributes({"myMessages" , "friensMessageList" , "friendMessage"})
+@SessionAttributes({"myMessages" , "friensMessageList" , "friendMessage" , "friendName"})
 public class MessageController {
 	
 	@Autowired MessageService messageService;
+	@Autowired UserRepository userRepository;
 	
 	@RequestMapping( value = "openMessageBox/{senderId:.+}/{receiverId:.+}" , method = RequestMethod.GET)
 	public String messageBox(@PathVariable("senderId") int senderId , @PathVariable("receiverId") int receiverId , ModelMap modelMap){
@@ -28,6 +30,8 @@ public class MessageController {
 		System.out.println("i am inside message controller" + senderId + receiverId );
 		List<MessageModel> myMessages = messageService.getMessages(senderId, receiverId);
 		System.out.println("after list");
+		String friendName = userRepository.getUserNameById(receiverId);
+		modelMap.put("friendName", friendName);
 		modelMap.put("friendMessage" ,receiverId );
 		modelMap.put("myMessages",myMessages);
 		

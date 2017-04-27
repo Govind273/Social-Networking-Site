@@ -21,9 +21,16 @@ public class RequestModel {
     private @Column(name = "group_name") String groupName;
     private @Column(name = "admin_id") Integer adminId;
     private @Column(name = "profile_pic") String profilePic;
+    private @Column(name = "user_name") String userName;
     
     
-    public String getProfilePic() {
+    public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getProfilePic() {
 		return profilePic;
 	}
 	public void setProfilePic(String profilePic) {

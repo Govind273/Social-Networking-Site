@@ -41,7 +41,7 @@ public class JoinRequestController {
 		List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(userId , groupId);
 		if(alreadyFriend != null && !alreadyFriend.isEmpty()) {
 			System.out.println("You are already part of group");
-
+			return "redirect:/groupPage/"+groupId+"/"+userId;
 		}
 		
 		else{
@@ -64,7 +64,7 @@ public class JoinRequestController {
 
 		if(requestModel != null && !requestModel.isEmpty()) {
 			System.out.println("There are some pending friend request");
-			System.out.println(requestModel.get(0).getGroupName());
+			System.out.println(requestModel.get(0).getUserName());
 			modelMap.put("friendRequests", requestModel);
 
 		}
@@ -84,16 +84,17 @@ public class JoinRequestController {
 		System.out.println("friend request sent to accept");
 		joinRequestService.acceptRequest(userId , groupId , requestId);
 		System.out.println("request accepted");
-		return "redirect:/profile";
+		joinRequestService.deleteRequest(requestId);
+		return "redirect:/seeAllRequest/"+userId;
 	}
 	
-	@RequestMapping(value = "/denyRequest/{requestId}/{userId}" , method = RequestMethod.PUT)
+	@RequestMapping(value = "/denyRequest/{requestId}/{userId}" , method = RequestMethod.POST)
 	public String denyRequest(@PathVariable("requestId") int requestId,@PathVariable("userId") int userId){
 		
 		System.out.println("inside deny request");
-		joinRequestService.denyRequest(requestId);
+		joinRequestService.deleteRequest(requestId);
 		System.out.println("requested deleted");
-		return "redirect:/seeAllRequest?userId="+userId;
+		return "redirect:/seeAllRequest/"+userId;
 	}
 
 

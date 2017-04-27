@@ -81,4 +81,8 @@ public interface UserRepository extends JpaRepository<UserModel,Integer>{
 	@Query("update UserModel b SET b.lifestatus = :lifestatus where b.userId = :userId")
 	void editletstatus(@Param("userId")int userId, @Param("lifestatus")String lifestatus);
 
+	@Query("select firstName from UserModel b where b.userId = :userId")
+	  String getUserNameById(@Param("userId")int userId);
+	
+
 }

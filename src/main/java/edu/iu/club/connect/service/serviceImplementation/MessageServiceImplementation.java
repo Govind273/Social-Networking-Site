@@ -1,6 +1,7 @@
 package edu.iu.club.connect.service.serviceImplementation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -54,8 +55,8 @@ public class MessageServiceImplementation implements MessageService{
 
 	@Override
 	public List<UserModel> getMyMessages(int userId) {
-		
-		Set<Integer> friendsMessage = messageRepository.getAllMessageList(userId);
+		Set<Integer> friendsMessage = new HashSet<Integer>();
+		friendsMessage = messageRepository.getAllMessageList(userId);
 		List<UserModel> myFriends = new ArrayList<UserModel>();
 		UserModel userModel = new UserModel();
 		for(int friends : friendsMessage){

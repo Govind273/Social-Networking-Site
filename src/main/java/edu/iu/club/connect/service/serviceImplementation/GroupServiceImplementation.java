@@ -5,11 +5,13 @@ import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.repository.GroupMemberRepository;
 import edu.iu.club.connect.service.repository.GroupRepository;
+import edu.iu.club.connect.service.repository.UserRepository;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,8 @@ public class GroupServiceImplementation implements GroupService {
     
     @Autowired
     private GroupMemberRepository groupMemberRepository;
+    
+    @Autowired UserRepository userRepository;
     @Override
     public boolean saveOne(GroupModel groupModel) {
     	System.out.println(groupModel.getAdminId());
@@ -90,6 +94,49 @@ public class GroupServiceImplementation implements GroupService {
 	}
 
 	@Override
+	public List<UserModel> MyFriends(int userId) {
+		
+		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
+		
+		System.out.println(myGroups.size());
+		List<UserModel> myFriends = new ArrayList<UserModel>();
+		
+		Set<Integer> myFriendsUserId = new HashSet<Integer>();
+		
+		for(GroupMembersModel groupMembersModel : myGroups){
+			
+			int groupId = groupMembersModel.getGroupId();
+			//List<GroupMembersModel> list = groupMemberRepository.findAllByGroupId(groupId);
+			
+			List<Integer> friendsInThisGroup = groupMemberRepository.findAll(groupId);
+			
+			for(int friends : friendsInThisGroup){
+				
+				myFriendsUserId.add(friends);
+				
+			}
+		}
+		myFriendsUserId.remove(userId);
+		
+		for(int member : myFriendsUserId){
+			
+			UserModel user = userRepository.findUserById(member);
+			
+			myFriends.add(user);
+		}
+//			System.out.println(list.size());
+//			 for(GroupMembersModel lists : list){
+//				
+//				  myFriends.add(lists);
+//				  
+//				  System.out.println("friends"+lists.getUserId());
+//			 }
+		
+		return myFriends;
+	}
+	
+	
+	@Override
 	public List<GroupMembersModel> findMyFriends(int userId) {
 		
 		List<GroupMembersModel> myGroups = groupMemberRepository.findByUserId(userId);
@@ -111,6 +158,7 @@ public class GroupServiceImplementation implements GroupService {
 		}
 		return myFriends;
 	}
+	
 	//vishi
 	@Override
 	public boolean updateOne(GroupModel groupModel) {

@@ -91,7 +91,7 @@ th, td {
 						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
 						height="70" width="70" alt="IU" border="0" /></td>
 					<td style="text-align: center"><h2>Messaging with
-							Colleague Name ${post.senderName}</h2> &nbsp; (${fn:length(myMessages)} Messages)</td>
+							${friendName}</h2> &nbsp; (${fn:length(myMessages)} Messages)</td>
 				<td style="text-align: center"><img
 						src="https://assets.iu.edu/brand/legacy/trident-tab.gif"
 						height="70" width="70" alt="IU" border="0" /></td>

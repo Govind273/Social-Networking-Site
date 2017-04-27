@@ -4,6 +4,7 @@ package edu.iu.club.connect.service.serviceInterface;
 
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
+import edu.iu.club.connect.model.UserModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,12 @@ public interface GroupService {
     public ArrayList<Object> searchOne(GroupModel groupModel);
     public GroupModel getAdminId(int groupId );
 	public List<GroupModel> findAllGroupsById(int adminId);
-	public List<GroupMembersModel> findMyFriends(int userId);
+
 	
 	public List<GroupModel> findMyGroups(int userId);
+
 	public boolean isadmin(int userId,int groupId);
 	 public boolean updateOne(GroupModel groupModel);
+	public List<UserModel> MyFriends(int userId);
+	public List<GroupMembersModel> findMyFriends(int userId);
 }
