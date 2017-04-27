@@ -3,14 +3,17 @@ package edu.iu.club.connect.controller;
 import edu.iu.club.connect.model.GroupMembersModel;
 import edu.iu.club.connect.model.GroupModel;
 import edu.iu.club.connect.model.PostModel;
+import edu.iu.club.connect.model.UserModel;
 import edu.iu.club.connect.service.serviceInterface.GroupService;
 import edu.iu.club.connect.service.serviceInterface.JoinRequestService;
 import edu.iu.club.connect.service.serviceInterface.PostService;
+import edu.iu.club.connect.service.serviceInterface.UserService;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +47,10 @@ public class PostController {
     
     @Autowired
     GroupService groupService;
+    
+	@Autowired
+	UserService userService;
+	
 
     @RequestMapping(value = "/createPost/{group_id}/{user_id}/{firstName}/{lastName}",method = RequestMethod.POST  )
     public ModelAndView createPost( @PathVariable("group_id") int group_id, @PathVariable("firstName") String firstName,
@@ -53,11 +60,15 @@ public class PostController {
     	postModel.setPostbyname(postbyname);
     	postModel.setGroupId(group_id);
     	postModel.setPostedby(user_id);
+    	List<GroupMembersModel> groupmembers = joinRequestService.groupMembers( group_id);
     	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
     	boolean isadmin= groupService.isadmin(user_id , group_id);
-    	mv1.addObject("admin",isadmin);
-    	GroupMembersModel gmmadmin=new GroupMembersModel(user_id,group_id);
     	
+    	GroupMembersModel gmmadmin=new GroupMembersModel(user_id,group_id);
+    	List<UserModel> userList=new ArrayList<UserModel>();
+    	for (GroupMembersModel gp:groupmembers){
+   		 userList.add(userService.listUserName(gp.getUserId()));
+   	}
     	alreadyFriend.add(gmmadmin);
     	Date date = new Date();
     	postModel.setPostedDatetime(date);
@@ -65,7 +76,8 @@ public class PostController {
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
-    	
+    	mv1.addObject("membersList",userList);
+    	mv1.addObject("isadmin", isadmin);
     	mv1.addObject("groupmember",alreadyFriend);
     	mv1.addObject("ps",ps);
         return mv1;
@@ -80,11 +92,16 @@ public class PostController {
     	PostModel pm=postService.getPostedby(post_id);
     	String rror="  ";
     	boolean isadmin= groupService.isadmin(user_id , group_id);
-    	mv.addObject("admin",isadmin);
+    	
     	List<GroupMembersModel> alreadyFriend = joinRequestService.isAlreadyJoined(user_id , group_id);
     	GroupMembersModel gmmadmin=new GroupMembersModel(user_id,group_id);
     	alreadyFriend.add(gmmadmin);
-    	mv.addObject("groupmember",alreadyFriend);
+    	List<UserModel> userList=new ArrayList<UserModel>();
+
+    	List<GroupMembersModel> groupmembers = joinRequestService.groupMembers( group_id);
+    	for (GroupMembersModel gp:groupmembers){
+   		 userList.add(userService.listUserName(gp.getUserId()));
+   	}
     	int postby=pm.getPostedby();
     	if (postby == user_id){
     		postService.deleteById(post_id);
@@ -100,7 +117,10 @@ public class PostController {
     	List<PostModel> ps= postService.search(postModel);
     	if (ps.size()>10){
     	ps.subList(10,ps.size()).clear();}
+    	mv.addObject("membersList",userList);
+    	mv.addObject("isadmin",isadmin);
     	mv.addObject("ps",ps);
+    	mv.addObject("groupmember",alreadyFriend);
     	mv.addObject("message", message);
         return mv;
         }
