@@ -93,7 +93,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container">
 						<p class="w3-center">
 
-							<br> <img src="${user.profilePic}" style = "max-width: 200; max-height: 200">
+							<br> <img src="${user.profilePic}" width="200" height="200">
 
 						</p>
 						<p>
@@ -105,50 +105,13 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 							<button type="submit">Upload</button>
 						</form>
-		<!-- COULD NOT GET TO WORK - NICK 4/25 ; KEPT GETTING "Attribute value must not be null" error
-						<hr>
-						<form action="/updateProfileDate/${user.emailId }" method="POST">
-							<table style="border-collapse: separate; border-spacing: 11px;">
-								<tr>
-									<td><label><b>Gender</b></label></td>
-									<td><input type="text" name="gender"
-										value="${user.gender}"></td>
-								</tr>
-								<tr>
+						<br>
 
-									<td><label><b>location</b></label></td>
-									<td><input type="text" name="location"
-										value="${user.location}"></td>
-								</tr>
-								<tr>
-									<td><label><b>Birthday<sub><br>please
-													enter in the format mm/dd/yy e.g 01/01/1999</sub></b></label></td>
-									<td><input type="text" name="birthdate"
-										placeholder="mm/dd/yyyy" value="${user.birthdate}"></td>
-								</tr>
-
-
-								<tr>
-									<td>
-										<button type="submit" class="button">Edit</button>
-									</td>
-									<td>
-										<button class="button">
-											<a href="/profile"> Cancel</a>
-										</button>
-									</td>
-								</tr>
-
-							</table>
-						</form>
-					</div>
-				</div> -->
-
-				<!-- Clubs -->
+				<!-- Clubs
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 					<h3>Find New Clubs</h3>
 					<p>Input Search box here and pre-filter by clubs</p>
-				</div>
+				</div> -->
 			</div>
 	</div>
 	</div>
