@@ -136,7 +136,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<c:forEach items="${GroupsByMe}" var="admingroups">
 				<a href="/groupPage/${admingroups.groupId }/${user.userId }"><p>${admingroups.groupName}*</p></a>
 						</c:forEach>
-						<c:forEach items="${myFriends}" var="friends">
+						<c:forEach items="${mygroups}" var="friends">
 							<a href="/groupPage/${friends.groupId }/${user.userId }"><p> ${friends.groupName}</p></a>
 						</c:forEach>
 					</div>
