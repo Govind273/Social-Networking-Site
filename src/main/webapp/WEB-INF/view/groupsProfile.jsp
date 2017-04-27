@@ -150,7 +150,15 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 					</div>
 		</c:if>	
-				
+		<c:if test="${fn:length(groupmember) == 0}">
+		<div class="w3-card-2 w3-round w3-white w3-hide-small">
+					<div class="w3-container">
+					<form action = "/requestGroup/${user.userId }/${groupSearched.groupId }" method="post">
+			<button type="submit"> Join </button>
+			</form>
+					</div>
+					</div>
+		</c:if>
 				<br>
 			<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 				<!-- Members List -->
