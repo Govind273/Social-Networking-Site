@@ -18,14 +18,12 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/js/jquerygroupsProfile.js""></script>
-
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <!-------------------------------------------------------------------------------CSS------------------------------------------------------------------------------->
 <style>
 #text_post {
@@ -37,16 +35,13 @@
 	box-sizing: border-box;
 	height: 25%;
 }
-
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
-
 #coverTopSection {
 	margin: 0;
 	padding: 0;
 }
-
 .coverPic {
 	display: block;
 	position: relative;
@@ -54,13 +49,11 @@ html, body, h1, h2, h3, h4, h5 {
 	overflow: hidden;
 	text-decoration: none;
 }
-
 .cover {
 	height: 300px;
 	position: relative;
 	overflow: hidden;
 }
-
 .cover>img {
 	position: absolute;
 	display: block;
@@ -69,17 +62,12 @@ html, body, h1, h2, h3, h4, h5 {
 	left: 0;
 }
 </style>
-
-
 <!------------------------------------------------------------------------------Body------------------------------------------------------------------------------->
 <body class="w3-theme-l5">
-
 	<!---------------------------------------Header, Container, Cover Photo, Menu Bar--------------------------------------->
 	<jsp:include page="header.jsp" />
-
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width: 1100px">
-
 		<!--Background Image, Menu Bar -->
 		<div class="cover">
 			<img src="${groupSearched.backgroundPic }">
@@ -96,15 +84,12 @@ html, body, h1, h2, h3, h4, h5 {
 		</form>
 </c:if>
 	<!-- form ends here -->	
-
 		<!--The Grid-->
 		<div class="w3-row">
 			<jsp:include page="menuBar.jsp" />
-
 			<!-------------------Left Column------------------->
 			<div class="w3-col m4">
 				<br>
-
 				<!-- Profile Picture and brief info on club-->
 				<div class="w3-card-2 w3-round w3-white">
 					<div class="w3-container">
@@ -178,7 +163,6 @@ html, body, h1, h2, h3, h4, h5 {
 				</c:if>
 				
 			</div>
-
 			<!-------------------Middle Column------------------->
 			<div class="w3-col m8">
 				<br>
@@ -193,7 +177,6 @@ html, body, h1, h2, h3, h4, h5 {
 						</div>
 					</div>
 				</div>
-
 				<!-- The following appears only to club members -->
 				<c:if test="${fn:length(groupmember) > 0 or isadmin eq true}">
 					<!-- Make a new Post -->
@@ -214,7 +197,6 @@ html, body, h1, h2, h3, h4, h5 {
 							</div>
 						</div>
 					</div>
-
 					<!-- See existing posts, in reverse chrono order -->
 					<c:if test="${fn:length(ps) > 0}">
 					${message.message}
@@ -228,7 +210,6 @@ html, body, h1, h2, h3, h4, h5 {
 								<hr class="w3-clear">
 								<div>${post.postDesc}</div>
 								<br>
-
 								<button type="button"
 									class="w3-button w3-theme-d1 w3-margin-bottom">
 									<i class="fa fa-thumbs-up"></i> Like
@@ -242,7 +223,6 @@ html, body, h1, h2, h3, h4, h5 {
 		</form>
 								
 							</div>
-
 						</c:forEach>
 					</c:if>
 					<c:if test="${fn:length(ps) == 0}">
