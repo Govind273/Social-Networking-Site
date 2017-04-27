@@ -73,6 +73,7 @@ public class GroupServiceImplementation implements GroupService {
 	public GroupModel findGroup(int groupId) {
 		
 		GroupModel group = groupRepository.findGroupById(groupId);
+		System.out.println(group.getClubstartdate());
 		return group;
 	}
 
@@ -122,6 +123,19 @@ public class GroupServiceImplementation implements GroupService {
 				);
 		
 		return true;
+	}
+	@Override
+	public List<GroupModel> findMyGroups(int userId) {
+		
+		List<Integer> myGroupids = groupMemberRepository.findgroupsbyUserId(userId);
+		
+		List<GroupModel> myGroups = new ArrayList<GroupModel>();
+		
+		for(Integer groupid : myGroupids){
+			
+			myGroups.add(groupRepository.findGroupById(groupid));
+		}
+		return myGroups;
 	}
 
 }
