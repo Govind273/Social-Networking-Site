@@ -93,7 +93,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container">
 						<p class="w3-center">
 
-							<br> <img src="${user.profilePic}" width="190" height="170">
+							<br> <img src="${user.profilePic}" style = "max-width: 200; max-height: 200">
 
 						</p>
 						<p>

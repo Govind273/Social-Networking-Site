@@ -161,7 +161,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<!-- Edit Life Status -->
 					<div class="w3-container w3-card-2 w3-white w3-round w3-margin">
 						<div class="w3-container w3-padding">
-							<h6 class="w3-opacity">What would you like to share?</h6>
+							<h6 class="w3-opacity">What would you like to share...?</h6>
 							<br><div style="padding: 0px 30px 20px 0px">
 							<c:if test="${empty user.lifestatus}">
 							<label> Life needs a status</label>
@@ -268,7 +268,7 @@ html, body, h1, h2, h3, h4, h5 {
 	<br>
 
 
-	<jsp:include page="footer.jsp" />
+
 	<!-- 
 	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h
 	 -->
@@ -526,7 +526,9 @@ html, body, h1, h2, h3, h4, h5 {
 			
 		</div>
 	</div>
-	
+	</div>
+	</div>
+		<jsp:include page="footer.jsp" />
 </body>
 </html>
 	
