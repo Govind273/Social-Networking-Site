@@ -35,10 +35,10 @@ public interface GroupRepository extends JpaRepository<GroupModel,Integer> {
     @Query("select groupName from GroupModel b where b.groupId = :groupId")
     String getGroupNameById(@Param("groupId") int groupId);
 
-	@Query("select b from GroupModel b where b.groupId = :groupId")
+	@Query("select distinct b from GroupModel b where b.groupId = :groupId")
     GroupModel findGroupById(@Param("groupId") int groupId);
 
-	@Query("select b from GroupModel b where b.adminId = :adminId ")
+	@Query("select distinct b from GroupModel b where b.adminId = :adminId ")
 	List<GroupModel> findGroupsByAdminId(@Param("adminId")int adminId);
 	
 
