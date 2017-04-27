@@ -135,7 +135,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							${groupSearched.clubstartdate}
+							${clubstartdate}
 						</p>
 					</div>
 				</div>
