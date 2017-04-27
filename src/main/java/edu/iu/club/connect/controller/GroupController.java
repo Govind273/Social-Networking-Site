@@ -10,9 +10,9 @@ import edu.iu.club.connect.service.serviceInterface.PostService;
 import edu.iu.club.connect.service.serviceInterface.UserService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
