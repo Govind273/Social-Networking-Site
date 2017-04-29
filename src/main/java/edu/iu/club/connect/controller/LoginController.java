@@ -223,7 +223,6 @@ public class LoginController {
 		List<GroupModel> GroupsByMe = groupService.findAllGroupsById(returnedUserModel.getUserId());	
 		modelMap.put("GroupsByMe", GroupsByMe);
 		
-		System.out.println(GroupsByMe.get(0));
 		/// adding jobdetails
 		List<JobDetailsModel> myJobDetails = jobDetailsService.findAllJobsById(returnedUserModel.getUserId());
 		List<EducationalDetailsModel> myEduDetails = educationDetailsService.findAllEduById(returnedUserModel.getUserId());
