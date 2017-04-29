@@ -28,6 +28,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
+ button { 
+    color:  white;
+    text-align: center;
+    background-color:rgb(117,0,0);
+    text-decoration: none;
+}
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
