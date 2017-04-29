@@ -126,7 +126,7 @@ html, body, h1, h2, h3, h4, h5 {
 							<form action="/updateProfile" method="POST">
 								<table style="border-collapse: separate; border-spacing: 11px;">
 									<tr>
-										<td><label><b>Email</b></label></td>
+										<!--<td><label><b>Email</b></label></td>-->
 										<td><input type="hidden" name="emailId"
 											value="${user.emailId}" required readonly></td>
 									</tr>
