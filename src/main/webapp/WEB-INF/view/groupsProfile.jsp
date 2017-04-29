@@ -11,6 +11,9 @@
 <meta charset="UTF-8">
 <!-- Template modified from "https://www.w3schools.com/w3css/default.asp" target="_blank"-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
@@ -20,8 +23,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
@@ -47,7 +48,12 @@ html, body, h1, h2, h3, h4, h5 {
 	margin: 0;
 	padding: 0;
 }
-
+ button { 
+    color:  white;
+    text-align: center;
+    background-color:rgb(117,0,0);
+    text-decoration: none;
+}
 .coverPic {
 	display: block;
 	position: relative;
@@ -93,7 +99,7 @@ html, body, h1, h2, h3, h4, h5 {
 				    <label for="profilePic">Picture</label>
 					<input type="file" name="file" >
 				</div>
-				<button type="submit">Upload</button>
+				<button class="button" type="submit">Upload</button>
 		</form>
 </c:if>
 	<!-- form ends here -->	
@@ -120,7 +126,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<label for="profilePic">Picture</label> <input
 									type="file" name="file">
 							</div>
-							<button type="submit">Upload</button>
+							<button  class="button" type="submit">Upload</button>
 						</form>
 						</c:if>
 						
@@ -143,24 +149,24 @@ html, body, h1, h2, h3, h4, h5 {
 				<br>
 			<c:if test="${isadmin eq true }">
 				<div class="w3-card-2 w3-round w3-white">
-						<div class="w3-container">		
-						<p class="w3-center" style="top:10%">
-					<button class="w3-button w3-theme-d2 w3-margin-bottom" data-toggle="modal" data-target="#myeditclubModal" >Edit Club</button>
+				<!-- 		<div class="w3-container">		 -->
+						<p class="w3-center" style="top:30%"> 
+					<button class="button" data-toggle="modal" data-target="#myeditclubModal" >Edit Club</button>
 					<p>
 					<br>
 					</p>
-					</div>
+					<!-- </div>  -->
 					</div>
 		</c:if>	
 		<c:if test="${fn:length(groupmember) == 0 or isadmin eq false}">
 			<div class="w3-card-2 w3-round w3-white">
-					<div class="w3-container">	
-						<p class="w3-center" style="top:10%">
+				<!-- 	<div class="w3-container">	 -->
+						<p class="w3-center" style="top:30%">
 					<form action = "/requestGroup/${user.userId }/${groupSearched.groupId }" method="post">
-			<button class="w3-button w3-theme-d2 w3-margin-bottom" type="submit" style="align:center"> Join </button>
+			<button class="button" type="submit" style="align:center"> Join </button>
 			</form>
 			</p>
-					</div>
+				<!-- 	</div> -->
 					</div>
 					
 		</c:if>
@@ -170,14 +176,14 @@ html, body, h1, h2, h3, h4, h5 {
 				<!-- Members List -->
 				<div class="w3-card-2 w3-round w3-white w3-hide-small">
 					<div class="w3-container">
-						<h3>Members</h3><table>
+						<h3>Members</h3>
 						<c:forEach items="${membersList}" var="ml">
-						<tr><td>	
+							
 							
 								<a href="/goToProfile/${ml.userId }" ><p>${ml.firstName} ${ml.lastName}</p></a>
-								</td></tr><tr></tr>
+								
 						</c:forEach>
-						</table>
+						
 					</div>
 				</div>
 				<c:if test="${fn:length(membersList) == 0}">
@@ -213,10 +219,10 @@ html, body, h1, h2, h3, h4, h5 {
 						<form action="/createPost/${groupSearched.groupId }/${user.userId }/${user.firstName }/${user.lastName }" method="POST" class="form-inline" align="left">
 								<input type="hidden" name="groupId" id="groupId"
 									value="${groupSearched.groupId }"> 
-								<input type="text"
+								<input type="text" 
 									placeholder="posts" name="postDesc" width="25%" height="55%"
 									maxlength="100" size="60%" required/>
-								<button type="submit">
+								<button class="button" type="submit">
 									 Post
 								</button>
 							</form>
@@ -242,11 +248,11 @@ html, body, h1, h2, h3, h4, h5 {
 								<form action="/deletePost/${post.postId }/${user.userId }/${groupSearched.groupId }"
 									method="post">
 								<button type="submit"
-									class="w3-button w3-theme-d2 w3-margin-bottom">
-									<i class="fa fa-delete"></i> Delete
+									class="button">
+									<i class="button"></i> Delete
 								</button>
 		</form>
-								
+								<br><br>
 							</div>
 
 						</c:forEach>
@@ -287,8 +293,8 @@ html, body, h1, h2, h3, h4, h5 {
 			<td><input type="text" width="22%" placeholder="club email" value="${groupSearched.clubemail }" name="clubemail" required><br></td></tr>
 			</table>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-default">EDIT</button>
-				<button type="button" class="btn btn-default"
+				<button type="submit" class="button">EDIT</button>
+				<button type="button" class="button"
 								data-dismiss="modal">Close</button>
 				</div>	
 	</form>
