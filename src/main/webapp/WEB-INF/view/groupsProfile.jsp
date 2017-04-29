@@ -158,7 +158,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<!-- </div>  -->
 					</div>
 		</c:if>	
-		<c:if test="${fn:length(groupmember) == 0 or isadmin eq false}">
+		<c:if test="${fn:length(groupmember) == 0 and isadmin eq false}">
 			<div class="w3-card-2 w3-round w3-white">
 				<!-- 	<div class="w3-container">	 -->
 						<p class="w3-center" style="top:30%">
